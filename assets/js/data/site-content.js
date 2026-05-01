@@ -11,7 +11,7 @@
     logoLockupAlt: "XJTU AIRS Lab logo",
     tagline: "Artificial Intelligence, Interaction, and Real-World Systems",
     description:
-      "XJTU AIRS Lab explores AI, interaction, and real-world systems across ubiquitous sensing, wearable computing, multimodal learning, and efficient edge intelligence.",
+      "XJTU AIRS Lab explores AI, interaction, and real-world systems across wireless and wearable sensing, multimodal learning, and efficient edge intelligence.",
     copyright: "Copyright \u00A9 XJTU AIRS Lab. Designed and Developed by Shengyao Ding and Fei Wang.",
     nav: [
       { key: "about", label: "About", href: "./index.html" },
@@ -41,9 +41,9 @@
   SiteContent.about = {
     hero: {
       eyebrow: "About",
-      title: "AI for Ubiquitous Sensing,\nSystems, and Everyday Life.",
+      title: "AI, Interaction,\nand Real-World Systems.",
       description:
-        "XJTU AIRS Lab explores the intersection of artificial intelligence and ubiquitous computing, building intelligent sensing, interaction, and real-world systems that can serve people in the physical world.",
+        "XJTU AIRS Lab studies how artificial intelligence, human interaction, and deployable systems come together in the physical world, spanning sensing, wearables, multimodal intelligence, and resource-aware deployment.",
       actions: [
         { label: "Browse Publications", href: "./publications.html", kind: "primary" },
         { label: "Meet The Team", href: "./team.html", kind: "secondary" },
@@ -51,28 +51,28 @@
       ]
     },
     intro: [
-      "Our research sits at the intersection of artificial intelligence and ubiquitous computing. Ubiquitous computing asks how computation can quietly support people everywhere, while AI provides the learning and reasoning needed to make that support adaptive, practical, and responsive.",
-      "Within this broad space, we focus on turning real-world signals such as WiFi, mmWave, wearable IMU and PPG streams, audio, video, and text into robust intelligent systems. The goal is not only to achieve strong model accuracy, but also to make these systems reliable, privacy-aware, efficient, and deployable in everyday environments."
+      "Our research sits at the intersection of artificial intelligence, human interaction, and real-world systems. We care about AI that does not stop at offline benchmarks, but can perceive, reason, and assist in everyday environments with robustness, efficiency, and practical value.",
+      "To do that, we work across wireless sensing, wearable computing, multimodal learning, and edge intelligence. We turn signals such as WiFi, mmWave, IMU, PPG, audio, video, and text into systems that are not only accurate, but also deployable, privacy-aware, and useful in real human settings."
     ],
     metrics: [
-      { label: "Core Intersection", value: "Artificial intelligence + ubiquitous computing" },
-      { label: "Sensing Modalities", value: "WiFi, mmWave, IMU, PPG, audio, video, and text" },
-      { label: "Deployment Goal", value: "Offline perception, real-time response, and trustworthy intelligence" }
+      { label: "Core Identity", value: "Artificial intelligence + interaction + real-world systems" },
+      { label: "Research Stack", value: "Wireless, wearable, multimodal, and embedded intelligence" },
+      { label: "System Goal", value: "Deployable, privacy-aware, and trustworthy AI in the physical world" }
     ],
     highlights: [
       {
-        title: "Intelligent Sensing",
+        title: "Sensing and Perception",
         text:
-          "We use AI to turn ambient signals into contactless perception systems that understand people, environments, and activities without requiring users to carry special hardware.",
+          "We use AI to turn wireless, visual, physiological, and motion signals into perception systems that understand people, environments, and activities in the physical world.",
         details: [
           "Wireless sensing with WiFi and mmWave for activity recognition, health monitoring, respiration sensing, and security-oriented detection.",
           "Representative threads include Person-in-WiFi (ICCV 2019), Person-in-WiFi 3D (CVPR 2024), WiPIN (Globecom 2019 Best Paper Award), and our recent UWB respiration monitoring effort."
         ]
       },
       {
-        title: "Wearable Computing and HCI",
+        title: "Wearable and Human-Centered Interaction",
         text:
-          "We design human-centered sensing pipelines around smartwatches, bands, glasses, and other wearable devices so that AI can better understand user intent, daily behavior, and affective state.",
+          "We design human-centered interactive systems around smartwatches, bands, glasses, and other wearable devices so that AI can better understand user intent, daily behavior, and affective state.",
         details: [
           "Typical signals include IMU and PPG streams collected from watches, wristbands, earbuds, and glasses.",
           "Recent examples include XRF V2 (ACM IMWUT/UBICOMP 2025) and You Can Wash Hands Better (IEEE TMC 2025)."
@@ -88,9 +88,9 @@
         ]
       },
       {
-        title: "Smart IoT, Security, and Efficient Edge AI",
+        title: "Efficient Real-World Systems",
         text:
-          "We build intelligent IoT systems that can sense, infer, and react under tight constraints in compute, memory, power, and connectivity.",
+          "We build deployable AI systems that can sense, infer, interact, and respond under tight constraints in compute, memory, power, and connectivity.",
         details: [
           "This includes privacy-aware sensing, defending intelligent systems from attacks, and designing resource-efficient pipelines for embedded deployment.",
           "We are especially interested in model compression and acceleration so that capable AI can run on MCU-class and edge devices with offline sensing and real-time response."
@@ -193,7 +193,7 @@
     photo: "./assets/media/people/fei-wang.jpg",
     photoAlt: "Profile photo for Fei Wang",
     note:
-      "Associate Professor in the School of Software Engineering at Xi'an Jiaotong University, working at the intersection of artificial intelligence, ubiquitous computing, wireless sensing, wearable systems, and multimodal learning.",
+      "Associate Professor in the School of Software Engineering at Xi'an Jiaotong University, working at the intersection of artificial intelligence, human interaction, wireless and wearable sensing, multimodal learning, and real-world AI systems.",
     phdOpening: {
       label: "Ph.D. Opening / 博士招生",
       text: "招收2027年秋季入学的计算机科学与技术专业普通全日制博士生。",
@@ -252,7 +252,7 @@
     interests: [
       "Wireless sensing with WiFi, mmWave, and UWB",
       "Wearable computing and human-computer interaction",
-      "Multimodal learning for real-world sensing and interaction",
+      "Multimodal learning for real-world intelligence and interaction",
       "Efficient and edge AI for AIoT systems",
       "Security and privacy in intelligent sensing"
     ],
@@ -507,6 +507,7 @@
             action: "CHI / UIST"
           }
         ],
+        resourcesHeading: "Networking Academic Reading",
         outcomes: [
           "Understand VR display, tracking, interaction, and content organization.",
           "Complete a team-based VR project from concept and implementation to public demonstration.",
@@ -536,6 +537,7 @@
             action: "CHI / UIST"
           }
         ],
+        resourcesHeading: "网络课程学术论文阅读",
         outcomes: [
           "理解虚拟现实系统的显示、追踪、交互和内容组织方式。",
           "完成一个团队 VR 大作业，从创意、实现到演示形成闭环。",
@@ -558,6 +560,19 @@
           { label: "Spring 2025" },
           { label: "Spring 2024" }
         ],
+        resources: [
+          {
+            label: "2026 Spring Networking Academic Reading",
+            href: "./networking-2026-reading.html",
+            action: "NSDI / MobiCom / MobiSys / SenSys"
+          },
+          {
+            label: "2025 Spring Networking Academic Reading",
+            href: "./networking-2025-reading.html",
+            action: "NSDI / MobiCom / MobiSys / SenSys"
+          }
+        ],
+        resourcesHeading: "2026 Spring Academic Reading",
         outcomes: [
           "Understand advanced network architectures, protocol mechanisms, and system design methods.",
           "Analyze networking problems in wireless sensing, mobile computing, and AIoT scenarios.",
@@ -577,6 +592,19 @@
           { label: "2025春季" },
           { label: "2024春季" }
         ],
+        resources: [
+          {
+            label: "2026春 学术论文阅读",
+            href: "./networking-2026-reading.html",
+            action: "NSDI / MobiCom / MobiSys / SenSys"
+          },
+          {
+            label: "2025春 学术论文阅读",
+            href: "./networking-2025-reading.html",
+            action: "NSDI / MobiCom / MobiSys / SenSys"
+          }
+        ],
+        resourcesHeading: "2026春 学术论文阅读",
         outcomes: [
           "理解高等计算机网络体系结构、协议机制和系统设计方法。",
           "结合无线感知、移动计算和 AIoT 场景分析网络系统问题。",

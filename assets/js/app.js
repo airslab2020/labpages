@@ -65,7 +65,12 @@
     const logoMark = SiteContent.site.logoMark;
     const logoMarkAlt = SiteContent.site.logoMarkAlt || SiteContent.site.title || "Site logo";
     const activePage =
-      currentPage === "vr-2026-projects" || currentPage === "vr-2026-reading" ? "course" : currentPage;
+      currentPage === "vr-2026-projects" ||
+      currentPage === "vr-2026-reading" ||
+      currentPage === "networking-2026-reading" ||
+      currentPage === "networking-2025-reading"
+        ? "course"
+        : currentPage;
     return `
       <header class="site-header">
         <div class="shell nav-shell">
@@ -235,8 +240,8 @@
     const heroAside = `
       <div class="aside-card">
         <p class="eyebrow">Research Lens</p>
-        <h3>AI meets ubiquitous computing in the real world.</h3>
-        <p>We study how sensing, interaction, and edge intelligence systems can turn ambient signals and wearable devices into practical services for everyday environments.</p>
+        <h3>AI meets interaction and real-world systems.</h3>
+        <p>We study how perception, human-centered interaction, and efficient intelligence can turn real-world signals and devices into practical systems for everyday environments.</p>
       </div>
       <div class="chip-row">
         <span>Wireless Sensing</span>
@@ -360,7 +365,7 @@
           eyebrow: "Publications",
           title: "Publications from the XJTU AIRS Lab.",
           description:
-            "Explore our work on wireless sensing, ubiquitous computing, multimodal learning, and AI systems for understanding people and the physical world.",
+            "Explore our work on wireless and wearable sensing, multimodal learning, efficient AI, and real-world systems for understanding people and the physical world.",
           actions: [
             { label: "Read Latest Paper", href: localPaperHref(latestPaper.slug), kind: "secondary" },
             { label: "About The Group", href: "./index.html", kind: "primary" }
@@ -720,7 +725,7 @@
     const data = course[language];
     const label = language === "en" ? "English" : "中文";
     const resourceLabel =
-      language === "en" ? "2026 Spring VR Academic Reading" : "2026春 学术论文阅读";
+      data.resourcesHeading || (language === "en" ? "Academic Reading" : "学术论文阅读");
     return `
       <article class="panel course-card course-language-card">
         <div class="meta-row">
@@ -1168,6 +1173,158 @@
     `;
   }
 
+  function networkingVenueMarkup(venue) {
+    return `
+      <article class="panel network-venue-card">
+        <div class="meta-row">
+          <span class="date-pill">${SiteUI.escapeHtml(venue.venue || "")}</span>
+          <span>${SiteUI.escapeHtml(String((venue.years || []).length))} links</span>
+        </div>
+        <h3>${SiteUI.escapeHtml(venue.venue || "")}</h3>
+        <div class="network-venue-links">
+          ${(venue.years || [])
+            .map(
+              (item) => `
+                <a class="network-venue-link" href="${SiteUI.escapeHtml(item.href || "#")}" target="_blank" rel="noreferrer">
+                  <strong>${SiteUI.escapeHtml(item.year || "")}</strong>
+                  <span>${SiteUI.escapeHtml(item.label || "Conference Page")}</span>
+                </a>
+              `
+            )
+            .join("")}
+        </div>
+      </article>
+    `;
+  }
+
+  function networkingVenueSectionMarkup(recommended, seasonLabel) {
+    if (!recommended || !Array.isArray(recommended.venues) || !recommended.venues.length) {
+      return "";
+    }
+
+    return `
+      <section class="section">
+        <div class="shell">
+          ${sectionHeading("Recommended Venue Reading", seasonLabel || "Networking Reading")}
+          <article class="panel vr-reading-overview">
+            <div class="vr-reading-overview__copy">
+              <p class="eyebrow">${SiteUI.escapeHtml(recommended.label || "Recommended Venues")}</p>
+              <h3>${SiteUI.escapeHtml(recommended.title || "")}</h3>
+              <p>${SiteUI.escapeHtml(recommended.description || "")}</p>
+            </div>
+            <div class="vr-reading-overview__meta">
+              <span>${SiteUI.escapeHtml(recommended.countLabel || "")}</span>
+            </div>
+          </article>
+          <div class="network-venue-grid">
+            ${(recommended.venues || []).map(networkingVenueMarkup).join("")}
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  function networkingSelectedReadingCardMarkup(item) {
+    return `
+      <article class="panel vr-selected-card network-selected-card">
+        <div class="meta-row">
+          ${item.slot ? `<span class="date-pill">${SiteUI.escapeHtml(item.slot)}</span>` : ""}
+          ${item.index ? `<span>No. ${SiteUI.escapeHtml(String(item.index).padStart(2, "0"))}</span>` : ""}
+          ${item.venue ? `<span>${SiteUI.escapeHtml(item.venue)}</span>` : ""}
+        </div>
+        <h3>
+          ${
+            item.link
+              ? `<a class="vr-selected-card__title-link" href="${SiteUI.escapeHtml(item.link)}" target="_blank" rel="noreferrer">${SiteUI.escapeHtml(item.title || "")}</a>`
+              : SiteUI.escapeHtml(item.title || "")
+          }
+        </h3>
+        ${
+          Array.isArray(item.presenters) && item.presenters.length
+            ? `
+          <div class="vr-selected-card__students">
+            ${item.presenters.map((presenter) => `<span>${SiteUI.escapeHtml(presenter)}</span>`).join("")}
+          </div>`
+            : ""
+        }
+        ${
+          item.authors
+            ? `<p class="vr-selected-card__authors"><strong>Authors / 作者：</strong>${SiteUI.escapeHtml(item.authors)}</p>`
+            : ""
+        }
+        ${
+          item.summary
+            ? `<p class="vr-selected-card__summary">${SiteUI.escapeHtml(item.summary)}</p>`
+            : ""
+        }
+        ${
+          item.link
+            ? `<a class="inline-link" href="${SiteUI.escapeHtml(item.link)}" target="_blank" rel="noreferrer">Open paper link</a>`
+            : ""
+        }
+      </article>
+    `;
+  }
+
+  function networkingSelectedReadingMarkup(selection, seasonLabel) {
+    if (!selection || !Array.isArray(selection.items) || !selection.items.length) {
+      return "";
+    }
+
+    return `
+      <section class="section section-muted">
+        <div class="shell">
+          ${sectionHeading("Student Paper Selections", seasonLabel || "Networking Reading")}
+          <article class="panel vr-reading-overview">
+            <div class="vr-reading-overview__copy">
+              <p class="eyebrow">${SiteUI.escapeHtml(selection.label || "Student Selections")}</p>
+              <h3>${SiteUI.escapeHtml(selection.title || "")}</h3>
+              <p>${SiteUI.escapeHtml(selection.description || "")}</p>
+            </div>
+            <div class="vr-reading-overview__meta">
+              <span>${SiteUI.escapeHtml(selection.countLabel || "")}</span>
+            </div>
+          </article>
+          <div class="vr-selected-grid">
+            ${(selection.items || []).map(networkingSelectedReadingCardMarkup).join("")}
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
+  function renderNetworkingReadingPage(config) {
+    const course = SiteContent.courses.find((item) => item.id === "advanced-computer-networks-and-communications");
+    const courseZh = course && course.zh ? course.zh : {};
+    const store = config.store || {};
+    const recommended = store[config.recommendedKey];
+    const selected = store[config.selectedKey];
+    const selectedCount = selected && Array.isArray(selected.items) ? selected.items.length : 0;
+
+    return `
+      ${pageHeroMarkup(
+        {
+          eyebrow: "Advanced Computer Networks and Communications",
+          title: config.title,
+          descriptionHtml: `
+            <p>${SiteUI.escapeHtml(courseZh.overview || "")}</p>
+            <p>${SiteUI.escapeHtml(config.description)}</p>
+          `,
+          actions: [{ label: "Back To Courses", href: "./course.html", kind: "primary" }]
+        },
+        `
+          <div class="aside-card">
+            <p class="eyebrow">Reading Archive</p>
+            <h3>Networking papers for course-guided reading.</h3>
+            <p>${SiteUI.escapeHtml(config.asidePrefix)} ${SiteUI.escapeHtml(String(selectedCount))} student-selected papers with direct venue entry points for NSDI, MobiCom, MobiSys, and SenSys.</p>
+          </div>
+        `
+      )}
+      ${networkingVenueSectionMarkup(recommended, config.seasonLabel)}
+      ${networkingSelectedReadingMarkup(selected, config.seasonLabel)}
+    `;
+  }
+
   function awardSectionMarkup(title, eyebrow, items) {
     return `
       <section class="section">
@@ -1332,6 +1489,28 @@
         return renderVRShowcase2026Page();
       case "vr-2026-reading":
         return renderVRReadingPage();
+      case "networking-2026-reading":
+        return renderNetworkingReadingPage({
+          store: window.NetworkReadingContent || {},
+          recommendedKey: "recommendedVenues2026",
+          selectedKey: "studentSelections2026",
+          seasonLabel: "2026 Spring",
+          title: "2026 Spring Networking Academic Reading / 2026春 高等计算机网络与通信 学术论文阅读",
+          description:
+            "This page first organizes recommended venue entry points from NSDI, MobiCom, MobiSys, and SenSys, then records the final paper selections made by students in the 2026 Spring Advanced Computer Networks and Communications course.",
+          asidePrefix: "This separate page combines"
+        });
+      case "networking-2025-reading":
+        return renderNetworkingReadingPage({
+          store: window.NetworkReadingContent2025 || {},
+          recommendedKey: "recommendedVenues2025",
+          selectedKey: "studentSelections2025",
+          seasonLabel: "2025 Spring",
+          title: "2025 Spring Networking Academic Reading / 2025春 高等计算机网络与通信 学术论文阅读",
+          description:
+            "This page first organizes recommended venue entry points from NSDI, MobiCom, MobiSys, and SenSys, then records the final paper selections made by students in the 2025 Spring Advanced Computer Networks and Communications course.",
+          asidePrefix: "This separate page combines"
+        });
       case "awards":
         return renderAwardsPage();
       case "team":
