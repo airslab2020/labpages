@@ -99,6 +99,13 @@
     ],
     news: [
       {
+        date: "May 2026",
+        title: "RF-Carer advances zero-effort cross-domain wireless respiration monitoring",
+        summary:
+          "Our new SenSys 2026 paper introduces RF-Carer, a one-fits-all UWB respiration monitoring system that adapts across users, movements, and environments without extra retraining.",
+        slug: "poster-zero-effort-cross-domain-wireless-respiration-monitoring-under-free-body-movement"
+      },
+      {
         date: "Apr 2026",
         title: "Survey on Wi-Fi Sensing Generalizability highlighted in the lab archive",
         summary:

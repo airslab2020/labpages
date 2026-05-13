@@ -1,0 +1,74 @@
+<svg width="1280" height="780" viewBox="0 0 1280 780" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="88" y1="48" x2="1180" y2="736" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FBFF"/>
+      <stop offset="1" stop-color="#EEF4FF"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#275EFE"/>
+      <stop offset="1" stop-color="#00A6A6"/>
+    </linearGradient>
+    <linearGradient id="soft" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#EAF2FF"/>
+      <stop offset="1" stop-color="#F7FBFF"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="1280" height="780" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#163A72" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="780" rx="36" fill="url(#bg)"/>
+  <rect x="44" y="44" width="1192" height="692" rx="30" fill="#FFFFFF" stroke="#D8E3F3"/>
+
+  <text x="92" y="126" fill="#163A72" font-size="40" font-weight="700" font-family="Arial, Helvetica, sans-serif">RF-Carer: one-fits-all UWB respiration monitoring under domain shifts</text>
+  <text x="92" y="166" fill="#5D6B84" font-size="22" font-family="Arial, Helvetica, sans-serif">Commercial UWB + explainable propagation model + contrastive bi-channel U-Net</text>
+
+  <g filter="url(#shadow)">
+    <rect x="92" y="214" width="282" height="410" rx="28" fill="url(#soft)" stroke="#D8E3F3"/>
+    <text x="122" y="266" fill="#163A72" font-size="28" font-weight="700" font-family="Arial, Helvetica, sans-serif">Unseen real-world domains</text>
+    <g fill="#51627A" font-size="21" font-family="Arial, Helvetica, sans-serif">
+      <text x="122" y="320">• walking and speaking</text>
+      <text x="122" y="360">• turning over in bed</text>
+      <text x="122" y="400">• new users and poses</text>
+      <text x="122" y="440">• changed distance / angle</text>
+      <text x="122" y="480">• obstacles and blankets</text>
+      <text x="122" y="520">• hospitals and daily spaces</text>
+    </g>
+    <path d="M124 560C154 530 184 586 214 560C244 534 274 586 304 560C334 534 364 586 394 560" stroke="#275EFE" stroke-width="6" stroke-linecap="round"/>
+    <text x="122" y="604" fill="#275EFE" font-size="22" font-weight="700" font-family="Arial, Helvetica, sans-serif">Heterogeneous RF signals</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="444" y="214" width="392" height="410" rx="28" fill="#FFFFFF" stroke="#D8E3F3"/>
+    <text x="474" y="266" fill="#163A72" font-size="28" font-weight="700" font-family="Arial, Helvetica, sans-serif">Signal-to-feature unification</text>
+
+    <rect x="474" y="302" width="332" height="88" rx="22" fill="#EEF4FF" stroke="#D7E3FA"/>
+    <text x="504" y="350" fill="#204B94" font-size="24" font-weight="700" font-family="Arial, Helvetica, sans-serif">1. Explainable propagation model</text>
+    <text x="504" y="379" fill="#60708A" font-size="18" font-family="Arial, Helvetica, sans-serif">Normalize signal forms from unknown users, motions, and layouts</text>
+
+    <rect x="474" y="422" width="332" height="88" rx="22" fill="#F1FBFB" stroke="#CFECEC"/>
+    <text x="504" y="470" fill="#0C7171" font-size="24" font-weight="700" font-family="Arial, Helvetica, sans-serif">2. Consistent factor matching</text>
+    <text x="504" y="499" fill="#60708A" font-size="18" font-family="Arial, Helvetica, sans-serif">Keep respiration-related structure while suppressing accidental noise</text>
+
+    <rect x="474" y="542" width="332" height="56" rx="18" fill="url(#accent)"/>
+    <text x="640" y="578" text-anchor="middle" fill="#FFFFFF" font-size="24" font-weight="700" font-family="Arial, Helvetica, sans-serif">Contrastive bi-channel U-Net</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="906" y="214" width="282" height="410" rx="28" fill="url(#soft)" stroke="#D8E3F3"/>
+    <text x="936" y="266" fill="#163A72" font-size="28" font-weight="700" font-family="Arial, Helvetica, sans-serif">Deployment outcomes</text>
+    <text x="936" y="334" fill="#275EFE" font-size="54" font-weight="700" font-family="Arial, Helvetica, sans-serif">0.28 rpm</text>
+    <text x="936" y="370" fill="#60708A" font-size="20" font-family="Arial, Helvetica, sans-serif">mean respiration-rate error</text>
+
+    <text x="936" y="444" fill="#163A72" font-size="28" font-weight="700" font-family="Arial, Helvetica, sans-serif">12 domains</text>
+    <text x="936" y="476" fill="#60708A" font-size="20" font-family="Arial, Helvetica, sans-serif">57 practical evaluation cases</text>
+
+    <text x="936" y="548" fill="#163A72" font-size="28" font-weight="700" font-family="Arial, Helvetica, sans-serif">56 hours</text>
+    <text x="936" y="580" fill="#60708A" font-size="20" font-family="Arial, Helvetica, sans-serif">dataset from 39 volunteers</text>
+  </g>
+
+  <path d="M388 420H430" stroke="#8AA3CC" stroke-width="10" stroke-linecap="round"/>
+  <path d="M852 420H892" stroke="#8AA3CC" stroke-width="10" stroke-linecap="round"/>
+  <path d="M418 420L404 406M418 420L404 434" stroke="#8AA3CC" stroke-width="10" stroke-linecap="round"/>
+  <path d="M862 420L876 406M862 420L876 434" stroke="#8AA3CC" stroke-width="10" stroke-linecap="round"/>
+</svg>

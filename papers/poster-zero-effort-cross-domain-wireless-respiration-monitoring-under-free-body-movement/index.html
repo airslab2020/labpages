@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zero-effort Cross-domain Wireless Respiration Monitoring under Free Movements with commercial UWB devices - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <title>Zero-Effort Cross-Domain Wireless Respiration Monitoring Under Free Movements With Commercial UWB Devices - XJTU AIRS Lab</title>
+  <meta name="description" content="RF-Carer is a zero-effort cross-domain wireless respiration monitoring system that uses commercial UWB devices, an explainable propagation model, and contrastive feature alignment to generalize across movements, users, and environments without extra retraining.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -30,18 +30,19 @@
       <div class="paper-shell paper-hero-grid">
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
-          <h1>Zero-effort Cross-domain Wireless Respiration Monitoring under Free Movements with commercial UWB devices</h1>
-          <p class="paper-subtitle">Ge Wang, Jiazheng Chen, Zhe Chen, Fei Wang, Jianan Wang, Han Ding, Cui Zhao, Wei Xi, Jinsong Han</p>
+          <h1>Zero-Effort Cross-Domain Wireless Respiration Monitoring Under Free Movements With Commercial UWB Devices</h1>
+          <p class="paper-subtitle">Ge Wang, Jiazheng Chen, Zhe Chen, Fei Wang, Cong Zhao, Jianan Wang, Han Ding, Cui Zhao, Wei Xi, Jinsong Han</p>
           <div class="paper-meta-row">
-            <span class="paper-pill">ACM Sensys 2026</span>
+            <span class="paper-pill">ACM SenSys 2026</span>
             <span class="paper-pill">2026</span>
             <span class="paper-pill">Ubiquitous Sensing</span>
             <span class="paper-pill">XJTU AIRS Lab</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">RF-Carer is a zero-effort cross-domain wireless respiration monitoring system that uses commercial UWB devices, an explainable propagation model, and contrastive feature alignment to generalize across movements, users, and environments without extra retraining.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
+            <a class="paper-link-chip" href="https://dl.acm.org/doi/10.1145/3774906.3800465">Official Page</a>
+            <a class="paper-link-chip" href="https://github.com/GeWangXJTU/RF-Carer">Code &amp; Dataset</a>
             
             
             
@@ -51,7 +52,7 @@
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for Zero-effort Cross-domain Wireless Respiration Monitoring under Free Movements with commercial UWB devices">
+            <img src="./assets/fig1-practical-situations.png" alt="Practical respiration-monitoring situations considered by RF-Carer">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
@@ -65,16 +66,16 @@
       <div class="paper-shell">
         <div class="paper-metric-grid">
           <article class="paper-panel paper-metric-card">
-            <strong>Venue</strong>
-            <p>ACM Sensys 2026</p>
+            <strong>Evaluation Scale</strong>
+            <p>12 domains, 57 cases</p>
           </article>
           <article class="paper-panel paper-metric-card">
-            <strong>Theme</strong>
-            <p>Ubiquitous Sensing</p>
+            <strong>Dataset</strong>
+            <p>56 hours from 39 volunteers</p>
           </article>
           <article class="paper-panel paper-metric-card">
-            <strong>Institution</strong>
-            <p>XJTU AIRS Lab</p>
+            <strong>Key Result</strong>
+            <p>0.28 rpm error</p>
           </article>
         </div>
       </div>
@@ -84,31 +85,285 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>Respiratory monitoring with wireless RF signals is promising for healthcare, smart cockpits, sleep monitoring, and daily-life wellbeing. The practical obstacle is domain shift: a model trained in one setting often breaks when the user moves, changes posture, lies at a different distance or orientation, meets dynamic interference, or enters a new environment.</p>
+<p><strong>RF-Carer</strong> targets this deployment gap with a zero-effort cross-domain system built on commercial IR-UWB devices. It trains once, then directly handles unseen users, movements, obstacles, and environments without extra data collection or domain-specific retraining. The central design choice is to push generalization into the signal-processing layer: heterogeneous UWB observations are transformed into a unified signal form before a lightweight contrastive bi-channel U-Net estimates respiration.</p>
+<figure class="markdown-figure">
+  <img src="./assets/fig1-practical-situations.png" alt="Practical situations for RF-Carer respiration monitoring">
+  <figcaption>RF-Carer is designed for real-world respiration monitoring under free movement, speech, turning over, dynamic interference, user-state changes, and obstacles such as blankets.</figcaption>
+</figure>
+
+<h2>Why Cross-Domain Respiration Is Hard</h2>
+<p>Wireless respiration sensing needs to extract a subtle periodic chest-motion signal from RF reflections. In real deployments, that signal is mixed with factors that are irrelevant to respiration but change strongly across domains:</p>
+<ul>
+<li><strong>Range-space non-uniformity</strong>: different range bins have different attenuation, phase offsets, and background reflections.</li>
+<li><strong>Spatial state agnosticism</strong>: the system does not know the user's orientation, position, posture, or trajectory beforehand.</li>
+<li><strong>Time-varying interference</strong>: free movement, speaking, turning over, and moving objects can disturb the raw signal at unpredictable times.</li>
+</ul>
+<figure class="markdown-figure">
+  <img src="./assets/fig2-main-challenges.png" alt="Main challenges in cross-domain UWB respiration sensing">
+  <figcaption>The paper frames cross-domain respiration sensing as a signal unification problem across range, spatial, and temporal variation.</figcaption>
+</figure>
+
 <h2>Main Contributions</h2>
 <ul>
-<li>Research theme: Efficient AI Systems.</li>
-<li>Published at ACM Sensys 2026.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li>Proposes a <strong>fully zero-effort cross-domain</strong> respiration monitoring system that can be trained once and directly reused in unseen domains.</li>
+<li>Builds an <strong>explainable propagation model</strong> to transform heterogeneous RF signals from unknown domains into a unified representation in the signal processing layer.</li>
+<li>Introduces <strong>feature-space alignment with noisy-dimension suppression</strong> through contrastive learning, making the model more robust to irrelevant environmental and motion factors.</li>
+<li>Demonstrates adaptation across <strong>12 domains and 57 practical cases</strong>, including unconstrained body movement, unknown users, user-state changes, obstacles, and untrained environments.</li>
+<li>Releases code and a <strong>56-hour dataset from 39 volunteers</strong>.</li>
 </ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<h2>RF-Carer System</h2>
+<p>RF-Carer has two layers. The <strong>signal processing layer</strong> removes or compensates domain-dependent components before learning. It performs signal compensation, temporal-space and range-space background elimination, respiration identification and tracking, preliminary respiration extraction, and orientation/distance normalization. The <strong>data training layer</strong> then uses a two-way U-Net with contrastive learning to align respiration-related features and suppress noisy dimensions.</p>
+<figure class="markdown-figure">
+  <img src="./assets/fig3-system-design.png" alt="RF-Carer system design">
+  <figcaption>RF-Carer combines a propagation-aware signal processing pipeline with a contrastive two-way U-Net model.</figcaption>
+</figure>
+
+<h3>Method Highlights</h3>
+<ul>
+<li><strong>Self-adaptive dual-space background elimination</strong>: compensates range-dependent signal variation and removes temporal and range-space background components.</li>
+<li><strong>Consistent factor matching</strong>: preliminarily extracts respiration signals without assuming a fixed respiration period or regular waveform shape.</li>
+<li><strong>Backward reasoning</strong>: compensates posture and distance changes using signal geometry rather than prior domain labels.</li>
+<li><strong>Contrastive bi-channel U-Net</strong>: further aligns useful features and suppresses noisy dimensions after signal normalization.</li>
+</ul>
+<h2>Dataset And Evaluation</h2>
+<p>The authors implement RF-Carer on a Novelda X4M05 IR-UWB radar operating at 7.3 GHz with a 1.5 GHz bandwidth. Ground truth is collected by a respiration sensing belt synchronized with the UWB radar. The one-fits-all model is trained with cluttered-lab data from 12 volunteers and evaluated in new domains.</p>
+<div class="markdown-table-wrap">
+<table class="markdown-table">
+<thead>
+<tr>
+<th>Item</th>
+<th>Setup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Participants</td>
+<td>39 volunteers</td>
+</tr>
+<tr>
+<td>Dataset scale</td>
+<td>56 hours</td>
+</tr>
+<tr>
+<td>Training domain</td>
+<td>Cluttered lab</td>
+</tr>
+<tr>
+<td>Training volunteers</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Time window</td>
+<td>30 s</td>
+</tr>
+<tr>
+<td>Test coverage</td>
+<td>12 domains, 57 cases</td>
+</tr>
+<tr>
+<td>Metrics</td>
+<td>Cosine similarity (CS), respiration rate absolute error (RRAE)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="markdown-figure">
+  <img src="./assets/fig9-experiment-setup.png" alt="RF-Carer experiment setup across labs, infusion room, hospital, obstacles, interference, and free walking">
+  <figcaption>The evaluation spans lab, virtual infusion-room, and hospital settings, plus obstacles, interference, and free walking.</figcaption>
+</figure>
+
+<h2>Comparison With Related Work</h2>
+<p>Compared with recent respiration-monitoring systems using Wi-Fi, acoustic, RFID, mmWave, PPG, GPS, and UWB signals, RF-Carer is positioned as the first RF-based respiration system in the table that supports movement tolerance, non-in-situ movement, and explicit cross-domain evaluation together.</p>
+<figure class="markdown-figure">
+  <img src="./assets/table1-related-work.png" alt="Comparison of RF-Carer with related respiration monitoring systems">
+  <figcaption>RF-Carer uses UWB, covers 57 cases, supports non-in-situ movement, and reports 0.28 rpm error under cross-domain evaluation.</figcaption>
+</figure>
+
+<h2>Core Results</h2>
+<p>The main quantitative table reports RRAE across user states, free movements, and environments. RF-Carer obtains the best or second-best result in <strong>43 of 57</strong> cases and reaches the lowest average RRAE, <strong>0.28 rpm</strong>, across all domains.</p>
+<div class="markdown-table-wrap">
+  <table class="markdown-table">
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Average RRAE</th>
+        <th>Top-2 Cases</th>
+        <th>Interpretation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>AUG</td>
+        <td>1.76 rpm</td>
+        <td>0</td>
+        <td>Virtual sample augmentation alone is not enough for unseen domains.</td>
+      </tr>
+      <tr>
+        <td>RF-Carer*</td>
+        <td>0.72 rpm</td>
+        <td>16</td>
+        <td>Signal processing alone already improves cross-domain robustness.</td>
+      </tr>
+      <tr>
+        <td>MoRe-Fi</td>
+        <td>0.97 rpm</td>
+        <td>1</td>
+        <td>Learning-based isolation is less stable under broad domain shift.</td>
+      </tr>
+      <tr>
+        <td>RF-Carer* + VED</td>
+        <td>0.56 rpm</td>
+        <td>16</td>
+        <td>Processed signals help even when paired with an existing VED model.</td>
+      </tr>
+      <tr>
+        <td>AUG + RF-Carer model</td>
+        <td>0.65 rpm</td>
+        <td>12</td>
+        <td>The proposed model helps, but raw augmented input remains limiting.</td>
+      </tr>
+      <tr>
+        <td><strong>RF-Carer</strong></td>
+        <td><strong>0.28 rpm</strong></td>
+        <td><strong>43</strong></td>
+        <td><strong>Signal processing plus contrastive learning gives the strongest overall result.</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<figure class="markdown-figure">
+  <img src="./assets/table2-rrae-domains.png" alt="RRAE results across 12 domains and 57 cases">
+  <figcaption>RF-Carer achieves the best average RRAE across user-state, free-movement, and environment-related domains.</figcaption>
+</figure>
+
+<h2>Cosine Similarity Analysis</h2>
+<p>In the source-domain overall evaluation, RF-Carer reaches <strong>0.9522 average CS</strong>, higher than AUG (0.8453), RF-Carer* (0.9291), MoRe-Fi (0.912), RF-Carer* + VED (0.9178), and AUG + RF-Carer model (0.8895). The user-state tests further show robustness to lean angle, orientation, distance, position, user identity, obstacles, and abnormal respiration.</p>
+<figure class="markdown-figure">
+  <img src="./assets/fig10-12-overall-user-state.png" alt="Overall CS, CS by lean angle, and CS by orientation">
+  <figcaption>Overall and posture-related CS results show that RF-Carer keeps high waveform similarity under user-state variation.</figcaption>
+</figure>
+
+<figure class="markdown-figure">
+  <img src="./assets/fig10-21-cs-results.png" alt="CS results for distance, position, user identity, obstacles, speaking, turning over, walking, location, and environmental condition">
+  <figcaption>Additional CS results cover distance, position, users, obstacles, speaking, turning over, walking, locations, and environmental conditions.</figcaption>
+</figure>
+
+<h2>Free-Movement Waveforms</h2>
+<p>RF-Carer is evaluated under challenging free-movement settings, including speaking, turning over, and free walking. The waveform visualizations show that the raw signal can be heavily disturbed, while RF-Carer still recovers respiration curves close to the ground truth.</p>
+<div class="markdown-table-wrap">
+<table class="markdown-table">
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Reported RF-Carer Finding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speaking</td>
+<td>0.8774 CS under voice-command interference</td>
+</tr>
+<tr>
+<td>Turning over</td>
+<td>0.8572 average CS across five turning actions</td>
+</tr>
+<tr>
+<td>Walking</td>
+<td>0.8481 average CS across five walking scenarios</td>
+</tr>
+<tr>
+<td>Location</td>
+<td>Best performance in empty lab, cluttered lab, and infusion room</td>
+</tr>
+<tr>
+<td>Environmental condition</td>
+<td>0.931 average CS across static, moving, and dynamic conditions</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="markdown-figure">
+  <img src="./assets/fig22-speaking-waveforms.png" alt="Respiration waveform recovery under speaking interference">
+  <figcaption>During speaking interference, RF-Carer suppresses audio and lip-motion disturbances and recovers the respiration waveform.</figcaption>
+</figure>
+
+<figure class="markdown-figure">
+  <img src="./assets/fig23-24-free-movement-waveforms.png" alt="Respiration waveform recovery during turning over and free walking in a hospital room">
+  <figcaption>Turning-over and hospital-walking examples illustrate RF-Carer's robustness under large body motion.</figcaption>
+</figure>
+
+<h2>Domain Difference</h2>
+<p>The paper also measures KL divergence to confirm that the evaluated domains are genuinely different. The average KL divergence within a domain is <strong>0.01956</strong>, while the average KL divergence between domains is <strong>2.7549</strong>, a ratio of <strong>174.33</strong>.</p>
+<figure class="markdown-figure">
+  <img src="./assets/table3-kl-divergence.png" alt="KL divergence within and between domains">
+  <figcaption>KL-divergence analysis supports the claim that the evaluation spans strongly shifted domains rather than small perturbations.</figcaption>
+</figure>
+
+<h2>Takeaways</h2>
+<ul>
+<li>Signal processing is not just preprocessing here; it is the main generalization mechanism that maps heterogeneous UWB data into a more unified form.</li>
+<li>The full system outperforms either signal processing alone or learning alone, suggesting that RF-Carer benefits from both explainable modeling and feature-space alignment.</li>
+<li>The strongest evidence is the breadth of evaluation: 12 domains, 57 cases, 39 volunteers, 56 hours of data, and realistic free-movement settings.</li>
+<li>The method is especially relevant for deployment settings where calibration, recollection, or retraining is too expensive.</li>
+</ul>
+<h2>Key Numbers</h2>
+<div class="markdown-table-wrap">
+  <table class="markdown-table">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Dataset</td>
+        <td>56 hours from 39 volunteers</td>
+      </tr>
+      <tr>
+        <td>Evaluation breadth</td>
+        <td>12 domains and 57 cases</td>
+      </tr>
+      <tr>
+        <td>Average RRAE</td>
+        <td><strong>0.28 rpm</strong></td>
+      </tr>
+      <tr>
+        <td>Top-2 count in Table 2</td>
+        <td>43 of 57 cases</td>
+      </tr>
+      <tr>
+        <td>Overall source-domain CS</td>
+        <td>0.9522</td>
+      </tr>
+      <tr>
+        <td>Average KL between-domain / within-domain ratio</td>
+        <td>174.33</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <h2>Resources</h2>
 <ul>
-<li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
+<li><a href="./assets/fig1-practical-situations.png">Practical situations figure</a></li>
+<li><a href="./assets/fig2-main-challenges.png">Main challenges figure</a></li>
+<li><a href="./assets/fig3-system-design.png">System design figure</a></li>
+<li><a href="./assets/fig9-experiment-setup.png">Experiment setup figure</a></li>
+<li><a href="./assets/table2-rrae-domains.png">RRAE domain table</a></li>
+<li><a href="https://dl.acm.org/doi/10.1145/3774906.3800465">ACM Official Page</a></li>
+<li><a href="https://github.com/GeWangXJTU/RF-Carer">Code and dataset</a></li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@inproceedings{poster-zero-effort-cross-domain-wireless-respiration-monitoring-under-free-body-movement,
-  title = {Zero-effort Cross-domain Wireless Respiration Monitoring under Free Movements with commercial UWB devices},
-  author = {Ge Wang and Jiazheng Chen and Zhe Chen and Fei Wang and Jianan Wang and Han Ding and Cui Zhao and Wei Xi and Jinsong Han},
-  booktitle = {ACM Sensys 2026},
+  title = {Zero-Effort Cross-Domain Wireless Respiration Monitoring Under Free Movements With Commercial UWB Devices},
+  author = {Ge Wang and Jiazheng Chen and Zhe Chen and Fei Wang and Cong Zhao and Jianan Wang and Han Ding and Cui Zhao and Wei Xi and Jinsong Han},
+  booktitle = {Proceedings of the ACM/IEEE International Conference on Embedded Artificial Intelligence and Sensing Systems (SenSys '26)},
   year = {2026}
 }
 </code></pre>
-
         </article>
       </div>
     </section>
