@@ -1460,6 +1460,15 @@
       "The gallery documents both research milestones and everyday group life.",
     snapshots: [
       {
+        title: "ICASSP 2026 in Barcelona",
+        date: "May 3, 2026",
+        caption: "Attending ICASSP 2026, standing on Carmel Hill with La Sagrada Familia and the Barcelona skyline in the background.",
+        tag: "Conference",
+        image: "./assets/media/gallery/20260503-icassp-barcelona-carmel.jpg",
+        photoAlt: "A portrait on Carmel Hill overlooking La Sagrada Familia and the Barcelona skyline",
+        palette: ["#214c71", "#dce8f2"]
+      },
+      {
         title: "More Portraits of Kexin Ren",
         date: "April 20, 2026",
         caption: "More photos of Kexin Ren are collected here, capturing her memorable moments.",
