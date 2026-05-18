@@ -1460,6 +1460,15 @@
       "The gallery documents both research milestones and everyday group life.",
     snapshots: [
       {
+        title: "Guernica at Museo Reina Sofia",
+        date: "May 6, 2026",
+        caption: "Standing before Picasso's Guernica at Museo Reina Sofia in Madrid, a painting that still speaks across time with a simple wish: world peace.",
+        tag: "Travel",
+        image: "./assets/media/gallery/20260506-guernica-madrid.jpg",
+        photoAlt: "Picasso's Guernica displayed at Museo Reina Sofia in Madrid",
+        palette: ["#1f2328", "#ece8e1"]
+      },
+      {
         title: "ICASSP 2026 in Barcelona",
         date: "May 3, 2026",
         caption: "Attending ICASSP 2026, standing on Carmel Hill with La Sagrada Familia and the Barcelona skyline in the background.",
