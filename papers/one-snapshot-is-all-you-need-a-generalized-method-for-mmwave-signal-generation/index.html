@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>One Snapshot is All You Need: A Generalized Method for mmWave Signal Generation - XJTU AIRS Lab</title>
-  <meta name="description" content="This paper introduces mmGen, a generalized framework for full-scene mmWave signal generation that synthesizes realistic radar signatures from a single captured scene snapshot and reconstructed 3D meshes.">
+  <meta name="description" content="mmGen is a generalized software-based framework for synthesizing realistic full-scene FMCW mmWave signals from one captured environment snapshot and constructed 3D human/environment meshes.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,31 +31,28 @@
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
           <h1>One Snapshot is All You Need: A Generalized Method for mmWave Signal Generation</h1>
-          <p class="paper-subtitle">Teng Huang, Han Ding, Wenxin Sun, Cui Zhao, Ge Wang, Fei Wang, Kun Zhao, Zhi Wang, Wei Xi</p>
+          <p class="paper-subtitle">Teng Huang (XJTU), Han Ding (XJTU), Wenxin Sun (XJTU), Cui Zhao (XJTU), Ge Wang (XJTU), Fei Wang (XJTU), Kun Zhao (XJTU), Zhi Wang (XJTU), Wei Xi (XJTU)</p>
           <div class="paper-meta-row">
             <span class="paper-pill">IEEE INFOCOM 2025</span>
             <span class="paper-pill">2025</span>
-            <span class="paper-pill">Ubiquitous Sensing</span>
-            <span class="paper-pill">XJTU AIRS Lab</span>
+            <span class="paper-pill">mmWave Signal Generation</span>
+            <span class="paper-pill">XJTU</span>
           </div>
-          <p class="paper-summary">This paper introduces mmGen, a generalized framework for full-scene mmWave signal generation that synthesizes realistic radar signatures from a single captured scene snapshot and reconstructed 3D meshes.</p>
+          <p class="paper-summary">mmGen is a generalized software-based framework for synthesizing realistic full-scene FMCW mmWave signals from one captured environment snapshot and constructed 3D human/environment meshes.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
-            
-            
-            
-            
+            <a class="paper-link-chip" href="https://github.com/friendlyCamel/mmGen">Code</a>
+            <a class="paper-link-chip" href="https://arxiv.org/abs/2503.21122">Paper</a>
           </div>
         </div>
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for One Snapshot is All You Need: A Generalized Method for mmWave Signal Generation">
+            <img src="./assets/figure-2-mmgen-overview.png" alt="Figure 2 from mmGen showing the overall pipeline for one-snapshot full-scene mmWave signal generation">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIRS Lab</p>
+            <p>XJTU</p>
           </aside>
         </aside>
       </div>
@@ -69,12 +66,12 @@
             <p>IEEE INFOCOM 2025</p>
           </article>
           <article class="paper-panel paper-metric-card">
-            <strong>Theme</strong>
-            <p>Ubiquitous Sensing</p>
+            <strong>RA Similarity</strong>
+            <p>0.91 MS-SSIM</p>
           </article>
           <article class="paper-panel paper-metric-card">
-            <strong>Institution</strong>
-            <p>XJTU AIRS Lab</p>
+            <strong>MD Similarity</strong>
+            <p>0.89 MS-SSIM</p>
           </article>
         </div>
       </div>
@@ -84,50 +81,96 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>Collecting large, diverse mmWave datasets is expensive, time-consuming, and often tightly coupled to a particular downstream task or annotation format. <strong>One Snapshot is All You Need</strong> addresses that bottleneck with <strong>mmGen</strong>, a generalized full-scene signal generation framework for mmWave sensing.</p>
-<p>Instead of relying on large-scale real collection, mmGen starts from a <strong>single captured scene snapshot</strong> and a reconstructed 3D mesh representation. It then synthesizes both human-reflected and environment-reflected FMCW mmWave signals, producing realistic radar observations that can support a wide range of downstream sensing research.</p>
-<h2>Main Contributions</h2>
-<ul>
-<li>Proposes <strong>mmGen</strong>, a generalized mmWave signal generation framework for full-scene sensing.</li>
-<li>Models <strong>human reflections</strong>, <strong>environment reflections</strong>, <strong>material properties</strong>, <strong>antenna gains</strong>, and <strong>multipath effects</strong> to improve realism.</li>
-<li>Demonstrates that synthetic signals can closely match real captures across multiple environments.</li>
-</ul>
-<h2>Method</h2>
-<p>The framework builds a physical signal transmission model over reconstructed scene geometry. Human bodies are represented with 3D meshes, and the environment is explicitly modeled so that signal synthesis includes not only target reflections but also the surrounding scene response.</p>
-<p>This makes mmGen more general than pipelines that only generate downstream signatures such as point clouds or range-angle maps. The generated output remains useful for broader sensing tasks because it starts from a more physically grounded scene-level description.</p>
-<h2>Evaluation Highlights</h2>
-<div class="markdown-table-wrap"><table class="markdown-table">
-<thead>
-<tr>
-<th>Signature Type</th>
-<th>Average similarity to real captures</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Range-Angle</td>
-<td>&gt; 0.91</td>
-</tr>
-<tr>
-<td>Micro-Doppler</td>
-<td>&gt; 0.89</td>
-</tr>
-</tbody>
-</table>
-</div><p>These results are reported across <strong>three different environments</strong> using a prototype system with commercial mmWave devices and Kinect sensors, supporting the claim that mmGen is practical for realistic signal generation rather than only toy simulation.</p>
-<h2>Resources</h2>
-<ul>
-<li><a href="https://arxiv.org/abs/2503.21122">arXiv abstract</a></li>
-</ul>
-<h2>Citation</h2>
-<pre><code class="language-bibtex">@inproceedings{huang2025mmgen,
+          <p>Collecting large and diverse mmWave sensing datasets is expensive, time-consuming, and usually tied to one downstream task or annotation format. <strong>One Snapshot is All You Need</strong> introduces <strong>mmGen</strong>, a generalized framework that generates realistic FMCW mmWave signals from a <strong>single snapshot of the environment</strong> plus constructed 3D meshes.</p>
+          <p>Instead of generating only task-specific signatures such as micro-Doppler maps or point clouds, mmGen models the original signal formation process. It synthesizes <strong>human-reflected</strong>, <strong>environment-reflected</strong>, and <strong>multipath-reflected</strong> mmWave signals, so the generated data can support broader mmWave sensing tasks such as activity recognition, pose estimation, localization, and tracking.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/figure-2-mmgen-overview.png" alt="Overview of mmGen from the paper">
+            <figcaption>Figure 2 from the paper. mmGen uses one snapshot, human/environment mesh construction, reflection modeling, and signal synthesis to produce realistic mmWave signals.</figcaption>
+          </figure>
+
+          <h2>Main Contributions</h2>
+          <ul>
+            <li>Proposes <strong>mmGen</strong>, a generalized full-scene mmWave signal generation framework that does not rely on deep-learning-based signal generators.</li>
+            <li>Models <strong>human reflections</strong> and <strong>environment reflections</strong> in a unified physical signal synthesis pipeline.</li>
+            <li>Incorporates practical factors including <strong>material properties</strong>, <strong>antenna gains</strong>, and <strong>multipath propagations</strong> to improve realism.</li>
+            <li>Supports human mesh construction from either <strong>video data</strong> or <strong>textual motion descriptions</strong>, making the generated data more flexible for downstream sensing tasks.</li>
+            <li>Builds a prototype with commercial mmWave devices and Kinect sensors, showing strong similarity between synthesized and real-captured signals across three environments.</li>
+          </ul>
+
+          <h2>FMCW Signal Background</h2>
+          <p>mmGen targets FMCW mmWave radar signals. The transmitted chirp and received chirp are mixed into an intermediate-frequency signal, then processed through range, Doppler, and angle FFTs to obtain common sensing signatures. By synthesizing signals before these task-specific preprocessing steps, mmGen keeps the generated data useful for multiple downstream tasks.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/figure-1-fmcw-preprocessing.png" alt="FMCW chirp and signal preprocessing from the paper">
+            <figcaption>Figure 1 from the paper. FMCW chirp structure and signal preprocessing into range, Doppler, and angle signatures.</figcaption>
+          </figure>
+
+          <h2>mmGen Design</h2>
+          <p>The system decomposes signal generation into three parts. First, the <strong>human-reflected signal synthesizer</strong> represents the body as a SMPL-style 3D mesh and computes reflection points from triangular surfaces. Second, the <strong>environment signal compensator</strong> constructs a 3D environment mesh from one depth-camera snapshot, accounting for furniture layout, material properties, and antenna gain. Third, the <strong>multipath reflection tracker</strong> uses high reflection probability planes (HRPP) to efficiently approximate dominant two-bounce multipath reflections in dynamic indoor scenes.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/figure-5-multipath-hrpp.png" alt="Multipath reflection tracking and HRPP table construction from the paper">
+            <figcaption>Figure 5 from the paper. mmGen tracks likely multipath paths through HRPP records instead of exhaustive ray tracing.</figcaption>
+          </figure>
+
+          <h2>Prototype and Dataset</h2>
+          <p>The prototype uses a TI <strong>IWR6843ISK</strong> mmWave radar with <strong>DCA1000</strong>, together with a <strong>Kinect Azure DK</strong> for RGB/depth capture. The evaluation covers three environments: an indoor furniture scene, a corridor scene, and a scene with sofa/window/plant reflectors. Six volunteers perform six motions: walking, clapping, waving left hand, jumping jacks, picking up a stone, and turning around.</p>
+          <p>The paper defines three datasets: <strong>D1</strong> for real-captured mmWave signals, <strong>D2</strong> for synthesized signals generated from RGB-derived human meshes and Kinect environment meshes, and <strong>D3</strong> for synthesized signals generated from text-described motions through a diffusion-based motion model.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/figure-6-testbed-environments.png" alt="Experimental scenarios and testbeds for mmGen">
+            <figcaption>Figure 6 from the paper. Experimental environments and prototype testbed with mmWave radar and Kinect.</figcaption>
+          </figure>
+
+          <h2>Signal Generation Quality</h2>
+          <p>Qualitatively, mmGen reproduces range-FFT, range-angle, and range-Doppler signatures that align closely with real captures. In particular, the range-angle signature captures not only human reflections, but also environmental reflectors such as boards and tables.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/figure-7-qualitative-signatures.png" alt="Qualitative comparison between real-captured and synthesized mmWave signatures">
+            <figcaption>Figure 7 from the paper. Qualitative comparison between real-captured and synthesized signatures.</figcaption>
+          </figure>
+          <p>Quantitatively, the average MS-SSIM similarity between real and synthesized signatures reaches <strong>0.91</strong> for range-angle signatures and <strong>0.89</strong> for micro-Doppler signatures across three environments.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/figure-8-signature-similarity.png" alt="RA and MD signature similarity between real and synthesized signals">
+            <figcaption>Figure 8 from the paper. Similarity of range-angle and micro-Doppler signatures between real and generated signals.</figcaption>
+          </figure>
+          <p>Compared with prior video-to-radar generation methods, mmGen achieves competitive or better micro-Doppler reconstruction quality while remaining a physical, scenario-adaptable signal generator.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/table-1-md-comparison.png" alt="MAE and SD comparison on micro-Doppler signatures">
+            <figcaption>Table I from the paper. mmGen reports lower MAE than Midas and Vid2Doppler on micro-Doppler signatures.</figcaption>
+          </figure>
+
+          <h2>Ablation and Robustness</h2>
+          <p>The ablation study shows that body/environment construction, material modeling, and antenna gain modeling all improve signal realism, especially for range-angle signatures in complex scenes. Micro-benchmarks further show that mmGen remains stable across different subject distances and body rotation angles.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/table-2-ablation-study.png" alt="Ablation study for mmGen components">
+            <figcaption>Table II from the paper. Removing body/environment construction, material modeling, or antenna gain modeling reduces generated signal similarity.</figcaption>
+          </figure>
+          <figure class="markdown-figure">
+            <img src="./assets/figure-9-distance-angle.png" alt="Performance under different distances and angles">
+            <figcaption>Figure 9 from the paper. Signal quality under different human-radar distances and body angles.</figcaption>
+          </figure>
+
+          <h2>Downstream Case Study</h2>
+          <p>As a downstream case study, the paper trains an activity recognition model using generated signals and evaluates it on real captures. The model achieves strong recognition accuracy across all three environments, with most confusion occurring between walking and turning around because some generated turning samples include short walking segments.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/figure-10-activity-recognition.png" alt="Activity recognition performance with mmGen-generated signals">
+            <figcaption>Figure 10 from the paper. Activity recognition performance using mmGen-generated data.</figcaption>
+          </figure>
+
+          <h2>Resources</h2>
+          <ul>
+            <li><a href="https://github.com/friendlyCamel/mmGen">Code: friendlyCamel/mmGen</a></li>
+            <li><a href="https://arxiv.org/abs/2503.21122">arXiv abstract</a></li>
+            <li><a href="https://arxiv.org/pdf/2503.21122">arXiv PDF</a></li>
+            <li><a href="./assets/figure-2-mmgen-overview.png">Local overview figure</a></li>
+            <li><a href="./assets/figure-7-qualitative-signatures.png">Local qualitative signatures</a></li>
+          </ul>
+
+          <h2>Citation</h2>
+          <pre><code class="language-bibtex">@inproceedings{huang2025mmgen,
   title = {One Snapshot is All You Need: A Generalized Method for mmWave Signal Generation},
   author = {Huang, Teng and Ding, Han and Sun, Wenxin and Zhao, Cui and Wang, Ge and Wang, Fei and Zhao, Kun and Wang, Zhi and Xi, Wei},
   booktitle = {IEEE INFOCOM},
   year = {2025}
 }
 </code></pre>
-
         </article>
       </div>
     </section>

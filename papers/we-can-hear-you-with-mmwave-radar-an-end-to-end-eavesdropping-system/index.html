@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>We Can Hear You with mmWave Radar! An End-to-End Eavesdropping System - XJTU AIRS Lab</title>
-  <meta name="description" content="mmSpeech reconstructs intelligible speech from loudspeaker-induced vibrations captured by mmWave radar, enabling through-wall audio recovery without prior speaker knowledge.">
+  <meta name="description" content="mmSpeech is an end-to-end mmWave-based speech privacy analysis system that reconstructs intelligible speech from loudspeaker-induced vibration signals, including through-wall settings and without prior knowledge of the target speaker.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,17 +31,18 @@
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
           <h1>We Can Hear You with mmWave Radar! An End-to-End Eavesdropping System</h1>
-          <p class="paper-subtitle">Dachao Han, Teng Huang, Han Ding, Cui Zhao, Fei Wang, Ge Wang, Wei Xi</p>
+          <p class="paper-subtitle">Dachao Han (XJTU), Teng Huang (XJTU), Han Ding (XJTU), Cui Zhao (XJTU), Fei Wang (XJTU), Ge Wang (XJTU), Wei Xi (XJTU)</p>
           <div class="paper-meta-row">
             <span class="paper-pill">ACM IMWUT/UBICOMP 2026</span>
             <span class="paper-pill">2026</span>
-            <span class="paper-pill">Ubiquitous Sensing</span>
-            <span class="paper-pill">XJTU AIRS Lab</span>
+            <span class="paper-pill">mmWave Speech Privacy</span>
+            <span class="paper-pill">XJTU</span>
           </div>
-          <p class="paper-summary">mmSpeech reconstructs intelligible speech from loudspeaker-induced vibrations captured by mmWave radar, enabling through-wall audio recovery without prior speaker knowledge.</p>
+          <p class="paper-summary">mmSpeech is an end-to-end mmWave-based speech privacy analysis system that reconstructs intelligible speech from loudspeaker-induced vibration signals, including through-wall settings and without prior knowledge of the target speaker.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
+            <a class="paper-link-chip" href="https://dl.acm.org/doi/10.1145/3770708">ACM Official Page</a>
+            <a class="paper-link-chip" href="https://doi.org/10.1145/3770708">DOI</a>
             
             
             
@@ -51,7 +52,7 @@
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for We Can Hear You with mmWave Radar! An End-to-End Eavesdropping System">
+            <img src="./assets/figure-1-threat-scenario.png" alt="Figure 1 from mmSpeech showing the mmWave radar eavesdropping threat scenario">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
@@ -65,16 +66,16 @@
       <div class="paper-shell">
         <div class="paper-metric-grid">
           <article class="paper-panel paper-metric-card">
-            <strong>Venue</strong>
-            <p>ACM IMWUT/UBICOMP 2026</p>
+            <strong>Article</strong>
+            <p>IMWUT 9(4), Article 179</p>
           </article>
           <article class="paper-panel paper-metric-card">
-            <strong>Theme</strong>
-            <p>Ubiquitous Sensing</p>
+            <strong>Seen Victims</strong>
+            <p>9.43 dB FWSegSNR / 0.80 STOI</p>
           </article>
           <article class="paper-panel paper-metric-card">
-            <strong>Institution</strong>
-            <p>XJTU AIRS Lab</p>
+            <strong>Unseen Victims</strong>
+            <p>8.44 dB FWSegSNR / 0.80 STOI</p>
           </article>
         </div>
       </div>
@@ -84,37 +85,88 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>Voice-enabled devices make loudspeaker playback increasingly common, which also creates new speech-privacy risks. Traditional eavesdropping approaches often require direct access, microphones close to the target, or a clear line of sight. This paper presents <strong>mmSpeech</strong>, an end-to-end mmWave-based eavesdropping system that reconstructs speech from <strong>vibration signals induced by loudspeaker playback</strong>.</p>
-<p>One of the most striking aspects of the work is that the system operates <strong>through walls</strong> and does not require prior knowledge of the speaker identity. The paper therefore sits at the boundary of wireless sensing, speech reconstruction, and security/privacy analysis.</p>
+<p>Voice-enabled devices and remote meetings make loudspeaker playback common in offices, meeting rooms, and homes. This also introduces a speech privacy risk: acoustic content can induce subtle vibrations in nearby objects. This paper presents <strong>mmSpeech</strong>, an end-to-end mmWave-based system that studies how intelligible speech can be reconstructed from loudspeaker-induced vibration signals.</p>
+<p>The work is framed as a privacy and security analysis. Compared with microphone, optical, or contact-sensor based eavesdropping, mmWave sensing can capture micro-vibrations without direct contact and can operate through certain non-metallic barriers. mmSpeech further removes the need for prior recordings of the target speaker, making the threat model more general than earlier mmWave speech-recovery systems.</p>
+<blockquote>
+<p>mmSpeech shows that mmWave-estimated vibration signals can be converted into intelligible speech, even under through-wall settings and unseen-speaker conditions.</p>
+</blockquote>
+<figure class="markdown-figure">
+  <img src="./assets/figure-1-threat-scenario.png" alt="mmSpeech threat scenario from the paper">
+  <figcaption>Figure 1 from the paper. A portable mmWave radar captures loudspeaker-induced vibrations from a passive film and reconstructs private speech, including through-wall scenarios.</figcaption>
+</figure>
 <h2>Main Contributions</h2>
 <ul>
-<li>Introduces an <strong>end-to-end mmWave speech reconstruction</strong> pipeline based on playback-induced vibrations.</li>
-<li>Studies the sensing setup itself, including the combination of vibrating material and radar sampling rate needed for reliable capture.</li>
-<li>Uses synthetic data and selective ASR-encoder fine-tuning to improve downstream speech understanding.</li>
+<li>Introduces <strong>mmSpeech</strong>, an end-to-end mmWave speech reconstruction pipeline based on playback-induced vibrations.</li>
+<li>Studies sensing design choices such as vibrating materials, radar sampling rate, sensing distance, angle, and blockage materials.</li>
+<li>Designs a DNN pipeline that reconstructs speech from noisy mmWave spectrograms, combining denoising, reconstruction, and adversarial refinement.</li>
+<li>Uses synthetic mmWave-like vibration data and selective ASR encoder fine-tuning to improve downstream speech understanding.</li>
+<li>Demonstrates strong reconstruction quality on seen and unseen speakers, with reported seen-victim metrics of <strong>FWSegSNR 9.43 dB</strong>, <strong>STOI 0.80</strong>, <strong>MCD 5.18</strong>, and <strong>MEL 2.09</strong>.</li>
 </ul>
-<h2>Method</h2>
-<p>The system first captures subtle vibration signals using <strong>narrowband mmWave sensing</strong>. It then estimates noisy spectrograms and feeds them into a neural network that reconstructs intelligible speech. To strengthen recognition quality beyond signal restoration alone, the authors:</p>
+<h2>Threat Model and System Overview</h2>
+<p>The paper considers a setting where people are speaking through a loudspeaker in a room, such as an online meeting. A passive vibrating material is near the loudspeaker, and a portable mmWave radar captures the sound-induced vibrations either from inside the room or through a barrier such as glass. The attacker is assumed to have no prior knowledge of the speaker's identity, speech characteristics, or utterance content.</p>
+<p>mmSpeech has two main stages:</p>
 <ul>
-<li>build a <strong>synthetic training pipeline</strong>,</li>
-<li>and selectively fine-tune the encoder of a <strong>pre-trained ASR model</strong>.</li>
+<li><strong>mmWave-based vibration sensing</strong> extracts vibration signals and produces an initial speech estimate from radar measurements.</li>
+<li><strong>DNN-based speech reconstruction</strong> denoises the initial estimate, restores missing frequency components, and generates more intelligible speech.</li>
 </ul>
-<p>This makes mmSpeech not only a signal-processing pipeline but also a bridge to downstream speech understanding.</p>
+<figure class="markdown-figure">
+  <img src="./assets/figure-2-system-overview.png" alt="mmSpeech system overview from the paper">
+  <figcaption>Figure 2 from the paper. mmSpeech combines mmWave-based vibration sensing with DNN-based speech reconstruction.</figcaption>
+</figure>
+<h2>Speech Reconstruction Model</h2>
+<p>The reconstruction model is GAN-inspired. The generator first suppresses noise in the mmWave spectrogram, then reconstructs a speech waveform from the denoised representation. A discriminator provides perceptual feedback so the generated speech becomes more natural and intelligible.</p>
+<p>The model uses a <strong>Spectrum Denoising module</strong> and a <strong>Speech Reconstruction module</strong>. The denoising component includes TS-ConvFlash blocks to model temporal and frequency dependencies efficiently. To compensate for limited real mmWave speech data, the paper also synthesizes mmWave-like signals by mixing clean speech with purple and Gaussian noise, then fine-tunes on real measurements.</p>
+<figure class="markdown-figure">
+  <img src="./assets/figure-6-dnn-model.png" alt="mmSpeech DNN model from the paper">
+  <figcaption>Figure 6 from the paper. The DNN reconstructs speech from mmWave spectrograms with denoising, reconstruction, and adversarial learning losses.</figcaption>
+</figure>
+<h2>Experimental Setup and Dataset</h2>
+<p>The implementation uses a commercial <strong>TI IWR6843ISK mmWave radar</strong> with <strong>DCA1000EVM</strong>. The radar operates with a <code>1T4R</code> configuration, <code>4 GHz</code> bandwidth, and an <code>8000 Hz</code> vibration sampling rate. The default sensing setup places the passive film about <code>0.5 m</code> from the loudspeaker and about <code>1.5 m</code> from the radar.</p>
+<p>The dataset includes <code>2,400</code> collected speech clips from LibriSpeech playback, covering <code>47</code> speakers with different genders, ages, and accents. The paper constructs three datasets: a synthetic pretraining set from LibriSpeech, a seen-victim set, and an unseen-victim set for evaluating generalization to speakers not used during training.</p>
+<figure class="markdown-figure">
+  <img src="./assets/figure-10-experimental-setup.png" alt="mmSpeech experimental setup from the paper">
+  <figcaption>Figure 10 from the paper. Experimental setup and tested materials, including PET, tinfoil, glass, acrylic plate, and cardboard.</figcaption>
+</figure>
 <h2>Evaluation Highlights</h2>
-<ul>
-<li>Implemented on a <strong>commercial mmWave radar</strong> platform.</li>
-<li>Demonstrates strong performance across unseen speakers and varying conditions.</li>
-<li>Achieves state-of-the-art speech quality according to the paper's reported evaluation.</li>
-</ul>
+<p>mmSpeech substantially improves reconstructed speech quality over the raw vibration signal. On the seen-victim dataset, it improves FWSegSNR from <code>2.45 dB</code> to <code>9.43 dB</code> and reduces MCD from <code>22.33</code> to <code>5.18</code>. On unseen victims, it still achieves <code>8.44 dB</code> FWSegSNR, <code>0.80</code> STOI, <code>5.93</code> MCD, and <code>2.32</code> MEL.</p>
+<figure class="markdown-figure">
+  <img src="./assets/table-1-overall-performance.png" alt="Overall performance table from the paper">
+  <figcaption>Table 1 from the paper. Overall reconstruction quality on seen and unseen victims.</figcaption>
+</figure>
+<p>The comparison table emphasizes the difference from prior vibration-based eavesdropping systems. Earlier systems either focus on digits/letters, require victim speech data, or do not support the same through-wall and unconstrained-speech setting. mmSpeech works with mmWave-only inference data and no victim voice prior.</p>
+<figure class="markdown-figure">
+  <img src="./assets/table-2-prior-work-comparison.png" alt="Comparison with prior vibration-based eavesdropping work from the paper">
+  <figcaption>Table 2 from the paper. mmSpeech is compared with mmSpy, mmEve, mmEavesdropper, and VibSpeech.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/figure-11-reconstruction-examples.png" alt="Reconstructed speech spectrogram examples from the paper">
+  <figcaption>Figure 11 from the paper. Spectrogram examples show original speech, mmWave-estimated vibration, and reconstructed speech.</figcaption>
+</figure>
+<h2>Ablation and Limitations</h2>
+<p>The ablation study shows that the denoising module is especially important: removing it drops FWSegSNR from <code>9.43 dB</code> to <code>6.40 dB</code> and increases MCD from <code>5.18</code> to <code>7.21</code>. Pretraining, discriminator feedback, and the spectral losses also contribute to final quality.</p>
+<p>The paper also notes several practical limits. Performance depends on the relative position between radar and vibrating material; reliable recovery is reported within about <code>4.5 m</code> and below roughly <code>45°</code>. Through-wall performance also depends on wall material and thickness, so heavier or more absorptive barriers can reduce effectiveness.</p>
+<figure class="markdown-figure">
+  <img src="./assets/table-7-ablation-study.png" alt="Ablation table from the paper">
+  <figcaption>Table 7 from the paper. Ablation results for pretraining, discriminator, denoising module, and loss terms.</figcaption>
+</figure>
 <h2>Resources</h2>
 <ul>
-<li><a href="https://arxiv.org/abs/2511.06205">arXiv abstract</a></li>
+<li><a href="https://doi.org/10.1145/3770708">ACM DOI</a></li>
+<li><a href="https://dl.acm.org/doi/10.1145/3770708">ACM Official Page</a></li>
+<li><a href="./assets/figure-1-threat-scenario.png">Threat scenario figure</a></li>
+<li><a href="./assets/figure-2-system-overview.png">System overview figure</a></li>
+<li><a href="./assets/table-1-overall-performance.png">Overall performance table</a></li>
 </ul>
 <h2>Citation</h2>
-<pre><code class="language-bibtex">@article{han2026mmspeech,
+<pre><code class="language-bibtex">@article{han2025mmspeech,
   title = {We Can Hear You with mmWave Radar! An End-to-End Eavesdropping System},
   author = {Han, Dachao and Huang, Teng and Ding, Han and Zhao, Cui and Wang, Fei and Wang, Ge and Xi, Wei},
-  journal = {ACM IMWUT / UbiComp},
-  year = {2026}
+  journal = {Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies},
+  volume = {9},
+  number = {4},
+  article = {179},
+  year = {2025},
+  doi = {10.1145/3770708}
 }
 </code></pre>
 

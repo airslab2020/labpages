@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Person-in-WiFi 3D: End-to-End Multi-Person 3D Pose Estimation with Wi-Fi - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="Person-in-WiFi 3D is an end-to-end Wi-Fi system for multi-person 3D pose estimation. It uses multiple commercial Wi-Fi receivers and a Transformer-style Wi-Fi Pose Transformer to directly predict a set of 3D human poses from CSI signals.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,17 +31,18 @@
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
           <h1>Person-in-WiFi 3D: End-to-End Multi-Person 3D Pose Estimation with Wi-Fi</h1>
-          <p class="paper-subtitle">Kangwei Yan, Fei Wang#, Bo Qian, Han Ding, Jinsong Han, Xing Wei</p>
+          <p class="paper-subtitle">Kangwei Yan (XJTU), Fei Wang (XJTU), Bo Qian (XJTU), Han Ding (XJTU), Jinsong Han (ZJU), Xing Wei (XJTU)</p>
           <div class="paper-meta-row">
             <span class="paper-pill">CVPR 2024</span>
             <span class="paper-pill">2024</span>
-            <span class="paper-pill">Ubiquitous Sensing</span>
-            <span class="paper-pill">XJTU AIRS Lab</span>
+            <span class="paper-pill">Wireless Pose Estimation</span>
+            <span class="paper-pill">XJTU; ZJU</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">Person-in-WiFi 3D is an end-to-end Wi-Fi system for multi-person 3D pose estimation. It uses multiple commercial Wi-Fi receivers and a Transformer-style Wi-Fi Pose Transformer to directly predict a set of 3D human poses from CSI signals.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
+            <a class="paper-link-chip" href="https://aiotgroup.github.io/Person-in-WiFi-3D/">Project Page</a>
+            <a class="paper-link-chip" href="https://openaccess.thecvf.com/content/CVPR2024/html/Yan_Person-in-WiFi_3D_End-to-End_Multi-Person_3D_Pose_Estimation_with_Wi-Fi_CVPR_2024_paper.html">CVF Paper</a>
             
             
             
@@ -51,11 +52,11 @@
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for Person-in-WiFi 3D: End-to-End Multi-Person 3D Pose Estimation with Wi-Fi">
+            <img src="./assets/figure-1-overview.png" alt="Figure 1 from Person-in-WiFi 3D showing RGB frames and corresponding Wi-Fi 3D pose outputs">
           </div>
           <aside class="paper-panel paper-side-note">
-            <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIRS Lab</p>
+            <p class="paper-eyebrow">Affiliations</p>
+            <p>XJTU; ZJU</p>
           </aside>
         </aside>
       </div>
@@ -65,16 +66,16 @@
       <div class="paper-shell">
         <div class="paper-metric-grid">
           <article class="paper-panel paper-metric-card">
-            <strong>Venue</strong>
-            <p>CVPR 2024</p>
+            <strong>Dataset</strong>
+            <p>97K+ Wi-Fi samples</p>
           </article>
           <article class="paper-panel paper-metric-card">
-            <strong>Theme</strong>
-            <p>Ubiquitous Sensing</p>
+            <strong>Hardware</strong>
+            <p>1 Tx + 3 Rx Wi-Fi setup</p>
           </article>
           <article class="paper-panel paper-metric-card">
-            <strong>Institution</strong>
-            <p>XJTU AIRS Lab</p>
+            <strong>Key Result</strong>
+            <p>91.7 / 108.1 / 125.3 mm MPJPE</p>
           </article>
         </div>
       </div>
@@ -84,27 +85,65 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p><strong>Person-in-WiFi 3D</strong> pushes Wi-Fi human sensing from single-person or 2D pose estimation toward <strong>multi-person 3D pose estimation</strong>. The system uses one Wi-Fi transmitter and three Wi-Fi receivers to capture richer spatial reflections from multiple people, then predicts 3D body keypoints in an end-to-end set prediction framework.</p>
+<p>Compared with camera-based pose estimation, Wi-Fi sensing preserves privacy and can remain usable under occlusion or poor lighting. Compared with earlier Wi-Fi pose systems, this work avoids large 3D heatmaps and part affinity fields by using a Transformer-based model that directly maps CSI sequences to a set of 3D poses.</p>
+<blockquote>
+<p>The paper reports the first Wi-Fi system for multi-person 3D pose estimation and releases a dataset with more than 97K Wi-Fi samples.</p>
+</blockquote>
+<figure class="markdown-figure">
+  <img src="./assets/figure-1-overview.png" alt="Person-in-WiFi 3D qualitative overview from the paper">
+  <figcaption>Figure 1 from the paper. Person-in-WiFi 3D estimates multi-person 3D poses from Wi-Fi signals and visualizes the corresponding pose outputs.</figcaption>
+</figure>
 <h2>Main Contributions</h2>
 <ul>
-<li>Research theme: Efficient AI Systems.</li>
-<li>Published at CVPR 2024.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li>Introduces <strong>Person-in-WiFi 3D</strong>, a Wi-Fi-based system for multi-person 3D pose estimation.</li>
+<li>Proposes the <strong>Wi-Fi Pose Transformer</strong>, which converts CSI signals into multi-person 3D poses in an end-to-end manner.</li>
+<li>Uses a <strong>set-based Hungarian loss</strong> so each person's ground-truth pose is assigned to a unique prediction.</li>
+<li>Builds and releases a self-collected dataset with <strong>more than 97,000 Wi-Fi samples</strong> from 7 volunteers, 8 daily actions, and 3 indoor locations.</li>
 </ul>
 <h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
+<p>The data collection setup uses four ThinkPad X201 laptops with Intel 5300 network cards: one transmitter and three receivers. The transmitter broadcasts Wi-Fi at <code>5.64 GHz</code> with 30 subcarriers, while the receivers capture CSI at 300 packets per second. An Azure Kinect records RGB-D videos at 15 FPS and provides supervisory 3D pose annotations through the Kinect Body Tracking SDK.</p>
+<p>The model contains three main components:</p>
+<ul>
+<li><strong>CSI Feature Encoder</strong>: tokenizes amplitude and denoised phase features and learns spatial-temporal CSI representations.</li>
+<li><strong>Pose Decoder</strong>: uses learnable queries to regress a set of candidate 3D body poses and confidence scores.</li>
+<li><strong>Refine Decoder</strong>: further refines initial pose predictions, inspired by PETR-style refinement.</li>
+</ul>
+<figure class="markdown-figure">
+  <img src="./assets/figure-4-architecture.png" alt="Person-in-WiFi 3D architecture from the paper">
+  <figcaption>Figure 4 from the paper. Person-in-WiFi 3D uses a teacher-student framework with Kinect supervision, a CSI feature encoder, a pose decoder, a refine decoder, and set-based Hungarian loss.</figcaption>
+</figure>
 <h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<p>The dataset contains 456 RGB-D clips, 270,000 total video frames, and more than 97,000 cleaned Wi-Fi samples. It covers 1-4 people, 8 actions, and 3 indoor locations with different multipath conditions. After cleaning Kinect tracking failures, the final split includes 89,946 training samples and 7,824 testing samples.</p>
+<p>Person-in-WiFi 3D reports <strong>91.7 mm</strong>, <strong>108.1 mm</strong>, and <strong>125.3 mm</strong> MPJPE in 1-person, 2-person, and 3-person scenes, respectively. The overall mean MPJPE is <strong>107.2 mm</strong>. The paper also reports that the system can run at <strong>54 FPS</strong>, while avoiding the storage and post-processing burden of extending 2D heatmap-based Person-in-WiFi to 3D.</p>
+<figure class="markdown-figure">
+  <img src="./assets/table-2-main-errors.png" alt="Table 2 from the paper showing MPJPE and MPJDLE per joint">
+  <figcaption>Table 2 from the paper. Main per-joint 3D pose estimation errors measured in millimeters.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/table-3-figure-5-person-count-cdf.png" alt="Table 3 and Figure 5 from the paper showing person count effects and MPJPE distributions">
+  <figcaption>Table 3 and Figure 5 from the paper. Errors increase as the number of people increases, and the CDF plots show that arm joints are the most difficult to estimate accurately.</figcaption>
+</figure>
+<h2>Occlusion and Limitations</h2>
+<p>The paper highlights that Wi-Fi can still detect people when the visual view is obstructed, which is important for privacy-sensitive and occluded indoor settings. It also reports two limitations: the upper-bound performance depends on Kinect annotation quality, and cross-environment generalization remains challenging because the system uses four distributed Wi-Fi transceivers whose spatial configuration changes across locations.</p>
+<figure class="markdown-figure">
+  <img src="./assets/figure-7-occlusion.png" alt="Figure 7 from the paper showing occlusion examples">
+  <figcaption>Figure 7 from the paper. Person-in-WiFi 3D remains functional when the camera view is obstructed.</figcaption>
+</figure>
 <h2>Resources</h2>
 <ul>
-<li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
+<li><a href="https://aiotgroup.github.io/Person-in-WiFi-3D/">Project Page</a></li>
+<li><a href="https://openaccess.thecvf.com/content/CVPR2024/html/Yan_Person-in-WiFi_3D_End-to-End_Multi-Person_3D_Pose_Estimation_with_Wi-Fi_CVPR_2024_paper.html">CVF Open Access Paper</a></li>
+<li><a href="./assets/figure-1-overview.png">Overview figure</a></li>
+<li><a href="./assets/figure-4-architecture.png">Architecture figure</a></li>
+<li><a href="./assets/table-2-main-errors.png">Main results table</a></li>
 </ul>
 <h2>Citation</h2>
-<pre><code class="language-bibtex">@inproceedings{person-in-wifi-3d-end-to-end-multi-person-3d-pose-estimation-with-wi-fi,
+<pre><code class="language-bibtex">@inproceedings{yan2024personinwifi3d,
   title = {Person-in-WiFi 3D: End-to-End Multi-Person 3D Pose Estimation with Wi-Fi},
-  author = {Kangwei Yan and Fei Wang# and Bo Qian and Han Ding and Jinsong Han and Xing Wei},
-  booktitle = {CVPR 2024},
+  author = {Yan, Kangwei and Wang, Fei and Qian, Bo and Ding, Han and Han, Jinsong and Wei, Xing},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  pages = {969--978},
   year = {2024}
 }
 </code></pre>

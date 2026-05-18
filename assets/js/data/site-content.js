@@ -100,6 +100,13 @@
     news: [
       {
         date: "May 2026",
+        title: "RadioSEP accepted to IEEE INFOCOM 2026",
+        summary:
+          "RadioSEP introduces a unified mmWave-audio framework for speech enhancement and multi-speaker separation without requiring a speaker count prior.",
+        slug: "mmwave-aided-unified-speech-enhancement-and-separation-without-speaker-count-prior"
+      },
+      {
+        date: "May 2026",
         title: "RF-Carer advances zero-effort cross-domain wireless respiration monitoring",
         summary:
           "Our new SenSys 2026 paper introduces RF-Carer, a one-fits-all UWB respiration monitoring system that adapts across users, movements, and environments without extra retraining.",
@@ -125,13 +132,6 @@
         summary:
           "The new ICASSP paper applies contrastive learning to improve cross-domain EEG-based emotion recognition.",
         slug: "cross-domain-eeg-based-emotion-recognition-with-contrastive-learning"
-      },
-      {
-        date: "Mar 2026",
-        title: "mmWave-aided speech enhancement and separation enters the archive",
-        summary:
-          "This INFOCOM work studies unified speech enhancement and separation without requiring a prior on speaker count.",
-        slug: "mmwave-aided-unified-speech-enhancement-and-separation-without-speaker-count-prior"
       },
       {
         date: "Oct 2025",

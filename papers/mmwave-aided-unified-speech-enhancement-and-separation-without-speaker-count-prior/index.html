@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>mmWave-Aided Unified Speech Enhancement and Separation without Speaker Count Prior - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="RadioSEP is a unified mmWave-audio multimodal framework for speech enhancement and multi-speaker separation without requiring prior knowledge of the number of speakers.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,31 +31,27 @@
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
           <h1>mmWave-Aided Unified Speech Enhancement and Separation without Speaker Count Prior</h1>
-          <p class="paper-subtitle">Dachao Han, Teng Huang, Han Ding#, Cui Zhao, Fei Wang, Ge Wang, Wei Xi</p>
+          <p class="paper-subtitle">Dachao Han (XJTU), Teng Huang (XJTU), Han Ding (XJTU), Cui Zhao (XJTU), Fei Wang (XJTU), Ge Wang (XJTU), Wei Xi (XJTU)</p>
           <div class="paper-meta-row">
             <span class="paper-pill">IEEE INFOCOM 2026</span>
             <span class="paper-pill">2026</span>
-            <span class="paper-pill">Ubiquitous Sensing</span>
-            <span class="paper-pill">XJTU AIRS Lab</span>
+            <span class="paper-pill">mmWave-Audio Speech Processing</span>
+            <span class="paper-pill">XJTU</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">RadioSEP is a unified mmWave-audio multimodal framework for speech enhancement and multi-speaker separation without requiring prior knowledge of the number of speakers.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
-            
-            
-            
-            
+            <a class="paper-link-chip" href="https://radiosep.github.io">Project Website</a>
           </div>
         </div>
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for mmWave-Aided Unified Speech Enhancement and Separation without Speaker Count Prior">
+            <img src="./assets/figure-2-system-overview.png" alt="Figure 2 from RadioSEP showing the system overview for speaker perception, cross-modality data generation, and unified speech generation">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIRS Lab</p>
+            <p>XJTU</p>
           </aside>
         </aside>
       </div>
@@ -69,12 +65,12 @@
             <p>IEEE INFOCOM 2026</p>
           </article>
           <article class="paper-panel paper-metric-card">
-            <strong>Theme</strong>
-            <p>Ubiquitous Sensing</p>
+            <strong>2-Mix Separation</strong>
+            <p>19.13 dB SiSNR / 3.69 PESQ</p>
           </article>
           <article class="paper-panel paper-metric-card">
-            <strong>Institution</strong>
-            <p>XJTU AIRS Lab</p>
+            <strong>3-Mix Separation</strong>
+            <p>14.62 dB SiSNR / 3.25 PESQ</p>
           </article>
         </div>
       </div>
@@ -84,31 +80,122 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
-<h2>Main Contributions</h2>
-<ul>
-<li>Research theme: Efficient AI Systems.</li>
-<li>Published at IEEE INFOCOM 2026.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
-</ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
-<h2>Resources</h2>
-<ul>
-<li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
-</ul>
-<h2>Citation</h2>
-<pre><code class="language-bibtex">@inproceedings{mmwave-aided-unified-speech-enhancement-and-separation-without-speaker-count-prior,
+          <p><strong>RadioSEP</strong> addresses a practical limitation in speech enhancement and separation: most existing systems require task-specific models and explicit prior knowledge of the speaker count. In real-world smart-home or voice-assistant scenarios, the number of speakers is often unknown and dynamic, and the audio may include overlapping voices and background noise.</p>
+          <p>RadioSEP uses a commercial mmWave radar together with noisy audio to build a unified multimodal pipeline. The radar detects and localizes active speakers, extracts speaker-specific physical features from vocal-fold and vocal-tract movements, and provides speaker count information to a single deep neural network that generates the corresponding clean speech streams.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/figure-1-smart-home-scenario.png" alt="Smart home scenario motivating RadioSEP">
+            <figcaption>Figure 1 from the paper. RadioSEP combines microphone audio and mmWave sensing to isolate overlapping speech in a smart-home scenario.</figcaption>
+          </figure>
+
+          <h2>Main Contributions</h2>
+          <ul>
+            <li>Presents <strong>RadioSEP</strong>, an end-to-end mmWave-audio multimodal framework for both speech enhancement and multi-speaker separation.</li>
+            <li>Removes the need for <strong>speaker count prior</strong> by using mmWave radar to detect, localize, and profile speakers before speech generation.</li>
+            <li>Extracts speaker-specific physical features from mmWave phase and magnitude variations caused by vocal-fold and vocal-tract motion.</li>
+            <li>Designs a unified DNN with dual-branch feature extraction, cross-attention based mmWave-audio fusion, and speaker-aware separation.</li>
+            <li>Introduces a revised <strong>CGAN-based cross-modality data generation</strong> method to synthesize mmWave-audio pairs for pre-training and improve generalization.</li>
+          </ul>
+
+          <h2>System Overview</h2>
+          <p>RadioSEP has three core components: speaker perception, cross-modality data generation, and the unified RadioSEP DNN framework. During inference, speaker perception estimates the number of active speakers and produces mmWave-based identity features. During training, CGAN-generated mmWave data augments public speech data, and the DNN is first pre-trained then fine-tuned on real multimodal data.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/figure-2-system-overview.png" alt="RadioSEP system overview">
+            <figcaption>Figure 2 from the paper. RadioSEP combines speaker perception, CGAN-based data generation, and a unified DNN model.</figcaption>
+          </figure>
+
+          <h2>Speaker Perception with mmWave Radar</h2>
+          <p>RadioSEP uses range-angle heatmaps, MVDR, CFAR, DBSCAN clustering, and Hungarian tracking to detect and localize speakers. This lets the system estimate the active speaker count and filter out silent moving users that may otherwise be detected by radar.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/figure-3-target-detection-localization.png" alt="Target detection and localization pipeline in RadioSEP">
+            <figcaption>Figure 3 from the paper. Target detection and localization with range-angle heatmaps, MVDR, CFAR, and cluster tracking.</figcaption>
+          </figure>
+          <p>The paper further connects mmWave sensing to the source-filter model of speech production. Vocal folds generate source vibrations, while the vocal tract shapes the signal. RadioSEP monitors phase and magnitude changes at the target range-angle bins to capture speaker-specific articulatory features.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/figure-4-5-speaker-feature-extraction.png" alt="Source-filter model and speaker feature extraction in RadioSEP">
+            <figcaption>Figures 4 and 5 from the paper. RadioSEP uses mmWave phase/magnitude variations to capture vocal-fold and vocal-tract related features.</figcaption>
+          </figure>
+          <p>A feasibility study on 20 users shows that extracted mmWave features support speaker classification with <strong>75.28% average accuracy</strong>, confirming that the radar features encode speaker-specific physical characteristics rather than only sentence content.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/figure-6-speaker-classification.png" alt="User classification result using extracted mmWave-based features">
+            <figcaption>Figure 6 from the paper. User classification results using extracted mmWave-based features.</figcaption>
+          </figure>
+
+          <h2>RadioSEP Network</h2>
+          <p>The unified network has a dual-branch feature extractor, a fusion block, and a separation block. The audio branch processes noisy speech, while the radar branch processes per-speaker mmWave features. The fusion block uses cross-attention to align and combine audio and radar information, then the separation block generates the required number of clean speech streams according to the radar-estimated speaker count.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/figure-7-radiosep-architecture.png" alt="Overall RadioSEP network architecture">
+            <figcaption>Figure 7 from the paper. Overall RadioSEP architecture for unified speech enhancement and separation.</figcaption>
+          </figure>
+          <figure class="markdown-figure">
+            <img src="./assets/figure-9-fusion-block.png" alt="RadioSEP fusion block">
+            <figcaption>Figure 9 from the paper. Cross-attention based fusion block for extracting and fusing speaker-specific audio/radar identity features.</figcaption>
+          </figure>
+
+          <h2>Cross-Modality Data Generation</h2>
+          <p>Because public multimodal mmWave-audio datasets are scarce, RadioSEP uses a revised CGAN to generate mmWave signals from public speech data. The discriminator is modified into a classifier that predicts speaker identities, encouraging generated mmWave data to preserve user-specific physical features. The generated data is used for pre-training, then the model is fine-tuned on real collected multimodal data.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/figure-10-cgan-network.png" alt="Architecture of the CGAN network">
+            <figcaption>Figure 10 from the paper. CGAN architecture for generating mmWave data from speech.</figcaption>
+          </figure>
+          <figure class="markdown-figure">
+            <img src="./assets/figure-11-13-cgan-architectures.png" alt="CGAN generator, ResConv block, and classifier architectures">
+            <figcaption>Figures 11-13 from the paper. Generator, ResConv block, and classifier architectures used in cross-modality data generation.</figcaption>
+          </figure>
+
+          <h2>Dataset and Implementation</h2>
+          <p>The prototype uses a TI <strong>IWR6843ISK</strong> mmWave radar with <strong>DCA1000EVM</strong> and a Soaiy WS10A microphone. The radar uses <strong>3 Tx and 4 Rx antennas</strong>, <strong>4 GHz bandwidth</strong>, and a <strong>1200 Hz</strong> sampling rate. The dataset includes <strong>20 volunteers</strong> reading 100 randomly selected TIMIT sentences, with <strong>1,960 words</strong> in total. The paper also evaluates two lab environments to test robustness under environmental changes.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/figure-14-16-data-generation-and-setup.png" alt="CGAN classification results, sentence examples, and environmental setups">
+            <figcaption>Figures 14-16 from the paper. Generated mmWave data evaluation, sentence examples, and environmental layouts.</figcaption>
+          </figure>
+
+          <h2>Overall Performance</h2>
+          <p>RadioSEP consistently outperforms audio-only and prior multimodal baselines across enhancement, 2-speaker separation, and 3-speaker separation. In the main comparison, RadioSEP achieves <strong>13.94 dB SiSNR</strong> for enhancement, <strong>19.13 dB SiSNR</strong> for 2-mix separation, and <strong>14.62 dB SiSNR</strong> for 3-mix separation.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/table-1-overall-performance.png" alt="Overall performance comparison table for RadioSEP">
+            <figcaption>Table I from the paper. RadioSEP outperforms audio-only and multimodal baselines on enhancement, 2-mix separation, and 3-mix separation.</figcaption>
+          </figure>
+
+          <h2>Generalization and Robustness</h2>
+          <p>RadioSEP maintains strong performance on unseen users and unseen environments. In unseen-user tests, RadioSEP reaches <strong>13.70 dB SiSNR</strong> for enhancement and <strong>16.37 dB SiSNR</strong> for 2-mix separation, while RadioSEP* reaches <strong>18.31 dB SiSNR</strong> on the unseen-user/environment setting reported in the table.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/table-2-unseen-users.png" alt="Performance on unseen users">
+            <figcaption>Table II from the paper. RadioSEP generalizes to unseen users and the RadioSEP* setting.</figcaption>
+          </figure>
+          <p>The system is also evaluated under different speaker angles, distances, and environments. The results show only mild degradation across 0-30 degrees, 0.5-1.5 m, and a second environment.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/table-3-robustness-factors.png" alt="RadioSEP performance under different factors">
+            <figcaption>Table III from the paper. Robustness under different angles, distances, and unseen environment factors.</figcaption>
+          </figure>
+
+          <h2>More Speakers and Ablation</h2>
+          <p>RadioSEP scales beyond the 2- and 3-speaker cases. On 4-mix and 5-mix separation, it still outperforms RadioSES, achieving <strong>12.87 dB SiSNR</strong> for 4-mix and <strong>11.56 dB SiSNR</strong> for 5-mix separation.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/table-4-more-speakers.png" alt="Performance on 4- and 5-mix separation">
+            <figcaption>Table IV from the paper. RadioSEP remains effective on 4- and 5-mix separation.</figcaption>
+          </figure>
+          <p>The ablation study shows that CGAN-generated/noisy radar replacement improves unseen-speaker generalization, cross-attention style fusion is important, and the model remains reasonably robust even when radar input partially fails.</p>
+          <figure class="markdown-figure">
+            <img src="./assets/table-5-ablation-study.png" alt="RadioSEP ablation study">
+            <figcaption>Table V from the paper. Ablation study on generated radar augmentation, fusion strategy, and radar failure.</figcaption>
+          </figure>
+
+          <h2>Resources</h2>
+          <ul>
+            <li><a href="https://radiosep.github.io">Project Website</a></li>
+            <li><a href="./assets/figure-2-system-overview.png">Local system overview figure</a></li>
+            <li><a href="./assets/table-1-overall-performance.png">Local overall performance table</a></li>
+            <li><a href="./assets/table-5-ablation-study.png">Local ablation table</a></li>
+          </ul>
+
+          <h2>Citation</h2>
+          <pre><code class="language-bibtex">@inproceedings{han2026radiosep,
   title = {mmWave-Aided Unified Speech Enhancement and Separation without Speaker Count Prior},
-  author = {Dachao Han and Teng Huang and Han Ding# and Cui Zhao and Fei Wang and Ge Wang and Wei Xi},
-  booktitle = {IEEE INFOCOM 2026},
+  author = {Han, Dachao and Huang, Teng and Ding, Han and Zhao, Cui and Wang, Fei and Wang, Ge and Xi, Wei},
+  booktitle = {IEEE INFOCOM},
   year = {2026}
 }
 </code></pre>
-
         </article>
       </div>
     </section>
