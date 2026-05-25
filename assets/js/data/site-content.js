@@ -100,10 +100,11 @@
     news: [
       {
         date: "May 2026",
-        title: "Person-in-WiFi 3D journal version accepted to IEEE TPAMI 2026 (IF 18.6)",
+        title: "2026 Spring Virtual Reality course project showcase is online",
         summary:
-          "The TPAMI version unifies WiFi-based 3D pose estimation and mesh reconstruction, extending the CVPR 2024 conference paper with Wiception3D mesh annotations, a refined model architecture, and broader experiments.",
-        slug: "person-in-wifi-3d-unified-model-for-3d-wifi-perception"
+          "The showcase presents 29 student-built VR final projects across cultural heritage, environmental protection, safety education, psychology, healing experiences, and immersive games.",
+        href: "./vr-2026-projects.html",
+        linkLabel: "Open showcase"
       },
       {
         date: "May 2026",
@@ -966,10 +967,11 @@
                       "沈郑轩 / Zhengxuan Shen",
                       "张奕朗 / Yilang Zhang"
                 ],
-                "category": "教育培训",
+                "category": "游戏化环保教育",
                 "tags": [
-                      "教育培训",
-                      "游戏交互 / 环保科普"
+                      "游戏化环保教育",
+                      "环境保护",
+                      "教育培训"
                 ],
                 "description": "本项目开发了一款基于 Unity 的沉浸式垃圾分类 VR 训练游戏 VR-GarbageSort。针对传统图文宣传交互性弱、反馈滞后、难以形成行为记忆的问题，项目将垃圾分类学习转化为“观察—抓取—判断—投放—反馈”的具身交互流程。用户在虚拟场景中通过 VR 手柄完成垃圾抓取与投放，并根据系统反馈不断修正分类行为。系统集成 XR Interaction Toolkit、PICO Unity SDK 与 OpenXR，实现了传送带生成、手柄抓取投掷、分类判定、得分系统、Combo 连击、Buff/Debuff 随机事件以及多模态反馈机制。项目旨在探索 VR 手部交互、即时反馈与游戏化激励机制在垃圾分类教育中的应用潜力，为未来公共教育和行为训练类 VR 系统提供参考。",
                 "titleEn": "VR-GarbageSort: An Immersive VR Training Game for Waste Sorting Education",
@@ -1057,7 +1059,7 @@
           },
           {
                 "id": 14,
-                "title": "未命名项目 14",
+                "title": "地下室手记",
                 "video": "https://player.bilibili.com/player.html?isOutside=true&aid=116626917693973&bvid=BV1wJGj6mEwQ&cid=38568200300&p=1",
                 "authors": [
                       "梁恩嘉 / Jason",
@@ -1071,6 +1073,7 @@
                       "家庭压抑"
                 ],
                 "description": "许多关于家庭暴力与儿童心理创伤的议题，往往停留在新闻或文字层面，玩家难以真正代入受害者的情绪与压迫感。本项目希望利用 VR 强沉浸式体验，让玩家以“孩子”的视角进入扭曲梦境般的地下室，在探索与逃离过程中感受恐惧、压抑与无助。 项目的核心目标并非单纯制造惊吓，而是通过环境叙事、互动探索与心理恐怖氛围，让玩家更直观地理解家庭暴力对儿童长期心理健康造成的影响，并呼吁社会关注相关问题",
+                "titleEn": "D.T.",
                 "descriptionEn": "This VR horror demo explores the psychological trauma caused by domestic violence through the perspective of a child trapped inside a nightmare-like basement. Instead of focusing only on traditional horror elements, the project aims to create an emotionally immersive experience that conveys fear, helplessness, and emotional isolation through environmental storytelling, interactive exploration, and oppressive atmosphere design. Many discussions about child abuse and domestic violence remain distant to audiences when presented only through text or media reports. By using VR’s strong sense of presence and immersion, this project allows players to directly experience the distorted memories and emotional pressure carried by a traumatized child. The goal of the project is not simply to scare players, but to raise awareness of children’s mental health issues and encourage greater attention toward the long-term psychological impact of domestic violence.",
                 "poster": "./assets/media/vr-2026-projects/posters/project-14.jpg"
           },

@@ -70,7 +70,6 @@ The paper highlights that Wi-Fi can still detect people when the visual view is 
 
 ## Resources
 
-- [TPAMI journal version](../person-in-wifi-3d-unified-model-for-3d-wifi-perception/index.html)
 - [Project Page](https://aiotgroup.github.io/Person-in-WiFi-3D/)
 - [CVF Open Access Paper](https://openaccess.thecvf.com/content/CVPR2024/html/Yan_Person-in-WiFi_3D_End-to-End_Multi-Person_3D_Pose_Estimation_with_Wi-Fi_CVPR_2024_paper.html)
 - [Overview figure](./assets/figure-1-overview.png)
