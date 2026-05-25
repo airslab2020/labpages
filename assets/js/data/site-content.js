@@ -1186,8 +1186,8 @@
           },
           {
                 "id": 20,
-                "title": "未命名项目 20",
-                "video": "",
+                "title": "引力弹弓",
+                "video": "https://player.bilibili.com/player.html?isOutside=true&aid=116635557958912&bvid=BV1KsGo6iEue&cid=38607913648&p=1",
                 "authors": [
                       "邱若瑜 / Ruoyu Qiu",
                       "龚杰 / Jie Gong",
@@ -1200,7 +1200,9 @@
                       "物理模拟"
                 ],
                 "description": "一款注重太空场景叙事的游戏，玩家可以分别在两个场景内进行自由的探索，从太空站内部感受独特的建筑氛围美感，或是享受在太空中自由探索翱翔的感觉。本项目在场景搭建，美术氛围营造和物理系统模拟上花费了较大的精力，部分素材均为我们独立建模，同时使用了一系列蓝图模拟以及精确的天文计算来简单的还原了万有引力",
-                "descriptionEn": "A game that focuses on space scene storytelling. Players can freely explore in two different scenarios. They can experience the unique architectural atmosphere of the space station from within, or enjoy the feeling of freely exploring and soaring in space. This project has invested a lot of effort in scene construction, creating the artistic atmosphere, and simulating the physical system. Some of the materials were independently modeled by us, and a series of blueprints and precise astronomical calculations were used to simply restore the law of universal gravitation."
+                "titleEn": "Gravitational Slingshot",
+                "descriptionEn": "A game that focuses on space scene storytelling. Players can freely explore in two different scenarios. They can experience the unique architectural atmosphere of the space station from within, or enjoy the feeling of freely exploring and soaring in space. This project has invested a lot of effort in scene construction, creating the artistic atmosphere, and simulating the physical system. Some of the materials were independently modeled by us, and a series of blueprints and precise astronomical calculations were used to simply restore the law of universal gravitation.",
+                "poster": "./assets/media/vr-2026-projects/posters/project-20.jpg"
           },
           {
                 "id": 21,
