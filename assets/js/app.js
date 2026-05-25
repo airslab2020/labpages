@@ -1196,7 +1196,7 @@
             }
             ${
               video
-                ? `<a class="inline-link" href="${SiteUI.escapeHtml(videoWatchHref(video))}" target="_blank" rel="noreferrer">Open video in a new tab</a>`
+                ? `<a class="inline-link" href="${SiteUI.escapeHtml(videoWatchHref(video))}" target="_blank" rel="noreferrer">Open video in a new tab / 在视频网站打开视频</a>`
                 : `<span class="inline-link vr-project-link-disabled">Video link pending</span>`
             }
           </div>
