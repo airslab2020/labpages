@@ -940,6 +940,15 @@ select {
   font-weight: 700;
 }
 
+.textbook-authors {
+  color: var(--muted);
+}
+
+.textbook-authors strong {
+  color: #171717;
+  font-weight: 800;
+}
+
 .course-offering-list {
   display: flex;
   flex-wrap: wrap;
@@ -1093,6 +1102,94 @@ select {
 
 .vr-project-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.vr-category-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.vr-category-pills a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid rgba(22, 22, 22, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.84);
+  color: #2d2d2b;
+  font-weight: 800;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.vr-category-pills a:hover,
+.vr-category-pills a:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(216, 27, 96, 0.36);
+  box-shadow: 0 14px 26px rgba(216, 27, 96, 0.1);
+  outline: none;
+}
+
+.vr-category-pills strong {
+  display: inline-grid;
+  min-width: 24px;
+  height: 24px;
+  place-items: center;
+  border-radius: 8px;
+  background: #171717;
+  color: #ffffff;
+  font-family: "Exo", sans-serif;
+  font-size: 0.84rem;
+}
+
+.vr-project-category-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 44px;
+}
+
+.vr-project-category {
+  grid-column: 1 / -1;
+  scroll-margin-top: 108px;
+}
+
+.vr-project-category--single {
+  grid-column: auto;
+}
+
+.vr-project-category--single .vr-project-grid {
+  grid-template-columns: 1fr;
+}
+
+.vr-project-category__head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(22, 22, 22, 0.1);
+}
+
+.vr-project-category__head h3 {
+  margin: 0;
+  font-family: "Exo", sans-serif;
+  font-size: clamp(1.7rem, 2.8vw, 2.45rem);
+  line-height: 1;
+}
+
+.vr-project-category__head > span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 8px;
+  background: rgba(15, 118, 110, 0.12);
+  color: #124943;
+  font-weight: 800;
+  white-space: nowrap;
 }
 
 .vr-project-card {
@@ -1409,6 +1506,108 @@ select {
   background: #111111;
 }
 
+.vr-video-trigger {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background:
+    linear-gradient(135deg, rgba(22, 22, 22, 0.92), rgba(48, 48, 45, 0.9)),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.08) 0 2px, transparent 2px 12px);
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+  overflow: hidden;
+}
+
+.vr-video-trigger:hover,
+.vr-video-trigger:focus-visible {
+  outline: none;
+}
+
+.vr-video-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.96;
+  transition: transform 220ms ease, opacity 220ms ease;
+}
+
+.vr-video-trigger:hover .vr-video-poster,
+.vr-video-trigger:focus-visible .vr-video-poster {
+  transform: scale(1.035);
+  opacity: 0.9;
+}
+
+.vr-video-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.44)),
+    radial-gradient(circle at center, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.28));
+}
+
+.vr-video-play {
+  display: inline-grid;
+  width: 62px;
+  height: 62px;
+  place-items: center;
+  justify-self: center;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.22);
+  position: relative;
+  z-index: 1;
+}
+
+.vr-video-play::before {
+  content: "";
+  width: 0;
+  height: 0;
+  margin-left: 5px;
+  border-top: 13px solid transparent;
+  border-bottom: 13px solid transparent;
+  border-left: 20px solid #171717;
+}
+
+.vr-video-label {
+  position: relative;
+  z-index: 1;
+  min-height: 32px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.58);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+.vr-video-frame--empty {
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(135deg, rgba(22, 22, 22, 0.86), rgba(54, 54, 50, 0.92)),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.08) 0 2px, transparent 2px 12px);
+}
+
+.vr-video-placeholder {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 800;
+}
+
 .vr-video-frame iframe {
   position: absolute;
   inset: 0;
@@ -1426,6 +1625,33 @@ select {
   font-family: "Exo", sans-serif;
   font-size: 1.32rem;
   line-height: 1.1;
+}
+
+.vr-project-title-en {
+  margin: 8px 0 0;
+  color: #55524e;
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.32;
+}
+
+.vr-project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.vr-project-tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 9px;
+  border-radius: 8px;
+  background: rgba(216, 27, 96, 0.1);
+  color: #8a1738;
+  font-size: 0.84rem;
+  font-weight: 800;
 }
 
 .vr-author-grid {
@@ -1452,6 +1678,27 @@ select {
 .vr-project-copy .inline-link {
   display: inline-flex;
   margin-top: 12px;
+}
+
+.vr-project-english {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(22, 22, 22, 0.1);
+}
+
+.vr-project-english__label {
+  margin: 0 0 8px;
+  color: #2d2d2b;
+  font-weight: 800;
+}
+
+.vr-project-english p:not(.vr-project-english__label) {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+.vr-project-link-disabled {
+  color: #76716b;
 }
 
 .dataset-card {
@@ -1819,6 +2066,21 @@ select {
 
   .vr-selected-grid {
     grid-template-columns: 1fr;
+  }
+
+  .vr-project-category-list,
+  .vr-project-category--single .vr-project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vr-project-category,
+  .vr-project-category--single {
+    grid-column: auto;
+  }
+
+  .vr-project-category__head {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 

@@ -25,10 +25,22 @@
     return shortMatch ? shortMatch[1] : "";
   }
 
+  function bilibiliVideoId(url) {
+    const value = String(url || "");
+    const queryMatch = value.match(/[?&]bvid=([^?&]+)/i);
+    if (queryMatch) {
+      return queryMatch[1];
+    }
+
+    const pathMatch = value.match(/bilibili\.com\/video\/([^?&/]+)/i);
+    return pathMatch ? pathMatch[1] : "";
+  }
+
   function videoEmbedSrc(url) {
+    const value = String(url || "").trim();
     const id = youtubeVideoId(url);
     if (!id) {
-      return url;
+      return value.startsWith("//") ? `https:${value}` : value;
     }
 
     const params = new URLSearchParams({
@@ -49,7 +61,14 @@
     if (id) {
       return `https://www.youtube.com/watch?v=${encodeURIComponent(id)}`;
     }
-    return url;
+
+    const bvid = bilibiliVideoId(url);
+    if (bvid) {
+      return `https://www.bilibili.com/video/${encodeURIComponent(bvid)}`;
+    }
+
+    const value = String(url || "").trim();
+    return value.startsWith("//") ? `https:${value}` : value;
   }
 
   function externalLinkAttrs(href) {
@@ -304,16 +323,20 @@
           ${sectionHeading("Latest News", "News", '<a class="inline-link" href="./publications.html">Browse papers</a>')}
           <div class="news-grid">
             ${about.news
-              .map(
-                (item) => `
+              .map((item) => {
+                const newsHref = item.href || localPaperHref(item.slug);
+                const newsLinkLabel = item.linkLabel || "Open paper page";
+                return `
                   <article class="panel news-card">
                     <span class="date-pill">${SiteUI.escapeHtml(item.date)}</span>
                     <h3>${SiteUI.escapeHtml(item.title)}</h3>
                     <p>${SiteUI.escapeHtml(item.summary)}</p>
-                    <a class="inline-link" href="${localPaperHref(item.slug)}">Open paper page</a>
+                    <a class="inline-link" href="${SiteUI.escapeHtml(newsHref)}"${externalLinkAttrs(
+                      newsHref
+                    )}>${SiteUI.escapeHtml(newsLinkLabel)}</a>
                   </article>
-                `
-              )
+                `;
+              })
               .join("")}
           </div>
         </div>
@@ -582,7 +605,7 @@
             </div>
           `,
           actions: [
-            { label: "View Courses", href: "./course.html", kind: "secondary" },
+            { label: "View Teaching", href: "./teaching.html", kind: "secondary" },
             { label: "Meet The Team", href: "./team.html", kind: "primary" }
           ]
         },
@@ -760,24 +783,58 @@
     `;
   }
 
+  function textbookLanguageMarkup(textbook, language) {
+    const data = textbook[language] || {};
+    const label = language === "en" ? "English" : "中文";
+    return `
+      <article class="panel course-card textbook-card">
+        <div class="meta-row">
+          <span class="date-pill">${SiteUI.escapeHtml(label)}</span>
+          <span>${SiteUI.escapeHtml(textbook.year || "")}</span>
+          <span>${SiteUI.escapeHtml(data.note || "")}</span>
+        </div>
+        <h3>${SiteUI.escapeHtml(data.title || "")}</h3>
+        <p class="textbook-authors">${richTextPartsMarkup(data.authorsParts, data.authors || "")}</p>
+        <p class="course-school">${SiteUI.escapeHtml(data.publisher || "")}</p>
+      </article>
+    `;
+  }
+
+  function textbookPairMarkup(textbook) {
+    return `
+      <div class="course-pair textbook-pair">
+        ${textbookLanguageMarkup(textbook, "en")}
+        ${textbookLanguageMarkup(textbook, "zh")}
+      </div>
+    `;
+  }
+
   function renderCoursePage() {
     return `
       ${pageHeroMarkup(
         {
-          eyebrow: "Course",
-          title: "Courses for networks, VR, and academic practice.",
+          eyebrow: "Teaching",
+          title: "Teaching, textbooks, and course resources.",
           description:
-            "This page collects recent teaching records, course levels, offering terms, and project links for courses taught by the group.",
+            "This page collects textbooks, recent teaching records, course levels, offering terms, and project links for teaching activities in the group.",
           actions: [{ label: "Back To About", href: "./index.html", kind: "primary" }]
         },
         `
           <div class="aside-card">
-            <p class="eyebrow">Teaching</p>
-            <h3>Course archive and project showcases.</h3>
-            <p>Recent offerings include graduate networking, undergraduate virtual reality, and professional English practice.</p>
+            <p class="eyebrow">Teaching Portfolio</p>
+            <h3>Textbooks, courses, and project showcases.</h3>
+            <p>Recent teaching materials and offerings include software engineering, graduate networking, undergraduate virtual reality, and professional English practice.</p>
           </div>
         `
       )}
+      <section class="section">
+        <div class="shell">
+          ${sectionHeading("Textbooks", "Teaching Materials")}
+          <div class="course-pair-list">
+            ${(SiteContent.textbooks || []).map(textbookPairMarkup).join("")}
+          </div>
+        </div>
+      </section>
       <section class="section">
         <div class="shell">
           ${sectionHeading("Course Offerings", "Teaching Archive")}
@@ -1042,6 +1099,111 @@
 
   function renderVRShowcase2026Page() {
     const showcase = SiteContent.vrShowcase2026;
+    const projects = showcase.projects || [];
+    const groups = [];
+    const groupByCategory = new Map();
+
+    projects.forEach((project) => {
+      const category = project.category || (project.tags && project.tags[0]) || "Uncategorized";
+      if (!groupByCategory.has(category)) {
+        const group = {
+          id: `vr-category-${groups.length + 1}`,
+          category,
+          projects: []
+        };
+        groupByCategory.set(category, group);
+        groups.push(group);
+      }
+      groupByCategory.get(category).projects.push(project);
+    });
+
+    const preferredCategoryOrder = [
+      "文化",
+      "文化体验",
+      "红色教育",
+      "心理恐怖游戏",
+      "心理恐怖",
+      "微恐RPG游戏",
+      "情感叙事",
+      "人文关怀",
+      "音乐疗愈",
+      "治愈疗愈",
+      "解谜密室",
+      "沉浸式体验",
+      "运动游戏",
+      "jrpg",
+      "教育培训",
+      "安全教育",
+      "反诈骗",
+      "环境保护",
+      "游戏化环保教育"
+    ];
+    const categoryOrderIndex = new Map(preferredCategoryOrder.map((category, index) => [category, index]));
+    groups.sort((a, b) => {
+      const aOrder = categoryOrderIndex.has(a.category) ? categoryOrderIndex.get(a.category) : Number.MAX_SAFE_INTEGER;
+      const bOrder = categoryOrderIndex.has(b.category) ? categoryOrderIndex.get(b.category) : Number.MAX_SAFE_INTEGER;
+      if (aOrder !== bOrder) {
+        return aOrder - bOrder;
+      }
+      return a.category.localeCompare(b.category, "zh-Hans-CN");
+    });
+
+    const projectCardMarkup = (project, index) => {
+      const video = String(project.video || "").trim();
+      const poster = String(project.poster || "").trim();
+      const tags = project.tags && project.tags.length ? project.tags : [project.category || "VR Project"];
+      return `
+        <article class="panel vr-project-card">
+          <div class="vr-video-frame${video ? "" : " vr-video-frame--empty"}">
+            ${
+              video
+                ? `<button
+                    class="vr-video-trigger"
+                    type="button"
+                    data-video-src="${SiteUI.escapeHtml(videoEmbedSrc(video))}"
+                    data-video-title="${SiteUI.escapeHtml(project.title)} video"
+                    aria-label="Play video: ${SiteUI.escapeHtml(project.title)}">
+                    ${
+                      poster
+                        ? `<img class="vr-video-poster" src="${SiteUI.escapeHtml(poster)}" alt="" loading="lazy" decoding="async">`
+                        : ""
+                    }
+                    <span class="vr-video-overlay" aria-hidden="true"></span>
+                    <span class="vr-video-play" aria-hidden="true"></span>
+                    <span class="vr-video-label">Play video</span>
+                  </button>`
+                : `<div class="vr-video-placeholder">Video link pending</div>`
+            }
+          </div>
+          <div class="vr-project-copy">
+            <p class="eyebrow">Project ${String(project.id || index + 1).padStart(2, "0")}</p>
+            <h3>${SiteUI.escapeHtml(project.title)}</h3>
+            ${project.titleEn ? `<p class="vr-project-title-en">${SiteUI.escapeHtml(project.titleEn)}</p>` : ""}
+            <div class="vr-project-tags">
+              ${tags.map((tag) => `<span>${SiteUI.escapeHtml(tag)}</span>`).join("")}
+            </div>
+            <div class="vr-author-grid">
+              ${(project.authors || []).map((author) => `<span>${SiteUI.escapeHtml(author)}</span>`).join("")}
+            </div>
+            <p>${SiteUI.escapeHtml(project.description || "")}</p>
+            ${
+              project.descriptionEn
+                ? `<div class="vr-project-english">
+                    <p class="vr-project-english__label">English introduction</p>
+                    <p>${SiteUI.escapeHtml(project.descriptionEn)}</p>
+                  </div>`
+                : ""
+            }
+            ${
+              video
+                ? `<a class="inline-link" href="${SiteUI.escapeHtml(videoWatchHref(video))}" target="_blank" rel="noreferrer">Open video in a new tab</a>`
+                : `<span class="inline-link vr-project-link-disabled">Video link pending</span>`
+            }
+          </div>
+        </article>
+      `;
+    };
+
     return `
       ${pageHeroMarkup(
         {
@@ -1052,7 +1214,7 @@
             <p>${SiteUI.escapeHtml(showcase.description)}</p>
           `,
           actions: [
-            { label: "Back To Courses", href: "./course.html", kind: "primary" },
+            { label: "Back To Teaching", href: "./teaching.html", kind: "primary" },
             { label: "Meet The Team", href: "./team.html", kind: "secondary" }
           ]
         },
@@ -1060,7 +1222,7 @@
           <div class="aside-card">
             <p class="eyebrow">Projects</p>
             <h3>${SiteUI.escapeHtml(showcase.title)}</h3>
-            <p>Student demos are collected as embedded videos with team information and short project notes for the 2026 Spring Virtual Reality Technology course.</p>
+            <p>${projects.length} student demos are grouped into ${groups.length} categories, with team members, tags, short notes, and embedded videos.</p>
           </div>
         `
       )}
@@ -1094,32 +1256,35 @@
       </section>
       <section class="section">
         <div class="shell">
-          ${sectionHeading("Project Videos", "2026 Spring")}
-          <div class="vr-project-grid">
-            ${showcase.projects
+          ${sectionHeading("Project Categories", "2026 Spring")}
+          <div class="vr-category-pills">
+            ${groups
               .map(
-                (project, index) => `
-                  <article class="panel vr-project-card">
-                    <div class="vr-video-frame">
-                      <iframe
-                        src="${SiteUI.escapeHtml(videoEmbedSrc(project.video))}"
-                        title="${SiteUI.escapeHtml(project.title)} video"
-                        loading="lazy"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen>
-                      </iframe>
-                    </div>
-                    <div class="vr-project-copy">
-                      <p class="eyebrow">Project ${String(index + 1).padStart(2, "0")}</p>
-                      <h3>${SiteUI.escapeHtml(project.title)}</h3>
-                      <div class="vr-author-grid">
-                        ${(project.authors || []).map((author) => `<span>${SiteUI.escapeHtml(author)}</span>`).join("")}
+                (group) => `<a href="#${group.id}"><span>${SiteUI.escapeHtml(group.category)}</span><strong>${group.projects.length}</strong></a>`
+              )
+              .join("")}
+          </div>
+        </div>
+      </section>
+      <section class="section section-muted">
+        <div class="shell">
+          ${sectionHeading("Project Videos", "Grouped By Category")}
+          <div class="vr-project-category-list">
+            ${groups
+              .map(
+                (group, groupIndex) => `
+                  <section class="vr-project-category${group.projects.length === 1 ? " vr-project-category--single" : ""}" id="${group.id}">
+                    <div class="vr-project-category__head">
+                      <div>
+                        <p class="eyebrow">Category ${String(groupIndex + 1).padStart(2, "0")}</p>
+                        <h3>${SiteUI.escapeHtml(group.category)}</h3>
                       </div>
-                      <p>${SiteUI.escapeHtml(project.description)}</p>
-                      <a class="inline-link" href="${SiteUI.escapeHtml(videoWatchHref(project.video))}" target="_blank" rel="noreferrer">Open video in a new tab</a>
+                      <span>${group.projects.length} project${group.projects.length > 1 ? "s" : ""}</span>
                     </div>
-                  </article>
+                    <div class="vr-project-grid">
+                      ${group.projects.map(projectCardMarkup).join("")}
+                    </div>
+                  </section>
                 `
               )
               .join("")}
@@ -1156,7 +1321,7 @@
             <p>This page first records the final paper selections made by 29 student groups, then collects the broader VR reading references from CHI 2025, CHI 2024, UIST 2025, and UIST 2024 for the Virtual Reality Technology course.</p>
           `,
           actions: [
-            { label: "Back To Courses", href: "./course.html", kind: "primary" },
+            { label: "Back To Teaching", href: "./teaching.html", kind: "primary" },
             { label: "Project Showcase", href: "./vr-2026-projects.html", kind: "secondary" }
           ]
         },
@@ -1310,7 +1475,7 @@
             <p>${SiteUI.escapeHtml(courseZh.overview || "")}</p>
             <p>${SiteUI.escapeHtml(config.description)}</p>
           `,
-          actions: [{ label: "Back To Courses", href: "./course.html", kind: "primary" }]
+          actions: [{ label: "Back To Teaching", href: "./teaching.html", kind: "primary" }]
         },
         `
           <div class="aside-card">
@@ -1525,6 +1690,42 @@
     }
   }
 
+  function createProjectVideoIframe(src, title) {
+    const iframe = document.createElement("iframe");
+    iframe.src = src;
+    iframe.title = title || "Project video";
+    iframe.loading = "lazy";
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    iframe.referrerPolicy = "strict-origin-when-cross-origin";
+    iframe.setAttribute("allowfullscreen", "");
+    iframe.allowFullscreen = true;
+    return iframe;
+  }
+
+  function setupVRProjectVideos(shell) {
+    shell.addEventListener("click", (event) => {
+      const trigger = event.target.closest(".vr-video-trigger");
+      if (!trigger || !shell.contains(trigger)) {
+        return;
+      }
+
+      const src = trigger.dataset.videoSrc;
+      if (!src) {
+        return;
+      }
+
+      const frame = trigger.closest(".vr-video-frame");
+      if (!frame) {
+        return;
+      }
+
+      const title = trigger.dataset.videoTitle || trigger.getAttribute("aria-label") || "Project video";
+      frame.textContent = "";
+      frame.classList.add("is-loaded");
+      frame.appendChild(createProjectVideoIframe(src, title.replace(/^Play video: /, "")));
+    });
+  }
+
   function setupNavToggle(shell) {
     const toggle = shell.querySelector(".nav-toggle");
     const nav = shell.querySelector(".site-nav");
@@ -1611,6 +1812,10 @@
 
     if (page === "dataset") {
       setupDatasetCards(shell);
+    }
+
+    if (page === "vr-2026-projects") {
+      setupVRProjectVideos(shell);
     }
   }
 
