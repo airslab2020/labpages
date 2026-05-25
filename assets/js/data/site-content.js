@@ -1167,7 +1167,7 @@
           {
                 "id": 19,
                 "title": "好久不见",
-                "video": "https://www.youtube.com/embed/xCh02KxLiUg?si=Lkh1nNUps3EV2yk9",
+                "video": "https://player.bilibili.com/player.html?isOutside=true&aid=116635709015951&bvid=BV1jrGo6REBg&cid=38608767434&p=1",
                 "authors": [
                       "游坤 / You Kun",
                       "张子扬 / Zhang Ziyang",
