@@ -100,6 +100,13 @@
     news: [
       {
         date: "May 2026",
+        title: "Purify-then-Align accepted to A2A-MML | CVPR 2026",
+        summary:
+          "Purify-then-Align studies robust human sensing under modality missing by distilling knowledge from noisy multimodal teachers, and has been accepted to the CVPR 2026 Workshop on Any-to-Any Multimodal Learning.",
+        slug: "purify-then-align-towards-robust-human-sensing-under-modality-missing-with-knowledge-distillation-from-noisy-multimodal-teacher"
+      },
+      {
+        date: "May 2026",
         title: "2026 Spring Virtual Reality course project showcase is online",
         summary:
           "The showcase presents 29 student-built VR final projects across cultural heritage, environmental protection, safety education, psychology, healing experiences, and immersive games.",
