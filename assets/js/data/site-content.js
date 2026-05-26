@@ -787,7 +787,7 @@
         role: "助教 / TA",
         name: "张婷婷",
         englishName: "Tingting Zhang",
-        photo: "./assets/media/people/vr-tingting-zhang.jpg",
+        photo: "./assets/media/people/vr-tingting-zhang-2025.jpg",
         href: "https://scholar.google.com/citations?user=R7kxvQkAAAAJ"
       },
       {
