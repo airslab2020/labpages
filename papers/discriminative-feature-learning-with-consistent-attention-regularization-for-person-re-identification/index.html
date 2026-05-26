@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Discriminative Feature Learning With Consistent Attention Regularization for Person Re-Identification - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="This ICCV 2019 paper improves person re-identification by regularizing attention across feature levels so the network learns foreground-focused pedestrian representations.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -38,12 +38,12 @@
             <span class="paper-pill">LLM Systems</span>
             <span class="paper-pill">XJTU AIRS Lab</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">This ICCV 2019 paper improves person re-identification by regularizing attention across feature levels so the network learns foreground-focused pedestrian representations.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
             
             
-            
+            <a class="paper-link-chip" href="./assets/paper.pdf">Paper</a>
             
             
           </div>
@@ -84,21 +84,24 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>Person re-identification is sensitive to target misalignment and background clutter. This paper addresses those issues with a feed-forward attention network that encourages consistent foreground attention across low-, mid-, and high-level feature maps.</p>
+<p>The key idea is that lower layers should already be guided toward pedestrian foreground regions, so higher layers receive cleaner and more discriminative evidence.</p>
 <h2>Main Contributions</h2>
 <ul>
-<li>Research theme: LLM Systems.</li>
-<li>Published at ICCV 2019.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li>Introduces a consistent attention regularizer for foreground-focused Re-ID feature learning.</li>
+<li>Combines attention regularization with an improved triplet loss for stronger class separation.</li>
+<li>Evaluates on standard Re-ID datasets including Market1501, DukeMTMC-reID, and CUHK03.</li>
 </ul>
 <h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
+<p>The regularizer aligns foreground masks inferred from multiple network depths. This makes attention less accidental: the network is encouraged to suppress background clutter throughout the feature hierarchy.</p>
+<p>The improved triplet loss complements attention by tightening intra-class distances and enlarging inter-class distances within triplet units.</p>
 <h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<p>The paper reports competitive or improved performance over then-state-of-the-art Re-ID methods on major benchmarks. The qualitative motivation is also clear: foreground-consistent attention helps the final embedding emphasize pedestrians instead of camera-specific background artifacts.</p>
 <h2>Resources</h2>
 <ul>
+<li><a href="./assets/paper.pdf">Local PDF</a></li>
+<li><a href="https://openaccess.thecvf.com/content_ICCV_2019/html/Zhou_Discriminative_Feature_Learning_With_Consistent_Attention_Regularization_for_Person_Re-Identification_ICCV_2019_paper.html">Online paper page</a></li>
 <li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@inproceedings{discriminative-feature-learning-with-consistent-attention-regularization-for-person-re-identification,

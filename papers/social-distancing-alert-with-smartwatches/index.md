@@ -2,34 +2,40 @@
 title: Social distancing alert with smartwatches
 authors: X Wang, X Wu, H Meng, Y Fan, J Shi, H Ding, F Wang
 institution: XJTU AIRS Lab
-summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
+summary: SoDA is a smartwatch-based system for detecting social-distancing violation behaviors such as handshakes or hugs from wrist IMU signals.
 cover: ./assets/cover.svg
 coverAlt: Cover image for Social distancing alert with smartwatches
 eyebrow: Publication
+paper: ./assets/paper.pdf
 ---
 
 # Overview
 
-This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
+This paper explores whether smartwatches can identify social activities that may violate distancing practice. The motivation is that people often break distancing rules during routine interactions without noticing.
+
+SoDA recognizes relevant interaction gestures from accelerometer and gyroscope data, using a vision-Transformer-style model adapted to wearable time series.
 
 ## Main Contributions
 
-- Research theme: Efficient AI Systems.
-- Published at arXiv preprint arXiv:2205.06110, 2022.
-- Replace these generated bullets with the paper's actual core contributions and experimental findings.
+- Introduces a smartwatch alert system for social-distancing violation behaviors.
+- Uses wrist IMU data rather than cameras or proximity-only sensors.
+- Evaluates gesture recognition on data from 10 volunteers and more than 1,800 samples.
 
 ## Technical Details
 
-Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.
+The system focuses on activity patterns such as handshaking and hugging, where wrist motion provides a direct signal. By analyzing inertial sequences, SoDA can issue reminders in a privacy-preserving and lightweight way.
+
+The method is representative of pandemic-era wearable sensing: it translates public-health rules into detectable motion events.
 
 ## Results
 
-Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.
+The experiments report strong recognition performance for the target violation activities. The main deployment lesson is that common smartwatches can support context-aware alerts without requiring additional infrastructure.
 
 ## Resources
 
+- [Local PDF](./assets/paper.pdf)
+- [Online paper page](https://arxiv.org/abs/2205.06110)
 - [Cover image](./assets/cover.svg)
-- Add figures, PDFs, posters, or demos to the local `./assets/` folder when they are ready.
 
 ## Citation
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Temporal unet: Sample level human action recognition using wifi - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="Temporal U-Net extends Wi-Fi human action recognition from whole-sequence labels to sample-level temporal labeling, enabling finer action localization in CSI streams.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -38,12 +38,12 @@
             <span class="paper-pill">Ubiquitous Sensing</span>
             <span class="paper-pill">XJTU AIRS Lab</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">Temporal U-Net extends Wi-Fi human action recognition from whole-sequence labels to sample-level temporal labeling, enabling finer action localization in CSI streams.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
             
             
-            
+            <a class="paper-link-chip" href="./assets/paper.pdf">Paper</a>
             
             
           </div>
@@ -84,21 +84,24 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>Most early Wi-Fi action recognition systems classify an entire CSI distortion sequence as one action. This paper studies a finer problem: assigning an action label to each sample in the sequence.</p>
+<p>Temporal U-Net adapts the U-Net idea to Wi-Fi time series so the model can combine local temporal evidence with broader sequence context for dense action labeling.</p>
 <h2>Main Contributions</h2>
 <ul>
-<li>Research theme: Efficient AI Systems.</li>
-<li>Published at arXiv preprint arXiv:1904.11953, 2019.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li>Introduces sample-level Wi-Fi action recognition as a fine-grained sensing task.</li>
+<li>Adapts an encoder-decoder U-Net structure to temporal CSI sequences.</li>
+<li>Supports action localization and continuous activity understanding rather than only whole-window classification.</li>
 </ul>
 <h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
+<p>The model uses downsampling and upsampling over time to capture both short-term signal changes and longer action context. This is important because adjacent CSI samples are correlated, while action boundaries may still require global context.</p>
+<p>The problem formulation is useful for continuous sensing scenarios where actions do not arrive as neatly segmented clips.</p>
 <h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<p>The experiments show that temporal dense labeling is feasible with Wi-Fi CSI. The paper contributes both a task shift and an architecture baseline for later continuous Wi-Fi sensing work.</p>
 <h2>Resources</h2>
 <ul>
+<li><a href="./assets/paper.pdf">Local PDF</a></li>
+<li><a href="https://arxiv.org/abs/1904.11953">Online paper page</a></li>
 <li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@inproceedings{temporal-unet-sample-level-human-action-recognition-using-wifi,

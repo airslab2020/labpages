@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Social distancing alert with smartwatches - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="SoDA is a smartwatch-based system for detecting social-distancing violation behaviors such as handshakes or hugs from wrist IMU signals.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -38,12 +38,12 @@
             <span class="paper-pill">Efficient AI Systems</span>
             <span class="paper-pill">XJTU AIRS Lab</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">SoDA is a smartwatch-based system for detecting social-distancing violation behaviors such as handshakes or hugs from wrist IMU signals.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
             
             
-            
+            <a class="paper-link-chip" href="./assets/paper.pdf">Paper</a>
             
             
           </div>
@@ -84,21 +84,24 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>This paper explores whether smartwatches can identify social activities that may violate distancing practice. The motivation is that people often break distancing rules during routine interactions without noticing.</p>
+<p>SoDA recognizes relevant interaction gestures from accelerometer and gyroscope data, using a vision-Transformer-style model adapted to wearable time series.</p>
 <h2>Main Contributions</h2>
 <ul>
-<li>Research theme: Efficient AI Systems.</li>
-<li>Published at arXiv preprint arXiv:2205.06110, 2022.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li>Introduces a smartwatch alert system for social-distancing violation behaviors.</li>
+<li>Uses wrist IMU data rather than cameras or proximity-only sensors.</li>
+<li>Evaluates gesture recognition on data from 10 volunteers and more than 1,800 samples.</li>
 </ul>
 <h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
+<p>The system focuses on activity patterns such as handshaking and hugging, where wrist motion provides a direct signal. By analyzing inertial sequences, SoDA can issue reminders in a privacy-preserving and lightweight way.</p>
+<p>The method is representative of pandemic-era wearable sensing: it translates public-health rules into detectable motion events.</p>
 <h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<p>The experiments report strong recognition performance for the target violation activities. The main deployment lesson is that common smartwatches can support context-aware alerts without requiring additional infrastructure.</p>
 <h2>Resources</h2>
 <ul>
+<li><a href="./assets/paper.pdf">Local PDF</a></li>
+<li><a href="https://arxiv.org/abs/2205.06110">Online paper page</a></li>
 <li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@inproceedings{social-distancing-alert-with-smartwatches,

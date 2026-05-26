@@ -2,34 +2,40 @@
 title: Joint activity recognition and indoor localization with WiFi fingerprints
 authors: F Wang, J Feng, Y Zhao, X Zhang, S Zhang, J Han
 institution: XJTU AIRS Lab
-summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
+summary: This paper builds a dual-task Wi-Fi CSI framework that recognizes human activities and estimates indoor location from the same Wi-Fi fingerprint stream.
 cover: ./assets/cover.svg
 coverAlt: Cover image for Joint activity recognition and indoor localization with WiFi fingerprints
 eyebrow: Publication
+paper: ./assets/paper.pdf
 ---
 
 # Overview
 
-This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
+Wi-Fi sensing is often split into activity recognition and indoor localization, although both tasks depend on how human behavior and position shape CSI fingerprints. This paper studies them jointly.
+
+The system collects CSI fingerprints under standard 802.11n Wi-Fi and trains a dual-task 1D convolutional network to infer both the current activity and the indoor location.
 
 ## Main Contributions
 
-- Research theme: Efficient AI Systems.
-- Published at Ieee Access 7, 80058-80068, 2019.
-- Replace these generated bullets with the paper's actual core contributions and experimental findings.
+- Formulates joint Wi-Fi activity recognition and indoor localization from CSI fingerprints.
+- Collects more than 1,400 CSI samples covering 6 activities and 16 indoor locations.
+- Uses a dual-task 1D convolutional network and releases data/code for reproducibility.
 
 ## Technical Details
 
-Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.
+The input is a time-series Wi-Fi fingerprint rather than an image or specialized radar measurement. A 1D CNN is a natural fit because it can model channel-level temporal patterns while staying relatively lightweight.
+
+The dual-task design encourages shared features to support both what the person is doing and where the person is located.
 
 ## Results
 
-Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.
+Experiments and ablation studies show that joint learning is effective for this Wi-Fi sensing setup. The paper is especially useful as an early reproducible baseline because it provides both data and code.
 
 ## Resources
 
+- [Local PDF](./assets/paper.pdf)
+- [Online paper page](https://arxiv.org/abs/1904.04964)
 - [Cover image](./assets/cover.svg)
-- Add figures, PDFs, posters, or demos to the local `./assets/` folder when they are ready.
 
 ## Citation
 

@@ -2,34 +2,40 @@
 title: Mask wearing status estimation with smartwatches
 authors: H Meng, X Wu, X Wang, Y Fan, J Shi, H Ding, F Wang
 institution: XJTU AIRS Lab
-summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
+summary: MaskReminder uses smartwatch IMU readings and an MLP-Mixer model to infer mask-wearing related actions and remind users when mask usage may be missing or incorrect.
 cover: ./assets/cover.svg
 coverAlt: Cover image for Mask wearing status estimation with smartwatches
 eyebrow: Publication
+paper: ./assets/paper.pdf
 ---
 
 # Overview
 
-This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
+This paper studies a public-health sensing task with commodity smartwatches. Instead of requiring cameras or manual reporting, MaskReminder recognizes hand and arm motions associated with wearing, adjusting, or removing a mask.
+
+The system uses inertial readings from the watch and a lightweight deep model to capture both short-term gestures and longer temporal patterns.
 
 ## Main Contributions
 
-- Research theme: Efficient AI Systems.
-- Published at arXiv preprint arXiv:2205.06113, 2022.
-- Replace these generated bullets with the paper's actual core contributions and experimental findings.
+- Builds a smartwatch-based mask-wearing status estimation system.
+- Uses IMU signals to recognize mask-related gestures without camera sensing.
+- Evaluates the system on data from 20 volunteers and more than 8,000 samples.
 
 ## Technical Details
 
-Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.
+The paper models mask status through related hand movements, such as wearing a mask or adjusting mask straps. This turns the problem into temporal gesture recognition over accelerometer and gyroscope readings.
+
+The MLP-Mixer design is used to learn temporal and channel-wise patterns from wearable sensor streams, keeping the system practical for smartwatch deployment.
 
 ## Results
 
-Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.
+The paper reports an average recognition accuracy of about 89% on its collected dataset. The result suggests that low-cost wrist sensing can support useful reminders in scenarios where camera-based monitoring would be intrusive.
 
 ## Resources
 
+- [Local PDF](./assets/paper.pdf)
+- [Online paper page](https://arxiv.org/abs/2205.06113)
 - [Cover image](./assets/cover.svg)
-- Add figures, PDFs, posters, or demos to the local `./assets/` folder when they are ready.
 
 ## Citation
 

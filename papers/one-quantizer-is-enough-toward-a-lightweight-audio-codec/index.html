@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>One Quantizer is Enough: Toward a Lightweight Audio Codec - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="L3AC is a lightweight neural audio codec that simplifies the usual multi-quantizer codec design into a single-quantizer architecture while keeping reconstruction quality practical for audio tokenization and compression.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -38,12 +38,12 @@
             <span class="paper-pill">Compression &amp; Quantization</span>
             <span class="paper-pill">XJTU AIRS Lab</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">L3AC is a lightweight neural audio codec that simplifies the usual multi-quantizer codec design into a single-quantizer architecture while keeping reconstruction quality practical for audio tokenization and compression.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
             
             
-            
+            <a class="paper-link-chip" href="./assets/paper.pdf">Paper</a>
             
             
           </div>
@@ -84,21 +84,24 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>This paper studies neural audio codecs from a deployment-oriented perspective. Instead of relying on a heavy encoder-decoder stack and several residual quantizers, the work asks how far a compact model can go with one quantizer and carefully chosen local modeling blocks.</p>
+<p>The proposed system, L3AC, combines streamlined convolutional components, local Transformer-style modules, and a TConv structure for acoustic pattern modeling. The result is a codec intended to be easier to run and easier to use as a tokenizer for downstream generative audio models.</p>
 <h2>Main Contributions</h2>
 <ul>
-<li>Research theme: Compression &amp; Quantization.</li>
-<li>Published at arXiv preprint arXiv:2504.04949, 2025.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li>Reduces codec complexity by replacing multi-quantizer designs with a single-quantizer pipeline.</li>
+<li>Uses a lightweight architecture that mixes convolutional processing with local sequence modeling for audio reconstruction.</li>
+<li>Frames audio codec design as both a compression problem and an infrastructure problem for generative audio tokenization.</li>
 </ul>
 <h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
+<p>L3AC keeps the codec pipeline compact: the model learns discrete audio representations through one quantizer, then reconstructs waveform content through efficient neural decoding blocks. The design emphasizes local acoustic structure, which is important because audio quality depends on fine temporal details as well as broader context.</p>
+<p>The paper is useful for the lab archive because it connects compression, representation learning, and deployable generative media systems.</p>
 <h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<p>The experiments compare reconstruction quality and model efficiency against stronger but heavier neural codec baselines. The main takeaway is that careful architecture design can recover much of the quality normally associated with more complex quantization stacks while reducing implementation and runtime cost.</p>
 <h2>Resources</h2>
 <ul>
+<li><a href="./assets/paper.pdf">Local PDF</a></li>
+<li><a href="https://arxiv.org/abs/2504.04949">Online paper page</a></li>
 <li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@inproceedings{one-quantizer-is-enough-toward-a-lightweight-audio-codec,

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SE2Net: Siamese edge-enhancement network for salient object detection - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="SE2Net improves salient object detection by adding edge-enhancement supervision through a Siamese-style multi-stage network.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -38,12 +38,12 @@
             <span class="paper-pill">Efficient AI Systems</span>
             <span class="paper-pill">XJTU AIRS Lab</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">SE2Net improves salient object detection by adding edge-enhancement supervision through a Siamese-style multi-stage network.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
             
             
-            
+            <a class="paper-link-chip" href="./assets/paper.pdf">Paper</a>
             
             
           </div>
@@ -84,21 +84,24 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>Deep salient object detectors often produce strong pixel responses but can lose object boundaries because pooling and striding remove spatial details. SE2Net addresses this by explicitly preserving edge structure.</p>
+<p>The method aggregates low-level and high-level features through a Siamese edge-enhancement network, making boundary information part of the saliency prediction process.</p>
 <h2>Main Contributions</h2>
 <ul>
-<li>Research theme: Efficient AI Systems.</li>
-<li>Published at arXiv preprint arXiv:1904.00048, 2019.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li>Introduces a Siamese Edge-Enhancement Network for salient object detection.</li>
+<li>Combines low-level edge detail with high-level semantic features across multiple stages.</li>
+<li>Targets sharper object boundaries and more spatially coherent saliency maps.</li>
 </ul>
 <h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
+<p>SE2Net treats edge structure as a first-class signal. Low-level features provide boundary cues, while high-level features identify salient regions; the Siamese design helps these cues reinforce one another.</p>
+<p>This page archives the paper as a vision example of structural detail preservation, a theme that also appears in sensing and reconstruction tasks.</p>
 <h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<p>The paper evaluates the method on salient object detection benchmarks and reports improvements in both quantitative metrics and boundary quality. The qualitative results emphasize cleaner object contours.</p>
 <h2>Resources</h2>
 <ul>
+<li><a href="./assets/paper.pdf">Local PDF</a></li>
+<li><a href="https://arxiv.org/abs/1904.00048">Online paper page</a></li>
 <li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@inproceedings{se2net-siamese-edge-enhancement-network-for-salient-object-detection,

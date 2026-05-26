@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Learning Attention from Attention: Efficient Self-Refinement Transformer for Face Super-Resolution - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="This IJCAI 2023 paper improves face super-resolution by using attention itself as a refinement signal, helping the model focus on useful facial texture rather than irrelevant regions.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -38,12 +38,12 @@
             <span class="paper-pill">LLM Systems</span>
             <span class="paper-pill">XJTU AIRS Lab</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">This IJCAI 2023 paper improves face super-resolution by using attention itself as a refinement signal, helping the model focus on useful facial texture rather than irrelevant regions.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
             
             
-            
+            <a class="paper-link-chip" href="./assets/paper.pdf">Paper</a>
             
             
           </div>
@@ -84,21 +84,24 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>Transformer-based face super-resolution benefits from long-range dependencies, but unconstrained global attention may also bring in irrelevant texture and blur. Local-window attention avoids some noise but can miss broader facial structure.</p>
+<p>The paper proposes an efficient self-refinement Transformer that learns attention from attention, allowing the network to adaptively emphasize texture-related information for high-quality face reconstruction.</p>
 <h2>Main Contributions</h2>
 <ul>
-<li>Research theme: LLM Systems.</li>
-<li>Published at IJCAI 2023.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li>Addresses the tension between global context and local texture recovery in face super-resolution.</li>
+<li>Introduces a self-refinement mechanism that uses attention maps to guide more focused attention.</li>
+<li>Evaluates the design against face super-resolution baselines with emphasis on sharper facial details.</li>
 </ul>
 <h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
+<p>The method refines attention rather than treating attention weights as a one-shot output. This makes the Transformer more selective: flat or uninformative regions do not dominate the search space, while facial texture and high-frequency details receive more modeling capacity.</p>
+<p>The design is efficient because it improves the use of attention instead of simply expanding the attention region or stacking heavier blocks.</p>
 <h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<p>The paper reports improvements in face reconstruction quality and visual detail over representative face super-resolution approaches. The ablations emphasize that attention refinement contributes directly to sharper and more faithful facial texture.</p>
 <h2>Resources</h2>
 <ul>
+<li><a href="./assets/paper.pdf">Local PDF</a></li>
+<li><a href="https://www.ijcai.org/proceedings/2023/0115">Online paper page</a></li>
 <li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@inproceedings{learning-attention-from-attention-efficient-self-refinement-transformer-for-face-super-resolution,

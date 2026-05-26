@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>What&#39;s on Your Plate? Inferring Chinese Cuisine Intake from Wearable IMUs - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="CuisineSense uses smartwatch and smart-glasses IMU signals to infer Chinese cuisine intake while avoiding the privacy issues of camera-based dietary monitoring.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -38,12 +38,12 @@
             <span class="paper-pill">Ubiquitous Sensing</span>
             <span class="paper-pill">XJTU AIRS Lab</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">CuisineSense uses smartwatch and smart-glasses IMU signals to infer Chinese cuisine intake while avoiding the privacy issues of camera-based dietary monitoring.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
             
             
-            
+            <a class="paper-link-chip" href="./assets/paper.pdf">Paper</a>
             
             
           </div>
@@ -84,25 +84,28 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>This paper targets dietary monitoring, especially the gap between common wearable food-intake studies and the diversity of Chinese cuisine. The system avoids image capture and instead uses motion cues from wrist and head-worn IMUs.</p>
+<p>CuisineSense treats food intake as a two-stage sensing problem: first distinguish eating from irrelevant daily activities, then infer food categories from the motion patterns involved in consuming different dishes.</p>
 <h2>Main Contributions</h2>
 <ul>
-<li>Research theme: Efficient AI Systems.</li>
-<li>Published at arXiv preprint arXiv:2511.05292, 2025.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li>Introduces a wearable sensing pipeline for Chinese cuisine intake recognition without using cameras.</li>
+<li>Combines hand motion from a smartwatch with head dynamics from smart glasses to capture richer eating behavior.</li>
+<li>Uses a two-stage design so unrelated daily activities are filtered before fine-grained food classification.</li>
 </ul>
 <h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
+<p>The system is built around commodity wearable IMUs. Wrist motion captures utensil and hand movement, while head motion helps distinguish eating gestures and meal patterns that are ambiguous from the wrist alone.</p>
+<p>The two-stage pipeline is important for deployment: an always-on recognizer must avoid confusing ordinary activities with eating, then perform category recognition only when food-intake behavior is likely.</p>
 <h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<p>The paper reports experiments on Chinese cuisine categories and daily-activity interference. The results support the central claim that multimodal wearable IMU sensing can provide a privacy-preserving alternative to self-reports and cameras for diet tracking.</p>
 <h2>Resources</h2>
 <ul>
+<li><a href="./assets/paper.pdf">Local PDF</a></li>
+<li><a href="https://arxiv.org/abs/2511.05292">Online paper page</a></li>
 <li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@inproceedings{what-s-on-your-plate-inferring-chinese-cuisine-intake-from-wearable-imus,
-  title = {What's on Your Plate? Inferring Chinese Cuisine Intake from Wearable IMUs},
+  title = {What&#39;s on Your Plate? Inferring Chinese Cuisine Intake from Wearable IMUs},
   author = {J Yin and P Wang and H Ding and F Wang},
   booktitle = {arXiv preprint arXiv:2511.05292, 2025},
   year = {2025}

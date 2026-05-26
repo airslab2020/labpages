@@ -2,34 +2,40 @@
 title: Learning Attention from Attention: Efficient Self-Refinement Transformer for Face Super-Resolution
 authors: Guanxin Li, Jingang Shi#, Yuan Zong, Fei Wang, Tian Wang, Yihong Gong
 institution: XJTU AIRS Lab
-summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
+summary: This IJCAI 2023 paper improves face super-resolution by using attention itself as a refinement signal, helping the model focus on useful facial texture rather than irrelevant regions.
 cover: ./assets/cover.svg
 coverAlt: Cover image for Learning Attention from Attention: Efficient Self-Refinement Transformer for Face Super-Resolution
 eyebrow: Publication
+paper: ./assets/paper.pdf
 ---
 
 # Overview
 
-This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
+Transformer-based face super-resolution benefits from long-range dependencies, but unconstrained global attention may also bring in irrelevant texture and blur. Local-window attention avoids some noise but can miss broader facial structure.
+
+The paper proposes an efficient self-refinement Transformer that learns attention from attention, allowing the network to adaptively emphasize texture-related information for high-quality face reconstruction.
 
 ## Main Contributions
 
-- Research theme: LLM Systems.
-- Published at IJCAI 2023.
-- Replace these generated bullets with the paper's actual core contributions and experimental findings.
+- Addresses the tension between global context and local texture recovery in face super-resolution.
+- Introduces a self-refinement mechanism that uses attention maps to guide more focused attention.
+- Evaluates the design against face super-resolution baselines with emphasis on sharper facial details.
 
 ## Technical Details
 
-Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.
+The method refines attention rather than treating attention weights as a one-shot output. This makes the Transformer more selective: flat or uninformative regions do not dominate the search space, while facial texture and high-frequency details receive more modeling capacity.
+
+The design is efficient because it improves the use of attention instead of simply expanding the attention region or stacking heavier blocks.
 
 ## Results
 
-Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.
+The paper reports improvements in face reconstruction quality and visual detail over representative face super-resolution approaches. The ablations emphasize that attention refinement contributes directly to sharper and more faithful facial texture.
 
 ## Resources
 
+- [Local PDF](./assets/paper.pdf)
+- [Online paper page](https://www.ijcai.org/proceedings/2023/0115)
 - [Cover image](./assets/cover.svg)
-- Add figures, PDFs, posters, or demos to the local `./assets/` folder when they are ready.
 
 ## Citation
 
