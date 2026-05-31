@@ -2,10 +2,13 @@
 title: Person-in-WiFi 3D: End-to-End Multi-Person 3D Pose Estimation with Wi-Fi
 authors: Kangwei Yan (XJTU), Fei Wang (XJTU), Bo Qian (XJTU), Han Ding (XJTU), Jinsong Han (ZJU), Xing Wei (XJTU)
 institution: XJTU; ZJU
+theme: Wi-Fi 3D Pose Estimation
 summary: Person-in-WiFi 3D is an end-to-end Wi-Fi system for multi-person 3D pose estimation. It uses multiple commercial Wi-Fi receivers and a Transformer-style Wi-Fi Pose Transformer to directly predict a set of 3D human poses from CSI signals.
 cover: ./assets/figure-1-overview.png
 coverAlt: Figure 1 from Person-in-WiFi 3D showing RGB frames and corresponding Wi-Fi 3D pose outputs
 eyebrow: Publication
+tpami: ../person-in-wifi-3d-unified-model-for-3d-wifi-perception/index.html
+paper: https://openaccess.thecvf.com/content/CVPR2024/html/Yan_Person-in-WiFi_3D_End-to-End_Multi-Person_3D_Pose_Estimation_with_Wi-Fi_CVPR_2024_paper.html
 ---
 
 # Overview
@@ -70,6 +73,7 @@ The paper highlights that Wi-Fi can still detect people when the visual view is 
 
 ## Resources
 
+- [PAMI journal extension](../person-in-wifi-3d-unified-model-for-3d-wifi-perception/index.html)
 - [Project Page](https://aiotgroup.github.io/Person-in-WiFi-3D/)
 - [CVF Open Access Paper](https://openaccess.thecvf.com/content/CVPR2024/html/Yan_Person-in-WiFi_3D_End-to-End_Multi-Person_3D_Pose_Estimation_with_Wi-Fi_CVPR_2024_paper.html)
 - [Overview figure](./assets/figure-1-overview.png)

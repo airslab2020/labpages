@@ -3,7 +3,7 @@ title: mmEgoHand: Egocentric Hand Pose Estimation and Gesture Recognition with H
 authors: Yizhe Lv, Tingting Zhang, Zhijian Wang, Yunpeng Song, Han Ding, Jinsong Han, Fei Wang
 institution: XJTU, ZJU
 summary: mmEgoHand is an egocentric hand perception system that fuses head-mounted mmWave radar and IMU data to estimate 3D hand keypoints and support downstream VR-style gesture recognition without relying on cameras at inference time.
-theme: Ubiquitous Sensing
+theme: Egocentric mmWave Sensing
 cover: ./assets/mmegohand-overview.png
 coverAlt: mmEgoHand head-mounted mmWave radar and IMU overview
 eyebrow: Publication

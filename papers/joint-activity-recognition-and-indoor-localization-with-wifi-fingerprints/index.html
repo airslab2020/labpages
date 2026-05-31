@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Joint activity recognition and indoor localization with WiFi fingerprints - XJTU AIRS Lab</title>
-  <meta name="description" content="This paper builds a dual-task Wi-Fi CSI framework that recognizes human activities and estimates indoor location from the same Wi-Fi fingerprint stream.">
+  <title>Joint Activity Recognition and Indoor Localization with WiFi Fingerprints - XJTU AIRS Lab</title>
+  <meta name="description" content="This IEEE Access paper builds a dual-branch ResNet1D framework that recognizes hand activities and localizes users from the same Wi-Fi CSI fingerprint stream.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -30,32 +30,29 @@
       <div class="paper-shell paper-hero-grid">
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
-          <h1>Joint activity recognition and indoor localization with WiFi fingerprints</h1>
-          <p class="paper-subtitle">F Wang, J Feng, Y Zhao, X Zhang, S Zhang, J Han</p>
+          <h1>Joint Activity Recognition and Indoor Localization with WiFi Fingerprints</h1>
+          <p class="paper-subtitle">Fei Wang, Jianwei Feng, Yinliang Zhao, Xiaobin Zhang, Shiyuan Zhang, Jinsong Han</p>
           <div class="paper-meta-row">
-            <span class="paper-pill">Ieee Access 7, 80058-80068, 2019</span>
+            <span class="paper-pill">IEEE Access 7, 80058-80068, 2019</span>
             <span class="paper-pill">2019</span>
-            <span class="paper-pill">Ubiquitous Sensing</span>
-            <span class="paper-pill">XJTU AIRS Lab</span>
+            <span class="paper-pill">Wi-Fi Activity Localization</span>
+            <span class="paper-pill">Xi&#39;an Jiaotong University; Carnegie Mellon University; Zhejiang University</span>
           </div>
-          <p class="paper-summary">This paper builds a dual-task Wi-Fi CSI framework that recognizes human activities and estimates indoor location from the same Wi-Fi fingerprint stream.</p>
+          <p class="paper-summary">This IEEE Access paper builds a dual-branch ResNet1D framework that recognizes hand activities and localizes users from the same Wi-Fi CSI fingerprint stream.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
-            
-            <a class="paper-link-chip" href="./assets/paper.pdf">Paper</a>
-            
-            
+            <a class="paper-link-chip" href="https://github.com/geekfeiw/apl">Code</a>
+            <a class="paper-link-chip" href="https://arxiv.org/abs/1904.04964">Paper</a>
           </div>
         </div>
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for Joint activity recognition and indoor localization with WiFi fingerprints">
+            <img src="./assets/paper-system.png" alt="USRP-based Wi-Fi CSI collection setup, gesture commands, and 16-location indoor grid for joint activity recognition and localization.">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIRS Lab</p>
+            <p>Xi&#39;an Jiaotong University; Carnegie Mellon University; Zhejiang University</p>
           </aside>
         </aside>
       </div>
@@ -66,15 +63,15 @@
         <div class="paper-metric-grid">
           <article class="paper-panel paper-metric-card">
             <strong>Venue</strong>
-            <p>Ieee Access 7, 80058-80068, 2019</p>
+            <p>IEEE Access 7, 80058-80068, 2019</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Ubiquitous Sensing</p>
+            <p>Wi-Fi Activity Localization</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIRS Lab</p>
+            <p>Xi&#39;an Jiaotong University; Carnegie Mellon University; Zhejiang University</p>
           </article>
         </div>
       </div>
@@ -84,30 +81,71 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>Wi-Fi sensing is often split into activity recognition and indoor localization, although both tasks depend on how human behavior and position shape CSI fingerprints. This paper studies them jointly.</p>
-<p>The system collects CSI fingerprints under standard 802.11n Wi-Fi and trains a dual-task 1D convolutional network to infer both the current activity and the indoor location.</p>
+<p>Wi-Fi sensing research often separates two related tasks: recognizing what a person is doing and estimating where the person is. This paper studies them jointly. The core observation is that the same CSI fingerprint is shaped by both activity and location, so a sensing model can learn a shared representation and then branch into two predictions.</p>
+<p>The application motivation is smart-home interaction. The same gesture can mean different things depending on where the user stands: a hand-down gesture near the television could lower TV volume, while the same gesture near an air conditioner could lower temperature. Joint recognition and localization makes this kind of context-aware command possible with Wi-Fi signals rather than cameras.</p>
 <h2>Main Contributions</h2>
 <ul>
-<li>Formulates joint Wi-Fi activity recognition and indoor localization from CSI fingerprints.</li>
-<li>Collects more than 1,400 CSI samples covering 6 activities and 16 indoor locations.</li>
-<li>Uses a dual-task 1D convolutional network and releases data/code for reproducibility.</li>
+<li>Formulates a <strong>joint Wi-Fi sensing task</strong> that maps one CSI fingerprint to both an activity label and an indoor location label.</li>
+<li>Builds an IEEE 802.11n CSI collection system with two Ettus USRP N210 devices and an Ettus Clock for synchronization.</li>
+<li>Collects a dataset of six hand gestures at sixteen indoor locations, producing 1394 valid CSI fingerprints after filtering.</li>
+<li>Treats CSI fingerprints as temporal signals with 52 OFDM subcarrier channels and applies 1D convolution along the time axis.</li>
+<li>Designs a dual-branch <strong>ResNet1D</strong> model with shared temporal residual blocks and separate activity/localization heads.</li>
+<li>Reports 88.13% activity recognition accuracy and 95.68% indoor localization accuracy, outperforming DTW+kNN and SVM-RBF baselines.</li>
 </ul>
-<h2>Technical Details</h2>
-<p>The input is a time-series Wi-Fi fingerprint rather than an image or specialized radar measurement. A 1D CNN is a natural fit because it can model channel-level temporal patterns while staying relatively lightweight.</p>
-<p>The dual-task design encourages shared features to support both what the person is doing and where the person is located.</p>
+<h2>Joint Task</h2>
+<p>The paper denotes a Wi-Fi fingerprint as containing both activity and location information. The learning goal is not only <code>fingerprint -&gt; activity</code> or <code>fingerprint -&gt; location</code>, but <code>fingerprint -&gt; (activity, location)</code>. This is more difficult because CSI patterns vary when the same activity is performed at different positions, and localization must still work while the user's motion changes the channel.</p>
+<p>The authors frame two challenges clearly. First, the model needs activity features that remain stable across locations. Second, it needs location features that remain useful across different gestures. A shared network with task-specific branches is a natural compromise: early layers learn temporal CSI structure, while the two heads specialize for activity and location.</p>
+<h2>Data Collection</h2>
+<p>The system uses two USRP-based Wi-Fi nodes, one transmitter and one receiver, synchronized by an Ettus Clock. The experiment defines six gesture commands for human-computer interaction: hand up, hand down, hand left, hand right, hand circle, and hand cross. A volunteer performs these gestures at sixteen locations arranged in a room grid with 0.8 m spacing.</p>
+<p>The initial collection plan gives <code>16 locations x 6 activities x 15 repetitions = 1440</code> samples. After discarding invalid samples with very late action starts, the final dataset contains 1394 CSI fingerprints. The split uses 1116 samples for training and 278 for testing.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-system.png" alt="USRP-based Wi-Fi CSI collection setup, gesture commands, and 16-location indoor grid.">
+  <figcaption>The data collection setup uses synchronized USRP transmitter/receiver hardware, six hand gestures, and a 16-location indoor grid.</figcaption>
+</figure>
+<h2>CSI Fingerprints</h2>
+<p>Each CSI fingerprint is represented as a <code>52 x 192</code> matrix. The 52 dimension corresponds to OFDM data subcarriers, and the 192 dimension is the normalized temporal length. The paper uses CSI amplitude and leaves phase fusion outside the scope.</p>
+<p>Before training, the action duration is manually annotated, the active CSI segment is cropped, and the segment is linearly interpolated to length 192. The examples in the paper show why the task is hard: different gestures at the same position produce different CSI traces, the same gesture at the same position may still vary in temporal profile, and the same gesture at different positions changes again because of the propagation geometry.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-fingerprints.png" alt="CSI preprocessing and fingerprint examples across gestures and locations.">
+  <figcaption>CSI fingerprints are cropped to the action duration and normalized to a fixed length; their profiles vary by both gesture and location.</figcaption>
+</figure>
+<h2>ResNet1D Framework</h2>
+<p>The model treats CSI as a multichannel time series rather than as an image. A 1D convolution sweeps along the time axis while using the 52 subcarriers as channels. This lets the network learn temporal shape and amplitude patterns directly from the CSI fingerprint without hand-crafted statistics.</p>
+<p>The proposed ResNet1D starts with a 1D convolution and max-pooling layer, followed by four residual-block stages. The lower layers are shared by both tasks. Near the end, the network splits into two branches: one predicts the six activity classes, and the other predicts the sixteen location classes. The training loss is the sum of the activity cross-entropy and localization cross-entropy, with the paper setting the balance weight to 1.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-architecture.png" alt="Dual-branch ResNet1D architecture for activity recognition and indoor localization.">
+  <figcaption>ResNet1D shares temporal CSI features, then branches into an activity head with 6 outputs and a localization head with 16 outputs.</figcaption>
+</figure>
 <h2>Results</h2>
-<p>Experiments and ablation studies show that joint learning is effective for this Wi-Fi sensing setup. The paper is especially useful as an early reproducible baseline because it provides both data and code.</p>
+<p>On the test set, the base ResNet1D-[1,1,1,1] obtains <strong>88.13%</strong> activity recognition accuracy and <strong>95.68%</strong> indoor localization accuracy. The learning curves show that localization converges faster and reaches a higher final accuracy than activity recognition.</p>
+<p>For activity recognition, the per-class F1 scores are 0.94 for hand up, 0.90 for hand down, 0.84 for hand left, 0.92 for hand right, 0.82 for hand circle, and 0.86 for hand cross. For indoor localization, the weakest location F1 score is 0.81 at location #4, while several locations reach perfect or near-perfect scores. The average localization error is 0.0904 m; for misclassified localization samples only, the average error is 2.0943 m.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-results.png" alt="Learning curves and confusion matrices for activity recognition and indoor localization.">
+  <figcaption>The dual-task model reaches 88.13% activity accuracy and 95.68% localization accuracy on the 278-sample test set.</figcaption>
+</figure>
+<h2>Feature Analysis And Baselines</h2>
+<p>The paper uses t-SNE to visualize raw CSI inputs and intermediate feature maps. Raw inputs are highly mixed, but deeper layers produce progressively more separable clusters. Localization becomes separable earlier than activity recognition, which matches the higher localization accuracy. This visualization also motivates a small enhanced model, ResNet1D-[1,1,1,1]+, which improves activity recognition to 89.57% while keeping localization at 95.68%.</p>
+<p>The baseline comparison is also useful. DTW+kNN reaches 83.45% activity recognition and 95.32% indoor localization but costs 3356 seconds. SVM-RBF is fast at 69 seconds but much less accurate, especially for activity recognition. ResNet1D-[1,1,1,1] improves activity recognition to 88.13%, keeps localization at 95.68%, and costs 161 seconds. Deeper ResNet1D variants improve localization up to 97.12% but reduce activity recognition, suggesting a tradeoff between model depth and the two tasks.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-visualization-baselines.png" alt="t-SNE feature visualization and baseline comparison tables for ResNet1D.">
+  <figcaption>t-SNE shows features becoming more discriminative through the network; ResNet1D also outperforms DTW+kNN and SVM-RBF on the joint task.</figcaption>
+</figure>
+<h2>Takeaways</h2>
+<p>This paper is an early reproducible baseline for joint Wi-Fi sensing. Its most important design choice is treating CSI as a temporal multichannel signal and letting a 1D CNN learn shared representations for two tasks. That makes the page relevant to later work on continuous Wi-Fi sensing, multitask representation learning, and context-aware human-computer interaction.</p>
+<p>The dataset and code release are also part of its value: the paper does not only propose a model, but gives a concrete hardware setup, preprocessing pipeline, training protocol, and public benchmark for others to build on.</p>
 <h2>Resources</h2>
 <ul>
-<li><a href="./assets/paper.pdf">Local PDF</a></li>
-<li><a href="https://arxiv.org/abs/1904.04964">Online paper page</a></li>
+<li><a href="https://arxiv.org/abs/1904.04964">arXiv paper</a></li>
+<li><a href="https://github.com/geekfeiw/apl">Code and dataset</a></li>
 <li><a href="./assets/cover.svg">Cover image</a></li>
 </ul>
 <h2>Citation</h2>
-<pre><code class="language-bibtex">@inproceedings{joint-activity-recognition-and-indoor-localization-with-wifi-fingerprints,
-  title = {Joint activity recognition and indoor localization with WiFi fingerprints},
-  author = {F Wang and J Feng and Y Zhao and X Zhang and S Zhang and J Han},
-  booktitle = {Ieee Access 7, 80058-80068, 2019},
+<pre><code class="language-bibtex">@article{wang2019jointwifi,
+  title = {Joint Activity Recognition and Indoor Localization with WiFi Fingerprints},
+  author = {Wang, Fei and Feng, Jianwei and Zhao, Yinliang and Zhang, Xiaobin and Zhang, Shiyuan and Han, Jinsong},
+  journal = {IEEE Access},
+  volume = {7},
+  pages = {80058--80068},
   year = {2019}
 }
 </code></pre>

@@ -2,6 +2,7 @@
 title: COMPASS: Complete Multimodal Fusion via Proxy Tokens and Shared Spaces for Ubiquitous Sensing
 authors: Hao Wang, Yanyu Qian, Pengcheng Weng, Zixuan Xia, William Dan, Yangxin Xu, Fei Wang
 institution: UniBE / XJTU / NTU
+theme: Multimodal Wireless Sensing
 summary: COMPASS tackles missing-modality ubiquitous sensing with a slot-complete fusion design: every modality slot is kept alive at inference, and missing slots are filled with proxy tokens generated from the observed modalities in a shared latent space.
 cover: ./assets/teaser.png
 coverAlt: COMPASS framework teaser

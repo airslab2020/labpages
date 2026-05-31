@@ -7,6 +7,7 @@ cover: ./assets/figure-2-system-overview.png
 coverAlt: Figure 2 from RadioSEP showing the system overview for speaker perception, cross-modality data generation, and unified speech generation
 eyebrow: Publication
 theme: mmWave-Audio Speech Processing
+paper: https://radiosep.github.io
 project: https://radiosep.github.io
 ---
 
@@ -142,9 +143,9 @@ The ablation study shows that CGAN-generated/noisy radar replacement improves un
 ## Resources
 
 - [Project Website](https://radiosep.github.io)
-- [Local system overview figure](./assets/figure-2-system-overview.png)
-- [Local overall performance table](./assets/table-1-overall-performance.png)
-- [Local ablation table](./assets/table-5-ablation-study.png)
+- [System overview figure](./assets/figure-2-system-overview.png)
+- [Overall performance table](./assets/table-1-overall-performance.png)
+- [Ablation table](./assets/table-5-ablation-study.png)
 
 ## Citation
 

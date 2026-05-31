@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Federated Multi-Source Domain Adaptation for mmWave-based Human Activity Recognition - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="FMDA adapts mmWave human activity recognition to new environments without target labels or centralized source data. It combines voting-based pseudo-labeling, contribution-aware aggregation, and generalization-gap optimization so multiple private source models can train a useful target-domain HAR model.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -31,31 +31,27 @@
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
           <h1>Federated Multi-Source Domain Adaptation for mmWave-based Human Activity Recognition</h1>
-          <p class="paper-subtitle">Cui Zhao, Guotong Fang, Han Ding#, Xinhui Liu, Fei Wang, Ge Wang, Kun Zhao, Zhi Wang, Wei Xi</p>
+          <p class="paper-subtitle">Cui Zhao, Guotong Fang, Han Ding, Xinhui Liu, Fei Wang, Ge Wang, Kun Zhao, Zhi Wang, Wei Xi</p>
           <div class="paper-meta-row">
             <span class="paper-pill">IEEE Transactions on Mobile Computing, 2025</span>
             <span class="paper-pill">2025</span>
-            <span class="paper-pill">Ubiquitous Sensing</span>
-            <span class="paper-pill">XJTU AIRS Lab</span>
+            <span class="paper-pill">mmWave Domain Adaptation</span>
+            <span class="paper-pill">FEIE, XJTU; SSE, XJTU</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">FMDA adapts mmWave human activity recognition to new environments without target labels or centralized source data. It combines voting-based pseudo-labeling, contribution-aware aggregation, and generalization-gap optimization so multiple private source models can train a useful target-domain HAR model.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
-            
-            
-            
-            
+            <a class="paper-link-chip" href="https://doi.org/10.1109/TMC.2025.3549705">Paper</a>
           </div>
         </div>
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for Federated Multi-Source Domain Adaptation for mmWave-based Human Activity Recognition">
+            <img src="./assets/paper-framework.jpg" alt="Illustration of the FMDA multi-source domain adaptation framework for mmWave HAR">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIRS Lab</p>
+            <p>FEIE, XJTU; SSE, XJTU</p>
           </aside>
         </aside>
       </div>
@@ -70,11 +66,11 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Ubiquitous Sensing</p>
+            <p>mmWave Domain Adaptation</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIRS Lab</p>
+            <p>FEIE, XJTU; SSE, XJTU</p>
           </article>
         </div>
       </div>
@@ -84,28 +80,142 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>mmWave human activity recognition works well in controlled settings, but it is fragile under <strong>domain shift</strong>: a model trained in one room, with one group of users or one radar placement, can degrade when moved to another environment. Standard domain adaptation assumes that source and target data can be centralized, which is often unrealistic for RF sensing because wireless signals may encode location, body, motion, trajectory, and other private behavioral information.</p>
+<p><strong>FMDA</strong> studies a more deployable setting. Several labeled source domains keep their raw mmWave data local, while an unlabeled target domain learns from their model parameters. The goal is to train a target HAR model without target labels and without moving source samples to a central server.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-framework.jpg" alt="FMDA multi-source domain adaptation framework">
+  <figcaption>Figure 1 from the paper. FMDA aggregates knowledge from multiple private source models and adapts an unlabeled target-domain model without requiring source-domain data access.</figcaption>
+</figure>
 <h2>Main Contributions</h2>
 <ul>
-<li>Research theme: Efficient AI Systems.</li>
-<li>Published at IEEE Transactions on Mobile Computing, 2025.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li>Formulates mmWave HAR transfer as a <strong>federated multi-source domain adaptation</strong> problem.</li>
+<li>Uses <strong>voting-based pseudo-labeling</strong> to extract target-domain supervision from multiple source models.</li>
+<li>Estimates each source model's contribution and performs <strong>weighted knowledge aggregation</strong>, reducing the risk of negative transfer from weakly related domains.</li>
+<li>Introduces <strong>generalization-gap optimization</strong> so source and target models become flatter and more domain-agnostic during federated training.</li>
+<li>Implements the system on a COTS <code>AWR1443BOOST</code> mmWave radar and evaluates it across five real indoor environments.</li>
 </ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
+<h2>System And Data</h2>
+<p>The sensing pipeline uses FMCW mmWave radar. Raw RF reflections are converted through IF signal processing, Range-FFT, Doppler-FFT, and micro-Doppler spectrogram generation. The micro-Doppler representation is then fed to the domain adaptation DNN.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-system.jpg" alt="FMDA system overview from mmWave sensing to domain adaptation">
+  <figcaption>Figure 2 from the paper. The system turns mmWave radar signals into micro-Doppler spectrograms and then performs federated domain adaptation.</figcaption>
+</figure>
+<p>The prototype uses an <code>AWR1443BOOST</code> radar operating at <code>77-81 GHz</code> with a <code>DCA1000EVM</code> collector. The experiments cover five indoor domains: hall, laboratory, corridor, break room, and corner. The dataset includes <strong>10 volunteers</strong>, <strong>10 predefined HCI gestures</strong>, and <strong>20 repetitions per activity per volunteer</strong>, for <strong>10,000 samples</strong> balanced across environments.</p>
+<p>The source and target models share a simple structure: a <code>ResNet50</code> feature extractor with batch normalization plus a fully connected activity classifier. Training uses SGD with learning rate <code>0.001</code>, batch size <code>16</code>, and a voting confidence threshold that starts at <code>0.75</code> and rises to <code>0.98</code>.</p>
+<h2>Method Details</h2>
+<p>FMDA's training loop has three moving parts.</p>
+<p>First, each source model predicts labels for the unlabeled target samples. The system admits pseudo-labels only when the source predictions are confident enough, so low-confidence consensus does not dominate target training.</p>
+<p>Second, FMDA does not simply average source parameters. It estimates a <strong>quality score</strong> for each source by measuring how much that source contributes to admitted target knowledge. Sources that better support the target domain receive larger aggregation weights.</p>
+<p>Third, after target aggregation, the updated target feature extractor is sent back to source domains. Each source then fine-tunes with a <strong>push-and-pull</strong> objective: KL divergence guides it toward the aggregated target representation, while cross-entropy keeps it from forgetting its own labeled data distribution. This is the mechanism behind the paper's claim that source participants also benefit from joining the federated process.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-pipeline.jpg" alt="Overall federated training pipeline of FMDA">
+  <figcaption>Figure 5 from the paper. Source domains upload parameters, the target domain votes and aggregates, and the updated target feature extractor is returned to sources for generalization optimization.</figcaption>
+</figure>
 <h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<p>Across five target-environment choices, FMDA consistently improves over pre-trained source models and reaches about <code>91.0-94.8%</code> accuracy depending on the target domain. The authors use Env4 as the default target in later experiments because it is narrow and multipath-heavy, making it a representative challenging case.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-domain-results.jpg" alt="FMDA accuracy across five target environments">
+  <figcaption>Figure 8 from the paper. FMDA is evaluated by rotating each environment as the target domain and using the remaining environments as sources.</figcaption>
+</figure>
+<p>In the default Env4 target setting, FMDA reaches <strong>92.0% accuracy</strong>, <strong>93.4% precision</strong>, <strong>92.7% recall</strong>, and <strong>92.2% F1-score</strong>. This is close to supervised learning on target labels (<strong>93.5% accuracy</strong>) while avoiding target annotations. It also strongly outperforms simple federated averaging, which reaches only <strong>20.3% accuracy</strong> in this setting.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Method / Variant</th>
+<th style="text-align:right">Accuracy</th>
+<th style="text-align:right">Precision</th>
+<th style="text-align:right">Recall</th>
+<th style="text-align:right">F1-score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FMDA</td>
+<td style="text-align:right">0.920</td>
+<td style="text-align:right">0.934</td>
+<td style="text-align:right">0.927</td>
+<td style="text-align:right">0.922</td>
+</tr>
+<tr>
+<td>FedAvg</td>
+<td style="text-align:right">0.203</td>
+<td style="text-align:right">0.136</td>
+<td style="text-align:right">0.203</td>
+<td style="text-align:right">0.163</td>
+</tr>
+<tr>
+<td>FedAvg+</td>
+<td style="text-align:right">0.908</td>
+<td style="text-align:right">0.913</td>
+<td style="text-align:right">0.908</td>
+<td style="text-align:right">0.911</td>
+</tr>
+<tr>
+<td>Supervised learning</td>
+<td style="text-align:right">0.935</td>
+<td style="text-align:right">0.938</td>
+<td style="text-align:right">0.935</td>
+<td style="text-align:right">0.936</td>
+</tr>
+<tr>
+<td>FMDA-VGG16</td>
+<td style="text-align:right">0.858</td>
+<td style="text-align:right">0.853</td>
+<td style="text-align:right">0.857</td>
+<td style="text-align:right">0.855</td>
+</tr>
+<tr>
+<td>mTransSee</td>
+<td style="text-align:right">0.603</td>
+<td style="text-align:right">0.602</td>
+<td style="text-align:right">0.603</td>
+<td style="text-align:right">0.596</td>
+</tr>
+<tr>
+<td>EI</td>
+<td style="text-align:right">0.669</td>
+<td style="text-align:right">0.667</td>
+<td style="text-align:right">0.665</td>
+<td style="text-align:right">0.664</td>
+</tr>
+</tbody>
+</table>
+</div><figure class="markdown-figure">
+  <img src="./assets/paper-results.jpg" alt="FMDA comparison and ablation table">
+  <figcaption>Table II from the paper. FMDA nearly matches supervised target-domain training and improves participating source models by 3.0% to 6.8% accuracy.</figcaption>
+</figure>
+<p>The ablation study shows why the full design matters. Removing generalization optimization slightly lowers target performance and reduces source-side gains. Removing weighted knowledge aggregation causes a larger drop, matching the intuition that different source domains should not be treated equally. Removing source pre-training mainly slows training, while removing source cross-entropy supervision severely hurts performance.</p>
+<h2>Practical Observations</h2>
+<p>FMDA performs well, but the paper is careful about the remaining challenges. Similar left/right gestures are still hard to distinguish from micro-Doppler alone; the confusion matrix shows that sliding the arm left is often mistaken for sliding the arm right. User habits also matter: per-user accuracy ranges from <strong>85.4%</strong> to <strong>100%</strong> in the main evaluation.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-confusion-users.jpg" alt="FMDA confusion matrix and user-level performance">
+  <figcaption>Figures 9 and 10 from the paper. Most errors come from visually similar gesture dynamics, and user-specific movement habits affect adaptation performance.</figcaption>
+</figure>
+<p>The micro-benchmark experiments add two useful deployment lessons. Increasing the number of source domains has only a modest effect when all source domains are already informative: two sources reach <strong>91.0%</strong>, while four sources reach <strong>92.0%</strong>. Under new user-radar distances, FMDA stays near <strong>80%</strong> performance, and under changed orientations it stays near <strong>75%</strong>, still substantially better than retraining source-only models across domains.</p>
+<h2>Takeaways</h2>
+<ul>
+<li>The key problem is not only mmWave HAR accuracy, but <strong>privacy-compatible cross-domain adaptation</strong>.</li>
+<li>Pseudo-label voting gives the unlabeled target domain a training signal, but contribution-aware weighting is needed to avoid negative transfer.</li>
+<li>Returning the updated target model to sources makes collaboration mutually useful, not just target-centric.</li>
+<li>The remaining bottlenecks are domain geometry, user-specific motion habits, and ambiguous gestures that look similar in micro-Doppler space.</li>
+</ul>
 <h2>Resources</h2>
 <ul>
-<li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
+<li><a href="https://doi.org/10.1109/TMC.2025.3549705">Official paper / DOI</a></li>
+<li><a href="./assets/paper-framework.jpg">Framework crop</a></li>
+<li><a href="./assets/paper-pipeline.jpg">Training pipeline crop</a></li>
+<li><a href="./assets/paper-results.jpg">Comparison and ablation table</a></li>
 </ul>
 <h2>Citation</h2>
-<pre><code class="language-bibtex">@inproceedings{federated-multi-source-domain-adaptation-for-mmwave-based-human-activity-recognition,
-  title = {Federated Multi-Source Domain Adaptation for mmWave-based Human Activity Recognition},
-  author = {Cui Zhao and Guotong Fang and Han Ding# and Xinhui Liu and Fei Wang and Ge Wang and Kun Zhao and Zhi Wang and Wei Xi},
-  booktitle = {IEEE Transactions on Mobile Computing, 2025},
-  year = {2025}
+<pre><code class="language-bibtex">@article{zhao2025federated,
+  title = {Federated Multi-Source Domain Adaptation for mmWave-Based Human Activity Recognition},
+  author = {Zhao, Cui and Fang, Guotong and Ding, Han and Liu, Xinhui and Wang, Fei and Wang, Ge and Zhao, Kun and Wang, Zhi and Xi, Wei},
+  journal = {IEEE Transactions on Mobile Computing},
+  volume = {24},
+  number = {8},
+  pages = {7283--7296},
+  year = {2025},
+  doi = {10.1109/TMC.2025.3549705}
 }
 </code></pre>
 

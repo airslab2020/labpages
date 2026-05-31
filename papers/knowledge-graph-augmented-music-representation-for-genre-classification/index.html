@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Knowledge-graph augmented music representation for genre classification - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="KGenre augments audio representations for genre classification by mining genre correlations from a knowledge graph built from FMA-medium and OpenMIC-2018 metadata.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -35,27 +35,23 @@
           <div class="paper-meta-row">
             <span class="paper-pill">ICASSP 2023-2023 IEEE International Conference on Acoustics, Speech and ..., 2023</span>
             <span class="paper-pill">2023</span>
-            <span class="paper-pill">Efficient AI Systems</span>
-            <span class="paper-pill">XJTU AIRS Lab</span>
+            <span class="paper-pill">Music Representation Learning</span>
+            <span class="paper-pill">Xi&#39;an Jiaotong University</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">KGenre augments audio representations for genre classification by mining genre correlations from a knowledge graph built from FMA-medium and OpenMIC-2018 metadata.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
-            
-            
-            
-            
+            <a class="paper-link-chip" href="http://dx.doi.org/10.1109/icassp49357.2023.10097131">Paper</a>
           </div>
         </div>
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for Knowledge-graph augmented music representation for genre classification">
+            <img src="./assets/paper-method.jpg" alt="KGenre overview with knowledge graph, GGNN propagation, and audio feature fusion. This is the core principle behind graph-augmented music representation.">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIRS Lab</p>
+            <p>Xi&#39;an Jiaotong University</p>
           </aside>
         </aside>
       </div>
@@ -70,11 +66,11 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Efficient AI Systems</p>
+            <p>Music Representation Learning</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIRS Lab</p>
+            <p>Xi&#39;an Jiaotong University</p>
           </article>
         </div>
       </div>
@@ -84,21 +80,41 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>KGenre studies a simple but important question: can genre classification improve if the model uses not only audio, but also the relationships among genres, artists, and instruments? Genre boundaries are often ambiguous, and audio-only classifiers may miss semantic structure that is already present in dataset metadata.</p>
+<p>The method constructs a knowledge graph from FMA-medium and OpenMIC-2018 metadata without requiring additional labeling effort. It then learns genre correlations from the graph and embeds this knowledge into the audio representation.</p>
 <h2>Main Contributions</h2>
 <ul>
-<li>Research theme: Efficient AI Systems.</li>
-<li>Published at ICASSP 2023-2023 IEEE International Conference on Acoustics, Speech and ..., 2023.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li>Builds a genre-related knowledge graph from public music dataset metadata.</li>
+<li>Uses graph representation learning to model correlations among genres.</li>
+<li>Fuses knowledge graph embeddings with audio features for genre classification.</li>
+<li>Shows that embedded knowledge improves audio representation quality.</li>
+<li>Presents one of the early attempts to combine high-level graph knowledge with audio-based genre recognition.</li>
 </ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<h2>Method Design</h2>
+<p>The graph contains metadata-derived relations involving genres, artists, and instruments. A graph neural network learns embeddings that encode genre correlation. These embeddings are combined with audio features extracted from music samples, giving the classifier access to both acoustic patterns and semantic relationships.</p>
+<p>This design is especially useful when genres are related or overlapping. Instead of treating labels as independent classes, KGenre gives the model a structured view of how genres connect.</p>
+<h2>Evaluation Highlights</h2>
+<p>Experiments on FMA-medium and OpenMIC-2018 show that knowledge-embedded features improve classification over audio-only baselines. The paper also suggests that the same graph-embedding idea can complement other audio feature extractors, because the knowledge graph is separate from the low-level audio encoder.</p>
+<h2>Takeaways</h2>
+<p>KGenre is a compact but useful contribution: it shows that music genre recognition can benefit from metadata as structured knowledge, not just as side information for dataset bookkeeping.</p>
+<h2>Paper Screenshots: Method, Principle, And Results</h2>
+<p>The screenshots below are cropped from the paper PDF and are placed next to the reading notes so the page shows the actual method diagrams, principle illustrations, and result evidence rather than only prose.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-method.jpg" alt="KGenre overview with knowledge graph, GGNN propagation, and audio feature fusion. This is the core principle behind graph-augmented music representation.">
+  <figcaption>KGenre overview with knowledge graph, GGNN propagation, and audio feature fusion. This is the core principle behind graph-augmented music representation.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/paper-principle.jpg" alt="Knowledge representation learning details. The page shows how metadata relations are converted into graph embeddings before fusion.">
+  <figcaption>Knowledge representation learning details. The page shows how metadata relations are converted into graph embeddings before fusion.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/paper-results.jpg" alt="FMA-medium comparison table. The result page shows the classification gains over prior music genre recognition methods.">
+  <figcaption>FMA-medium comparison table. The result page shows the classification gains over prior music genre recognition methods.</figcaption>
+</figure>
 <h2>Resources</h2>
 <ul>
+<li><a href="http://dx.doi.org/10.1109/icassp49357.2023.10097131">Official paper / publisher page</a></li>
 <li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@inproceedings{knowledge-graph-augmented-music-representation-for-genre-classification,

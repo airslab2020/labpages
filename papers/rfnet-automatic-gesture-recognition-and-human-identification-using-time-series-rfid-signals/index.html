@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RFnet: Automatic gesture recognition and human identification using time series RFID signals - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="RFnet uses a multi-branch 1D CNN to recognize static gestures, dynamic gestures, and user identity directly from time-series RFID signals without heavy handcrafted features.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -35,27 +35,23 @@
           <div class="paper-meta-row">
             <span class="paper-pill">Mobile Networks and Applications 25 (6), 2240-2253, 2020</span>
             <span class="paper-pill">2020</span>
-            <span class="paper-pill">Ubiquitous Sensing</span>
-            <span class="paper-pill">XJTU AIRS Lab</span>
+            <span class="paper-pill">RFID Gesture Recognition</span>
+            <span class="paper-pill">Xi&#39;an Jiaotong University; Xidian University</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">RFnet uses a multi-branch 1D CNN to recognize static gestures, dynamic gestures, and user identity directly from time-series RFID signals without heavy handcrafted features.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
-            
-            
-            
-            
+            <a class="paper-link-chip" href="https://doi.org/10.1007/s11036-020-01659-4">Paper</a>
           </div>
         </div>
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for RFnet: Automatic gesture recognition and human identification using time series RFID signals">
+            <img src="./assets/paper-method.jpg" alt="RFnet multi-branch 1D-CNN framework for RFID time series. The screenshot shows the four-stage design from inputs to gesture and identity outputs.">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIRS Lab</p>
+            <p>Xi&#39;an Jiaotong University; Xidian University</p>
           </aside>
         </aside>
       </div>
@@ -70,11 +66,11 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Ubiquitous Sensing</p>
+            <p>RFID Gesture Recognition</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIRS Lab</p>
+            <p>Xi&#39;an Jiaotong University; Xidian University</p>
           </article>
         </div>
       </div>
@@ -84,21 +80,41 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>Gesture recognition enables touchless human-computer interaction, but cameras depend on lighting and raise privacy concerns, while wearable approaches require users to carry devices. Device-free wireless sensing offers another path, yet many earlier systems rely on heavy handcrafted preprocessing and feature engineering.</p>
+<p>RFnet studies whether time-series RFID signals can be used more directly. It arranges a commercial RFID tag array as a sensing plane and uses a multi-branch 1D CNN to recognize gestures and identify users.</p>
 <h2>Main Contributions</h2>
 <ul>
-<li>Research theme: Efficient AI Systems.</li>
-<li>Published at Mobile Networks and Applications 25 (6), 2240-2253, 2020.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li>Proposes RFnet, a deep-learning framework for time-series RFID sensing.</li>
+<li>Recognizes static gestures, dynamic gestures, and human identity in one framework.</li>
+<li>Uses multi-branch 1D convolution to learn from raw temporal RFID signal fluctuations.</li>
+<li>Reduces the need for handcrafted feature engineering.</li>
+<li>Evaluates the system in three environments.</li>
 </ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<h2>Method Design</h2>
+<p>The RFID tag array captures signal changes as users perform in-air gestures. RFnet processes these time-series signals with multiple convolutional branches, allowing the model to capture patterns at different temporal resolutions and signal channels. The learned representation is then used for gesture classification and identity recognition.</p>
+<p>This design is practical for smart homes and interactive systems because the user does not need to wear a sensor or stand in front of a camera.</p>
+<h2>Evaluation Highlights</h2>
+<p>The paper reports 99.9 percent average accuracy for static gesture recognition, 94.8 percent for dynamic gesture recognition, and 97.8 percent for human identification. Experiments across three environments demonstrate that the learned temporal features generalize beyond a single room setup.</p>
+<h2>Takeaways</h2>
+<p>RFnet shows the value of end-to-end temporal learning for RFID sensing. It shifts the burden from manual feature design to representation learning while keeping the sensing setup device-free for the user.</p>
+<h2>Paper Screenshots: Method, Principle, And Results</h2>
+<p>The screenshots below are cropped from the paper PDF and are placed next to the reading notes so the page shows the actual method diagrams, principle illustrations, and result evidence rather than only prose.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-method.jpg" alt="RFnet multi-branch 1D-CNN framework for RFID time series. The screenshot shows the four-stage design from inputs to gesture and identity outputs.">
+  <figcaption>RFnet multi-branch 1D-CNN framework for RFID time series. The screenshot shows the four-stage design from inputs to gesture and identity outputs.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/paper-setup.jpg" alt="RFnet experimental setup and gesture collection protocol. This page makes the sensing plane and user interaction setup concrete.">
+  <figcaption>RFnet experimental setup and gesture collection protocol. This page makes the sensing plane and user interaction setup concrete.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/paper-results.jpg" alt="Human identification and gesture recognition accuracy analysis. The result page shows robustness under augmentation and user variation.">
+  <figcaption>Human identification and gesture recognition accuracy analysis. The result page shows robustness under augmentation and user variation.</figcaption>
+</figure>
 <h2>Resources</h2>
 <ul>
+<li><a href="https://doi.org/10.1007/s11036-020-01659-4">Official paper / publisher page</a></li>
 <li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@inproceedings{rfnet-automatic-gesture-recognition-and-human-identification-using-time-series-rfid-signals,

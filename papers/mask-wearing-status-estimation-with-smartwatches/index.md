@@ -1,12 +1,13 @@
 ---
 title: Mask wearing status estimation with smartwatches
 authors: H Meng, X Wu, X Wang, Y Fan, J Shi, H Ding, F Wang
-institution: XJTU AIRS Lab
+institution: Xi'an Jiaotong University; Harbin Institute of Technology
+theme: Wearable Health Sensing
 summary: MaskReminder uses smartwatch IMU readings and an MLP-Mixer model to infer mask-wearing related actions and remind users when mask usage may be missing or incorrect.
-cover: ./assets/cover.svg
-coverAlt: Cover image for Mask wearing status estimation with smartwatches
+cover: ./assets/paper-preview.png
+coverAlt: First page preview of the MaskReminder smartwatch paper.
 eyebrow: Publication
-paper: ./assets/paper.pdf
+paper: https://arxiv.org/abs/2205.06113
 ---
 
 # Overview
@@ -33,8 +34,8 @@ The paper reports an average recognition accuracy of about 89% on its collected 
 
 ## Resources
 
-- [Local PDF](./assets/paper.pdf)
-- [Online paper page](https://arxiv.org/abs/2205.06113)
+- [arXiv paper](https://arxiv.org/abs/2205.06113)
+- [Paper preview](./assets/paper-preview.png)
 - [Cover image](./assets/cover.svg)
 
 ## Citation

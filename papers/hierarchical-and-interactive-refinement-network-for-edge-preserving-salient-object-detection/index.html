@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hierarchical and Interactive Refinement Network for Edge-Preserving Salient Object Detection - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="HIRN detects salient objects with sharper boundaries by jointly refining salient regions and salient edges through a hierarchical dual-path network and edge-guided inference.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -35,27 +35,23 @@
           <div class="paper-meta-row">
             <span class="paper-pill">IEEE Transactions on Image Processing, 2021</span>
             <span class="paper-pill">2021</span>
-            <span class="paper-pill">LLM Systems</span>
-            <span class="paper-pill">XJTU AIRS Lab</span>
+            <span class="paper-pill">Salient Object Detection</span>
+            <span class="paper-pill">Xi&#39;an Jiaotong University; Carnegie Mellon University</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">HIRN detects salient objects with sharper boundaries by jointly refining salient regions and salient edges through a hierarchical dual-path network and edge-guided inference.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
-            
-            
-            
-            
+            <a class="paper-link-chip" href="https://doi.org/10.1109/tip.2020.3027992">Paper</a>
           </div>
         </div>
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for Hierarchical and Interactive Refinement Network for Edge-Preserving Salient Object Detection">
+            <img src="./assets/paper-method.jpg" alt="HIRN multi-stage dual-path network for edge and region prediction. The figure shows how low-level and high-level features interact.">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIRS Lab</p>
+            <p>Xi&#39;an Jiaotong University; Carnegie Mellon University</p>
           </aside>
         </aside>
       </div>
@@ -70,11 +66,11 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>LLM Systems</p>
+            <p>Salient Object Detection</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIRS Lab</p>
+            <p>Xi&#39;an Jiaotong University; Carnegie Mellon University</p>
           </article>
         </div>
       </div>
@@ -84,21 +80,41 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>Salient object detection identifies visually important regions in an image. Deep networks have improved this task substantially, but downsampling operations can blur object boundaries. This is a major issue because saliency maps are often used as preprocessing for segmentation, recognition, editing, and visual attention tasks where edge quality matters.</p>
+<p>HIRN, the Hierarchical and Interactive Refinement Network, addresses this by jointly learning salient regions and salient edges. Region predictions help locate objects, while edge predictions preserve boundaries.</p>
 <h2>Main Contributions</h2>
 <ul>
-<li>Research theme: LLM Systems.</li>
-<li>Published at IEEE Transactions on Image Processing, 2021.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li>Designs a multi-stage dual-path network for both salient regions and salient edges.</li>
+<li>Uses low-level and high-level features to refine edge and region predictions interactively.</li>
+<li>Introduces edge-guided inference to filter salient regions along predicted boundaries.</li>
+<li>Improves edge preservation in salient object detection.</li>
+<li>Demonstrates stronger performance than a range of state-of-the-art methods on benchmark datasets.</li>
 </ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<h2>Method Design</h2>
+<p>HIRN separates but connects two prediction paths. The region path focuses on object-level saliency, while the edge path focuses on boundary structure. Interaction between the two paths makes region maps more accurate near weak edges and makes edge maps more semantic by suppressing background false positives.</p>
+<p>After network prediction, the edge-guided inference algorithm further refines region maps using the predicted edge structure. This extra step is designed to sharpen final saliency maps without relying only on pixel-level region scores.</p>
+<h2>Evaluation Highlights</h2>
+<p>The paper evaluates HIRN on multiple salient object detection benchmarks and includes ablation studies for network components and the inference step. The reported results show that explicitly modeling edges improves both visual boundary quality and standard saliency metrics.</p>
+<h2>Takeaways</h2>
+<p>HIRN's core lesson is that salient object detection should not treat edge preservation as an afterthought. By making edge prediction part of the learning and inference process, the method produces cleaner and more useful saliency maps.</p>
+<h2>Paper Screenshots: Method, Principle, And Results</h2>
+<p>The screenshots below are cropped from the paper PDF and are placed next to the reading notes so the page shows the actual method diagrams, principle illustrations, and result evidence rather than only prose.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-method.jpg" alt="HIRN multi-stage dual-path network for edge and region prediction. The figure shows how low-level and high-level features interact.">
+  <figcaption>HIRN multi-stage dual-path network for edge and region prediction. The figure shows how low-level and high-level features interact.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/paper-principle.jpg" alt="Edge-guided inference and edge-branch improvement analysis. This page explains how edges refine saliency regions after network prediction.">
+  <figcaption>Edge-guided inference and edge-branch improvement analysis. This page explains how edges refine saliency regions after network prediction.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/paper-qualitative.jpg" alt="Qualitative saliency-mask comparison. The examples show the practical effect of preserving object boundaries.">
+  <figcaption>Qualitative saliency-mask comparison. The examples show the practical effect of preserving object boundaries.</figcaption>
+</figure>
 <h2>Resources</h2>
 <ul>
+<li><a href="https://doi.org/10.1109/tip.2020.3027992">Official paper / publisher page</a></li>
 <li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@inproceedings{hierarchical-and-interactive-refinement-network-for-edge-preserving-salient-object-detection,

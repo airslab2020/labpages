@@ -21,15 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a>
-        <a href="../../fei-wang.html">Fei Wang</a>
-        <a href="../../publications.html">Publications</a>
-        <a href="../../dataset.html">Datasets</a>
-        <a href="../../course.html">Courses</a>
-        <a href="../../awards.html">Awards</a>
-        <a href="../../team.html">Team</a>
-        <a href="../../gallery.html">Gallery</a>
-        <a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -43,8 +35,8 @@
           <div class="paper-meta-row">
             <span class="paper-pill">arXiv preprint arXiv:2602.01850, 2026</span>
             <span class="paper-pill">2026</span>
-            <span class="paper-pill">Ubiquitous Sensing</span>
-            <span class="paper-pill">XJTU AIRS Lab</span>
+            <span class="paper-pill">Wearable Action Localization</span>
+            <span class="paper-pill">Xi&#39;an Jiaotong University</span>
           </div>
           <p class="paper-summary">WS-IMUBench formalizes weakly supervised IMU temporal action localization and benchmarks seven representative methods transferred from audio, image, and video on seven public IMU datasets under sequence-level labels.</p>
           <div class="paper-link-row">
@@ -59,7 +51,7 @@
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIRS Lab</p>
+            <p>Xi&#39;an Jiaotong University</p>
           </aside>
         </aside>
       </div>
@@ -74,11 +66,11 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Ubiquitous Sensing</p>
+            <p>Wearable Action Localization</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIRS Lab</p>
+            <p>Xi&#39;an Jiaotong University</p>
           </article>
         </div>
       </div>
@@ -95,7 +87,6 @@
   <img src="./assets/fig1-cross-modal-ws-imu-tal.png" alt="Cross-modal weak supervision analogy from audio, image, and video to IMU temporal action localization.">
   <figcaption>Weak supervision has already been successful in audio, image, and video localization tasks. WS-IMUBench asks whether the same coarse-label-to-fine-boundary idea can transfer to continuous IMU streams.</figcaption>
 </figure>
-
 <h2>At A Glance</h2>
 <div class="markdown-table-wrap"><table class="markdown-table">
 <thead>
@@ -134,8 +125,8 @@
 <td>Frame-level Precision/Recall/F1, misalignment ratios, segment-level mAP</td>
 </tr>
 </tbody>
-</table></div>
-<h2>Research Questions</h2>
+</table>
+</div><h2>Research Questions</h2>
 <p>The benchmark is organized around three research questions:</p>
 <ul>
 <li><strong>RQ1: Transferability.</strong> How can weakly supervised localization paradigms from other modalities be adapted to continuous IMU streams? What IMU-specific choices are needed for instances, bags, aggregation, and proposals?</li>
@@ -155,7 +146,6 @@
   <img src="./assets/fig2-mil-pipeline.png" alt="Multiple Instance Learning pipeline for weakly supervised IMU temporal localization.">
   <figcaption>The benchmark frames an untrimmed IMU sequence as a bag, temporal candidates as instances, and sequence-level labels as bag-level supervision.</figcaption>
 </figure>
-
 <h2>Cross-Modal Method Adaptation</h2>
 <p>WS-IMUBench adapts seven representative weakly supervised methods from three established domains.</p>
 <div class="markdown-table-wrap"><table class="markdown-table">
@@ -187,91 +177,89 @@
 <td>IMU snippets play the role of video snippets; contrastive refinement and temporal propagation improve localization.</td>
 </tr>
 </tbody>
-</table></div>
-<p>The image-derived methods require the largest adaptation because IMU data does not have an equivalent of visual region proposal algorithms such as Selective Search. The paper therefore uses a <strong>multi-scale temporal proposal generator</strong>, producing <strong>3,000 temporal proposals per sequence</strong> through a mix of structured sliding windows and random sampling.</p>
+</table>
+</div><p>The image-derived methods require the largest adaptation because IMU data does not have an equivalent of visual region proposal algorithms such as Selective Search. The paper therefore uses a <strong>multi-scale temporal proposal generator</strong>, producing <strong>3,000 temporal proposals per sequence</strong> through a mix of structured sliding windows and random sampling.</p>
 <figure class="markdown-figure">
   <img src="./assets/fig5-temporal-proposal-generation.png" alt="Comparison between image region proposal generation and IMU temporal proposal generation.">
   <figcaption>For image-derived weakly supervised detection methods, 2D region proposals are replaced with multi-scale temporal proposals over the IMU timeline.</figcaption>
 </figure>
-
 <h2>Benchmark Datasets</h2>
 <p>The evaluation covers seven public IMU datasets spanning daily activities, sports, locomotion, and laboratory procedures.</p>
 <div class="markdown-table-wrap"><table class="markdown-table">
 <thead>
 <tr>
 <th>Dataset</th>
-<th style="text-align: right;">Subjects</th>
-<th style="text-align: right;">Classes</th>
-<th style="text-align: right;">Sensor Axes</th>
-<th style="text-align: right;">Median Segment Duration</th>
+<th style="text-align:right">Subjects</th>
+<th style="text-align:right">Classes</th>
+<th style="text-align:right">Sensor Axes</th>
+<th style="text-align:right">Median Segment Duration</th>
 <th>Scenario</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>SBHAR</td>
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">12.76 s</td>
+<td style="text-align:right">30</td>
+<td style="text-align:right">12</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">12.76 s</td>
 <td>Locomotion</td>
 </tr>
 <tr>
 <td>Opportunity</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">113</td>
-<td style="text-align: right;">2.60 s</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">17</td>
+<td style="text-align:right">113</td>
+<td style="text-align:right">2.60 s</td>
 <td>Daily-life actions</td>
 </tr>
 <tr>
 <td>WetLab</td>
-<td style="text-align: right;">22</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">11.23 s</td>
+<td style="text-align:right">22</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">11.23 s</td>
 <td>Laboratory</td>
 </tr>
 <tr>
 <td>Hang-Time</td>
-<td style="text-align: right;">24</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">1.80 s</td>
+<td style="text-align:right">24</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">1.80 s</td>
 <td>Sports</td>
 </tr>
 <tr>
 <td>RWHAR</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">621.16 s</td>
+<td style="text-align:right">15</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">21</td>
+<td style="text-align:right">621.16 s</td>
 <td>Locomotion</td>
 </tr>
 <tr>
 <td>WEAR</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">43.12 s</td>
+<td style="text-align:right">18</td>
+<td style="text-align:right">18</td>
+<td style="text-align:right">12</td>
+<td style="text-align:right">43.12 s</td>
 <td>Sports</td>
 </tr>
 <tr>
 <td>XRFV2</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">36</td>
-<td style="text-align: right;">7.00 s</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">30</td>
+<td style="text-align:right">36</td>
+<td style="text-align:right">7.00 s</td>
 <td>Daily-life actions</td>
 </tr>
 </tbody>
-</table></div>
-<p>These datasets expose very different temporal regimes. Opportunity and Hang-Time contain short, frequent transitions; RWHAR has extremely long continuous action segments; XRFV2 has relatively uniform durations; SBHAR, WetLab, and WEAR sit between these extremes. This diversity is central to understanding when weak supervision works and when it breaks.</p>
+</table>
+</div><p>These datasets expose very different temporal regimes. Opportunity and Hang-Time contain short, frequent transitions; RWHAR has extremely long continuous action segments; XRFV2 has relatively uniform durations; SBHAR, WetLab, and WEAR sit between these extremes. This diversity is central to understanding when weak supervision works and when it breaks.</p>
 <figure class="markdown-figure">
   <img src="./assets/fig7-dataset-visualization.png" alt="Visualization of temporal action distributions across seven IMU benchmark datasets.">
   <figcaption>The seven datasets differ sharply in action duration, transition frequency, and temporal regularity, which explains why weak supervision succeeds on some benchmarks and struggles on others.</figcaption>
 </figure>
-
 <h2>Evaluation Protocol</h2>
 <p>The benchmark evaluates <strong>7 weakly supervised models</strong> and <strong>3 fully supervised upper-bound models</strong>: ActionFormer, TemporalMaxer, and TriDet. All methods are run with three random seeds: <code>2022</code>, <code>2024</code>, and <code>2026</code>.</p>
 <p>For Opportunity, Hang-Time, SBHAR, RWHAR, WetLab, and WEAR, the paper uses <strong>leave-one-subject-out (LOSO)</strong> cross-validation. For XRFV2, it reports both cross-subject LOSO and the official in-domain split.</p>
@@ -307,14 +295,12 @@
   <img src="./assets/fig8-model-parameters.png" alt="Trainable parameter comparison for the weakly supervised models in WS-IMUBench.">
   <figcaption>Model size alone does not explain performance: lightweight temporal methods can outperform much larger proposal-based models when their inductive bias better matches IMU streams.</figcaption>
 </figure>
-
 <h3>Window-Level And Full-Sequence Inputs Behave Differently</h3>
 <p>Different model families prefer different input regimes. Detection-style methods such as DCASE and CDur often benefit from full-sequence context. Proposal-based MIL methods such as WSDDN, OICR, and PCL can degrade on full sequences because sparse action evidence becomes diluted. CoLA often benefits from cleaner window-level contrastive learning, while RSKP is comparatively robust due to temporal propagation.</p>
 <figure class="markdown-figure">
   <img src="./assets/fig9-prediction-visualization.png" alt="Prediction visualization comparing ground truth, full-input inference, and window-input inference across datasets.">
   <figcaption>Prediction visualizations compare ground truth with full-sequence and window-level inference, making over-segmentation, missed boundaries, and dataset-specific behavior easier to inspect.</figcaption>
 </figure>
-
 <h2>Failure Modes</h2>
 <p>The paper identifies three recurring bottlenecks:</p>
 <ul>
@@ -346,6 +332,7 @@
   year = {2026}
 }
 </code></pre>
+
         </article>
       </div>
     </section>

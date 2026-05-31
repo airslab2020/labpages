@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Can WiFi estimate person pose? - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="WiSPPN explores whether commodity Wi-Fi can estimate single-person pose by synchronizing Wi-Fi CSI with camera-derived keypoint annotations and training a fully convolutional pose network.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -35,27 +35,24 @@
           <div class="paper-meta-row">
             <span class="paper-pill">arXiv preprint arXiv:1904.00277, 2019</span>
             <span class="paper-pill">2019</span>
-            <span class="paper-pill">Ubiquitous Sensing</span>
-            <span class="paper-pill">XJTU AIRS Lab</span>
+            <span class="paper-pill">Wi-Fi Pose Estimation</span>
+            <span class="paper-pill">Xi&#39;an Jiaotong University; Carnegie Mellon University; Zhejiang University</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">WiSPPN explores whether commodity Wi-Fi can estimate single-person pose by synchronizing Wi-Fi CSI with camera-derived keypoint annotations and training a fully convolutional pose network.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
-            
-            
-            
-            
+            <a class="paper-link-chip" href="https://github.com/geekfeiw/WiSPPN">Code</a>
+            <a class="paper-link-chip" href="https://arxiv.org/pdf/1904.00277">Paper</a>
           </div>
         </div>
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for Can WiFi estimate person pose?">
+            <img src="./assets/paper-system.jpg" alt="WiSPPN teacher-student framework using camera supervision and CSI. The figure explains how AlphaPose labels are transferred to Wi-Fi pose learning.">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIRS Lab</p>
+            <p>Xi&#39;an Jiaotong University; Carnegie Mellon University; Zhejiang University</p>
           </aside>
         </aside>
       </div>
@@ -70,11 +67,11 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Ubiquitous Sensing</p>
+            <p>Wi-Fi Pose Estimation</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIRS Lab</p>
+            <p>Xi&#39;an Jiaotong University; Carnegie Mellon University; Zhejiang University</p>
           </article>
         </div>
       </div>
@@ -84,21 +81,41 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>This paper asks a direct question: can Wi-Fi devices work like cameras for fine-grained human pose estimation? Wi-Fi has advantages in privacy, cost, darkness, and occlusion, but it does not directly contain pixel-level body keypoints. Mapping CSI signals to pose therefore requires carefully synchronized supervision.</p>
+<p>The work builds a Wi-Fi and camera data collection system and proposes WiSPPN, a fully convolutional network for estimating single-person pose from Wi-Fi signals.</p>
 <h2>Main Contributions</h2>
 <ul>
-<li>Research theme: Efficient AI Systems.</li>
-<li>Published at arXiv preprint arXiv:1904.00277, 2019.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li>Frames single-person pose estimation as a Wi-Fi sensing task.</li>
+<li>Collects synchronized Wi-Fi CSI and video data to obtain paired signal and keypoint supervision.</li>
+<li>Uses AlphaPose to extract camera-based pose annotations for training.</li>
+<li>Proposes WiSPPN to map Wi-Fi signals to pose heatmaps or keypoint representations.</li>
+<li>Evaluates on more than 80,000 images across 16 sites and 8 people.</li>
 </ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<h2>System Design</h2>
+<p>The setup uses a 3-antenna Wi-Fi sender and a 3-antenna receiver. A synchronized camera records person videos, and the timestamps align Wi-Fi measurements with pose labels. This pairing is crucial because Wi-Fi does not provide direct coordinate supervision by itself.</p>
+<p>WiSPPN learns the mapping from CSI-derived features to pose representation. The model is inspired by dense prediction in computer vision but adapted to the wireless signal domain.</p>
+<h2>Evaluation Highlights</h2>
+<p>The evaluation covers multiple sites and participants, providing evidence that Wi-Fi can support fine-grained pose estimation rather than only coarse activity recognition. The paper concludes that Wi-Fi sensors can achieve comparable fine-grained sensing behavior to cameras in this single-person setting, while offering different deployment advantages.</p>
+<h2>Takeaways</h2>
+<p>This work is an early step toward the Person-in-WiFi research line. It establishes the feasibility of Wi-Fi pose estimation and creates a bridge between visual pose supervision and RF sensing models.</p>
+<h2>Paper Screenshots: Method, Principle, And Results</h2>
+<p>The screenshots below are cropped from the paper PDF and are placed next to the reading notes so the page shows the actual method diagrams, principle illustrations, and result evidence rather than only prose.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-system.jpg" alt="WiSPPN teacher-student framework using camera supervision and CSI. The figure explains how AlphaPose labels are transferred to Wi-Fi pose learning.">
+  <figcaption>WiSPPN teacher-student framework using camera supervision and CSI. The figure explains how AlphaPose labels are transferred to Wi-Fi pose learning.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/paper-architecture.jpg" alt="Residual feature extractor for Wi-Fi pose estimation. This screenshot shows the network block that maps CSI tensors to pose features.">
+  <figcaption>Residual feature extractor for Wi-Fi pose estimation. This screenshot shows the network block that maps CSI tensors to pose features.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/paper-results.jpg" alt="Per-keypoint PCK results. The table shows which body joints are easier or harder to estimate from Wi-Fi.">
+  <figcaption>Per-keypoint PCK results. The table shows which body joints are easier or harder to estimate from Wi-Fi.</figcaption>
+</figure>
 <h2>Resources</h2>
 <ul>
+<li><a href="https://arxiv.org/pdf/1904.00277">Official paper / publisher page</a></li>
 <li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@inproceedings{can-wifi-estimate-person-pose,

@@ -3,7 +3,7 @@ title: CAREC: Continual Wireless Action Recognition with Expansion–Compression
 authors: Tingting Zhang, Qunhang Fu, Han Ding, Ge Wang, Fei Wang
 institution: XJTU, XDU
 summary: CAREC is a class-incremental Wi-Fi action recognition framework that alternates dynamic model expansion with balanced knowledge distillation, reducing catastrophic forgetting while keeping the model compact for long-term deployment.
-theme: Ubiquitous Sensing
+theme: Continual Wireless Sensing
 cover: ./assets/carec-expansion-compression.png
 coverAlt: CAREC expansion and compression pipeline
 eyebrow: Publication

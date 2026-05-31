@@ -6,7 +6,7 @@ summary: Person-in-WiFi shows that fine-grained human body segmentation and pose
 cover: ./assets/figure-1-person-in-wifi-overview.png
 coverAlt: Figure 1 from Person-in-WiFi showing WiFi antennas, synchronized camera annotations, segmentation masks, and pose outputs
 eyebrow: Publication
-theme: WiFi Human Sensing
+theme: Wi-Fi Human Perception
 paper: https://openaccess.thecvf.com/content_ICCV_2019/papers/Wang_Person-in-WiFi_Fine-Grained_Person_Perception_Using_WiFi_ICCV_2019_paper.pdf
 ---
 

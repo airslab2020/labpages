@@ -1,12 +1,13 @@
 ---
 title: Discriminative Feature Learning With Consistent Attention Regularization for Person Re-Identification
 authors: Sanping Zhou, Fei Wang, Zeyi Huang, Jinjun Wang#
-institution: XJTU AIRS Lab
+institution: Xi'an Jiaotong University; Carnegie Mellon University
+theme: Person Re-Identification
 summary: This ICCV 2019 paper improves person re-identification by regularizing attention across feature levels so the network learns foreground-focused pedestrian representations.
-cover: ./assets/cover.svg
-coverAlt: Cover image for Discriminative Feature Learning With Consistent Attention Regularization for Person Re-Identification
+cover: ./assets/paper-preview.png
+coverAlt: First page preview of the ICCV person re-identification paper.
 eyebrow: Publication
-paper: ./assets/paper.pdf
+paper: https://openaccess.thecvf.com/content_ICCV_2019/html/Zhou_Discriminative_Feature_Learning_With_Consistent_Attention_Regularization_for_Person_Re-Identification_ICCV_2019_paper.html
 ---
 
 # Overview
@@ -33,8 +34,8 @@ The paper reports competitive or improved performance over then-state-of-the-art
 
 ## Resources
 
-- [Local PDF](./assets/paper.pdf)
-- [Online paper page](https://openaccess.thecvf.com/content_ICCV_2019/html/Zhou_Discriminative_Feature_Learning_With_Consistent_Attention_Regularization_for_Person_Re-Identification_ICCV_2019_paper.html)
+- [CVF Open Access paper](https://openaccess.thecvf.com/content_ICCV_2019/html/Zhou_Discriminative_Feature_Learning_With_Consistent_Attention_Regularization_for_Person_Re-Identification_ICCV_2019_paper.html)
+- [Paper preview](./assets/paper-preview.png)
 - [Cover image](./assets/cover.svg)
 
 ## Citation

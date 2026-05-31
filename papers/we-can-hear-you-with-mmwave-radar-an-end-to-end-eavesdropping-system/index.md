@@ -2,10 +2,12 @@
 title: We Can Hear You with mmWave Radar! An End-to-End Eavesdropping System
 authors: Dachao Han (XJTU), Teng Huang (XJTU), Han Ding (XJTU), Cui Zhao (XJTU), Fei Wang (XJTU), Ge Wang (XJTU), Wei Xi (XJTU)
 institution: XJTU
+theme: mmWave Speech Privacy
 summary: mmSpeech is an end-to-end mmWave-based speech privacy analysis system that reconstructs intelligible speech from loudspeaker-induced vibration signals, including through-wall settings and without prior knowledge of the target speaker.
 cover: ./assets/figure-1-threat-scenario.png
 coverAlt: Figure 1 from mmSpeech showing the mmWave radar eavesdropping threat scenario
 eyebrow: Publication
+paper: https://dl.acm.org/doi/10.1145/3770708
 ---
 
 # Overview

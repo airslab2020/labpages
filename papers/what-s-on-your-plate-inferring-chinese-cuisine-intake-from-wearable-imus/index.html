@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>What&#39;s on Your Plate? Inferring Chinese Cuisine Intake from Wearable IMUs - XJTU AIRS Lab</title>
-  <meta name="description" content="CuisineSense uses smartwatch and smart-glasses IMU signals to infer Chinese cuisine intake while avoiding the privacy issues of camera-based dietary monitoring.">
+  <meta name="description" content="CuisineSense is a privacy-preserving wearable dietary sensing system that recognizes Chinese food intake from smartwatch and smart-glasses IMU signals using a two-stage eating detection and food classification pipeline.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,31 +31,28 @@
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
           <h1>What&#39;s on Your Plate? Inferring Chinese Cuisine Intake from Wearable IMUs</h1>
-          <p class="paper-subtitle">J Yin, P Wang, H Ding, F Wang</p>
+          <p class="paper-subtitle">Jiaxi Yin, Pengcheng Wang, Han Ding, Fei Wang</p>
           <div class="paper-meta-row">
             <span class="paper-pill">arXiv preprint arXiv:2511.05292, 2025</span>
             <span class="paper-pill">2025</span>
-            <span class="paper-pill">Ubiquitous Sensing</span>
-            <span class="paper-pill">XJTU AIRS Lab</span>
+            <span class="paper-pill">Wearable Dietary Sensing</span>
+            <span class="paper-pill">Xi&#39;an Jiaotong University</span>
           </div>
-          <p class="paper-summary">CuisineSense uses smartwatch and smart-glasses IMU signals to infer Chinese cuisine intake while avoiding the privacy issues of camera-based dietary monitoring.</p>
+          <p class="paper-summary">CuisineSense is a privacy-preserving wearable dietary sensing system that recognizes Chinese food intake from smartwatch and smart-glasses IMU signals using a two-stage eating detection and food classification pipeline.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
-            
-            <a class="paper-link-chip" href="./assets/paper.pdf">Paper</a>
-            
-            
+            <a class="paper-link-chip" href="https://github.com/joeeeeyin/CuisineSense">Code</a>
+            <a class="paper-link-chip" href="https://arxiv.org/abs/2511.05292">Paper</a>
           </div>
         </div>
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for What&#39;s on Your Plate? Inferring Chinese Cuisine Intake from Wearable IMUs">
+            <img src="./assets/paper-framework.jpg" alt="CuisineSense framework for Chinese food intake sensing with smartwatch and smart-glasses IMUs.">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIRS Lab</p>
+            <p>Xi&#39;an Jiaotong University</p>
           </aside>
         </aside>
       </div>
@@ -70,11 +67,11 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Ubiquitous Sensing</p>
+            <p>Wearable Dietary Sensing</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIRS Lab</p>
+            <p>Xi&#39;an Jiaotong University</p>
           </article>
         </div>
       </div>
@@ -84,30 +81,115 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This paper targets dietary monitoring, especially the gap between common wearable food-intake studies and the diversity of Chinese cuisine. The system avoids image capture and instead uses motion cues from wrist and head-worn IMUs.</p>
-<p>CuisineSense treats food intake as a two-stage sensing problem: first distinguish eating from irrelevant daily activities, then infer food categories from the motion patterns involved in consuming different dishes.</p>
+<p>Diet monitoring is useful for health management, but self-reporting is burdensome and camera-based food logging raises privacy concerns. <strong>CuisineSense</strong> takes a wearable sensing route: it uses IMUs in a smartwatch and smart glasses to infer whether a person is eating and, if so, which Chinese food category is being consumed.</p>
+<p>The paper focuses on a practical gap in prior wearable food-intake systems. Many earlier datasets and classifiers cover a small set of Western foods, while Chinese cuisine involves diverse utensils, textures, and eating motions. CuisineSense addresses this with a two-stage pipeline that first filters non-eating activity, then performs fine-grained food classification.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-framework.jpg" alt="CuisineSense two-stage framework with smartwatch and smart-glasses IMU inputs.">
+  <figcaption>CuisineSense pipeline. Smartwatch IMUs capture hand and utensil motion, smart-glasses IMUs capture head and jaw dynamics, and the two-stage model turns those signals into eating-state and food-category predictions.</figcaption>
+</figure>
 <h2>Main Contributions</h2>
 <ul>
-<li>Introduces a wearable sensing pipeline for Chinese cuisine intake recognition without using cameras.</li>
-<li>Combines hand motion from a smartwatch with head dynamics from smart glasses to capture richer eating behavior.</li>
-<li>Uses a two-stage design so unrelated daily activities are filtered before fine-grained food classification.</li>
+<li>Proposes a wearable Chinese cuisine intake recognition system using smartwatch and smart-glasses IMU signals.</li>
+<li>Uses a two-stage hierarchy: eating-state detection first, followed by 11-class Chinese food type recognition.</li>
+<li>Frames the first stage as reconstruction-based anomaly detection, reducing dependence on exhaustive non-eating activity collection.</li>
+<li>Builds a 27.5-hour dataset from 10 participants across 11 Chinese food categories and three utensil styles.</li>
+<li>Reports strong performance with lightweight 1D backbones: U-Net for eating detection and Swin Transformer for food classification.</li>
 </ul>
-<h2>Technical Details</h2>
-<p>The system is built around commodity wearable IMUs. Wrist motion captures utensil and hand movement, while head motion helps distinguish eating gestures and meal patterns that are ambiguous from the wrist alone.</p>
-<p>The two-stage pipeline is important for deployment: an always-on recognizer must avoid confusing ordinary activities with eating, then perform category recognition only when food-intake behavior is likely.</p>
+<h2>Method</h2>
+<p>CuisineSense combines complementary motion cues. The smartwatch records hand movements such as chopstick, spoon, and hand-to-mouth motions at 50 Hz. The smart glasses record head and chewing-related motion at 10 Hz. Each sample contains synchronized six-axis IMU streams from both devices.</p>
+<p>The first module, M1, detects eating states. Instead of treating the problem as ordinary binary classification, it trains a 1D U-Net to reconstruct masked eating-motion sequences. At inference time, low reconstruction error indicates an eating event, while high reconstruction error flags likely non-eating behavior. This is useful because non-eating actions are broad and difficult to enumerate completely.</p>
+<p>The second module, M2, classifies the food type after an eating segment is detected. It uses a 1D Swin Transformer to model local and long-range temporal dependencies in the IMU sequence and outputs probabilities over 11 Chinese food categories.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-system.png" alt="CuisineSense sensing and modeling overview with U-Net and Swin Transformer modules.">
+  <figcaption>System overview. The method separates robust intake segmentation from fine-grained food recognition, which helps avoid forcing daily non-eating activities into food labels.</figcaption>
+</figure>
+<h2>Dataset</h2>
+<p>The dataset contains <strong>27.5 hours</strong> of IMU recordings from <strong>10 volunteers</strong>. Participants wore a Samsung Gear Sport smartwatch on the dominant hand and smart glasses with an IMU. The food set covers <strong>11 Chinese food categories</strong>: mixed noodles, dumplings, noodle soup, stir-fry, baozi, pancake, milk tea, congee, fried rice, soup, and wontons.</p>
+<p>The study covers three utensil patterns: chopsticks, spoon, and hand. Each participant contributed about 15 minutes per food category. The paper segments the streams into <strong>10.24-second windows</strong>, using a <strong>2.56-second sliding window</strong> with 50% overlap. After segmentation, the dataset includes <strong>16,625 eating</strong> and <strong>22,013 non-eating</strong> sequences.</p>
 <h2>Results</h2>
-<p>The paper reports experiments on Chinese cuisine categories and daily-activity interference. The results support the central claim that multimodal wearable IMU sensing can provide a privacy-preserving alternative to self-reports and cameras for diet tracking.</p>
+<p>CuisineSense reports <strong>97.94%</strong> accuracy for eating-state detection with the U-Net reconstruction model. A standard autoencoder baseline reaches <strong>83.39%</strong>, showing the benefit of the masked U-Net reconstruction design for filtering non-eating activities.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-mask-threshold.jpg" alt="Hyperparameter search for mask percentage and reconstruction threshold in eating-state detection.">
+  <figcaption>Eating-state detection search. The best reported setting uses a 0.15 mask ratio and an 80th-percentile reconstruction-error threshold.</figcaption>
+</figure>
+<p>For food type recognition, U-Net plus Swin Transformer reaches <strong>88.44%</strong> accuracy, outperforming the U-Net plus ResNet variant at <strong>80.31%</strong>. The reported inference time is <strong>2.16 plus/minus 0.02 ms</strong> for each 10.24-second window, supporting real-time use.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Module / Setting</th>
+<th style="text-align:right">Accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Eating detection, autoencoder baseline</td>
+<td style="text-align:right">83.39%</td>
+</tr>
+<tr>
+<td>Eating detection, U-Net reconstruction</td>
+<td style="text-align:right">97.94%</td>
+</tr>
+<tr>
+<td>Food recognition, U-Net + ResNet</td>
+<td style="text-align:right">80.31%</td>
+</tr>
+<tr>
+<td>Food recognition, U-Net + Swin Transformer</td>
+<td style="text-align:right">88.44%</td>
+</tr>
+</tbody>
+</table>
+</div><figure class="markdown-figure">
+  <img src="./assets/paper-confusion-matrix.png" alt="CuisineSense confusion matrix over 11 Chinese food classes.">
+  <figcaption>Food recognition confusion matrix. Stir-fry and soup noodles are among the strongest classes, while wontons are more often confused with spoon-based foods such as congee, fried rice, and soup.</figcaption>
+</figure>
+<h2>Ablation</h2>
+<p>The two-stage design is important. When the first-stage eating detector is removed and the food classifier's confidence threshold is used to distinguish eating from non-eating activity, the best reported accuracy across thresholds is only <strong>52.43%</strong>. This drop shows that a dedicated intake-state detector is necessary before fine-grained food classification.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Confidence Threshold</th>
+<th style="text-align:right">0.1</th>
+<th style="text-align:right">0.2</th>
+<th style="text-align:right">0.3</th>
+<th style="text-align:right">0.4</th>
+<th style="text-align:right">0.5</th>
+<th style="text-align:right">0.6</th>
+<th style="text-align:right">0.7</th>
+<th style="text-align:right">0.8</th>
+<th style="text-align:right">0.9</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accuracy without M1</td>
+<td style="text-align:right">45.88</td>
+<td style="text-align:right">45.88</td>
+<td style="text-align:right">45.88</td>
+<td style="text-align:right">46.07</td>
+<td style="text-align:right">45.54</td>
+<td style="text-align:right">47.76</td>
+<td style="text-align:right">49.29</td>
+<td style="text-align:right">50.61</td>
+<td style="text-align:right">52.43</td>
+</tr>
+</tbody>
+</table>
+</div><h2>Takeaways</h2>
+<p>CuisineSense is a clean example of privacy-preserving dietary sensing: it avoids cameras, keeps the sensing hardware realistic, and separates broad intake detection from fine-grained cuisine classification. The strongest lesson is architectural rather than heavyweight: a simple hierarchy can make wearable food logging more reliable when non-eating activities would otherwise create many false positives.</p>
 <h2>Resources</h2>
 <ul>
-<li><a href="./assets/paper.pdf">Local PDF</a></li>
-<li><a href="https://arxiv.org/abs/2511.05292">Online paper page</a></li>
-<li><a href="./assets/cover.svg">Cover image</a></li>
+<li><a href="https://arxiv.org/abs/2511.05292">arXiv paper</a></li>
+<li><a href="https://github.com/joeeeeyin/CuisineSense">Code</a></li>
+<li><a href="./assets/paper-framework.jpg">Framework figure</a></li>
+<li><a href="./assets/paper-system.png">System overview</a></li>
+<li><a href="./assets/paper-confusion-matrix.png">Confusion matrix</a></li>
 </ul>
 <h2>Citation</h2>
-<pre><code class="language-bibtex">@inproceedings{what-s-on-your-plate-inferring-chinese-cuisine-intake-from-wearable-imus,
-  title = {What&#39;s on Your Plate? Inferring Chinese Cuisine Intake from Wearable IMUs},
-  author = {J Yin and P Wang and H Ding and F Wang},
-  booktitle = {arXiv preprint arXiv:2511.05292, 2025},
+<pre><code class="language-bibtex">@article{yin2025cuisinesense,
+  title = {What's on Your Plate? Inferring Chinese Cuisine Intake from Wearable IMUs},
+  author = {Yin, Jiaxi and Wang, Pengcheng and Ding, Han and Wang, Fei},
+  journal = {arXiv preprint arXiv:2511.05292},
   year = {2025}
 }
 </code></pre>

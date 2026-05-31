@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Multiscale Kernel Based Residual Convolutional Neural Network for Motor Fault Diagnosis Under Nonstationary Conditions - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="MK-ResCNN combines multiscale convolution kernels with residual learning to diagnose motor faults from complex nonstationary vibration signals.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -35,27 +35,23 @@
           <div class="paper-meta-row">
             <span class="paper-pill">IEEE Transactions on Industrial Informatics, 2020</span>
             <span class="paper-pill">2020</span>
-            <span class="paper-pill">Efficient AI Systems</span>
-            <span class="paper-pill">XJTU AIRS Lab</span>
+            <span class="paper-pill">Industrial Fault Diagnosis</span>
+            <span class="paper-pill">Tianjin University; Carnegie Mellon University; Zhejiang University; University of Manchester; University of Southern California</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">MK-ResCNN combines multiscale convolution kernels with residual learning to diagnose motor faults from complex nonstationary vibration signals.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
-            
-            
-            
-            
+            <a class="paper-link-chip" href="https://doi.org/10.1109/tii.2019.2941868">Paper</a>
           </div>
         </div>
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for Multiscale Kernel Based Residual Convolutional Neural Network for Motor Fault Diagnosis Under Nonstationary Conditions">
+            <img src="./assets/paper-method.jpg" alt="Multiscale kernel CNN block and residual learning principle. The diagram shows how different temporal scales are captured in one residual block.">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIRS Lab</p>
+            <p>Tianjin University; Carnegie Mellon University; Zhejiang University; University of Manchester; University of Southern California</p>
           </aside>
         </aside>
       </div>
@@ -70,11 +66,11 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Efficient AI Systems</p>
+            <p>Industrial Fault Diagnosis</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIRS Lab</p>
+            <p>Tianjin University; Carnegie Mellon University; Zhejiang University; University of Manchester; University of Southern California</p>
           </article>
         </div>
       </div>
@@ -84,21 +80,40 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>Motor vibration signals under nonstationary operating conditions are complex: the same fault can appear with different temporal patterns as speed and load change. Standard feature engineering may miss these variations, while deeper CNNs can suffer from degradation when simply stacked.</p>
+<p>This paper proposes a multiscale-kernel residual CNN for motor fault diagnosis. The method uses convolution kernels of different scales to capture diverse signal patterns and residual learning to make deeper feature extraction trainable.</p>
 <h2>Main Contributions</h2>
 <ul>
-<li>Research theme: Efficient AI Systems.</li>
-<li>Published at IEEE Transactions on Industrial Informatics, 2020.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li>Applies multiscale convolution kernels to capture fault patterns at different temporal scales.</li>
+<li>Embeds residual learning into the CNN to avoid degradation in deeper networks.</li>
+<li>Builds an end-to-end architecture for raw vibration signal classification.</li>
+<li>Evaluates normal motors and five fault categories under nonstationary conditions.</li>
+<li>Shows stronger performance than comparison methods including feature-engineering baselines.</li>
 </ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<h2>Method Design</h2>
+<p>The multiscale kernel module reflects the fact that fault signatures do not have one fixed temporal scale. Different kernel sizes observe different local patterns, improving robustness when operating conditions vary. Residual connections allow the model to become deeper without losing optimization stability, enabling hierarchical representation learning from raw signals.</p>
+<h2>Evaluation Highlights</h2>
+<p>The paper compares MK-ResCNN with traditional machine-learning methods and other deep models. The discussion notes that wavelet-transform features can lose chronological meaning when feature dimensions are aligned across segments, while CNN-style temporal convolution can preserve pattern information more naturally. MK-ResCNN achieves the best or among-best results in the reported comparisons.</p>
+<h2>Takeaways</h2>
+<p>This work is a clear example of adapting CNN design to physical signal characteristics. Multiscale kernels address nonstationarity, while residual learning addresses depth and optimization.</p>
+<h2>Paper Screenshots: Method, Principle, And Results</h2>
+<p>The screenshots below are cropped from the paper PDF and are placed next to the reading notes so the page shows the actual method diagrams, principle illustrations, and result evidence rather than only prose.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-method.jpg" alt="Multiscale kernel CNN block and residual learning principle. The diagram shows how different temporal scales are captured in one residual block.">
+  <figcaption>Multiscale kernel CNN block and residual learning principle. The diagram shows how different temporal scales are captured in one residual block.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/paper-features.jpg" alt="Feature embedding visualization across network layers. This screenshot helps explain how the learned representation becomes more separable.">
+  <figcaption>Feature embedding visualization across network layers. This screenshot helps explain how the learned representation becomes more separable.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/paper-results.jpg" alt="Ablation and comparison results for MK-ResCNN. The result page shows the role of multiscale kernels and residual learning.">
+  <figcaption>Ablation and comparison results for MK-ResCNN. The result page shows the role of multiscale kernels and residual learning.</figcaption>
+</figure>
 <h2>Resources</h2>
 <ul>
+<li><a href="https://doi.org/10.1109/tii.2019.2941868">Official paper / publisher page</a></li>
 <li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@inproceedings{multiscale-kernel-based-residual-convolutional-neural-network-for-motor-fault-diagnosis-under-nonstationary-conditions,

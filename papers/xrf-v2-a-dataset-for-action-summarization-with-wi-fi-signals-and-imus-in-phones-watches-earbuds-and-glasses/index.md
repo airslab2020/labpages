@@ -2,6 +2,7 @@
 title: XRF V2: A Dataset for Action Summarization with Wi-Fi Signals, and IMUs in Phones, Watches, Earbuds, and Glasses
 authors: Bo Lan, Pei Li, Jiaxi Yin, Yunpeng Song, Ge Wang, Han Ding, Jinsong Han, Fei Wang
 institution: XJTU, XDU, ZJU
+theme: Multimodal Action Sensing
 summary: XRF V2 is a multimodal indoor action dataset for temporal action localization and action summarization, combining Wi-Fi CSI, IMUs from phones, watches, earbuds, and glasses, and synchronized RGB-D-IR video across realistic smart-home scenes.
 cover: ./assets/xrfv2-overview.png
 coverAlt: XRF V2 multimodal sensing and action summarization overview

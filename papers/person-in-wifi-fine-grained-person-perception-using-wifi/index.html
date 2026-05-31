@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -35,7 +35,7 @@
           <div class="paper-meta-row">
             <span class="paper-pill">ICCV 2019</span>
             <span class="paper-pill">2019</span>
-            <span class="paper-pill">WiFi Human Sensing</span>
+            <span class="paper-pill">Wi-Fi Human Perception</span>
             <span class="paper-pill">ZJU / CMU / XJTU / Alibaba-ZJU</span>
           </div>
           <p class="paper-summary">Person-in-WiFi shows that fine-grained human body segmentation and pose estimation can be learned directly from commodity WiFi CSI signals, using camera-derived annotations only during training.</p>
@@ -65,12 +65,12 @@
             <p>ICCV 2019</p>
           </article>
           <article class="paper-panel paper-metric-card">
-            <strong>Dataset</strong>
-            <p>154,627 frames / 16 scenes</p>
+            <strong>Theme</strong>
+            <p>Wi-Fi Human Perception</p>
           </article>
           <article class="paper-panel paper-metric-card">
-            <strong>Results</strong>
-            <p>0.65 mIoU / 78.75 mPCK@0.20</p>
+            <strong>Institution</strong>
+            <p>ZJU / CMU / XJTU / Alibaba-ZJU</p>
           </article>
         </div>
       </div>
@@ -80,73 +80,66 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-          <p><strong>Person-in-WiFi</strong> is an early fine-grained wireless perception system that asks a deliberately ambitious question: can ordinary WiFi signals support body-level perception tasks that are usually handled by cameras, radar, or LiDAR? The paper demonstrates that commodity IEEE 802.11n WiFi antennas and CSI measurements can be used to estimate <strong>human body segmentation masks</strong> and <strong>2D body poses</strong> in an end-to-end deep learning pipeline.</p>
-          <p>The system uses RGB videos only as supervision during data collection: Mask R-CNN provides body segmentation labels, and OpenPose provides joint heatmaps and part affinity fields. At inference time, the model takes WiFi CSI as input and outputs person masks and pose estimates, making it robust to illumination and more privacy-preserving than camera-only sensing.</p>
-          <figure class="markdown-figure">
-            <img src="./assets/figure-1-person-in-wifi-overview.png" alt="Person-in-WiFi overview from the paper">
-            <figcaption>Figure 1 from the paper. Person-in-WiFi uses WiFi antennas as sensors and learns to produce body segmentation and pose outputs from CSI signals.</figcaption>
-          </figure>
-
-          <h2>Main Contributions</h2>
-          <ul>
-            <li>Introduces one of the first systems showing <strong>fine-grained person perception from off-the-shelf WiFi antennas</strong> and standard IEEE 802.11n CSI.</li>
-            <li>Formulates WiFi-based person perception as a supervised mapping from 1D wireless signal observations to 2D spatial body representations.</li>
-            <li>Builds a multi-task deep network that jointly predicts <strong>segmentation masks (SM)</strong>, <strong>joint heatmaps (JHMs)</strong>, and <strong>part affinity fields (PAFs)</strong> from CSI tensors.</li>
-            <li>Proposes <strong>Matthew Weight</strong> to address the sparsity of keypoint and limb annotations, improving pose estimation over naive L2 supervision.</li>
-            <li>Collects synchronized WiFi and RGB data across <strong>16 indoor scenes</strong>, with up to <strong>5 concurrent persons</strong> and <strong>154,627 video frames</strong>.</li>
-          </ul>
-
-          <h2>Sensing Setup and Data</h2>
-          <p>The hardware setup uses one transmitter group and one receiver group, each with three antennas, similar to a household WiFi router layout. CSI is recorded over <strong>30 OFDM subcarriers</strong> centered at <strong>2.4 GHz</strong>, while synchronized RGB videos provide the annotation source. The final input around one video frame is represented as a CSI tensor aligned with temporal samples, antenna pairs, and subcarriers.</p>
-          <figure class="markdown-figure">
-            <img src="./assets/figure-4-data-and-annotations.png" alt="Data collection scenes, annotation examples, and dataset statistics from Person-in-WiFi">
-            <figcaption>Figures 4 and 5 plus Table 1 from the paper. The dataset covers 16 indoor scenes and uses Mask R-CNN/OpenPose annotations from synchronized video frames.</figcaption>
-          </figure>
-
-          <h2>Network Design</h2>
-          <p>Person-in-WiFi maps CSI tensors to three complementary body representations. The network upsamples CSI features, uses residual convolution and U-Net style modules, and supervises the output against segmentation masks, joint heatmaps, and part affinity fields. This design lets the model learn spatial body structure from multiple transmitter-receiver antenna pairs and frequency samples.</p>
-          <figure class="markdown-figure">
-            <img src="./assets/figure-6-network.png" alt="Deep neural network architecture for Person-in-WiFi">
-            <figcaption>Figure 6 from the paper. The network maps CSI into segmentation masks, joint heatmaps, and part affinity fields.</figcaption>
-          </figure>
-
-          <h2>Results</h2>
-          <p>On body segmentation, Person-in-WiFi reports <strong>0.65 mIoU</strong> and <strong>0.38 mAP</strong>, with <strong>AP@50 = 0.91</strong>. For pose estimation, the paper evaluates PCK over 25 joints and shows strong performance on larger body parts such as torso, arms, and legs, while small or occluded joints remain harder.</p>
-          <figure class="markdown-figure">
-            <img src="./assets/figure-10-results.png" alt="Person-in-WiFi qualitative segmentation and pose estimation results">
-            <figcaption>Figure 10 from the paper. Qualitative comparison between camera-derived annotations and Person-in-WiFi outputs.</figcaption>
-          </figure>
-          <figure class="markdown-figure">
-            <img src="./assets/table-2-segmentation-metrics.png" alt="Body segmentation metrics for Person-in-WiFi">
-            <figcaption>Table 2 from the paper. Person-in-WiFi achieves 0.65 mIoU and 0.91 AP@50 for body segmentation.</figcaption>
-          </figure>
-          <figure class="markdown-figure">
-            <img src="./assets/figure-11-pck-curves.png" alt="PCK curves for Person-in-WiFi pose estimation">
-            <figcaption>Figure 11 from the paper. PCK curves for head, torso/arms, legs, and feet joints.</figcaption>
-          </figure>
-
-          <h2>Discussion and Limitations</h2>
-          <p>The paper is careful about the gap between WiFi sensing and camera-based perception. On a manually annotated subset, camera-based methods report <strong>0.83 mIoU</strong> for Mask R-CNN and <strong>89.48 mPCK@0.20</strong> for OpenPose, while Person-in-WiFi reports <strong>0.66 mIoU</strong> and <strong>78.75 mPCK@0.20</strong>. The main failure cases come from limited spatial resolution, rare poses, and incomplete annotations from a single camera view.</p>
-          <figure class="markdown-figure">
-            <img src="./assets/figure-12-failure-cases.png" alt="Failure cases in Person-in-WiFi">
-            <figcaption>Figure 12 from the paper. Failure cases include small limbs, rare poses, and incomplete camera-view annotations.</figcaption>
-          </figure>
-          <p>For deployment in unseen environments, the paper explores an adversarial training strategy to reduce scene-specific information in CSI. In preliminary experiments with 14 training scenes and 2 testing scenes, this improves segmentation mIoU from <strong>0.12 to 0.24</strong> and pose mPCK@0.20 from <strong>19.34 to 31.06</strong>, suggesting that cross-environment generalization is important future work.</p>
-          <figure class="markdown-figure">
-            <img src="./assets/figure-13-adversarial-training.png" alt="Adversarial training for environment invariance in Person-in-WiFi">
-            <figcaption>Figure 13 from the paper. Adversarial training attempts to make CSI representations less environment-specific.</figcaption>
-          </figure>
-
-          <h2>Resources</h2>
-          <ul>
-            <li><a href="https://openaccess.thecvf.com/content_ICCV_2019/papers/Wang_Person-in-WiFi_Fine-Grained_Person_Perception_Using_WiFi_ICCV_2019_paper.pdf">CVF Open Access PDF</a></li>
-            <li><a href="./assets/figure-1-person-in-wifi-overview.png">Local overview figure</a></li>
-            <li><a href="./assets/figure-6-network.png">Local network figure</a></li>
-            <li><a href="./assets/figure-10-results.png">Local qualitative results figure</a></li>
-          </ul>
-
-          <h2>Citation</h2>
-          <pre><code class="language-bibtex">@inproceedings{wang2019personinwifi,
+<p><strong>Person-in-WiFi</strong> is an early fine-grained wireless perception system that asks a deliberately ambitious question: can ordinary WiFi signals support body-level perception tasks that are usually handled by cameras, radar, or LiDAR? The paper demonstrates that commodity IEEE 802.11n WiFi antennas and CSI measurements can be used to estimate <strong>human body segmentation masks</strong> and <strong>2D body poses</strong> in an end-to-end deep learning pipeline.</p>
+<p>The system uses RGB videos only as supervision during data collection: Mask R-CNN provides body segmentation labels, and OpenPose provides joint heatmaps and part affinity fields. At inference time, the model takes WiFi CSI as input and outputs person masks and pose estimates, making it robust to illumination and more privacy-preserving than camera-only sensing.</p>
+<figure class="markdown-figure">
+  <img src="./assets/figure-1-person-in-wifi-overview.png" alt="Person-in-WiFi overview from the paper">
+  <figcaption>Figure 1 from the paper. Person-in-WiFi uses WiFi antennas as sensors and learns to produce body segmentation and pose outputs from CSI signals.</figcaption>
+</figure>
+<h2>Main Contributions</h2>
+<ul>
+<li>Introduces one of the first systems showing <strong>fine-grained person perception from off-the-shelf WiFi antennas</strong> and standard IEEE 802.11n CSI.</li>
+<li>Formulates WiFi-based person perception as a supervised mapping from 1D wireless signal observations to 2D spatial body representations.</li>
+<li>Builds a multi-task deep network that jointly predicts <strong>segmentation masks (SM)</strong>, <strong>joint heatmaps (JHMs)</strong>, and <strong>part affinity fields (PAFs)</strong> from CSI tensors.</li>
+<li>Proposes <strong>Matthew Weight</strong> to address the sparsity of keypoint and limb annotations, improving pose estimation over naive L2 supervision.</li>
+<li>Collects synchronized WiFi and RGB data across <strong>16 indoor scenes</strong>, with up to <strong>5 concurrent persons</strong> and <strong>154,627 video frames</strong>.</li>
+</ul>
+<h2>Sensing Setup and Data</h2>
+<p>The hardware setup uses one transmitter group and one receiver group, each with three antennas, similar to a household WiFi router layout. CSI is recorded over <strong>30 OFDM subcarriers</strong> centered at <strong>2.4 GHz</strong>, while synchronized RGB videos provide the annotation source. The final input around one video frame is represented as a CSI tensor aligned with temporal samples, antenna pairs, and subcarriers.</p>
+<figure class="markdown-figure">
+  <img src="./assets/figure-4-data-and-annotations.png" alt="Data collection scenes, annotation examples, and dataset statistics from Person-in-WiFi">
+  <figcaption>Figures 4 and 5 plus Table 1 from the paper. The dataset covers 16 indoor scenes and uses Mask R-CNN/OpenPose annotations from synchronized video frames.</figcaption>
+</figure>
+<h2>Network Design</h2>
+<p>Person-in-WiFi maps CSI tensors to three complementary body representations. The network upsamples CSI features, uses residual convolution and U-Net style modules, and supervises the output against segmentation masks, joint heatmaps, and part affinity fields. This design lets the model learn spatial body structure from multiple transmitter-receiver antenna pairs and frequency samples.</p>
+<figure class="markdown-figure">
+  <img src="./assets/figure-6-network.png" alt="Deep neural network architecture for Person-in-WiFi">
+  <figcaption>Figure 6 from the paper. The network maps CSI into segmentation masks, joint heatmaps, and part affinity fields.</figcaption>
+</figure>
+<h2>Results</h2>
+<p>On body segmentation, Person-in-WiFi reports <strong>0.65 mIoU</strong> and <strong>0.38 mAP</strong>, with <strong>AP@50 = 0.91</strong>. For pose estimation, the paper evaluates PCK over 25 joints and shows strong performance on larger body parts such as torso, arms, and legs, while small or occluded joints remain harder.</p>
+<figure class="markdown-figure">
+  <img src="./assets/figure-10-results.png" alt="Person-in-WiFi qualitative segmentation and pose estimation results">
+  <figcaption>Figure 10 from the paper. Qualitative comparison between camera-derived annotations and Person-in-WiFi outputs.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/table-2-segmentation-metrics.png" alt="Body segmentation metrics for Person-in-WiFi">
+  <figcaption>Table 2 from the paper. Person-in-WiFi achieves 0.65 mIoU and 0.91 AP@50 for body segmentation.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/figure-11-pck-curves.png" alt="PCK curves for Person-in-WiFi pose estimation">
+  <figcaption>Figure 11 from the paper. PCK curves for head, torso/arms, legs, and feet joints.</figcaption>
+</figure>
+<h2>Discussion and Limitations</h2>
+<p>The paper is careful about the gap between WiFi sensing and camera-based perception. On a manually annotated subset, camera-based methods report <strong>0.83 mIoU</strong> for Mask R-CNN and <strong>89.48 mPCK@0.20</strong> for OpenPose, while Person-in-WiFi reports <strong>0.66 mIoU</strong> and <strong>78.75 mPCK@0.20</strong>. The main failure cases come from limited spatial resolution, rare poses, and incomplete annotations from a single camera view.</p>
+<figure class="markdown-figure">
+  <img src="./assets/figure-12-failure-cases.png" alt="Failure cases in Person-in-WiFi">
+  <figcaption>Figure 12 from the paper. Failure cases include small limbs, rare poses, and incomplete camera-view annotations.</figcaption>
+</figure>
+<p>For deployment in unseen environments, the paper explores an adversarial training strategy to reduce scene-specific information in CSI. In preliminary experiments with 14 training scenes and 2 testing scenes, this improves segmentation mIoU from <strong>0.12 to 0.24</strong> and pose mPCK@0.20 from <strong>19.34 to 31.06</strong>, suggesting that cross-environment generalization is important future work.</p>
+<figure class="markdown-figure">
+  <img src="./assets/figure-13-adversarial-training.png" alt="Adversarial training for environment invariance in Person-in-WiFi">
+  <figcaption>Figure 13 from the paper. Adversarial training attempts to make CSI representations less environment-specific.</figcaption>
+</figure>
+<h2>Resources</h2>
+<ul>
+<li><a href="https://openaccess.thecvf.com/content_ICCV_2019/papers/Wang_Person-in-WiFi_Fine-Grained_Person_Perception_Using_WiFi_ICCV_2019_paper.pdf">CVF Open Access PDF</a></li>
+<li><a href="./assets/figure-1-person-in-wifi-overview.png">Local overview figure</a></li>
+<li><a href="./assets/figure-6-network.png">Local network figure</a></li>
+<li><a href="./assets/figure-10-results.png">Local qualitative results figure</a></li>
+</ul>
+<h2>Citation</h2>
+<pre><code class="language-bibtex">@inproceedings{wang2019personinwifi,
   title = {Person-in-WiFi: Fine-Grained Person Perception Using WiFi},
   author = {Wang, Fei and Zhou, Sanping and Panev, Stanislav and Han, Jinsong and Huang, Dong},
   booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
@@ -154,6 +147,7 @@
   year = {2019}
 }
 </code></pre>
+
         </article>
       </div>
     </section>

@@ -100,6 +100,13 @@
     news: [
       {
         date: "May 2026",
+        title: "Person-in-WiFi 3D journal extension accepted to IEEE TPAMI",
+        summary:
+          "Person-in-WiFi 3D: Unified Model for 3D WiFi Perception extends the CVPR 2024 system into a unified Wi-Fi 3D human perception model for pose estimation and mesh reconstruction.",
+        slug: "person-in-wifi-3d-unified-model-for-3d-wifi-perception"
+      },
+      {
+        date: "May 2026",
         title: "Purify-then-Align accepted to A2A-MML | CVPR 2026",
         summary:
           "Purify-then-Align studies robust human sensing under modality missing by distilling knowledge from noisy multimodal teachers, and has been accepted to the CVPR 2026 Workshop on Any-to-Any Multimodal Learning.",

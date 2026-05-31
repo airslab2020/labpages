@@ -1,12 +1,13 @@
 ---
 title: A Framework for Behavior Privacy Preserving in Radio Frequency Signal
 authors: J Liu, J Han, L Yang, F Wang, F Lin, K Ren
-institution: XJTU AIRS Lab
+institution: Zhejiang University; The Hong Kong Polytechnic University
+theme: RF Privacy Preservation
 summary: This paper studies how to protect behavior privacy in RF sensing by hiding identity and motion information that can otherwise be inferred from wireless signal distortions.
-cover: ./assets/cover.svg
-coverAlt: Cover image for A Framework for Behavior Privacy Preserving in Radio Frequency Signal
+cover: ./assets/paper-preview.png
+coverAlt: First page preview of the RF behavior privacy paper.
 eyebrow: Publication
-paper: ./assets/paper.pdf
+paper: https://arxiv.org/abs/2004.04909
 ---
 
 # Overview
@@ -33,8 +34,8 @@ The experiments examine whether sensitive behavior information becomes harder to
 
 ## Resources
 
-- [Local PDF](./assets/paper.pdf)
-- [Online paper page](https://arxiv.org/abs/2004.04909)
+- [arXiv paper](https://arxiv.org/abs/2004.04909)
+- [Paper preview](./assets/paper-preview.png)
 - [Cover image](./assets/cover.svg)
 
 ## Citation

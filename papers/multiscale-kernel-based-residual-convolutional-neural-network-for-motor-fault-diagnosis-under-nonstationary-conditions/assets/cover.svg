@@ -13,6 +13,6 @@
   <path d="M0 640C124 590 218 566 312 566C434 566 532 602 634 624C744 648 850 644 960 614C1042 592 1118 546 1200 520V840H0Z" fill="rgba(255,255,255,0.12)"/>
   <rect x="78" y="474" width="1044" height="270" rx="34" fill="rgba(255,255,255,0.14)"/>
   <text x="92" y="578" font-family="Exo, Arial, sans-serif" font-size="58" font-weight="800" fill="#ffffff"><tspan x="92" dy="0">Multiscale Kernel Based</tspan><tspan x="92" dy="72">Residual Convolutional</tspan><tspan x="92" dy="72">Neural Network for Motor</tspan><tspan x="92" dy="72">Fault Diagnosis Under...</tspan></text>
-  <text x="92" y="690" font-family="Source Sans 3, Arial, sans-serif" font-size="28" fill="rgba(255,255,255,0.9)">Efficient AI Systems</text>
+  <text x="92" y="690" font-family="Source Sans 3, Arial, sans-serif" font-size="28" fill="rgba(255,255,255,0.9)">Industrial Fault Diagnosis</text>
   <text x="92" y="730" font-family="Source Sans 3, Arial, sans-serif" font-size="26" fill="rgba(255,255,255,0.72)">IEEE Transactions on Industrial Informatics, 2020</text>
 </svg>

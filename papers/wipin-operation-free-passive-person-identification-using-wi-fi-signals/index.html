@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WiPIN: Operation-free Passive Person Identification Using Wi-Fi Signals - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="WiPIN identifies people passively from body-induced Wi-Fi signal distortions, avoiding predefined walking paths while achieving 92 percent accuracy over 30 users.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -35,27 +35,23 @@
           <div class="paper-meta-row">
             <span class="paper-pill">IEEE Globecom 2019 (Best Paper Award)</span>
             <span class="paper-pill">2019</span>
-            <span class="paper-pill">Ubiquitous Sensing</span>
-            <span class="paper-pill">XJTU AIRS Lab</span>
+            <span class="paper-pill">Wi-Fi Person Identification</span>
+            <span class="paper-pill">Zhejiang University; Alibaba-Zhejiang University Joint Research Institute of Frontier Technologies</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">WiPIN identifies people passively from body-induced Wi-Fi signal distortions, avoiding predefined walking paths while achieving 92 percent accuracy over 30 users.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
-            
-            
-            
-            
+            <a class="paper-link-chip" href="https://doi.org/10.1109/globecom38437.2019.9014226">Paper</a>
           </div>
         </div>
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for WiPIN: Operation-free Passive Person Identification Using Wi-Fi Signals">
+            <img src="./assets/paper-system.jpg" alt="WiPIN signal processing, segmentation, feature extraction, and identity matching framework. The screenshot is the core system diagram for operation-free identification.">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIRS Lab</p>
+            <p>Zhejiang University; Alibaba-Zhejiang University Joint Research Institute of Frontier Technologies</p>
           </aside>
         </aside>
       </div>
@@ -70,11 +66,11 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Ubiquitous Sensing</p>
+            <p>Wi-Fi Person Identification</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIRS Lab</p>
+            <p>Zhejiang University; Alibaba-Zhejiang University Joint Research Institute of Frontier Technologies</p>
           </article>
         </div>
       </div>
@@ -84,21 +80,42 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>Earlier Wi-Fi person identification methods often relied on gait. Users had to walk along a predefined path for several meters so the system could capture walking-induced CSI distortions. This requirement increases time overhead, demands cooperation, and limits real deployment.</p>
+<p>WiPIN removes this requirement. It is based on the observation that Wi-Fi signals carry body-related information when propagating through or around a person. Features such as body shape, fat rate, and muscle rate can influence CSI patterns, allowing identity recognition without a prescribed action.</p>
 <h2>Main Contributions</h2>
 <ul>
-<li>Research theme: Efficient AI Systems.</li>
-<li>Published at IEEE Globecom 2019 (Best Paper Award).</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li>Introduces operation-free passive person identification using commodity Wi-Fi.</li>
+<li>Uses body-induced Wi-Fi distortions rather than gait along predefined paths.</li>
+<li>Designs signal preprocessing, feature extraction, and identity matching algorithms.</li>
+<li>Achieves low identifying time overhead below 300 ms.</li>
+<li>Reports 92 percent identification accuracy over 30 users and robustness across experimental settings.</li>
 </ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<h2>System Design</h2>
+<p>WiPIN first preprocesses CSI measurements to reduce noise and isolate useful signal variation. It then extracts identity-related features from amplitude patterns and performs matching against enrolled users. The design is deliberately lightweight and passive: the person does not need to carry a device or perform a special gesture.</p>
+<h2>Evaluation Highlights</h2>
+<p>The Globecom paper evaluates WiPIN with 30 users and multiple experimental settings. The results show that operation-free identification can be both accurate and fast. The paper also compares with gait-based approaches, emphasizing that WiPIN lowers user burden and broadens possible scenarios.</p>
+<h2>Why Only This Version Is Kept</h2>
+<p>This page keeps the IEEE GLOBECOM version of WiPIN, which is the formal publication and best-paper-award version. The separate arXiv page has been removed from the publications list to avoid duplicate entries for the same core work.</p>
+<h2>Takeaways</h2>
+<p>WiPIN is a milestone in passive Wi-Fi identity sensing. Its central contribution is the shift from action-induced identity cues to body-induced identity cues, making person identification more natural for IoT environments.</p>
+<h2>Paper Screenshots: Method, Principle, And Results</h2>
+<p>The screenshots below are cropped from the paper PDF and are placed next to the reading notes so the page shows the actual method diagrams, principle illustrations, and result evidence rather than only prose.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-system.jpg" alt="WiPIN signal processing, segmentation, feature extraction, and identity matching framework. The screenshot is the core system diagram for operation-free identification.">
+  <figcaption>WiPIN signal processing, segmentation, feature extraction, and identity matching framework. The screenshot is the core system diagram for operation-free identification.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/paper-robustness.jpg" alt="Robustness across days, training groups, and experimental settings. These plots show whether passive body-induced features remain stable.">
+  <figcaption>Robustness across days, training groups, and experimental settings. These plots show whether passive body-induced features remain stable.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/paper-results.jpg" alt="Computation overhead and comparison with prior Wi-Fi identification methods. The result page supports the low-latency and low-collaboration claims.">
+  <figcaption>Computation overhead and comparison with prior Wi-Fi identification methods. The result page supports the low-latency and low-collaboration claims.</figcaption>
+</figure>
 <h2>Resources</h2>
 <ul>
+<li><a href="https://doi.org/10.1109/globecom38437.2019.9014226">Official paper / publisher page</a></li>
 <li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@inproceedings{wipin-operation-free-passive-person-identification-using-wi-fi-signals,

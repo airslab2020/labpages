@@ -1,7 +1,8 @@
 ---
 title: WS-IMUBench: Can Weakly Supervised Methods from Audio, Image, and Video Be Adapted for IMU-based Temporal Action Localization?
 authors: Pei Li, Jiaxi Yin, Lei Ouyang, Shihan Pan, Ge Wang, Han Ding, Fei Wang
-institution: XJTU AIRS Lab
+institution: Xi'an Jiaotong University
+theme: Wearable Action Localization
 summary: WS-IMUBench formalizes weakly supervised IMU temporal action localization and benchmarks seven representative methods transferred from audio, image, and video on seven public IMU datasets under sequence-level labels.
 cover: ./assets/fig1-cross-modal-ws-imu-tal.png
 coverAlt: Cross-modal weak supervision analogy from audio, image, and video to IMU temporal action localization.

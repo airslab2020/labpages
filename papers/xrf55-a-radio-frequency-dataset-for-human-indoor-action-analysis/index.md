@@ -2,6 +2,7 @@
 title: XRF55: A Radio Frequency Dataset for Human Indoor Action Analysis
 authors: Fei Wang#, Yizhe Lv, Mengdie Zhu, Han Ding, Jinsong Han
 institution: XJTU / ZJU
+theme: RF Action Dataset
 summary: XRF55 is a large-scale multi-RF benchmark for indoor human action analysis, pairing Wi-Fi, RFID, mmWave radar, and synchronized Azure Kinect streams across 55 action classes, 39 subjects, four scenes, and more than 42.9K samples collected over 100 days.
 cover: ./assets/teaser.png
 coverAlt: XRF55 hardware setup and dataset overview

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crowd Counting with Sparse Annotation - XJTU AIRS Lab</title>
+  <meta name="description" content="This Pattern Recognition paper introduces sparse annotation for crowd counting and a Progressive Point Matching network that learns reliable point-based counters from sparsely labeled people in each image.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/paper-page.css">
+</head>
+<body>
+  <header class="paper-header">
+    <div class="paper-shell paper-nav-shell">
+      <a class="paper-brand" href="../../index.html">
+        <span class="paper-brand-mark">X</span>
+        <span class="paper-brand-copy">
+          <strong>XJTU AIRS Lab</strong>
+          <small>Publication Detail</small>
+        </span>
+      </a>
+      <nav class="paper-nav" aria-label="Primary">
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="paper-main">
+    <section class="paper-hero">
+      <div class="paper-shell paper-hero-grid">
+        <div class="paper-hero-copy">
+          <p class="paper-eyebrow">Publication</p>
+          <h1>Crowd Counting with Sparse Annotation</h1>
+          <p class="paper-subtitle">Shiwei Zhang, Zhengzheng Wang, Qing Liu, Fei Wang, Wei Ke, Tong Zhang</p>
+          <div class="paper-meta-row">
+            <span class="paper-pill">Pattern Recognition 180, 114000, 2026</span>
+            <span class="paper-pill">2026</span>
+            <span class="paper-pill">Computer Vision</span>
+            <span class="paper-pill">UESTC; XJTU; University of Oulu; UCAS</span>
+          </div>
+          <p class="paper-summary">This Pattern Recognition paper introduces sparse annotation for crowd counting and a Progressive Point Matching network that learns reliable point-based counters from sparsely labeled people in each image.</p>
+          <div class="paper-link-row">
+            <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
+            <a class="paper-link-chip" href="https://www.sciencedirect.com/science/article/pii/S0031320326009659">Paper</a>
+          </div>
+        </div>
+        <aside class="paper-hero-side">
+          <div class="paper-panel paper-figure-card">
+            <p class="paper-eyebrow">Cover / Teaser</p>
+            <img src="./assets/paper-method.jpg" alt="Progressive Point Matching network for sparsely annotated crowd counting.">
+          </div>
+          <aside class="paper-panel paper-side-note">
+            <p class="paper-eyebrow">Affiliation</p>
+            <p>UESTC; XJTU; University of Oulu; UCAS</p>
+          </aside>
+        </aside>
+      </div>
+    </section>
+
+    <section class="paper-section">
+      <div class="paper-shell">
+        <div class="paper-metric-grid">
+          <article class="paper-panel paper-metric-card">
+            <strong>Venue</strong>
+            <p>Pattern Recognition 180, 114000, 2026</p>
+          </article>
+          <article class="paper-panel paper-metric-card">
+            <strong>Theme</strong>
+            <p>Computer Vision</p>
+          </article>
+          <article class="paper-panel paper-metric-card">
+            <strong>Institution</strong>
+            <p>UESTC; XJTU; University of Oulu; UCAS</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="paper-section">
+      <div class="paper-shell">
+        <article class="paper-panel paper-article">
+          <h1>Overview</h1>
+<p>Crowd counting usually requires point labels for every visible head in an image. That can be painfully expensive in dense scenes: the paper notes that UCF-QNRF contains 1,535 images with an average of 815 heads per image, requiring more than 2,000 human hours for full annotation.</p>
+<p>This work proposes <strong>Sparse Annotation (SA)</strong> for crowd counting. Instead of fully labeling a subset of images or a contiguous patch in every image, sparse annotation randomly labels individuals across each image. This preserves image-level diversity and also samples distant regions, scale changes, and perspective variation more evenly than patch-based partial annotation.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-annotation-settings.jpg" alt="Comparison of semi-supervised, partial annotation, and sparse annotation settings for crowd counting.">
+  <figcaption>Annotation settings. Sparse annotation labels people across each image, aiming to reduce redundancy while keeping diverse scale and region information.</figcaption>
+</figure>
+<h2>Main Contributions</h2>
+<ul>
+<li>Introduces sparsely annotated crowd counting as a supervision setting between partial annotation and full point annotation.</li>
+<li>Defines two sparse-annotation variants: ratio-based annotation and K-annotation.</li>
+<li>Proposes Progressive Point Matching (PPM), a point-based framework designed for sparse labels.</li>
+<li>Uses a Proposal Matching Network to obtain coarse point predictions and pseudo samples.</li>
+<li>Uses a Performance Restoration Network with progressive proposal selection and confidence-guided weighted loss to refine the point classifier.</li>
+<li>Evaluates on ShanghaiTech_A, ShanghaiTech_B, UCF_QNRF, JHU-Crowd++, and NWPU-Crowd.</li>
+</ul>
+<h2>Method</h2>
+<p>The method avoids density-map supervision because sparse labels cannot reliably reconstruct full crowd-density maps. Instead, it uses a point-based pipeline. A VGG-16 backbone extracts feature maps, point proposals are generated over the feature map, and Hungarian matching assigns proposals to the sparse ground-truth points.</p>
+<p>PPM has two branches. The <strong>Proposal Matching Network (PMN)</strong> trains a basic point classifier from sparse annotation and produces pseudo point samples. The <strong>Performance Restoration Network (PRN)</strong> learns from confident pseudo points and refines the classifier. A progressive proposal selection strategy gradually relaxes the pseudo-label threshold as training improves, while confidence-guided weighting reduces the harm from noisy pseudo labels.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-method.jpg" alt="Overall architecture of the Progressive Point Matching network.">
+  <figcaption>Progressive Point Matching. PMN learns coarse proposals from sparse labels, while PRN refines prediction using pseudo points, progressive selection, and weighted loss.</figcaption>
+</figure>
+<h2>Why Sparse Annotation Helps</h2>
+<p>Traditional semi-supervised crowd counting fully annotates only some images, leaving many images unused at the label level. Partial annotation labels one complete patch per image, but that patch may contain people with similar scale and perspective. Sparse annotation spreads labels across the image, so a fixed annotation budget can cover more spatial diversity.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-pipeline-comparison.jpg" alt="Comparison between previous fully supervised point-based methods and the proposed PPM framework.">
+  <figcaption>Pipeline comparison. PPM adds a second restoration branch and pseudo-label transfer path tailored to sparse annotation.</figcaption>
+</figure>
+<h2>Evaluation Highlights</h2>
+<p>Against semi-supervised methods on ShanghaiTech_A, PET+PPM reaches <strong>60.4 MAE</strong> with 40 percent annotation and remains competitive at 10 percent and 5 percent annotation. On UCF_QNRF, PET+PPM reaches <strong>100.5 MAE</strong> with 10 percent annotation and <strong>112.7 MAE</strong> with 5 percent annotation, improving over recent semi-supervised baselines in low-label settings.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-semisupervised-results.jpg" alt="Semi-supervised comparison tables on ShanghaiTech_A and UCF_QNRF.">
+  <figcaption>Semi-supervised comparison. PPM improves point-based baselines under sparse supervision and is strongest in low-label regimes on QNRF.</figcaption>
+</figure>
+<p>With higher sparse-annotation ratios, the method approaches fully supervised systems. Using 80 percent sparse annotations, PET+PPM reports <strong>50.5 MAE</strong> on ShanghaiTech_A and <strong>81.2 MAE</strong> on QNRF. With 90 percent sparse annotations, PET+PPM reaches <strong>49.3 MAE</strong> on ShanghaiTech_A and <strong>80.6 MAE</strong> on QNRF, which is close to strong fully supervised point-based methods.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-full-supervised-results.jpg" alt="Comparison with fully supervised approaches and NWPU-Crowd results.">
+  <figcaption>High-ratio sparse annotation results. At 80-90 percent annotation, sparse annotation recovers much of the fully supervised performance while saving labels.</figcaption>
+</figure>
+<h2>Annotation-Performance Tradeoff</h2>
+<p>The paper studies performance across annotation ratios. The baseline degrades sharply when the annotation ratio falls, while PPM with ratio-based sparse annotation degrades more smoothly. At 80 percent annotation, the method can outperform the fully supervised P2PNet baseline on ShanghaiTech_A, saving about 20 percent labeling effort in that setting.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-ratio-results.jpg" alt="Annotation-ratio study, cross-dataset generalization, and ablation tables for PPM.">
+  <figcaption>Annotation-ratio and ablation evidence. Sparse annotation plus PPM provides a controllable tradeoff between annotation labor and crowd-counting accuracy.</figcaption>
+</figure>
+<h2>Qualitative Results</h2>
+<p>Because PPM is point-based, it produces both count estimates and head locations. The visual comparisons show that PRN improves over the baseline and that PPM can localize people where density-map semi-supervised methods only estimate counts.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-visual-results.jpg" alt="Crowd counting qualitative predictions and failure cases.">
+  <figcaption>Qualitative results and failure cases. The model improves counting and localization, but very low annotation ratios can still miss many detections.</figcaption>
+</figure>
+<h2>Takeaways</h2>
+<p>The central contribution is the annotation setting as much as the model. Sparse annotation gives practitioners a clean knob for balancing cost and performance, and PPM shows how a point-based architecture can exploit those incomplete labels without fabricating dense supervision. The paper also notes that the idea may extend to other point-supervision tasks such as cell counting or object counting, with task-specific redesign.</p>
+<h2>Resources</h2>
+<ul>
+<li><a href="https://www.sciencedirect.com/science/article/pii/S0031320326009659">Official paper</a></li>
+<li><a href="./assets/paper-annotation-settings.jpg">Annotation setting crop</a></li>
+<li><a href="./assets/paper-method.jpg">Method crop</a></li>
+<li><a href="./assets/paper-full-supervised-results.jpg">Results crop</a></li>
+</ul>
+<h2>Citation</h2>
+<pre><code class="language-bibtex">@article{zhang2026crowd,
+  title = {Crowd Counting with Sparse Annotation},
+  author = {Zhang, Shiwei and Wang, Zhengzheng and Liu, Qing and Wang, Fei and Ke, Wei and Zhang, Tong},
+  journal = {Pattern Recognition},
+  volume = {180},
+  pages = {114000},
+  year = {2026},
+  doi = {10.1016/j.patcog.2026.114000}
+}
+</code></pre>
+
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

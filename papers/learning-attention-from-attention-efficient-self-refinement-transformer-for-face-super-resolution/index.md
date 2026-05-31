@@ -1,12 +1,13 @@
 ---
 title: Learning Attention from Attention: Efficient Self-Refinement Transformer for Face Super-Resolution
 authors: Guanxin Li, Jingang Shi#, Yuan Zong, Fei Wang, Tian Wang, Yihong Gong
-institution: XJTU AIRS Lab
+institution: Xi'an Jiaotong University; Southeast University; Beihang University
+theme: Face Super-Resolution
 summary: This IJCAI 2023 paper improves face super-resolution by using attention itself as a refinement signal, helping the model focus on useful facial texture rather than irrelevant regions.
-cover: ./assets/cover.svg
-coverAlt: Cover image for Learning Attention from Attention: Efficient Self-Refinement Transformer for Face Super-Resolution
+cover: ./assets/paper-preview.png
+coverAlt: First page preview of the Learning Attention from Attention paper.
 eyebrow: Publication
-paper: ./assets/paper.pdf
+paper: https://www.ijcai.org/proceedings/2023/0115
 ---
 
 # Overview
@@ -33,8 +34,8 @@ The paper reports improvements in face reconstruction quality and visual detail 
 
 ## Resources
 
-- [Local PDF](./assets/paper.pdf)
-- [Online paper page](https://www.ijcai.org/proceedings/2023/0115)
+- [IJCAI proceedings page](https://www.ijcai.org/proceedings/2023/0115)
+- [Paper preview](./assets/paper-preview.png)
 - [Cover image](./assets/cover.svg)
 
 ## Citation

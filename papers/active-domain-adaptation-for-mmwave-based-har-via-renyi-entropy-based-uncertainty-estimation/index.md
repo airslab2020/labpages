@@ -2,6 +2,7 @@
 title: Active Domain Adaptation for mmWave-based HAR via Rényi Entropy-based Uncertainty Estimation
 authors: Mingzhi Lin, Teng Huang, Han Ding, Cui Zhao, Fei Wang, Ge Wang, Wei Xi
 institution: XJTU-CSE / XJTU-SSE
+theme: mmWave Domain Adaptation
 summary: mmADA adapts mmWave-based human activity recognition models to new users, positions, and environments with minimal target-domain labels, using Rényi entropy to select informative samples and unlabeled-data refinement to close the domain gap.
 cover: ./assets/mmada-overview.png
 coverAlt: Overview of the mmADA active domain adaptation framework

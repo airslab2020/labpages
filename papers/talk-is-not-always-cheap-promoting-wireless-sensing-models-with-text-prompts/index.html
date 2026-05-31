@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Talk is Not Always Cheap: Promoting Wireless Sensing Models with Text Prompts - XJTU AIRS Lab</title>
-  <meta name="description" content="WiTalk enhances wireless sensing models with hierarchical text prompts, showing that semantic descriptions can improve recognition and temporal localization without changing the backbone architecture.">
+  <meta name="description" content="WiTalk is a plug-and-play framework that injects hierarchical text prompts into wireless sensing models, using label semantics to improve WiFi, RFID, and mmWave action recognition and temporal localization without changing the original sensing backbone.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -35,27 +35,24 @@
           <div class="paper-meta-row">
             <span class="paper-pill">arXiv preprint arXiv:2504.14621, 2025</span>
             <span class="paper-pill">2025</span>
-            <span class="paper-pill">Ubiquitous Sensing</span>
-            <span class="paper-pill">XJTU AIRS Lab</span>
+            <span class="paper-pill">Wireless Sensing Foundation Models</span>
+            <span class="paper-pill">Alibaba Inc.; Xi&#39;an Jiaotong University</span>
           </div>
-          <p class="paper-summary">WiTalk enhances wireless sensing models with hierarchical text prompts, showing that semantic descriptions can improve recognition and temporal localization without changing the backbone architecture.</p>
+          <p class="paper-summary">WiTalk is a plug-and-play framework that injects hierarchical text prompts into wireless sensing models, using label semantics to improve WiFi, RFID, and mmWave action recognition and temporal localization without changing the original sensing backbone.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
-            
-            
-            
-            
+            <a class="paper-link-chip" href="https://github.com/yangzhenkui/WiTalk">Code</a>
+            <a class="paper-link-chip" href="https://arxiv.org/abs/2504.14621">Paper</a>
           </div>
         </div>
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for Talk is Not Always Cheap: Promoting Wireless Sensing Models with Text Prompts">
+            <img src="./assets/paper-method.png" alt="WiTalk framework overview with wireless and text encoders.">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIRS Lab</p>
+            <p>Alibaba Inc.; Xi&#39;an Jiaotong University</p>
           </aside>
         </aside>
       </div>
@@ -70,11 +67,11 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Ubiquitous Sensing</p>
+            <p>Wireless Sensing Foundation Models</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIRS Lab</p>
+            <p>Alibaba Inc.; Xi&#39;an Jiaotong University</p>
           </article>
         </div>
       </div>
@@ -84,28 +81,146 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>Wireless sensing datasets often include useful textual knowledge such as action names and semantic descriptions, but most sensing models ignore that information during training. <strong>WiTalk</strong> explores whether text prompts can improve wireless sensing performance without adding more data or redesigning the core architecture.</p>
-<p>The paper focuses on WiFi, mmWave radar, and RFID-based sensing tasks. Instead of changing the backbone, WiTalk injects semantic guidance through text prompts at different levels of detail and tests whether those prompts improve both recognition and localization.</p>
+<p>Wireless sensing datasets already contain semantic information in their action labels, but most models treat those labels only as class IDs. <strong>WiTalk</strong> asks whether this low-cost text signal can become a useful training and inference modality for wireless sensing. The paper studies WiFi, mmWave radar, and RFID sensing, and uses text prompts to improve human action recognition and temporal action localization.</p>
+<p>The central idea is intentionally practical: do not redesign the wireless backbone. Instead, attach a text branch that turns raw action labels into richer semantic embeddings, fuse those embeddings with wireless features, and let the existing sensing model benefit from task-level language knowledge.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-prompts.png" alt="WiTalk prompt construction with label, context, and detailed action descriptions.">
+  <figcaption>Text prompt construction. WiTalk converts motion labels into hierarchical semantic descriptions, from compact labels to richer action descriptions.</figcaption>
+</figure>
 <h2>Main Contributions</h2>
 <ul>
-<li>Introduces <strong>WiTalk</strong>, a text-enhanced framework for wireless sensing.</li>
-<li>Uses three prompt strategies: <strong>label-only</strong>, <strong>brief description</strong>, and <strong>detailed action description</strong>.</li>
-<li>Demonstrates that textual supervision can improve both action recognition and temporal localization with minimal architectural friction.</li>
+<li>Introduces a plug-and-play text-enhanced framework for wireless sensing models.</li>
+<li>Uses three prompt strategies with increasing semantic richness: tag-label encoding, tag-context enhancement, and tag-description elaboration.</li>
+<li>Applies the same text-branch idea to WiFi, RFID, and mmWave action recognition, as well as WiFi temporal action localization.</li>
+<li>Adds only a small overhead to existing models, reported as about <strong>3M parameters</strong> and <strong>0.02 GFLOPs</strong>, roughly <strong>2.5%</strong> of WiFiTAD's parameter size.</li>
+<li>Validates the method on XRF55, WiFiTAL, and XRFV2, showing consistent gains across recognition and localization tasks.</li>
 </ul>
 <h2>Method</h2>
-<p>The framework keeps the sensing model architecture intact and augments training with semantic prompts derived from the dataset labels and action descriptions. This is an appealing design choice because it means the method can be attached to existing sensing pipelines without rebuilding the full model stack.</p>
-<p>The paper positions text prompts as a low-cost way to inject task semantics into wireless sensing, especially when the raw signal space is difficult to interpret directly.</p>
-<h2>Evaluation Highlights</h2>
-<ul>
-<li>Evaluated on <strong>XRF55</strong> for human action recognition and <strong>WiFiTAL / XRFV2</strong> for WiFi temporal action localization.</li>
-<li>Improves XRF55 accuracy by <strong>3.9% (WiFi)</strong>, <strong>2.59% (RFID)</strong>, and <strong>0.46% (mmWave)</strong>.</li>
-<li>Improves average WiFiTAD performance on WiFiTAL by <strong>4.98%</strong>.</li>
-<li>Improves mean average precision on XRFV2 by <strong>4.02% to 13.68%</strong> across different methods.</li>
-</ul>
+<p>WiTalk processes wireless features and text features in parallel. The wireless signal is handled by the original sensing encoder. In the text branch, motion labels are expanded by an LLM assistant into prompt descriptions, encoded by a text encoder, stored as static embeddings, refined with self-attention, and fused with wireless features before the sensing task head.</p>
+<p>This design has two deployment advantages. First, the text embeddings can be prepared ahead of time and loaded from a JSON-style feature store. Second, the original sensing architecture remains mostly intact, so WiTalk can be attached to existing WiFi, RFID, and mmWave pipelines.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-method.png" alt="WiTalk framework with wireless encoder, text encoder, LLM assistant, text embedding store, self-attention module, and sensing model.">
+  <figcaption>WiTalk framework. Wireless features are fused with prompt-derived text embeddings before downstream recognition or localization.</figcaption>
+</figure>
+<h2>Wireless Sensing Scope</h2>
+<p>The paper covers three representative wireless modalities. WiFi sensing uses CSI changes caused by human-induced multipath effects. RFID sensing uses backscatter signal variation from passive tags. mmWave sensing uses FMCW radar to estimate motion-related range, velocity, and angle information. WiTalk does not depend on a single physical signal type; it treats textual action semantics as an additional source of supervision across modalities.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-wifi-principle.png" alt="Human-induced multipath effects for WiFi sensing.">
+  <figcaption>WiFi sensing principle. Human motion perturbs multipath propagation, producing CSI variation that can encode actions.</figcaption>
+</figure>
+<h2>Results</h2>
+<p>On XRF55, adding text improves action-recognition accuracy for all three tested wireless modalities. WiFi gains <strong>3.90 points</strong>, RFID gains <strong>2.59 points</strong>, and mmWave gains <strong>0.46 points</strong>. The larger WiFi and RFID gains suggest that prompt semantics help most when the signal representation has more ambiguity or weaker task separation.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Dataset / Task</th>
+<th style="text-align:right">Baseline</th>
+<th style="text-align:right">With Text</th>
+<th style="text-align:right">Gain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>XRF55 WiFi accuracy</td>
+<td style="text-align:right">87.26</td>
+<td style="text-align:right">91.16</td>
+<td style="text-align:right">+3.90</td>
+</tr>
+<tr>
+<td>XRF55 RFID accuracy</td>
+<td style="text-align:right">56.82</td>
+<td style="text-align:right">59.41</td>
+<td style="text-align:right">+2.59</td>
+</tr>
+<tr>
+<td>XRF55 mmWave accuracy</td>
+<td style="text-align:right">86.88</td>
+<td style="text-align:right">87.34</td>
+<td style="text-align:right">+0.46</td>
+</tr>
+<tr>
+<td>WiFiTAL average mAP</td>
+<td style="text-align:right">66.31</td>
+<td style="text-align:right">71.29</td>
+<td style="text-align:right">+4.98</td>
+</tr>
+</tbody>
+</table>
+</div><p>For temporal action localization, WiTalk improves WiFiTAD on WiFiTAL across all reported tIoU thresholds, with gains from <strong>3.81</strong> to <strong>5.88</strong> points and an average gain of <strong>4.98</strong>. On XRFV2, adding text improves multiple temporal localization methods, including TemporalMaxer, ActionFormer, TriDet, WiFiTAD, UWiFiAction, ActionMamba, and XRFMamba.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-xrfv2-visualization.png" alt="XRFV2 temporal action localization visualization for baseline methods and text-enhanced variants.">
+  <figcaption>XRFV2 localization visualization. Text-enhanced variants better align predicted action segments with the ground truth timeline.</figcaption>
+</figure>
+<p>The strongest XRFV2 average mAP gains are reported for <strong>TriDet (+13.68)</strong> and <strong>XRFMamba (+13.19)</strong>. These gains support the paper's claim that text is not just metadata; prompt semantics can make wireless temporal localization more discriminative.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>XRFV2 Method</th>
+<th style="text-align:right">Baseline Avg mAP</th>
+<th style="text-align:right">With Text Avg mAP</th>
+<th style="text-align:right">Gain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TemporalMaxer</td>
+<td style="text-align:right">33.78</td>
+<td style="text-align:right">40.10</td>
+<td style="text-align:right">+6.32</td>
+</tr>
+<tr>
+<td>ActionFormer</td>
+<td style="text-align:right">43.14</td>
+<td style="text-align:right">49.95</td>
+<td style="text-align:right">+6.81</td>
+</tr>
+<tr>
+<td>TriDet</td>
+<td style="text-align:right">35.22</td>
+<td style="text-align:right">48.90</td>
+<td style="text-align:right">+13.68</td>
+</tr>
+<tr>
+<td>WiFiTAD</td>
+<td style="text-align:right">51.55</td>
+<td style="text-align:right">56.12</td>
+<td style="text-align:right">+4.57</td>
+</tr>
+<tr>
+<td>UWiFiAction</td>
+<td style="text-align:right">33.37</td>
+<td style="text-align:right">37.39</td>
+<td style="text-align:right">+4.02</td>
+</tr>
+<tr>
+<td>ActionMamba</td>
+<td style="text-align:right">61.88</td>
+<td style="text-align:right">67.29</td>
+<td style="text-align:right">+5.42</td>
+</tr>
+<tr>
+<td>XRFMamba</td>
+<td style="text-align:right">52.61</td>
+<td style="text-align:right">65.80</td>
+<td style="text-align:right">+13.19</td>
+</tr>
+</tbody>
+</table>
+</div><h2>Prompt And Fusion Findings</h2>
+<p>The ablation study compares CLIP, Qwen, and LLaMA embeddings under different prompt strategies. CLIP is the most robust overall, and tag-context enhancement performs especially well on WiFiTAL and XRFV2. The paper also reports that weighted fusion with a <strong>0.9 wireless / 0.1 text</strong> balance works best in the WiFiTAD setting, outperforming heavier text weighting.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-fusion-ablation.png" alt="Fusion stages considered for adding text features into XRFMamba-style temporal localization.">
+  <figcaption>Fusion-stage study. The paper evaluates where to inject text features and finds that later weighted fusion can be effective for temporal localization.</figcaption>
+</figure>
+<h2>Takeaways</h2>
+<p>WiTalk is useful because it treats text labels as a free semantic resource rather than a bookkeeping artifact. The method is not trying to replace wireless features with language; it uses language to guide feature learning and class separation. The result is a simple recipe for improving existing wireless sensing systems with a small text branch and carefully designed prompts.</p>
 <h2>Resources</h2>
 <ul>
-<li><a href="https://arxiv.org/abs/2504.14621">arXiv abstract</a></li>
+<li><a href="https://arxiv.org/abs/2504.14621">arXiv paper</a></li>
 <li><a href="https://github.com/yangzhenkui/WiTalk">Code</a></li>
+<li><a href="./assets/paper-prompts.png">Prompt figure</a></li>
+<li><a href="./assets/paper-method.png">Method figure</a></li>
+<li><a href="./assets/paper-xrfv2-visualization.png">XRFV2 visualization</a></li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@article{yang2025witalk,

@@ -6,7 +6,7 @@ summary: PTA makes missing-modality human sensing more robust by first purifying
 cover: ./assets/pta-framework.png
 coverAlt: PTA framework showing the Purify stage for meta-learned modality weighting and the Align stage for diffusion-based distillation
 eyebrow: CVPR 2026 Workshop
-theme: Ubiquitous Sensing
+theme: Multimodal Wireless Sensing
 paper: https://arxiv.org/abs/2604.05584
 code: https://github.com/Vongolia11/PTA
 ---

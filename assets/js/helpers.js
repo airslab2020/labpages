@@ -153,6 +153,14 @@
   }
 
   function publicationTheme(paper) {
+    if (paper.theme) {
+      return {
+        label: paper.theme,
+        overview:
+          "This work belongs to a more specific research thread within the lab's publication portfolio."
+      };
+    }
+
     const title = paper.title.toLowerCase();
     if (/quant|compression|4-bit|8-bit|fp8|low-rank|sparse/i.test(title)) {
       return {

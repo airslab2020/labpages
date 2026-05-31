@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Development of a plug-and-play anti-noise module for fault diagnosis of rotating machines in nuclear power plants - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="This paper proposes a plug-and-play anti-noise module that can be inserted into ResNet-style fault diagnosis models to improve rotating-machine diagnosis under noisy nuclear-plant conditions.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -35,27 +35,23 @@
           <div class="paper-meta-row">
             <span class="paper-pill">Progress in Nuclear Energy 151, 104344, 2022</span>
             <span class="paper-pill">2022</span>
-            <span class="paper-pill">Efficient AI Systems</span>
-            <span class="paper-pill">XJTU AIRS Lab</span>
+            <span class="paper-pill">Industrial Fault Diagnosis</span>
+            <span class="paper-pill">University of Pittsburgh; Carnegie Mellon University</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">This paper proposes a plug-and-play anti-noise module that can be inserted into ResNet-style fault diagnosis models to improve rotating-machine diagnosis under noisy nuclear-plant conditions.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
-            
-            
-            
-            
+            <a class="paper-link-chip" href="https://www.sciencedirect.com/science/article/pii/S0149197022002190">Paper</a>
           </div>
         </div>
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for Development of a plug-and-play anti-noise module for fault diagnosis of rotating machines in nuclear power plants">
+            <img src="./assets/paper-background.jpg" alt="ResNet background and anti-noise diagnosis motivation. This page introduces the neural baseline that the plug-and-play anti-noise module extends.">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIRS Lab</p>
+            <p>University of Pittsburgh; Carnegie Mellon University</p>
           </aside>
         </aside>
       </div>
@@ -70,11 +66,11 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Efficient AI Systems</p>
+            <p>Industrial Fault Diagnosis</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIRS Lab</p>
+            <p>University of Pittsburgh; Carnegie Mellon University</p>
           </article>
         </div>
       </div>
@@ -84,21 +80,41 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>Rotating machines such as pumps, fans, compressors, and motors are critical to nuclear power plant safety. Machine-learning-based fault diagnosis can reduce manual inspection burden, but plant environments introduce noise from electromagnetic fields, radiation, and coupled mechanical components. Noise can corrupt vibration features and reduce diagnosis reliability.</p>
+<p>This paper proposes a plug-and-play anti-noise module that can be inserted into a ResNet fault diagnosis network. The module is designed to identify noise-related feature components and suppress them at the neural feature level.</p>
 <h2>Main Contributions</h2>
 <ul>
-<li>Research theme: Efficient AI Systems.</li>
-<li>Published at Progress in Nuclear Energy 151, 104344, 2022.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li>Introduces an anti-noise module for rotating-machine fault diagnosis in nuclear power plant settings.</li>
+<li>Loads the module into ResNet to create models with feature-level noise reduction capability.</li>
+<li>Compares nine module-loading variants against the original ResNet and classical machine-learning baselines.</li>
+<li>Evaluates on bearing and gearbox fault diagnosis tasks with simulated noise.</li>
+<li>Studies how different signal-to-noise ratios affect diagnostic performance.</li>
 </ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<h2>Method Design</h2>
+<p>The anti-noise module estimates amplitude fluctuation factors and average amplitude values, then uses element-wise operations to model noise-related features. By adding reverse noise expressions into subsequent analysis, the model attempts to filter noise without requiring a separate preprocessing stage.</p>
+<p>The design is plug-and-play because it can be placed at different depths of a residual network. The paper studies these loading modes to understand where anti-noise modeling is most effective.</p>
+<h2>Evaluation Highlights</h2>
+<p>Two rotating-machine datasets are used: one for bearing faults and one for gearbox faults. Gaussian white noise with different SNR levels simulates plant noise. The experiments compare ResNet variants with KNN, SVM, decision tree, and naive Bayes models using wavelet-packet features. The results show that anti-noise modules improve robustness under noisy conditions and that loading position matters.</p>
+<h2>Takeaways</h2>
+<p>The work is useful because it adapts deep fault diagnosis to a safety-critical environment where clean laboratory signals are not enough. Its practical value lies in making neural diagnosis models more tolerant of plant noise without redesigning the entire architecture.</p>
+<h2>Paper Screenshots: Method, Principle, And Results</h2>
+<p>The screenshots below are cropped from the paper PDF and are placed next to the reading notes so the page shows the actual method diagrams, principle illustrations, and result evidence rather than only prose.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-background.jpg" alt="ResNet background and anti-noise diagnosis motivation. This page introduces the neural baseline that the plug-and-play anti-noise module extends.">
+  <figcaption>ResNet background and anti-noise diagnosis motivation. This page introduces the neural baseline that the plug-and-play anti-noise module extends.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/paper-method.jpg" alt="Anti-noise module operations. The screenshot shows how feature-level statistics are used to suppress noise-related components.">
+  <figcaption>Anti-noise module operations. The screenshot shows how feature-level statistics are used to suppress noise-related components.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/paper-results.jpg" alt="Noise robustness summary under simulated SNR conditions. The page connects the method to nuclear-plant noise resilience.">
+  <figcaption>Noise robustness summary under simulated SNR conditions. The page connects the method to nuclear-plant noise resilience.</figcaption>
+</figure>
 <h2>Resources</h2>
 <ul>
+<li><a href="https://www.sciencedirect.com/science/article/pii/S0149197022002190">Official paper / publisher page</a></li>
 <li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@inproceedings{development-of-a-plug-and-play-anti-noise-module-for-fault-diagnosis-of-rotating-machines-in-nuclear-power-plants,

@@ -1,11 +1,13 @@
 ---
 title: When Gradient Optimization Is Not Enough: Dispersive and Anchoring Geometric Regularizer for Multimodal Learning
 authors: Zixuan Xia, Hao Wang, Pengcheng Weng, Yanyu Qian, Yangxin Xu, William Dan, Fei Wang
-institution: XJTU AIRS Lab
+institution: University of Bern; Xi'an Jiaotong University; Nanyang Technological University
+theme: Multimodal Learning
 summary: This work studies representation geometry in multimodal learning and introduces a lightweight DAGR regularizer that jointly encourages intra-modal diversity and stable cross-modal anchoring.
-cover: ./assets/cover.svg
-coverAlt: Cover image for When Gradient Optimization Is Not Enough: Dispersive and Anchoring Geometric Regularizer for Multimodal Learning
+cover: ./assets/paper-preview.png
+coverAlt: First page preview of the DAGR multimodal learning paper.
 eyebrow: Publication
+paper: https://arxiv.org/abs/2601.21670
 ---
 
 # Overview
@@ -40,7 +42,8 @@ Because DAGR acts directly on intermediate embeddings, it can be added to existi
 
 ## Resources
 
-- [arXiv abstract](https://arxiv.org/abs/2601.21670)
+- [arXiv paper](https://arxiv.org/abs/2601.21670)
+- [Paper preview](./assets/paper-preview.png)
 
 ## Citation
 

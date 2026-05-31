@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Person-in-WiFi 3D: Unified Model for 3D WiFi Perception - XJTU AIRS Lab</title>
+  <meta name="description" content="The PAMI journal version of Person-in-WiFi 3D extends the CVPR 2024 system into a unified Wi-Fi human perception model for multi-person 3D pose estimation and mesh reconstruction, with Wiception3D annotations, stronger refinement, and broader evaluation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/paper-page.css">
+</head>
+<body>
+  <header class="paper-header">
+    <div class="paper-shell paper-nav-shell">
+      <a class="paper-brand" href="../../index.html">
+        <span class="paper-brand-mark">X</span>
+        <span class="paper-brand-copy">
+          <strong>XJTU AIRS Lab</strong>
+          <small>Publication Detail</small>
+        </span>
+      </a>
+      <nav class="paper-nav" aria-label="Primary">
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="paper-main">
+    <section class="paper-hero">
+      <div class="paper-shell paper-hero-grid">
+        <div class="paper-hero-copy">
+          <p class="paper-eyebrow">Journal Extension</p>
+          <h1>Person-in-WiFi 3D: Unified Model for 3D WiFi Perception</h1>
+          <p class="paper-subtitle">Bo Qian (XJTU), Xing Wei (XJTU), Kangwei Yan (XJTU), Han Ding (XJTU), Jinsong Han (ZJU), Fei Wang (XJTU)</p>
+          <div class="paper-meta-row">
+            <span class="paper-pill">IEEE Transactions on Pattern Analysis and Machine Intelligence, 2026</span>
+            <span class="paper-pill">2026</span>
+            <span class="paper-pill">Wi-Fi 3D Human Perception</span>
+            <span class="paper-pill">XJTU; ZJU</span>
+          </div>
+          <p class="paper-summary">The PAMI journal version of Person-in-WiFi 3D extends the CVPR 2024 system into a unified Wi-Fi human perception model for multi-person 3D pose estimation and mesh reconstruction, with Wiception3D annotations, stronger refinement, and broader evaluation.</p>
+          <div class="paper-link-row">
+            <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
+            <a class="paper-link-chip" href="https://aiotgroup.github.io/Person-in-WiFi-3D/">Project page</a>
+            <a class="paper-link-chip" href="../person-in-wifi-3d-end-to-end-multi-person-3d-pose-estimation-with-wi-fi/index.html">CVPR version</a>
+          </div>
+        </div>
+        <aside class="paper-hero-side">
+          <div class="paper-panel paper-figure-card">
+            <p class="paper-eyebrow">Cover / Teaser</p>
+            <img src="./assets/paper-teaser.png" alt="Person-in-WiFi 3D PAMI teaser showing RGB frames, Wi-Fi 3D pose outputs, and mesh reconstruction outputs">
+          </div>
+          <aside class="paper-panel paper-side-note">
+            <p class="paper-eyebrow">Affiliation</p>
+            <p>XJTU; ZJU</p>
+          </aside>
+        </aside>
+      </div>
+    </section>
+
+    <section class="paper-section">
+      <div class="paper-shell">
+        <div class="paper-metric-grid">
+          <article class="paper-panel paper-metric-card">
+            <strong>Venue</strong>
+            <p>IEEE Transactions on Pattern Analysis and Machine Intelligence, 2026</p>
+          </article>
+          <article class="paper-panel paper-metric-card">
+            <strong>Theme</strong>
+            <p>Wi-Fi 3D Human Perception</p>
+          </article>
+          <article class="paper-panel paper-metric-card">
+            <strong>Institution</strong>
+            <p>XJTU; ZJU</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="paper-section">
+      <div class="paper-shell">
+        <article class="paper-panel paper-article">
+          <h1>Overview</h1>
+<p><strong>Person-in-WiFi 3D: Unified Model for 3D WiFi Perception</strong> is the PAMI journal extension of the CVPR 2024 <strong>Person-in-WiFi 3D</strong> work. The paper studies whether commodity Wi-Fi signals can support richer 3D human perception in privacy-sensitive indoor spaces, moving beyond multi-person 3D pose estimation toward a unified model that also reconstructs multi-person 3D human meshes.</p>
+<p>The core idea is to treat Wi-Fi human perception as an end-to-end set prediction problem. Instead of extending 2D heatmaps and part affinity fields into heavy 3D tensors, the system uses multiple Wi-Fi receivers, a Transformer-style CSI encoder, Hungarian matching, and hierarchical coarse-to-fine refinement to directly decode multiple people's 3D representations from CSI signals.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-teaser.png" alt="Person-in-WiFi 3D PAMI qualitative examples">
+  <figcaption>Qualitative examples from the PAMI paper: RGB reference frames, Wi-Fi 3D pose estimates, and Wi-Fi-driven mesh reconstruction outputs.</figcaption>
+</figure>
+<h2>What Is New Beyond CVPR 2024</h2>
+<p>This page describes the <strong>PAMI journal version</strong>. The earlier conference version is available here: <a href="../person-in-wifi-3d-end-to-end-multi-person-3d-pose-estimation-with-wi-fi/index.html">Person-in-WiFi 3D: End-to-End Multi-Person 3D Pose Estimation with Wi-Fi</a>.</p>
+<p>Compared with the CVPR 2024 version, the journal paper adds three major extensions:</p>
+<ul>
+<li><strong>Dataset extension:</strong> Wiception3D now includes multi-person mesh reconstruction annotations in addition to 3D pose annotations.</li>
+<li><strong>Task extension:</strong> the system supports both multi-person 3D pose estimation and multi-person 3D mesh reconstruction.</li>
+<li><strong>Model improvement:</strong> the refine decoder adds a differentiation branch that generates instance-aware keypoint queries from identity tokens, improving fine-grained refinement.</li>
+<li><strong>Expanded experiments:</strong> the journal version reports broader ablations, MM-Fi benchmark comparisons, occlusion and low-light cases, and cross-person / cross-environment analysis.</li>
+</ul>
+<h2>Main Contributions</h2>
+<ul>
+<li>Introduces a unified Wi-Fi framework for <strong>multi-person 3D human perception</strong>, covering both pose estimation and mesh reconstruction.</li>
+<li>Develops the <strong>WiFi Human Perception Transformer</strong>, which maps CSI signals to multi-person 3D representations in an end-to-end manner.</li>
+<li>Extends <strong>Wiception3D</strong> to more than 97,000 samples with annotations for both 3D pose estimation and 3D mesh reconstruction.</li>
+<li>Demonstrates strong results on Wiception3D and the public MM-Fi benchmark, while keeping commodity Wi-Fi as the sensing hardware.</li>
+</ul>
+<h2>System Design</h2>
+<p>The sensing setup uses one Wi-Fi transmitter and three Wi-Fi receivers, with the receivers placed around the sensing area to capture human-body reflections from multiple directions. An Azure Kinect provides 3D keypoint supervision through the Kinect Body Tracking SDK, while ROMP supplies mesh supervision for training and evaluation.</p>
+<p>At the model level, Person-in-WiFi 3D uses a teacher-student framework. CSI amplitude and denoised phase features are tokenized and passed through a Transformer-based CSI Feature Encoder. A pose decoder then uses learnable queries to produce instance-level human representations. The refine decoder improves these coarse predictions at the keypoint level, and the model is trained with set-based Hungarian matching so each predicted person is assigned to a unique ground-truth person.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-architecture.png" alt="Architecture of the PAMI version of Person-in-WiFi 3D">
+  <figcaption>System architecture. The PAMI version unifies Wi-Fi-based 3D pose estimation and mesh reconstruction under a teacher-student, set-prediction framework.</figcaption>
+</figure>
+<h2>Refinement and Differentiation Branch</h2>
+<p>The journal version improves the refinement stage. A straightforward refine decoder with independently learned keypoint queries can struggle because those queries do not naturally encode which person they belong to. The PAMI version addresses this with a <strong>differentiation branch</strong>: identity tokens from the pose decoder are transformed into keypoint queries through stacked MLPs with residual connections.</p>
+<p>This gives each keypoint query both instance-level identity information and joint-specific information. In the ablations, replacing randomly initialized learnable queries with the differentiation branch reduces pose MPJPE from <strong>107.2 mm</strong> to <strong>93.5 mm</strong> and mesh MPJPE from <strong>50.7 mm</strong> to <strong>41.3 mm</strong>.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-differentiation-branch.png" alt="Differentiation branch for generating keypoint queries from identity tokens">
+  <figcaption>The differentiation branch generates joint-specific queries from identity tokens, making the refinement process instance-aware.</figcaption>
+</figure>
+<h2>Wiception3D Dataset</h2>
+<p>The data collection covers 7 volunteers, 8 daily actions, and 3 indoor locations: an office room, a classroom, and a corridor. The actions include static movements such as reaching out, raising hands, bending over, sitting down, lifting legs, and standing, as well as dynamic free-moving actions such as walking.</p>
+<p>The dataset contains 456 CSI and RGB-D clips, each 40 seconds long, with 270,000 RGB-D frames before cleaning. After removing frames where Kinect or ROMP annotation failed, the final dataset includes <strong>89,946 training samples</strong> and <strong>7,824 test samples</strong> across one-, two-, and three-person cases.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Split</th>
+<th style="text-align:right">1-person</th>
+<th style="text-align:right">2-person</th>
+<th style="text-align:right">3-person</th>
+<th style="text-align:right">All</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Training</td>
+<td style="text-align:right">28,121</td>
+<td style="text-align:right">36,242</td>
+<td style="text-align:right">25,583</td>
+<td style="text-align:right">89,946</td>
+</tr>
+<tr>
+<td>Test</td>
+<td style="text-align:right">2,586</td>
+<td style="text-align:right">3,184</td>
+<td style="text-align:right">2,054</td>
+<td style="text-align:right">7,824</td>
+</tr>
+</tbody>
+</table>
+</div><h2>Results on Wiception3D</h2>
+<p>For 3D multi-person pose estimation, the PAMI version reports a final <strong>93.5 mm MPJPE</strong>, improving over the CVPR version by 13.7 mm. The system achieves <strong>65.2 mm</strong>, <strong>90.8 mm</strong>, and <strong>117.1 mm</strong> MPJPE in one-, two-, and three-person scenarios, respectively. The paper also reports dimension-wise mean errors of <strong>43.6 mm</strong> horizontally, <strong>51.7 mm</strong> vertically, and <strong>41.4 mm</strong> in depth.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-pose-results.png" alt="Pose estimation MPJPE table and CDF curves from the PAMI paper">
+  <figcaption>Pose estimation results. Arm joints are the hardest to localize, while upper-body, middle-body, and leg errors are more concentrated.</figcaption>
+</figure>
+<p>For 3D mesh reconstruction, Person-in-WiFi 3D reaches <strong>41.3 mm MPJPE</strong> and <strong>16.5 mm PAMPJPE</strong> on Wiception3D. One-, two-, and three-person mesh reconstruction scenarios report <strong>37.21 mm</strong>, <strong>42.11 mm</strong>, and <strong>45.51 mm</strong> MPJPE, respectively.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-mesh-results.png" alt="Mesh reconstruction results table from the PAMI paper">
+  <figcaption>Mesh reconstruction results. The largest errors are concentrated around hands and other terminal joints.</figcaption>
+</figure>
+<h2>Benchmark and Ablations</h2>
+<p>On MM-Fi, Person-in-WiFi 3D consistently improves over the Wi-Fi baseline MetaFi++ across the reported protocols and splits. The paper also compares with RGB, LiDAR, and mmWave baselines to place Wi-Fi perception in a broader sensing context: Wi-Fi does not yet match the strongest LiDAR or mmWave systems on the same benchmark, but it offers lower deployment cost because commodity Wi-Fi infrastructure is already common indoors.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-mmfi-comparison.png" alt="MM-Fi benchmark comparison table for Person-in-WiFi 3D">
+  <figcaption>MM-Fi comparison and efficiency results. Person-in-WiFi 3D improves over the Wi-Fi baseline while remaining fast enough for the 15 FPS CSI input stream.</figcaption>
+</figure>
+<p>The ablation studies show that several design choices matter:</p>
+<ul>
+<li>Using three receivers is much stronger than two-receiver or one-receiver variants.</li>
+<li>The Transformer CSI encoder reduces pose MPJPE from <strong>118.3 mm</strong> with a CNN backbone to <strong>93.5 mm</strong>.</li>
+<li>The refine decoder reduces pose MPJPE from <strong>116.1 mm</strong> to <strong>93.5 mm</strong>.</li>
+<li>Adding denoised phase information reduces pose MPJPE from <strong>192.4 mm</strong> with amplitude only to <strong>93.5 mm</strong>.</li>
+<li>The differentiation branch improves both pose and mesh reconstruction compared with learnable keypoint queries.</li>
+</ul>
+<h2>Robustness and Limitations</h2>
+<p>Because Wi-Fi does not rely on visible light or direct visual capture, the system remains usable in some settings where camera-based perception is fragile. The paper demonstrates qualitative occlusion cases where a screen blocks the Kinect view and low-light cases where the camera image is poor, while Person-in-WiFi 3D still produces human perception outputs.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-occlusion.png" alt="Occlusion examples from the PAMI paper">
+  <figcaption>Occlusion examples. Wi-Fi perception remains functional when the front visual view is blocked.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/paper-low-light.png" alt="Low-light example from the PAMI paper">
+  <figcaption>Low-light example. Person-in-WiFi 3D continues to produce a human perception output when camera-based visual evidence is degraded.</figcaption>
+</figure>
+<p>The paper also identifies important limitations. Annotation quality depends on Kinect Body Tracking SDK and ROMP outputs, which degrade in crowded scenes. Cross-environment generalization is still challenging because the system uses four distributed Wi-Fi transceivers whose spatial configuration changes across locations. The authors also note that future multimodal integration may further improve reconstruction fidelity.</p>
+<h2>Resources</h2>
+<ul>
+<li><a href="https://aiotgroup.github.io/Person-in-WiFi-3D/">Project page</a></li>
+<li><a href="../person-in-wifi-3d-end-to-end-multi-person-3d-pose-estimation-with-wi-fi/index.html">CVPR 2024 version page</a></li>
+<li><a href="./assets/paper-teaser.png">Teaser figure</a></li>
+<li><a href="./assets/paper-architecture.png">Architecture figure</a></li>
+<li><a href="./assets/paper-mmfi-comparison.png">MM-Fi comparison figure</a></li>
+</ul>
+<h2>Citation</h2>
+<pre><code class="language-bibtex">@article{qian2026personinwifi3d,
+  title = {Person-in-WiFi 3D: Unified Model for 3D WiFi Perception},
+  author = {Qian, Bo and Wei, Xing and Yan, Kangwei and Ding, Han and Han, Jinsong and Wang, Fei},
+  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year = {2026}
+}
+</code></pre>
+
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

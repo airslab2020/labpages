@@ -1,11 +1,13 @@
 ---
 title: CodexGraph: Bridging Large Language Models and Code Repositories via Code Graph Databases
 authors: Xiangyan Liu, Bo Lan, Zhiyuan Hu, Yang Liu, Zhicheng Zhang, Fei Wang, Michael Qizhe Shieh, Wenmeng Zhou
-institution: XJTU AIRS Lab
+institution: National University of Singapore; Xi'an Jiaotong University; Alibaba Group
+theme: Code Intelligence
 summary: CodexGraph improves repository-scale code intelligence by connecting LLM agents to graph-database representations of code structure for precise retrieval and navigation.
-cover: ./assets/cover.svg
-coverAlt: Cover image for CodexGraph: Bridging Large Language Models and Code Repositories via Code Graph Databases
+cover: ./assets/paper-preview.png
+coverAlt: First page preview of the CodexGraph NAACL paper.
 eyebrow: Publication
+paper: https://aclanthology.org/2025.naacl-long.7/
 ---
 
 # Overview
@@ -41,6 +43,7 @@ The advantage is twofold:
 - [arXiv preprint](https://arxiv.org/abs/2408.03910)
 - [Project page](https://laptype.github.io/CodexGraph-page/)
 - [Code and demo entry](https://github.com/modelscope/modelscope-agent/tree/master/apps/codexgraph_agent)
+- [Paper preview](./assets/paper-preview.png)
 
 ## Citation
 

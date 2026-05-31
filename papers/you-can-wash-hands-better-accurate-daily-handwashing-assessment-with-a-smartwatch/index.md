@@ -3,7 +3,7 @@ title: You Can Wash Hands Better: Accurate Daily Handwashing Assessment with a S
 authors: Fei Wang, Tingting Zhang, Xilei Wu, Pengcheng Wang, Xin Wang, Han Ding, Jingang Shi, Jinsong Han, Dong Huang
 institution: XJTU, XDU, Kuaishou, ZJU, CMU
 summary: UWash is a smartwatch-only handwashing assessment system that treats daily handwashing as fine-grained temporal segmentation, estimating gesture boundaries, per-gesture duration, and WHO-guideline-based quality scores from IMU streams.
-theme: Ubiquitous Sensing
+theme: Wearable Health Sensing
 cover: ./assets/uwash-overview.png
 coverAlt: UWash smartwatch handwashing assessment overview
 eyebrow: Publication

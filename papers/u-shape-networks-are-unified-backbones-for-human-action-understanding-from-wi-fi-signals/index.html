@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>U-shape Deep Networks are Unified Backbones for Human Action Understanding from Wi-Fi Signals - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="This work argues that simple U-shape networks such as FCN, U-Net, and U-Net++ can serve as unified backbones for Wi-Fi action recognition, detection, and segmentation.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -35,27 +35,23 @@
           <div class="paper-meta-row">
             <span class="paper-pill">IEEE Internet of Things Journal, 2023</span>
             <span class="paper-pill">2023</span>
-            <span class="paper-pill">Ubiquitous Sensing</span>
-            <span class="paper-pill">XJTU AIRS Lab</span>
+            <span class="paper-pill">Wi-Fi Action Recognition</span>
+            <span class="paper-pill">Xi&#39;an Jiaotong University; Zhejiang University</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">This work argues that simple U-shape networks such as FCN, U-Net, and U-Net++ can serve as unified backbones for Wi-Fi action recognition, detection, and segmentation.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
-            
-            
-            
-            
+            <a class="paper-link-chip" href="https://doi.org/10.1109/jiot.2023.3324791">Paper</a>
           </div>
         </div>
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for U-shape Deep Networks are Unified Backbones for Human Action Understanding from Wi-Fi Signals">
+            <img src="./assets/paper-principle.jpg" alt="U-shape backbone families for Wi-Fi action understanding. The figure groups FCN, U-Net, and U-Net++ by skip-connection structure.">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIRS Lab</p>
+            <p>Xi&#39;an Jiaotong University; Zhejiang University</p>
           </aside>
         </aside>
       </div>
@@ -70,11 +66,11 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Ubiquitous Sensing</p>
+            <p>Wi-Fi Action Recognition</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIRS Lab</p>
+            <p>Xi&#39;an Jiaotong University; Zhejiang University</p>
           </article>
         </div>
       </div>
@@ -84,21 +80,42 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>Wi-Fi sensing papers often rely on domain-specific signal processing expertise and custom model designs. While this can improve performance, it also makes methods harder to scale, compare, and reuse. This paper asks whether a simpler backbone family can support multiple Wi-Fi human action understanding tasks.</p>
+<p>The answer is positive: U-shape deep networks such as FCN, U-Net, and U-Net++ can act as unified backbones for action recognition, action detection, and action segmentation from Wi-Fi signals.</p>
+<h2>Motivation</h2>
+<p>Computer vision advanced partly because reusable backbone networks made model design more systematic. Wi-Fi sensing has not had the same level of architectural standardization. A unified backbone can reduce manual feature engineering and make task-specific heads easier to design.</p>
 <h2>Main Contributions</h2>
 <ul>
-<li>Research theme: Efficient AI Systems.</li>
-<li>Published at IEEE Internet of Things Journal, 2023.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li>Studies U-shape networks as general-purpose backbones for Wi-Fi human action understanding.</li>
+<li>Covers three task types: action recognition, action detection, and action segmentation.</li>
+<li>Compares FCN, U-Net, and U-Net++ on public Wi-Fi sensing datasets.</li>
+<li>Shows competitive or superior results compared with original papers and state-of-the-art approaches.</li>
+<li>Reports results above 97 percent recognition accuracy, below 0.5 s detection error, and above 90 percent segmentation accuracy in the evaluated settings.</li>
 </ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<h2>Method Design</h2>
+<p>The networks treat Wi-Fi CSI time series as dense temporal signals. Encoder-decoder paths learn hierarchical representations, while skip connections preserve temporal resolution. This is well aligned with action detection and segmentation, where sample-level or interval-level timing matters. The paper also discusses label encoding, prediction heads, and loss functions for different tasks.</p>
+<h2>Evaluation Highlights</h2>
+<p>The evaluation uses three public datasets covering Wi-Fi activity recognition, action recognition and indoor localization, and human-to-human interaction. The results show that even without heavy signal-specific handcrafted features, U-shape networks can perform strongly across tasks.</p>
+<h2>Takeaways</h2>
+<p>The paper is important because it emphasizes reusable architecture over bespoke expertise. It suggests that Wi-Fi sensing can benefit from backbone thinking, making future systems easier to reproduce and extend.</p>
+<h2>Paper Screenshots: Method, Principle, And Results</h2>
+<p>The screenshots below are cropped from the paper PDF and are placed next to the reading notes so the page shows the actual method diagrams, principle illustrations, and result evidence rather than only prose.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-principle.jpg" alt="U-shape backbone families for Wi-Fi action understanding. The figure groups FCN, U-Net, and U-Net++ by skip-connection structure.">
+  <figcaption>U-shape backbone families for Wi-Fi action understanding. The figure groups FCN, U-Net, and U-Net++ by skip-connection structure.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/paper-implementation.jpg" alt="Implementation details for recognition, detection, and segmentation. These tables show how the same backbone idea is adapted to multiple Wi-Fi tasks.">
+  <figcaption>Implementation details for recognition, detection, and segmentation. These tables show how the same backbone idea is adapted to multiple Wi-Fi tasks.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/paper-results.jpg" alt="Recognition results on public Wi-Fi datasets. The page shows that simple U-shape networks can outperform or match task-specific designs.">
+  <figcaption>Recognition results on public Wi-Fi datasets. The page shows that simple U-shape networks can outperform or match task-specific designs.</figcaption>
+</figure>
 <h2>Resources</h2>
 <ul>
+<li><a href="https://doi.org/10.1109/jiot.2023.3324791">Official paper / publisher page</a></li>
 <li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@inproceedings{u-shape-networks-are-unified-backbones-for-human-action-understanding-from-wi-fi-signals,

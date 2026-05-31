@@ -1,12 +1,13 @@
 ---
 title: WiDistill: Distilling Large-scale Wi-Fi Datasets with Trajectory Matching
 authors: T Wang, F Wang
-institution: XJTU AIRS Lab
+institution: Xi'an Jiaotong University; Zhejiang University
+theme: Wi-Fi Dataset Distillation
 summary: WiDistill compresses large Wi-Fi sensing datasets into smaller synthetic or selected subsets by matching the training trajectory induced by the full data.
-cover: ./assets/cover.svg
-coverAlt: Cover image for WiDistill: Distilling Large-scale Wi-Fi Datasets with Trajectory Matching
+cover: ./assets/paper-preview.png
+coverAlt: First page preview of the WiDistill paper.
 eyebrow: Publication
-paper: ./assets/paper.pdf
+paper: https://arxiv.org/abs/2410.04073
 ---
 
 # Overview
@@ -33,8 +34,8 @@ The experiments evaluate whether compact distilled Wi-Fi datasets can preserve r
 
 ## Resources
 
-- [Local PDF](./assets/paper.pdf)
-- [Online paper page](https://arxiv.org/abs/2410.04073)
+- [arXiv paper](https://arxiv.org/abs/2410.04073)
+- [Paper preview](./assets/paper-preview.png)
 - [Cover image](./assets/cover.svg)
 
 ## Citation

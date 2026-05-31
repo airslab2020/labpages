@@ -1,12 +1,13 @@
 ---
 title: IDPT: Interconnected Dual Pyramid Transformer for Face Super-Resolution
 authors: Jingang Shi, Yusi Wang, Songlin Dong, Xiaopeng Hong, Zitong Yu#, Fei Wang, Changxin Wang, Yihong Gong
-institution: XJTU AIRS Lab
+institution: Xi'an Jiaotong University; Nanyang Technological University
+theme: Face Super-Resolution
 summary: IDPT is a Transformer-based face super-resolution framework that uses interconnected dual pyramids to recover both global facial structure and local texture details.
-cover: ./assets/cover.svg
-coverAlt: Cover image for IDPT: Interconnected Dual Pyramid Transformer for Face Super-Resolution
+cover: ./assets/paper-preview.png
+coverAlt: First page preview of the IDPT paper.
 eyebrow: Publication
-paper: ./assets/paper.pdf
+paper: https://www.ijcai.org/proceedings/2022/0182
 ---
 
 # Overview
@@ -33,8 +34,8 @@ Experiments on face super-resolution benchmarks show that IDPT improves quantita
 
 ## Resources
 
-- [Local PDF](./assets/paper.pdf)
-- [Online paper page](https://www.ijcai.org/proceedings/2022/0182)
+- [IJCAI proceedings page](https://www.ijcai.org/proceedings/2022/0182)
+- [Paper preview](./assets/paper-preview.png)
 - [Cover image](./assets/cover.svg)
 
 ## Citation

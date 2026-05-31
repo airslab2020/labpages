@@ -13,6 +13,6 @@
   <path d="M0 640C124 590 218 566 312 566C434 566 532 602 634 624C744 648 850 644 960 614C1042 592 1118 546 1200 520V840H0Z" fill="rgba(255,255,255,0.12)"/>
   <rect x="78" y="474" width="1044" height="270" rx="34" fill="rgba(255,255,255,0.14)"/>
   <text x="92" y="578" font-family="Exo, Arial, sans-serif" font-size="58" font-weight="800" fill="#ffffff"><tspan x="92" dy="0">WS-IMUBench: Can Weakly</tspan><tspan x="92" dy="72">Supervised Methods from</tspan><tspan x="92" dy="72">Audio, Image, and Video Be</tspan><tspan x="92" dy="72">Adapted for IMU-based...</tspan></text>
-  <text x="92" y="690" font-family="Source Sans 3, Arial, sans-serif" font-size="28" fill="rgba(255,255,255,0.9)">Video &amp; Streaming</text>
+  <text x="92" y="690" font-family="Source Sans 3, Arial, sans-serif" font-size="28" fill="rgba(255,255,255,0.9)">Wearable Action Localization</text>
   <text x="92" y="730" font-family="Source Sans 3, Arial, sans-serif" font-size="26" fill="rgba(255,255,255,0.72)">arXiv preprint arXiv:2602.01850, 2026</text>
 </svg>

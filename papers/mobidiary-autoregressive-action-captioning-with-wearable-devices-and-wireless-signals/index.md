@@ -3,7 +3,7 @@ title: MobiDiary: Autoregressive Action Captioning with Wearable Devices and Wir
 authors: Fei Deng, Yinghui He, Chuntong Chu, Ge Wang, Han Ding, Jinsong Han, Fei Wang
 institution: XJTU, NTU, ZJU
 summary: MobiDiary turns raw IMU and Wi-Fi CSI streams into free-form daily activity captions with a unified sensor encoder, placement-aware physical priors, and autoregressive language generation.
-theme: Ubiquitous Sensing
+theme: Multimodal Wearable Sensing
 cover: ./assets/mobidiary-sensing-caption.png
 coverAlt: MobiDiary sensing streams and generated daily activity caption
 eyebrow: Publication

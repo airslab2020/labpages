@@ -1,11 +1,13 @@
 ---
 title: A Survey on Wi-Fi Sensing Generalizability: Taxonomy, Techniques, Datasets, and Future Research Prospects
 authors: Fei Wang, Tingting Zhang, Wei Xi, Han Ding, Ge Wang, Di Zhang, Yuanhao Cui, Fan Liu, Jinsong Han, Jie Xu, Tony Xiao Han
-institution: XJTU AIRS Lab
+institution: Xi'an Jiaotong University; Beijing University of Posts and Telecommunications; Southeast University; Zhejiang University; The Chinese University of Hong Kong, Shenzhen; Huawei Technologies Co., Ltd.
+theme: Wi-Fi Sensing Generalizability
 summary: This survey organizes Wi-Fi sensing generalizability across devices, humans, environments, data, and learning strategies, while collecting representative tools, datasets, and practical lessons for robust wireless sensing.
 cover: ./assets/wifi-sensing-dynamic-static-components.png
 coverAlt: Wi-Fi sensing illustration showing line-of-sight paths, dynamic human-induced components, and static environment reflections.
 eyebrow: Publication
+paper: https://ieeexplore.ieee.org/abstract/document/11421930
 ---
 
 # :ant: Awesome Wi-Fi Sensing Generalization

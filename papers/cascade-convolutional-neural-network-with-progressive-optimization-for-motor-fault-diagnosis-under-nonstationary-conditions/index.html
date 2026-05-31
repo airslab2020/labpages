@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cascade Convolutional Neural Network With Progressive Optimization for Motor Fault Diagnosis Under Nonstationary Conditions - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <meta name="description" content="C-CNN uses cascade connections, dilated convolutions, and progressive optimization to diagnose motor faults from nonstationary vibration signals while reducing information loss.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -35,27 +35,23 @@
           <div class="paper-meta-row">
             <span class="paper-pill">IEEE Transactions on Industrial Informatics, 2021</span>
             <span class="paper-pill">2021</span>
-            <span class="paper-pill">Efficient AI Systems</span>
-            <span class="paper-pill">XJTU AIRS Lab</span>
+            <span class="paper-pill">Industrial Fault Diagnosis</span>
+            <span class="paper-pill">Xi&#39;an Jiaotong University; Tianjin University</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">C-CNN uses cascade connections, dilated convolutions, and progressive optimization to diagnose motor faults from nonstationary vibration signals while reducing information loss.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
-            
-            
-            
-            
+            <a class="paper-link-chip" href="https://doi.org/10.1109/tii.2020.3003353">Paper</a>
           </div>
         </div>
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for Cascade Convolutional Neural Network With Progressive Optimization for Motor Fault Diagnosis Under Nonstationary Conditions">
+            <img src="./assets/paper-method.jpg" alt="Cascade CNN, cascade structure, and dilated convolution design. These diagrams show how information loss is reduced and multi-scale features are extracted.">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIRS Lab</p>
+            <p>Xi&#39;an Jiaotong University; Tianjin University</p>
           </aside>
         </aside>
       </div>
@@ -70,11 +66,11 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Efficient AI Systems</p>
+            <p>Industrial Fault Diagnosis</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIRS Lab</p>
+            <p>Xi&#39;an Jiaotong University; Tianjin University</p>
           </article>
         </div>
       </div>
@@ -84,21 +80,40 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+<p>Motor fault diagnosis under nonstationary conditions is challenging because vibration signals change with operating speed and load. Traditional CNNs can extract features automatically, but repeated pooling or striding reduces feature resolution, and fixed kernel sizes may fail to capture the diverse temporal patterns of nonstationary faults.</p>
+<p>This paper proposes a cascade convolutional neural network with progressive optimization. The design starts from the physical characteristics of nonstationary vibration signals and adapts the CNN architecture accordingly.</p>
 <h2>Main Contributions</h2>
 <ul>
-<li>Research theme: Efficient AI Systems.</li>
-<li>Published at IEEE Transactions on Industrial Informatics, 2021.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
+<li>Builds a cascade CNN structure to reduce information loss from hierarchical downsampling.</li>
+<li>Uses dilated convolutions to capture multi-scale fault features under nonstationary conditions.</li>
+<li>Proposes progressive optimization to divide the network parameter search into more manageable stages.</li>
+<li>Evaluates the method on motor fault diagnosis under constant-speed and variable-speed settings.</li>
+<li>Shows improved diagnosis performance over conventional CNN and comparison methods.</li>
 </ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<h2>Method Design</h2>
+<p>The cascade structure preserves information from earlier feature maps instead of letting resolution collapse too quickly. Dilated convolutions enlarge the receptive field without the same loss of temporal detail, allowing the model to observe fault patterns at different scales. Progressive optimization then trains the model in stages, helping the cascade architecture converge to a stronger solution.</p>
+<h2>Evaluation Highlights</h2>
+<p>The paper conducts two motor fault diagnosis experiments: one under constant speed and another under variable speed. This matters because a method that works only under stable operating conditions may not transfer to real industrial motors. The reported results show that C-CNN maintains strong performance across both settings, supporting the claim that cascade structure and multi-scale extraction are useful for nonstationary signals.</p>
+<h2>Takeaways</h2>
+<p>C-CNN is a signal-aware architecture. It does not simply apply a standard CNN to vibration data; it modifies the network to better preserve temporal information and capture scale variation in motor fault signatures.</p>
+<h2>Paper Screenshots: Method, Principle, And Results</h2>
+<p>The screenshots below are cropped from the paper PDF and are placed next to the reading notes so the page shows the actual method diagrams, principle illustrations, and result evidence rather than only prose.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-method.jpg" alt="Cascade CNN, cascade structure, and dilated convolution design. These diagrams show how information loss is reduced and multi-scale features are extracted.">
+  <figcaption>Cascade CNN, cascade structure, and dilated convolution design. These diagrams show how information loss is reduced and multi-scale features are extracted.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/paper-setup.jpg" alt="Motor fault diagnosis experimental setup and accelerometer placement. This grounds the method in the physical acquisition scenario.">
+  <figcaption>Motor fault diagnosis experimental setup and accelerometer placement. This grounds the method in the physical acquisition scenario.</figcaption>
+</figure>
+<figure class="markdown-figure">
+  <img src="./assets/paper-results.jpg" alt="Training/testing accuracy and comparison metrics. The screenshot summarizes the convergence and performance evidence for progressive optimization.">
+  <figcaption>Training/testing accuracy and comparison metrics. The screenshot summarizes the convergence and performance evidence for progressive optimization.</figcaption>
+</figure>
 <h2>Resources</h2>
 <ul>
+<li><a href="https://doi.org/10.1109/tii.2020.3003353">Official paper / publisher page</a></li>
 <li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
 </ul>
 <h2>Citation</h2>
 <pre><code class="language-bibtex">@inproceedings{cascade-convolutional-neural-network-with-progressive-optimization-for-motor-fault-diagnosis-under-nonstationary-conditions,

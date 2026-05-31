@@ -1,7 +1,9 @@
 (function () {
   const SiteContent = (window.SiteContent = window.SiteContent || {});
   const rows = `
+person-in-wifi-3d-unified-model-for-3d-wifi-perception	Person-in-WiFi 3D: Unified Model for 3D WiFi Perception	Bo Qian, Xing Wei, Kangwei Yan, Han Ding, Jinsong Han, Fei Wang	IEEE Transactions on Pattern Analysis and Machine Intelligence, 2026	2026
 a-survey-on-wi-fi-sensing-generalizability-taxonomy-techniques-datasets-and-future-research-prospects	A Survey on Wi-Fi Sensing Generalizability: Taxonomy, Techniques, Datasets, and Future Research Prospects	Fei Wang, Tingting Zhang, Wei Xi, Han Ding, Ge Wang, Di Zhang, Yuanhao Cui, Fan Liu, Jinsong Han, Jie Xu, Tony Xiao Han	IEEE Communications Surveys & Tutorials, 2026	2026
+crowd-counting-with-sparse-annotation	Crowd Counting with Sparse Annotation	Shiwei Zhang, Zhengzheng Wang, Qing Liu, Fei Wang, Wei Ke#, Tong Zhang	Pattern Recognition 180, 114000, 2026	2026
 compass-complete-multimodal-fusion-via-proxy-tokens-and-shared-spaces-for-ubiquitous-sensing	COMPASS: Complete Multimodal Fusion via Proxy Tokens and Shared Spaces for Ubiquitous Sensing	H Wang, Y Qian, P Weng, Z Xia, W Dan, Y Xu, F Wang	arXiv preprint arXiv:2604.02056, 2026	2026
 cross-domain-eeg-based-emotion-recognition-with-contrastive-learning	Cross-domain EEG-based Emotion Recognition with Contrastive Learning	Rui Yan, Yibo Li, Han Ding, Fei Wang#	IEEE ICASSP 2026	2026
 mmwave-aided-unified-speech-enhancement-and-separation-without-speaker-count-prior	mmWave-Aided Unified Speech Enhancement and Separation without Speaker Count Prior	Dachao Han, Teng Huang, Han Ding#, Cui Zhao, Fei Wang, Ge Wang, Wei Xi	IEEE INFOCOM 2026	2026
@@ -50,16 +52,73 @@ rfnet-automatic-gesture-recognition-and-human-identification-using-time-series-r
 can-wifi-estimate-person-pose	Can WiFi estimate person pose?	F Wang, S Panev, Z Dai, J Han, D Huang	arXiv preprint arXiv:1904.00277, 2019	2019
 continuous-user-authentication-by-contactless-wireless-sensing	Continuous User Authentication by Contactless Wireless Sensing	Fei Wang, Zhejiang Li#, Jinsong Han#	IEEE Internet of Things Journal, 2019	2019
 discriminative-feature-learning-with-consistent-attention-regularization-for-person-re-identification	Discriminative Feature Learning With Consistent Attention Regularization for Person Re-Identification	Sanping Zhou, Fei Wang, Zeyi Huang, Jinjun Wang#	ICCV 2019	2019
-joint-activity-recognition-and-indoor-localization-with-wifi-fingerprints	Joint activity recognition and indoor localization with WiFi fingerprints	F Wang, J Feng, Y Zhao, X Zhang, S Zhang, J Han	Ieee Access 7, 80058-80068, 2019	2019
+joint-activity-recognition-and-indoor-localization-with-wifi-fingerprints	Joint Activity Recognition and Indoor Localization with WiFi Fingerprints	Fei Wang, Jianwei Feng, Yinliang Zhao, Xiaobin Zhang, Shiyuan Zhang, Jinsong Han	IEEE Access 7, 80058-80068, 2019	2019
 person-in-wifi-fine-grained-person-perception-using-wifi	Person-in-WiFi: Fine-grained Person Perception using WiFi	Fei Wang, Sanping Zhou, Stanislav Panev, Jinsong Han#, Dong Huang#	ICCV 2019	2019
 se2net-siamese-edge-enhancement-network-for-salient-object-detection	SE2Net: Siamese edge-enhancement network for salient object detection	S Zhou, J Zhang, J Wang, F Wang, D Huang	arXiv preprint arXiv:1904.00048, 2019	2019
-temporal-unet-sample-level-human-action-recognition-using-wifi	Temporal unet: Sample level human action recognition using wifi	F Wang, Y Song, J Zhang, J Han, D Huang	arXiv preprint arXiv:1904.11953, 2019	2019
+temporal-unet-sample-level-human-action-recognition-using-wifi	Temporal Unet: Sample Level Human Action Recognition using WiFi	Fei Wang, Yunpeng Song, Jimuyang Zhang, Jinsong Han, Dong Huang	arXiv preprint arXiv:1904.11953, 2019	2019
 wipin-operation-free-passive-person-identification-using-wi-fi-signals	WiPIN: Operation-free Passive Person Identification Using Wi-Fi Signals	Fei Wang, Jinsong Han, Feng Lin#, Kui Ren	IEEE Globecom 2019 (Best Paper Award)	2019
 csi-net-unified-human-body-characterization-and-pose-recognition	Csi-net: Unified human body characterization and pose recognition	F Wang, J Han, S Zhang, X He, D Huang	arXiv preprint arXiv:1810.03064, 2018	2018
-wipin-operation-free-person-identification-using-wifi-signals	Wipin: Operation-free person identification using wifi signals	F Wang, J Han, Z Dai, H Ding, D Huang	arXiv preprint arXiv:1810.04106, 2018	2018
-quick-pursuing-qualified-csi-for-mu-mimo-networks	QUICK: Pursuing Qualified CSI for MU-MIMO Networks	W Xi, J Han, F Wang, X Li, C Qian	International Workshop on Mobile Computing Systems and Applications, 2017	2017
-security-in-uplink-mu-mimo-networks	Security in Uplink MU-MIMO Networks	F Wang, W Xi, J Han, K Zhao, Y Gao	International Conference on Internet-of-Things Design and Implementation ..., 2017	2017
 `;
+
+  const publicationThemes = {
+    "person-in-wifi-3d-unified-model-for-3d-wifi-perception": "Wi-Fi 3D Human Perception",
+    "a-survey-on-wi-fi-sensing-generalizability-taxonomy-techniques-datasets-and-future-research-prospects": "Wi-Fi Sensing Generalizability",
+    "crowd-counting-with-sparse-annotation": "Computer Vision",
+    "compass-complete-multimodal-fusion-via-proxy-tokens-and-shared-spaces-for-ubiquitous-sensing": "Multimodal Wireless Sensing",
+    "cross-domain-eeg-based-emotion-recognition-with-contrastive-learning": "EEG Affective Computing",
+    "mmwave-aided-unified-speech-enhancement-and-separation-without-speaker-count-prior": "mmWave-Audio Speech Processing",
+    "mobidiary-autoregressive-action-captioning-with-wearable-devices-and-wireless-signals": "Multimodal Wearable Sensing",
+    "purify-then-align-towards-robust-human-sensing-under-modality-missing-with-knowledge-distillation-from-noisy-multimodal-teacher": "Multimodal Wireless Sensing",
+    "we-can-hear-you-with-mmwave-radar-an-end-to-end-eavesdropping-system": "mmWave Speech Privacy",
+    "when-gradient-optimization-is-not-enough-dispersive-and-anchoring-geometric-regularizer-for-multimodal-learning": "Multimodal Learning",
+    "ws-imubench-can-weakly-supervised-methods-from-audio-image-and-video-be-adapted-for-imu-based-temporal-action-localization": "Wearable Action Localization",
+    "poster-zero-effort-cross-domain-wireless-respiration-monitoring-under-free-body-movement": "Wireless Health Sensing",
+    "active-domain-adaptation-for-mmwave-based-har-via-renyi-entropy-based-uncertainty-estimation": "mmWave Domain Adaptation",
+    "carec-continual-wireless-action-recognition-with-expansion-compression-coordination": "Continual Wireless Sensing",
+    "codexgraph-bridging-large-language-models-and-code-repositories-via-code-graph-databases": "Code Intelligence",
+    "federated-multi-source-domain-adaptation-for-mmwave-based-human-activity-recognition": "mmWave Domain Adaptation",
+    "hilots-high-low-temporal-sensitive-representation-learning-for-semi-supervised-lidar-segmentation-in-autonomous-driving": "Autonomous Driving",
+    "mmegohand-egocentric-hand-pose-estimation-and-gesture-recognition-with-head-mounted-millimeter-wave-radar-and-imu": "Egocentric mmWave Sensing",
+    "mmyodar-robust-human-detection-using-mmwave-signals": "mmWave Human Detection",
+    "one-quantizer-is-enough-toward-a-lightweight-audio-codec": "Neural Audio Codec",
+    "one-snapshot-is-all-you-need-a-generalized-method-for-mmwave-signal-generation": "mmWave Signal Generation",
+    "simid-wi-fi-based-few-shot-cross-domain-user-recognition-with-identity-similarity-learning": "Wi-Fi User Identification",
+    "talk-is-not-always-cheap-promoting-wireless-sensing-models-with-text-prompts": "Wireless Sensing Foundation Models",
+    "what-matters-in-llm-based-feature-extractor-for-recommender-a-systematic-analysis-of-prompts-models-and-adaptation": "Recommender Systems",
+    "what-s-on-your-plate-inferring-chinese-cuisine-intake-from-wearable-imus": "Wearable Dietary Sensing",
+    "xrf-v2-a-dataset-for-action-summarization-with-wi-fi-signals-and-imus-in-phones-watches-earbuds-and-glasses": "Multimodal Action Sensing",
+    "you-can-wash-hands-better-accurate-daily-handwashing-assessment-with-a-smartwatch": "Wearable Health Sensing",
+    "bullydetect-detecting-school-physical-bullying-with-wi-fi-and-deep-wavelet-transformer": "Wi-Fi Behavior Sensing",
+    "ccs-continuous-learning-for-customized-incremental-wireless-sensing-services": "Continual Wireless Sensing",
+    "genre-classification-empowered-by-knowledge-embedded-music-representation": "Music Representation Learning",
+    "person-in-wifi-3d-end-to-end-multi-person-3d-pose-estimation-with-wi-fi": "Wi-Fi 3D Pose Estimation",
+    "widistill-distilling-large-scale-wi-fi-datasets-with-trajectory-matching": "Wi-Fi Dataset Distillation",
+    "xrf55-a-radio-frequency-dataset-for-human-indoor-action-analysis": "RF Action Dataset",
+    "exploiting-multi-scale-parallel-self-attention-and-local-variation-via-dual-branch-transformer-cnn-structure-for-face-super-resolution": "Face Super-Resolution",
+    "knowledge-graph-augmented-music-representation-for-genre-classification": "Music Representation Learning",
+    "learning-attention-from-attention-efficient-self-refinement-transformer-for-face-super-resolution": "Face Super-Resolution",
+    "mi-mesh-3d-human-mesh-construction-by-fusing-image-and-millimeter-wave": "Multimodal 3D Human Mesh",
+    "mmyodar-lightweight-and-robust-object-detection-using-mmwave-signals": "mmWave Object Detection",
+    "u-shape-networks-are-unified-backbones-for-human-action-understanding-from-wi-fi-signals": "Wi-Fi Action Recognition",
+    "development-of-a-plug-and-play-anti-noise-module-for-fault-diagnosis-of-rotating-machines-in-nuclear-power-plants": "Industrial Fault Diagnosis",
+    "idpt-interconnected-dual-pyramid-transformer-for-face-super-resolution": "Face Super-Resolution",
+    "mask-wearing-status-estimation-with-smartwatches": "Wearable Health Sensing",
+    "social-distancing-alert-with-smartwatches": "Wearable Proximity Sensing",
+    "cascade-convolutional-neural-network-with-progressive-optimization-for-motor-fault-diagnosis-under-nonstationary-conditions": "Industrial Fault Diagnosis",
+    "hierarchical-and-interactive-refinement-network-for-edge-preserving-salient-object-detection": "Salient Object Detection",
+    "a-framework-for-behavior-privacy-preserving-in-radio-frequency-signal": "RF Privacy Preservation",
+    "multiscale-kernel-based-residual-convolutional-neural-network-for-motor-fault-diagnosis-under-nonstationary-conditions": "Industrial Fault Diagnosis",
+    "rfnet-automatic-gesture-recognition-and-human-identification-using-time-series-rfid-signals": "RFID Gesture Recognition",
+    "can-wifi-estimate-person-pose": "Wi-Fi Pose Estimation",
+    "continuous-user-authentication-by-contactless-wireless-sensing": "Wireless User Authentication",
+    "discriminative-feature-learning-with-consistent-attention-regularization-for-person-re-identification": "Person Re-Identification",
+    "joint-activity-recognition-and-indoor-localization-with-wifi-fingerprints": "Wi-Fi Activity Localization",
+    "person-in-wifi-fine-grained-person-perception-using-wifi": "Wi-Fi Human Perception",
+    "se2net-siamese-edge-enhancement-network-for-salient-object-detection": "Salient Object Detection",
+    "temporal-unet-sample-level-human-action-recognition-using-wifi": "Wi-Fi Action Recognition",
+    "wipin-operation-free-passive-person-identification-using-wi-fi-signals": "Wi-Fi Person Identification",
+    "csi-net-unified-human-body-characterization-and-pose-recognition": "Wi-Fi Human Sensing",
+  };
 
   SiteContent.publications = rows
     .trim()
@@ -72,7 +131,8 @@ security-in-uplink-mu-mimo-networks	Security in Uplink MU-MIMO Networks	F Wang, 
         title,
         authors,
         venue,
-        year: year ? Number(year) : yearMatch ? Number(yearMatch[1]) : null
+        year: year ? Number(year) : yearMatch ? Number(yearMatch[1]) : null,
+        theme: publicationThemes[slug] || ""
       };
     });
 })();

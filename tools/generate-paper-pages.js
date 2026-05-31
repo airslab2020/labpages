@@ -5,6 +5,8 @@ const MarkdownIt = require("markdown-it");
 
 const root = path.resolve(__dirname, "..");
 const overwrite = process.argv.includes("--overwrite");
+const slugArg = process.argv.find((arg) => arg.startsWith("--slug="));
+const targetSlug = slugArg ? slugArg.slice("--slug=".length).trim() : "";
 
 function loadBrowserData() {
   const context = {
@@ -341,9 +343,21 @@ function paperPageHtml(siteContent, model, meta, articleHtml) {
   const projectUrl = meta.project || model.projectUrl;
   const codeUrl = meta.code || model.codeUrl;
   const paperUrl = meta.paper || model.paperUrl;
+  const cvprUrl = meta.cvpr || "";
+  const tpamiUrl = meta.tpami || "";
   const slidesUrl = meta.slides || model.slidesUrl;
   const videoUrl = meta.video || model.videoUrl;
   const theme = meta.theme || model.theme;
+  const paperLinks = [
+    `<a class="paper-link-chip" href="../../publications.html">Back to publications</a>`,
+    paperButtonMarkup("Project page", projectUrl),
+    paperButtonMarkup("Code", codeUrl),
+    paperButtonMarkup("Paper", paperUrl),
+    paperButtonMarkup("CVPR version", cvprUrl),
+    paperButtonMarkup("TPAMI version", tpamiUrl),
+    paperButtonMarkup("Slides", slidesUrl),
+    paperButtonMarkup("Video", videoUrl)
+  ].filter(Boolean).join("\n            ");
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -374,12 +388,7 @@ function paperPageHtml(siteContent, model, meta, articleHtml) {
           </div>
           <p class="paper-summary">${escapeHtml(summary)}</p>
           <div class="paper-link-row">
-            <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            ${paperButtonMarkup("Project page", projectUrl)}
-            ${paperButtonMarkup("Code", codeUrl)}
-            ${paperButtonMarkup("Paper", paperUrl)}
-            ${paperButtonMarkup("Slides", slidesUrl)}
-            ${paperButtonMarkup("Video", videoUrl)}
+            ${paperLinks}
           </div>
         </div>
         <aside class="paper-hero-side">
@@ -522,7 +531,15 @@ function generatePaperFiles(siteContent) {
   let markdownWritten = 0;
   let assetsCreated = 0;
 
-  siteContent.publications.forEach((paper) => {
+  const papers = targetSlug
+    ? siteContent.publications.filter((paper) => paper.slug === targetSlug)
+    : siteContent.publications;
+
+  if (targetSlug && papers.length === 0) {
+    throw new Error(`Publication slug not found: ${targetSlug}`);
+  }
+
+  papers.forEach((paper) => {
     const manualNotes = siteContent.publicationManualNotes[paper.slug];
     const model = buildPaperModel(siteContent, paper, manualNotes);
     const dir = path.join(papersDir, paper.slug);
@@ -595,7 +612,9 @@ function generateNoteFiles(siteContent) {
 function generate() {
   const siteContent = loadBrowserData();
   const paperResult = generatePaperFiles(siteContent);
-  const noteResult = generateNoteFiles(siteContent);
+  const noteResult = targetSlug
+    ? { htmlWritten: 0, markdownWritten: 0, assetsCreated: 0 }
+    : generateNoteFiles(siteContent);
 
   console.log(`Paper HTML pages written: ${paperResult.htmlWritten}`);
   console.log(`Paper Markdown sources written: ${paperResult.markdownWritten}`);

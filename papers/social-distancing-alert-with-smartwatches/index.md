@@ -1,12 +1,13 @@
 ---
 title: Social distancing alert with smartwatches
 authors: X Wang, X Wu, H Meng, Y Fan, J Shi, H Ding, F Wang
-institution: XJTU AIRS Lab
+institution: Xi'an Jiaotong University; Harbin Institute of Technology
+theme: Wearable Proximity Sensing
 summary: SoDA is a smartwatch-based system for detecting social-distancing violation behaviors such as handshakes or hugs from wrist IMU signals.
-cover: ./assets/cover.svg
-coverAlt: Cover image for Social distancing alert with smartwatches
+cover: ./assets/paper-preview.png
+coverAlt: First page preview of the SoDA smartwatch paper.
 eyebrow: Publication
-paper: ./assets/paper.pdf
+paper: https://arxiv.org/abs/2205.06110
 ---
 
 # Overview
@@ -33,8 +34,8 @@ The experiments report strong recognition performance for the target violation a
 
 ## Resources
 
-- [Local PDF](./assets/paper.pdf)
-- [Online paper page](https://arxiv.org/abs/2205.06110)
+- [arXiv paper](https://arxiv.org/abs/2205.06110)
+- [Paper preview](./assets/paper-preview.png)
 - [Cover image](./assets/cover.svg)
 
 ## Citation

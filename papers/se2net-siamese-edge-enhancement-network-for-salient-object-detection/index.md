@@ -1,12 +1,13 @@
 ---
 title: SE2Net: Siamese edge-enhancement network for salient object detection
 authors: S Zhou, J Zhang, J Wang, F Wang, D Huang
-institution: XJTU AIRS Lab
+institution: Xi'an Jiaotong University; Carnegie Mellon University
+theme: Salient Object Detection
 summary: SE2Net improves salient object detection by adding edge-enhancement supervision through a Siamese-style multi-stage network.
-cover: ./assets/cover.svg
-coverAlt: Cover image for SE2Net: Siamese edge-enhancement network for salient object detection
+cover: ./assets/paper-preview.png
+coverAlt: First page preview of the SE2Net salient object detection paper.
 eyebrow: Publication
-paper: ./assets/paper.pdf
+paper: https://arxiv.org/abs/1904.00048
 ---
 
 # Overview
@@ -33,8 +34,8 @@ The paper evaluates the method on salient object detection benchmarks and report
 
 ## Resources
 
-- [Local PDF](./assets/paper.pdf)
-- [Online paper page](https://arxiv.org/abs/1904.00048)
+- [arXiv paper](https://arxiv.org/abs/1904.00048)
+- [Paper preview](./assets/paper-preview.png)
 - [Cover image](./assets/cover.svg)
 
 ## Citation

@@ -2,6 +2,7 @@
 title: Cross-domain EEG-based Emotion Recognition with Contrastive Learning
 authors: Rui Yan, Yibo Li, Han Ding, Fei Wang
 institution: XJTU-SSE / XJTU-CS
+theme: EEG Affective Computing
 summary: EmotionCLIP reformulates cross-domain EEG emotion recognition as an EEG-text matching problem, pairing a frozen CLIP text encoder with the proposed SST-LegoViT EEG backbone to improve cross-subject and cross-time generalization.
 cover: ./assets/teaser.png
 coverAlt: EmotionCLIP EEG encoder teaser

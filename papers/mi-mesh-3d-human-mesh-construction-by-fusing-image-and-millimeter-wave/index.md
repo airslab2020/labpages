@@ -1,35 +1,66 @@
 ---
 title: MI-Mesh: 3D Human Mesh Construction by Fusing Image and Millimeter Wave
 authors: Han Ding, Zhenbin Chen, Cui Zhao#, Fei Wang, Ge Wang, Wei Xi, Jizhong Zhao
-institution: XJTU AIRS Lab
-summary: This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
-cover: ./assets/cover.svg
-coverAlt: Cover image for MI-Mesh: 3D Human Mesh Construction by Fusing Image and Millimeter Wave
+institution: Xi'an Jiaotong University
+theme: Multimodal 3D Human Mesh
+summary: MI-Mesh estimates 3D human meshes by fusing RGB image cues and mmWave point clouds, then regressing SMPL pose and shape parameters through a multimodal neural framework.
+cover: ./assets/paper-overview.jpg
+coverAlt: MI-Mesh multimodal 3D human mesh reconstruction overview. The screenshot shows RGB/IR image input, mmWave point cloud input, DNN fusion, and SMPL mesh output.
 eyebrow: Publication
+paper: https://dl.acm.org/doi/10.1145/3580861
 ---
 
 # Overview
 
-This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.
+3D human mesh reconstruction is useful for AR, healthcare, identity management, and human-computer interaction. Image-based methods provide rich appearance and spatial cues, but can suffer from occlusion, lighting, privacy concerns, and weak depth robustness. mmWave radar provides complementary geometric information and can work under challenging visual conditions, but its point clouds are sparse and noisy.
+
+MI-Mesh fuses these two modalities. Instead of asking whether images or mmWave are better, the paper designs a multimodal framework that correlates mmWave point clouds with human joints, refines features with visual supervision, and regresses SMPL pose and shape parameters.
 
 ## Main Contributions
 
-- Research theme: Visual Generation.
-- Published at ACM IMWUT/UBICOMP 2023.
-- Replace these generated bullets with the paper's actual core contributions and experimental findings.
+- Proposes a 3D human mesh reconstruction framework that fuses images and mmWave radar.
+- Automatically correlates mmWave point clouds with human joints.
+- Uses 2D joints and silhouettes to refine fused multimodal features.
+- Regresses SMPL pose and shape parameters to generate full 3D human meshes.
+- Implements and evaluates the system with commercial mmWave radar and camera devices.
 
-## Technical Details
+## System Design
 
-Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.
+The network first extracts modality-specific features from the camera image and mmWave point cloud. It then learns correlations between radar points and human body joints, allowing sparse RF measurements to contribute to body-structure estimation. Visual predictions such as 2D joints and silhouettes are used as auxiliary refinements before the final SMPL regression stage.
 
-## Results
+The use of SMPL is important because it constrains the output to plausible human body geometry. The model predicts pose and shape parameters rather than an unconstrained mesh.
 
-Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.
+## Evaluation Highlights
+
+The paper evaluates MI-Mesh across dynamic motions and different conditions. The conclusion is that fusing image and mmWave improves robustness compared with relying on either modality alone. The prototype demonstrates that commodity devices can support multimodal mesh construction in indoor settings.
+
+## Takeaways
+
+MI-Mesh fits the lab's broader theme of multimodal sensing: wireless signals are not only alternatives to cameras, but can provide complementary physical evidence when fused with visual modalities.
+
+## Paper Screenshots: Method, Principle, And Results
+
+The screenshots below are cropped from the paper PDF and are placed next to the reading notes so the page shows the actual method diagrams, principle illustrations, and result evidence rather than only prose.
+
+<figure class="markdown-figure">
+  <img src="./assets/paper-overview.jpg" alt="MI-Mesh multimodal 3D human mesh reconstruction overview. The screenshot shows RGB/IR image input, mmWave point cloud input, DNN fusion, and SMPL mesh output.">
+  <figcaption>MI-Mesh multimodal 3D human mesh reconstruction overview. The screenshot shows RGB/IR image input, mmWave point cloud input, DNN fusion, and SMPL mesh output.</figcaption>
+</figure>
+
+<figure class="markdown-figure">
+  <img src="./assets/paper-pipeline.jpg" alt="Full data collection, processing, and DNN pipeline. This page is useful for understanding how raw signals become synchronized multimodal training samples.">
+  <figcaption>Full data collection, processing, and DNN pipeline. This page is useful for understanding how raw signals become synchronized multimodal training samples.</figcaption>
+</figure>
+
+<figure class="markdown-figure">
+  <img src="./assets/paper-results.jpg" alt="Ablation and multimodal contribution analysis. The result page shows why both image and mmWave branches are needed under different visual conditions.">
+  <figcaption>Ablation and multimodal contribution analysis. The result page shows why both image and mmWave branches are needed under different visual conditions.</figcaption>
+</figure>
 
 ## Resources
 
+- [Official paper / publisher page](https://dl.acm.org/doi/10.1145/3580861)
 - [Cover image](./assets/cover.svg)
-- Add figures, PDFs, posters, or demos to the local `./assets/` folder when they are ready.
 
 ## Citation
 

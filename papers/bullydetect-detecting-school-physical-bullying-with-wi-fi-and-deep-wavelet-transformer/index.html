@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BullyDetect: Detecting School Physical Bullying with Wi-Fi and Deep Wavelet Transformer - XJTU AIRS Lab</title>
-  <meta name="description" content="This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.">
+  <title>BullyDetect: Detecting School Physical Bullying With Wi-Fi and Deep Wavelet Transformer - XJTU AIRS Lab</title>
+  <meta name="description" content="BullyDetect uses Wi-Fi CSI and a Residual Wavelet Transformer to detect school physical bullying in low-visibility campus areas, combining end-to-end wavelet denoising, temporal feature learning, and time-domain augmentation.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         </span>
       </a>
       <nav class="paper-nav" aria-label="Primary">
-        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../course.html">Courses</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
       </nav>
     </div>
   </header>
@@ -30,32 +30,29 @@
       <div class="paper-shell paper-hero-grid">
         <div class="paper-hero-copy">
           <p class="paper-eyebrow">Publication</p>
-          <h1>BullyDetect: Detecting School Physical Bullying with Wi-Fi and Deep Wavelet Transformer</h1>
-          <p class="paper-subtitle">Bo Lan, Fei Wang#, Lekun Xia, Fan Nai, Shiqiang Nie, Han Ding, Jinsong Han</p>
+          <h1>BullyDetect: Detecting School Physical Bullying With Wi-Fi and Deep Wavelet Transformer</h1>
+          <p class="paper-subtitle">Bo Lan, Fei Wang, Lekun Xia, Fan Nai, Shiqiang Nie, Han Ding, Jinsong Han</p>
           <div class="paper-meta-row">
             <span class="paper-pill">IEEE Internet of Things Journal, 2024</span>
             <span class="paper-pill">2024</span>
-            <span class="paper-pill">Ubiquitous Sensing</span>
-            <span class="paper-pill">XJTU AIRS Lab</span>
+            <span class="paper-pill">Wi-Fi Behavior Sensing</span>
+            <span class="paper-pill">SSE, XJTU; SCST, XJTU; CCST, ZJU</span>
           </div>
-          <p class="paper-summary">This page is generated from a local Markdown source file. Replace this summary with the paper&#39;s abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
+          <p class="paper-summary">BullyDetect uses Wi-Fi CSI and a Residual Wavelet Transformer to detect school physical bullying in low-visibility campus areas, combining end-to-end wavelet denoising, temporal feature learning, and time-domain augmentation.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
-            
-            
-            
-            
-            
+            <a class="paper-link-chip" href="https://github.com/AIOTGROUP/WiFi-BullyDetect">Code</a>
+            <a class="paper-link-chip" href="https://doi.org/10.1109/JIOT.2024.3486071">Paper</a>
           </div>
         </div>
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/cover.svg" alt="Cover image for BullyDetect: Detecting School Physical Bullying with Wi-Fi and Deep Wavelet Transformer">
+            <img src="./assets/paper-method.jpg" alt="BullyDetect pipeline with CSI generation, residual wavelet transformer encoding, and bullying detection alert output.">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
-            <p>XJTU AIRS Lab</p>
+            <p>SSE, XJTU; SCST, XJTU; CCST, ZJU</p>
           </aside>
         </aside>
       </div>
@@ -70,11 +67,11 @@
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Theme</strong>
-            <p>Ubiquitous Sensing</p>
+            <p>Wi-Fi Behavior Sensing</p>
           </article>
           <article class="paper-panel paper-metric-card">
             <strong>Institution</strong>
-            <p>XJTU AIRS Lab</p>
+            <p>SSE, XJTU; SCST, XJTU; CCST, ZJU</p>
           </article>
         </div>
       </div>
@@ -84,28 +81,146 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>This page is generated from a local Markdown source file. Replace this summary with the paper's abstract, a project-focused introduction, or your own reading notes whenever you want a richer public archive.</p>
-<h2>Main Contributions</h2>
-<ul>
-<li>Research theme: Efficient AI Systems.</li>
-<li>Published at IEEE Internet of Things Journal, 2024.</li>
-<li>Replace these generated bullets with the paper's actual core contributions and experimental findings.</li>
-</ul>
-<h2>Technical Details</h2>
-<p>Use this section for the main method, system design, architecture, training or serving strategy, and the details that make the work distinctive.</p>
-<h2>Results</h2>
-<p>Summarize the headline findings, qualitative outcomes, ablations, or deployment lessons here.</p>
+<p>BullyDetect addresses a sensitive but practical campus-safety problem: physical bullying often happens in locations where cameras have blind spots, poor illumination, or privacy constraints. The paper proposes using commodity Wi-Fi channel state information (CSI) as a non-visual sensing signal for detecting physical bullying actions.</p>
+<p>The system combines signal processing and deep learning in a single model. It reshapes CSI into a temporal representation, divides the signal into clips, and feeds those clips into a Residual Wavelet Transformer (RWT). The RWT inserts discrete wavelet transform (DWT) and inverse DWT into the Transformer encoder so that noise removal and action-feature learning are optimized together rather than handled by a fixed preprocessing pipeline.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-method.jpg" alt="BullyDetect pipeline with CSI generation, residual wavelet transformer encoder, DWT and IDWT modules, and bullying alert output.">
+  <figcaption>BullyDetect pipeline. CSI clips are encoded by an RWT module that uses wavelet decomposition inside the attention block before issuing a bullying alert.</figcaption>
+</figure>
+<h2>Why It Matters</h2>
+<p>Camera-based violence detection can work in visible areas, but school bullying may occur in corridors, rooftops, abandoned buildings, or other low-visibility places. Wearable sensors can be removed, require compliance, and are expensive to deploy at school scale. Wi-Fi offers a different tradeoff: broad coverage, no worn device, no visual identity exposure, and automatic alerting.</p>
+<p>The key research challenge is that CSI mixes human-motion cues with environmental noise and multipath effects. Bullying actions also vary in speed, intensity, start time, participants, and location. BullyDetect therefore focuses on both model architecture and augmentation, not only classification.</p>
+<h2>Method</h2>
+<p>The input CSI is collected from commodity Intel 5300 Wi-Fi cards and reshaped into a 2D matrix whose channels combine transmitter, receiver, and subcarrier dimensions, while the temporal axis records the sampled signal. BullyDetect uses the amplitude of CSI for feature learning.</p>
+<p>The RWT encoder decomposes embedded CSI clips into low-frequency and high-frequency components with Haar wavelets. Low-frequency components pass through multi-head self-attention, while high-frequency components are retained as residual information and scaled before reconstruction with IDWT. This design makes the wavelet operation differentiable through convolution and transposed convolution, allowing the end-to-end objective to decide what should be preserved for bullying detection.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-wavelet.jpg" alt="DWT and IDWT decomposition over CSI and their convolutional implementation in the RWT encoder.">
+  <figcaption>Wavelet processing in RWT. DWT separates low- and high-frequency CSI components, and IDWT reconstructs the representation after attention-based learning.</figcaption>
+</figure>
+<h2>Temporal Augmentation</h2>
+<p>BullyDetect uses two time-domain augmentation methods to model variation in bullying behavior. Window warp randomly accelerates or decelerates a selected segment, simulating different action speeds. Window slice crops a temporal segment and stretches it back, simulating differences in action start time and movement extent. The paper also combines both augmentations by randomly applying one of them during training.</p>
+<p>These augmentations are model-agnostic and are tested as plug-and-play modules for LSTM, ResNet-1D, ViT, and RWT variants.</p>
+<h2>Dataset</h2>
+<p>The dataset was collected with one transmitter and one receiver placed on opposite sides of a 3 m detection area. The transmitter sends packets at 1000 packets per second through one antenna, while the receiver monitors the channel with three antennas across 30 OFDM subcarriers. Each sample lasts 5 seconds, producing CSI with shape 1 x 3 x 30 x 5000.</p>
+<p>Five volunteers were arranged into ten pairs and alternated aggressor/victim roles, producing 20 role combinations. The dataset covers eight campus environments and seven physical bullying actions: pushing, kicking, slapping, grabbing, punching, kneeing, and hitting with a stick. In total, the paper collects 11,200 CSI samples, split into 8,960 training samples and 2,240 test samples.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-dataset-results.jpg" alt="BullyDetect campus environments and Table I results across eight locations.">
+  <figcaption>Dataset environments and main results. The evaluation spans meeting rooms, rooftops, abandoned buildings, corridors, classrooms, playgrounds, campus corners, and offices.</figcaption>
+</figure>
+<h2>Detection Performance</h2>
+<p>The best model, RWT with augmentation, reaches 90.4 percent average accuracy across eight environments. It outperforms reproduced manual-feature Wi-Fi violence detectors and common temporal deep models. The gains are especially important in difficult settings because the system needs to detect multiple action classes, not only binary motion.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Method</th>
+<th style="text-align:right">Avg. accuracy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WiVi manual features</td>
+<td style="text-align:right">43.3%</td>
+</tr>
+<tr>
+<td>Liu et al. manual features</td>
+<td style="text-align:right">19.0%</td>
+</tr>
+<tr>
+<td>LSTM</td>
+<td style="text-align:right">78.8%</td>
+</tr>
+<tr>
+<td>LSTM + Aug</td>
+<td style="text-align:right">80.6%</td>
+</tr>
+<tr>
+<td>ResNet1d 50</td>
+<td style="text-align:right">66.6%</td>
+</tr>
+<tr>
+<td>ResNet1d 50 + Aug</td>
+<td style="text-align:right">83.4%</td>
+</tr>
+<tr>
+<td>ViT</td>
+<td style="text-align:right">84.3%</td>
+</tr>
+<tr>
+<td>ViT + Aug</td>
+<td style="text-align:right">88.7%</td>
+</tr>
+<tr>
+<td>RWT</td>
+<td style="text-align:right">86.1%</td>
+</tr>
+<tr>
+<td>RWT + Aug (BullyDetect)</td>
+<td style="text-align:right">90.4%</td>
+</tr>
+</tbody>
+</table>
+</div><h2>Environment And Action Analysis</h2>
+<p>The confusion matrices show that strong and distinctive movements, such as kicking and hitting with a stick, are easier to identify. The model sometimes confuses grabbing with kneeing because kneeing often contains a grabbing phase before the knee movement. Environment also matters: open or less cluttered areas perform better, while meeting rooms and classrooms are more difficult because tables and chairs create stronger multipath interference.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-confusion.jpg" alt="Confusion matrices for seven bullying actions across eight school environments.">
+  <figcaption>Action-level confusion matrices across environments. The analysis exposes both the robustness of the detector and the action pairs that are most easily confused.</figcaption>
+</figure>
+<h2>Ablations And Deployment Clues</h2>
+<p>The paper reports several practical findings:</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Study</th>
+<th>Key result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RWT encoder depth</td>
+<td>Replacing more ViT layers with RWT layers improves accuracy: ViT 88.34%, RWT-4 89.59%, RWT-8 90.04%.</td>
+</tr>
+<tr>
+<td>High-frequency scale</td>
+<td>Best accuracy occurs near high-frequency ratio 0.9; too little loses useful detail, too much keeps noise.</td>
+</tr>
+<tr>
+<td>Model scale</td>
+<td>RWT s-32 gives the best accuracy/scale balance and uses fewer GFLOPs/parameters than ViT at the same scale.</td>
+</tr>
+<tr>
+<td>New environments</td>
+<td>One sample for fine-tuning reaches 65.87% in a new environment; two samples reach 75.54%.</td>
+</tr>
+<tr>
+<td>Less training data</td>
+<td>RWT still outperforms reproduced WiVi when only 10%, 25%, 50%, or 75% of training data is used.</td>
+</tr>
+</tbody>
+</table>
+</div><p>The augmentation table reinforces the same theme: temporal variation is central to this task. Window warp and window slice both improve ViT and RWT, and their combination gives the best RWT result.</p>
+<figure class="markdown-figure">
+  <img src="./assets/paper-augmentation.jpg" alt="Data augmentation ablation comparing no augmentation, jitter, window warp, window slice, and combined augmentations for ViT and RWT.">
+  <figcaption>Data augmentation ablation. Window warp and window slice are more effective than simple jitter, and the combined augmentation gives the best RWT accuracy.</figcaption>
+</figure>
+<h2>Takeaways</h2>
+<p>BullyDetect is a strong example of privacy-aware wireless sensing for safety monitoring. Its technical value comes from aligning denoising and recognition in one differentiable architecture, while its deployment value comes from using existing Wi-Fi infrastructure in places where cameras and wearables are limited.</p>
+<p>The system is not a complete campus safety solution by itself. Real deployment would need careful alert thresholds, false-positive handling, privacy governance, and human review. The paper suggests a sliding-window deployment mode, where detections over multiple 5-second windows can trigger an alert only when there is enough evidence of sustained bullying behavior.</p>
 <h2>Resources</h2>
 <ul>
-<li><a href="./assets/cover.svg">Cover image</a></li>
-<li>Add figures, PDFs, posters, or demos to the local <code>./assets/</code> folder when they are ready.</li>
+<li><a href="https://doi.org/10.1109/JIOT.2024.3486071">Official paper / publisher page</a></li>
+<li><a href="https://github.com/AIOTGROUP/WiFi-BullyDetect">Code and dataset repository</a></li>
+<li><a href="./assets/paper-method.jpg">Cover image</a></li>
 </ul>
 <h2>Citation</h2>
-<pre><code class="language-bibtex">@inproceedings{bullydetect-detecting-school-physical-bullying-with-wi-fi-and-deep-wavelet-transformer,
-  title = {BullyDetect: Detecting School Physical Bullying with Wi-Fi and Deep Wavelet Transformer},
-  author = {Bo Lan and Fei Wang# and Lekun Xia and Fan Nai and Shiqiang Nie and Han Ding and Jinsong Han},
-  booktitle = {IEEE Internet of Things Journal, 2024},
-  year = {2024}
+<pre><code class="language-bibtex">@article{lan2025bullydetect,
+  title = {BullyDetect: Detecting School Physical Bullying With Wi-Fi and Deep Wavelet Transformer},
+  author = {Lan, Bo and Wang, Fei and Xia, Lekun and Nai, Fan and Nie, Shiqiang and Ding, Han and Han, Jinsong},
+  journal = {IEEE Internet of Things Journal},
+  volume = {12},
+  number = {5},
+  pages = {5160--5169},
+  year = {2025},
+  doi = {10.1109/JIOT.2024.3486071}
 }
 </code></pre>
 

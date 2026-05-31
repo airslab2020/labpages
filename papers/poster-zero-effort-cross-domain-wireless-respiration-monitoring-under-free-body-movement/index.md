@@ -3,7 +3,7 @@ title: Zero-Effort Cross-Domain Wireless Respiration Monitoring Under Free Movem
 authors: Ge Wang, Jiazheng Chen, Zhe Chen, Fei Wang, Cong Zhao, Jianan Wang, Han Ding, Cui Zhao, Wei Xi, Jinsong Han
 institution: XJTU, FDU, SJTU, ZJU
 summary: RF-Carer is a zero-effort cross-domain wireless respiration monitoring system that uses commercial UWB devices, an explainable propagation model, and contrastive feature alignment to generalize across movements, users, and environments without extra retraining.
-theme: Ubiquitous Sensing
+theme: Wireless Health Sensing
 cover: ./assets/fig1-practical-situations.png
 coverAlt: Practical respiration-monitoring situations considered by RF-Carer
 eyebrow: Publication
