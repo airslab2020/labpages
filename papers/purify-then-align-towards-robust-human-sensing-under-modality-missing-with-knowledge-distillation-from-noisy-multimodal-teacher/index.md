@@ -7,7 +7,7 @@ cover: ./assets/pta-framework.png
 coverAlt: PTA framework showing the Purify stage for meta-learned modality weighting and the Align stage for diffusion-based distillation
 eyebrow: CVPR 2026 Workshop
 theme: Multimodal Wireless Sensing
-paper: https://arxiv.org/abs/2604.05584
+paper: https://openaccess.thecvf.com/content/CVPR2026W/A2A-MML/html/Weng_Purify-then-Align_Towards_Robust_Human_Sensing_under_Modality_Missing_with_Knowledge_CVPRW_2026_paper.html
 code: https://github.com/Vongolia11/PTA
 ---
 
@@ -63,6 +63,7 @@ PTA's main lesson is that robust missing-modality sensing is not just a matter o
 
 ## Resources
 
+- [CVF official page](https://openaccess.thecvf.com/content/CVPR2026W/A2A-MML/html/Weng_Purify-then-Align_Towards_Robust_Human_Sensing_under_Modality_Missing_with_Knowledge_CVPRW_2026_paper.html)
 - [arXiv abstract](https://arxiv.org/abs/2604.05584)
 - [arXiv PDF](https://arxiv.org/pdf/2604.05584)
 - [Code](https://github.com/Vongolia11/PTA)
