@@ -1909,24 +1909,6 @@
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
-            name: "Zhijian Wang (王之鉴)",
-            role: "Undergraduate Student, Research Intern",
-            photo: "./assets/media/people/2026zhijian-wang.jpg",
-            photoAlt: "Portrait for Zhijian Wang",
-            bio:
-              "Working on wireless sensing and multimodal learning.",
-            palette: ["#5d4628", "#ffe6c8"]
-          },
-          {
-            name: "Shi Chen (陈昰)",
-            role: "Undergraduate Student, Research Intern",
-            photo: "./assets/media/people/2026shi-chen.jpg",
-            photoAlt: "Portrait for Shi Chen",
-            bio:
-              "Working on IMU sensing.",
-            palette: ["#5d4628", "#ffe6c8"]
-          },
-          {
             name: "Xilei Han (韩茜蕾)",
             role: "Undergraduate Student, Research Intern",
             photo: "./assets/media/people/2027xilei-han.jpg",
@@ -1953,20 +1935,38 @@
               "Working on weakly supervised IMU-based action localization.",
             palette: ["#5d4628", "#ffe6c8"]
           },
-          {
-            name: "Kexin Ren (任珂心)",
-            role: "Undergraduate Student",
-            photo: "./assets/media/people/2026kexin-ren.jpg",
-            photoAlt: "Sample portrait for Kexin Ren",
-            bio:
-              "Working on wearable device sensing for her bachelor thesis in the group.",
-            palette: ["#5d4628", "#ffe6c8"]
-          },
         ]
       },
       {
         title: "Alumni",
         members: [
+          {
+            name: "Zhijian Wang (王之鉴)",
+            role: "Bachelor of Engineering",
+            photo: "./assets/media/people/2026zhijian-wang.jpg",
+            photoAlt: "Portrait for Zhijian Wang",
+            bio:
+              "Graduated in 2026 after conducting research on wireless sensing and multimodal learning, and will continue his studies at the National University of Singapore.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Shi Chen (陈昰)",
+            role: "Bachelor of Engineering",
+            photo: "./assets/media/people/2026shi-chen.jpg",
+            photoAlt: "Portrait for Shi Chen",
+            bio:
+              "Graduated in 2026 after conducting research on IMU sensing in the group.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Kexin Ren (任珂心)",
+            role: "Bachelor of Engineering",
+            photo: "./assets/media/people/2026kexin-ren.jpg",
+            photoAlt: "Portrait for Kexin Ren",
+            bio:
+              "Graduated in 2026 after completing her bachelor thesis on wearable device sensing in the group, and then joined Kaihong (Xi'an Branch).",
+            palette: ["#3d376a", "#e0dcff"]
+          },
           {
             name: "Jiasheng Xu (徐佳胜)",
             role: "M.Eng.",
