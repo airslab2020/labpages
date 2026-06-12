@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XRFv2 Plus: A Multimodal Sensor-Vision-Language Dataset for Action Understanding - XJTU AIRS Lab</title>
+  <meta name="description" content="XRFv2 Plus is a synchronized sensor-vision-language update to XRF V2, aligning WiFi CSI, wearable IMUs, AirPods IMU, RGB embeddings, depth and infrared videos, pose, mesh, DensePose, temporal localization, captions, and action QA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/paper-page.css">
+</head>
+<body>
+  <header class="paper-header">
+    <div class="paper-shell paper-nav-shell">
+      <a class="paper-brand" href="../../index.html">
+        <span class="paper-brand-mark">X</span>
+        <span class="paper-brand-copy">
+          <strong>XJTU AIRS Lab</strong>
+          <small>Dataset Detail</small>
+        </span>
+      </a>
+      <nav class="paper-nav" aria-label="Primary">
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="paper-main">
+    <section class="paper-hero">
+      <div class="paper-shell paper-hero-grid">
+        <div class="paper-hero-copy">
+          <p class="paper-eyebrow">Dataset Update</p>
+          <h1>XRFv2 Plus: A Multimodal Sensor-Vision-Language Dataset for Action Understanding</h1>
+          <p class="paper-subtitle">Fei Wang</p>
+          <div class="paper-meta-row">
+            <span class="paper-pill">Public Dataset Update</span>
+            <span class="paper-pill">2026</span>
+            <span class="paper-pill">Sensor-Vision-Language</span>
+            <span class="paper-pill">XJTU AIRS Lab</span>
+          </div>
+          <p class="paper-summary">XRFv2 Plus is a video-aligned update built from the original XRF V2 recording corpus. It synchronizes sensing streams, body information, temporal labels, captions, and action QA around 853 valid action sequences.</p>
+          <div class="paper-link-row">
+            <a class="paper-link-chip" href="../../dataset.html">Back to datasets</a>
+            <a class="paper-link-chip" href="https://github.com/airslab2020/XRFV2">GitHub</a>
+            <a class="paper-link-chip" href="https://www.kaggle.com/datasets/airslab2020/xrfv2-multimodal-tal-caption-qa-no-rgb">Kaggle</a>
+            <a class="paper-link-chip" href="https://doi.org/10.5281/zenodo.20564312">Zenodo</a>
+          </div>
+        </div>
+        <aside class="paper-hero-side">
+          <div class="paper-panel paper-figure-card">
+            <p class="paper-eyebrow">Cover / Teaser</p>
+            <img src="../../assets/media/datasets/xrfv2-plus-overview.png" alt="Overview of the XRFv2 Plus synchronized sensor-vision-language release">
+          </div>
+          <aside class="paper-panel paper-side-note">
+            <p class="paper-eyebrow">Release</p>
+            <p>June 6, 2026</p>
+          </aside>
+        </aside>
+      </div>
+    </section>
+
+    <section class="paper-section">
+      <div class="paper-shell">
+        <div class="paper-metric-grid">
+          <article class="paper-panel paper-metric-card">
+            <strong>Samples</strong>
+            <p>853 valid sequences</p>
+          </article>
+          <article class="paper-panel paper-metric-card">
+            <strong>Duration</strong>
+            <p>16 h 14 min 38 s</p>
+          </article>
+          <article class="paper-panel paper-metric-card">
+            <strong>Annotations</strong>
+            <p>8,157 segments and 108,929 QA pairs</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="paper-section">
+      <div class="paper-shell">
+        <article class="paper-panel paper-article">
+          <h1>Overview</h1>
+          <p>XRFv2 Plus is a synchronized multimodal dataset update for sensor-vision-language action understanding. It is built from the original XRF V2 recording corpus, but reorganizes the release around a common cropped-video timeline so that sensing streams, body representations, temporal labels, captions, and action QA share the same sequence IDs and relative-time axis.</p>
+          <p>The public update was released on June 6, 2026. The README reports that the Kaggle release was verified through version 4 on June 5, 2026, 23:39 CST.</p>
+
+          <figure class="markdown-figure">
+            <img src="../../assets/media/datasets/xrfv2-plus-overview.png" alt="XRFv2 Plus sensing setup and synchronized release content">
+            <figcaption>Overview of the XRFv2 Plus synchronized release content, cropped from the update manuscript.</figcaption>
+          </figure>
+
+          <h2>What Is New</h2>
+          <table>
+            <thead>
+              <tr><th>Category</th><th>Release content</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Sensing streams</td><td>WiFi CSI, five-position IMU, AirPods IMU, RGB video embeddings, Kinect depth videos, Kinect infrared videos</td></tr>
+              <tr><td>Body information</td><td>Human 2D pose, depth-assisted 3D pose, SMPL mesh, DensePose-style surface information</td></tr>
+              <tr><td>Action labels</td><td>Temporal action localization, action captioning, action question answering</td></tr>
+              <tr><td>Time convention</td><td>All labels and synchronized tensors use relative time within each sequence</td></tr>
+            </tbody>
+          </table>
+
+          <figure class="markdown-figure">
+            <img src="../../assets/media/datasets/xrfv2-plus-key-differences.png" alt="Key differences between XRF V2 and XRFv2 Plus">
+            <figcaption>Key differences between the original XRF V2 release and the XRFv2 Plus synchronized sensor-vision-language benchmark.</figcaption>
+          </figure>
+
+          <h2>Release Summary</h2>
+          <table>
+            <tbody>
+              <tr><th>Standardized samples</th><td>853</td></tr>
+              <tr><th>Original candidates</th><td>880</td></tr>
+              <tr><th>Excluded candidates</th><td>27 with incomplete five-position IMU coverage</td></tr>
+              <tr><th>Volunteers</th><td>16</td></tr>
+              <tr><th>Scenes</th><td>Diningroom, Studyroom, bedroom</td></tr>
+              <tr><th>Action classes</th><td>34</td></tr>
+              <tr><th>Action segments</th><td>8,157</td></tr>
+              <tr><th>Sequence duration range</th><td>43-89 seconds</td></tr>
+              <tr><th>Actions per sequence</th><td>7-11</td></tr>
+              <tr><th>Total video-aligned duration</th><td>16 h 14 min 38 s</td></tr>
+            </tbody>
+          </table>
+
+          <figure class="markdown-figure">
+            <img src="../../assets/media/datasets/xrfv2-plus-release-summary.png" alt="Summary table for the XRFv2 Plus release">
+            <figcaption>Release summary from the manuscript, including standardized samples, scenes, actions, and total video-aligned duration.</figcaption>
+          </figure>
+
+          <figure class="markdown-figure">
+            <img src="../../assets/media/datasets/xrfv2-plus-temporal-statistics.png" alt="Temporal statistics for XRFv2 Plus sequences and action segments">
+            <figcaption>Temporal statistics for the 853 video-aligned sequences and 8,157 TAL segments.</figcaption>
+          </figure>
+
+          <figure class="markdown-figure">
+            <img src="../../assets/media/datasets/xrfv2-plus-trimmed-samples.png" alt="Samples with shortened video-aligned annotations">
+            <figcaption>Samples where video-aligned annotations removed the last one or two actions due to shortened RGB video coverage.</figcaption>
+          </figure>
+
+          <h2>Modalities</h2>
+          <p>For a sequence of duration T seconds, the release provides synchronized tensors and files including WiFi CSI amplitude/phase at 50 Hz, five-position IMU at 50 Hz, AirPods Pro IMU at 25 Hz, one 1024-D RGB video feature per second, COCO-17 2D pose, depth-camera 3D pose, compact ROMP/SMPL mesh parameters, DensePose-style IUV information, and cropped Kinect depth/infrared videos at 15 FPS and 512 x 512 resolution.</p>
+          <p>The five-position IMU order is fixed as left wrist, right wrist, phone case in the left pants pocket, phone case in the right pants pocket, and glasses temple.</p>
+
+          <figure class="markdown-figure">
+            <img src="../../assets/media/datasets/xrfv2-plus-file-conventions.png" alt="Main data files and tensor conventions in XRFv2 Plus">
+            <figcaption>Main data files and tensor conventions for the standardized XRFv2 Plus release.</figcaption>
+          </figure>
+
+          <figure class="markdown-figure">
+            <img src="../../assets/media/datasets/xrfv2-plus-synchronized-visual.png" alt="Synchronized RGB infrared depth pose mesh and DensePose visual example">
+            <figcaption>Synchronized visual example showing RGB, infrared, depth, 2D pose, 3D pose, mesh, and DensePose-style outputs generated from the same frame.</figcaption>
+          </figure>
+
+          <h2>Annotation Tasks</h2>
+          <p>XRFv2 Plus includes ActivityNet-style temporal action localization labels, Chinese-only, English-only, and bilingual caption files, and action QA files. The QA release contains 108,929 QA pairs across 21 question types, including existence, counting, segment duration, temporal order, and time-point action questions.</p>
+
+          <figure class="markdown-figure">
+            <img src="../../assets/media/datasets/xrfv2-plus-action-qa-examples.png" alt="English action question answering examples from XRFv2 Plus">
+            <figcaption>English action QA examples from sample 0_Diningroom_1.</figcaption>
+          </figure>
+
+          <figure class="markdown-figure">
+            <img src="../../assets/media/datasets/xrfv2-plus-qa-distribution.png" alt="Action QA type distribution in XRFv2 Plus">
+            <figcaption>Distribution of action QA types across the XRFv2 Plus release.</figcaption>
+          </figure>
+
+          <h2>Release Batches</h2>
+          <p>The README lists four public Kaggle versions: version 1 for the fast no-video release, version 2 for 853 cropped Kinect depth videos, version 3 for 853 cropped Kinect infrared videos, and version 4 for the DensePose H5 file. Raw Kinect recordings and cropped RGB videos are not included in the Kaggle release for privacy reasons.</p>
+
+          <h2>Resources</h2>
+          <ul>
+            <li><a href="https://github.com/airslab2020/XRFV2">GitHub repository</a></li>
+            <li><a href="https://www.kaggle.com/datasets/airslab2020/xrfv2-multimodal-tal-caption-qa-no-rgb">Kaggle release</a></li>
+            <li><a href="https://doi.org/10.5281/zenodo.20564312">Zenodo preprint</a></li>
+            <li><a href="../../papers/xrf-v2-a-dataset-for-action-summarization-with-wi-fi-signals-and-imus-in-phones-watches-earbuds-and-glasses/index.html">Original XRF V2 paper page</a></li>
+          </ul>
+
+          <h2>Citation</h2>
+          <pre><code>@misc{wang2026xrfv2plus,
+  author    = {Wang, Fei},
+  title     = {XRFv2 Plus: A Multimodal Sensor-Vision-Language Dataset for Action Understanding},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.20564312},
+  url       = {https://doi.org/10.5281/zenodo.20564312}
+}</code></pre>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

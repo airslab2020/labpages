@@ -452,11 +452,13 @@
           ${sectionHeading("Featured Datasets", "Resources")}
           <div class="card-grid card-grid-2">
             ${datasets.items
-              .map(
-                (item) => `
-                  <article class="panel info-card dataset-card" role="link" tabindex="0" data-href="${localPaperHref(
-                    item.slug
-                  )}" aria-label="Open ${SiteUI.escapeHtml(item.title)} paper page">
+              .map((item) => {
+                const detailHref = item.href || localPaperHref(item.slug);
+                const detailLabel = item.pageLabel || "Paper Page";
+                return `
+                  <article class="panel info-card dataset-card" role="link" tabindex="0" data-href="${SiteUI.escapeHtml(
+                    detailHref
+                  )}" aria-label="Open ${SiteUI.escapeHtml(item.title)} detail page">
                     <img class="dataset-cover" src="${SiteUI.datasetCardCoverSrc(item)}" alt="${SiteUI.escapeHtml(
                       item.coverAlt || `${item.title} title card`
                     )}">
@@ -481,7 +483,7 @@
                         : ""
                     }
                     <div class="dataset-link-row">
-                      <a class="chip-link" href="${localPaperHref(item.slug)}">Paper Page</a>
+                      <a class="chip-link" href="${SiteUI.escapeHtml(detailHref)}">${SiteUI.escapeHtml(detailLabel)}</a>
                       ${(Array.isArray(item.links) ? item.links : [])
                         .map((link) => {
                           const external = /^https?:\/\//i.test(link.href);
@@ -492,8 +494,8 @@
                         .join("")}
                     </div>
                   </article>
-                `
-              )
+                `;
+              })
               .join("")}
           </div>
         </div>

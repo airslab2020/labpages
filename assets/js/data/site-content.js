@@ -99,6 +99,14 @@
     ],
     news: [
       {
+        date: "Jun 2026",
+        title: "XRFv2 Plus public update released",
+        summary:
+          "XRFv2 Plus reorganizes XRF V2 into a video-aligned sensor-vision-language release with WiFi, wearable IMUs, AirPods IMU, RGB embeddings, depth/infrared videos, pose, mesh, DensePose, temporal localization, captioning, and action QA annotations.",
+        href: "./datasets/xrfv2-plus/index.html",
+        linkLabel: "Open dataset page"
+      },
+      {
         date: "May 2026",
         title: "Person-in-WiFi 3D journal extension accepted to IEEE TPAMI",
         summary:
@@ -1423,6 +1431,33 @@
         ]
       },
       {
+        slug: "xrfv2-plus-multimodal-sensor-vision-language-dataset-for-action-understanding",
+        title: "XRFv2 Plus",
+        venue: "Public Dataset Update, 2026",
+        year: "2026",
+        href: "./datasets/xrfv2-plus/index.html",
+        pageLabel: "Dataset Page",
+        cardCover:
+          "./assets/media/datasets/xrfv2-plus-overview.png",
+        cover:
+          "./assets/media/datasets/xrfv2-plus-overview.png",
+        coverAlt: "Overview of the XRFv2 Plus synchronized sensor-vision-language release",
+        summary:
+          "XRFv2 Plus is a video-aligned sensor-vision-language update built from the original XRF V2 recording corpus. It synchronizes WiFi CSI, five-position IMU, AirPods IMU, RGB embeddings, Kinect depth and infrared videos, pose, mesh, DensePose, temporal localization, captions, and action QA around 853 valid action sequences.",
+        sensors: ["Wi-Fi CSI", "Five-position IMU", "AirPods IMU", "RGB Embeddings", "Depth/IR Video", "Pose/Mesh/DensePose", "Caption & QA"],
+        highlights: [
+          "Public update released on June 6, 2026, with the Kaggle release verified through version 4.",
+          "Aligns 853 valid sequences, 8,157 action segments, and 16 h 14 min 38 s of recordings to a common cropped-video timeline.",
+          "Adds TAL labels, dense captions, sequence-level captions, and 108,929 QA pairs across 21 question types."
+        ],
+        links: [
+          { label: "GitHub", href: "https://github.com/airslab2020/XRFV2" },
+          { label: "Kaggle", href: "https://www.kaggle.com/datasets/airslab2020/xrfv2-multimodal-tal-caption-qa-no-rgb" },
+          { label: "Zenodo", href: "https://doi.org/10.5281/zenodo.20564312" },
+          { label: "Original XRF V2", href: "./papers/xrf-v2-a-dataset-for-action-summarization-with-wi-fi-signals-and-imus-in-phones-watches-earbuds-and-glasses/index.html" }
+        ]
+      },
+      {
         slug: "xrf-v2-a-dataset-for-action-summarization-with-wi-fi-signals-and-imus-in-phones-watches-earbuds-and-glasses",
         title: "XRF V2",
         venue: "ACM IMWUT/UBICOMP 2025",
@@ -2160,6 +2195,24 @@
     intro:
       "The gallery documents both research milestones and everyday group life.",
     snapshots: [
+      {
+        title: "Hiking at Jing Ye Temple, Qinling Mountains",
+        date: "June 11, 2026",
+        caption: "We hiked to Jing Ye Temple in the Qinling Mountains and enjoyed the mountain scenery together.",
+        tag: "Nature",
+        image: "./assets/media/gallery/20260611-jingye-temple-qinling.jpg",
+        photoAlt: "Four hikers overlooking the Qinling Mountains near Jing Ye Temple",
+        palette: ["#274b43", "#e5ece7"]
+      },
+      {
+        title: "Undergraduate Thesis Defense Celebration",
+        date: "June 10, 2026",
+        caption: "Congratulations to the undergraduate students I supervised on successfully passing their thesis defenses. Wishing everyone all the very best in the journey ahead.",
+        tag: "Celebration",
+        image: "./assets/media/gallery/20260610-undergraduate-thesis-defense.jpg",
+        photoAlt: "Fei Wang with undergraduate students after their thesis defenses at Xi'an Jiaotong University",
+        palette: ["#223f55", "#e8e3d8"]
+      },
       {
         title: "Guernica at Museo Reina Sofia",
         date: "May 6, 2026",

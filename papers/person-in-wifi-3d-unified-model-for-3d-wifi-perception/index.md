@@ -8,6 +8,7 @@ cover: ./assets/paper-teaser.png
 coverAlt: Person-in-WiFi 3D PAMI teaser showing RGB frames, Wi-Fi 3D pose outputs, and mesh reconstruction outputs
 eyebrow: Journal Extension
 project: https://aiotgroup.github.io/Person-in-WiFi-3D/
+paper: https://ieeexplore.ieee.org/document/11556388
 cvpr: ../person-in-wifi-3d-end-to-end-multi-person-3d-pose-estimation-with-wi-fi/index.html
 ---
 
@@ -124,6 +125,7 @@ The paper also identifies important limitations. Annotation quality depends on K
 
 ## Resources
 
+- [IEEE Xplore](https://ieeexplore.ieee.org/document/11556388)
 - [Project page](https://aiotgroup.github.io/Person-in-WiFi-3D/)
 - [CVPR 2024 version page](../person-in-wifi-3d-end-to-end-multi-person-3d-pose-estimation-with-wi-fi/index.html)
 - [Teaser figure](./assets/paper-teaser.png)
