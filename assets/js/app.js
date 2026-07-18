@@ -324,16 +324,20 @@
           <div class="news-grid">
             ${about.news
               .map((item) => {
-                const newsHref = item.href || localPaperHref(item.slug);
+                const newsHref = item.href || (item.slug ? localPaperHref(item.slug) : "");
                 const newsLinkLabel = item.linkLabel || "Open paper page";
                 return `
                   <article class="panel news-card">
                     <span class="date-pill">${SiteUI.escapeHtml(item.date)}</span>
                     <h3>${SiteUI.escapeHtml(item.title)}</h3>
                     <p>${SiteUI.escapeHtml(item.summary)}</p>
-                    <a class="inline-link" href="${SiteUI.escapeHtml(newsHref)}"${externalLinkAttrs(
+                    ${
                       newsHref
-                    )}>${SiteUI.escapeHtml(newsLinkLabel)}</a>
+                        ? `<a class="inline-link" href="${SiteUI.escapeHtml(newsHref)}"${externalLinkAttrs(
+                            newsHref
+                          )}>${SiteUI.escapeHtml(newsLinkLabel)}</a>`
+                        : ""
+                    }
                   </article>
                 `;
               })
@@ -1533,13 +1537,14 @@
         `
           <div class="aside-card">
             <p class="eyebrow">Recognition Areas</p>
-            <h3>Competitions, papers, and honors.</h3>
+            <h3>Competitions, papers, theses, and honors.</h3>
             <p>Awards are grouped by recognition type and ordered with the newest achievements first.</p>
           </div>
         `
       )}
       ${awardSectionMarkup("Competition Awards", "Competition", awards.competition)}
       ${awardSectionMarkup("Paper and Demo Awards", "Recognition", awards.paperAwards)}
+      ${awardSectionMarkup("Outstanding Thesis Awards", "Thesis", awards.thesisAwards)}
       ${awardSectionMarkup("Honors and Fellowships", "Honors", awards.honors)}
     `;
   }

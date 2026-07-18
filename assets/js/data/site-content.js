@@ -100,6 +100,13 @@
     news: [
       {
         date: "Jun 2026",
+        title: "Privacy-preserving facial palsy recognition accepted to MICCAI 2026",
+        summary:
+          "Privacy-Preserving Video-Based Facial Palsy Recognition via Dynamic Facial Action Modeling has been accepted to MICCAI 2026.",
+        slug: "privacy-preserving-video-based-facial-palsy-recognition-via-dynamic-facial-action-modeling"
+      },
+      {
+        date: "Jun 2026",
         title: "XRFv2 Plus public update released",
         summary:
           "XRFv2 Plus reorganizes XRF V2 into a video-aligned sensor-vision-language release with WiFi, wearable IMUs, AirPods IMU, RGB embeddings, depth/infrared videos, pose, mesh, DensePose, temporal localization, captioning, and action QA annotations.",
@@ -488,7 +495,7 @@
       {
         title: "Conference Reviewing and PC Service",
         items: [
-          "BMVC 2026, ECCV 2026, SIGIR 2026, ICML 2026, CVPR 2026, ICASSP 2026, AAAI 2026, UBICOMP 2026, WACV 2026, INFOCOM 2026",
+          "AAAI 2027, IJCNN 2027, ACM MM 2026, BMVC 2026, ECCV 2026, SIGIR 2026, ICML 2026, CVPR 2026, ICASSP 2026, AAAI 2026, UBICOMP 2026, WACV 2026, INFOCOM 2026",
           "ACM MM 2025, ACM UBICOMP 2025, ICCV 2025, IJCNN 2025, CVPR 2025, ICASSP 2025, AAAI 2025",
           "HPCC 2024, UIST 2024, ECCV 2024, CVPR 2024, AAAI 2024, ICCV 2023, CVPR 2023, AAAI 2023, SocialCom 2023, ICCV 2021, AAAI 2020"
         ]
@@ -1700,6 +1707,22 @@
         note: "WiPIN: Operation-free Passive Person Identification Using Wi-Fi Signals received the Best Paper Award."
       }
     ],
+    thesisAwards: [
+      {
+        year: "Jun 2026",
+        title: "Outstanding Master's Thesis",
+        org: "Xi'an Jiaotong University",
+        people: "Rude Lin",
+        note: "His master's thesis was recognized as an outstanding master's thesis in June 2026."
+      },
+      {
+        year: "Jun 2025",
+        title: "Outstanding Master's Thesis",
+        org: "Xi'an Jiaotong University",
+        people: "Bo Lan",
+        note: "His master's thesis was recognized as an outstanding master's thesis in June 2025."
+      }
+    ],
     honors: [
       {
         year: "Apr 19, 2026",
@@ -1728,13 +1751,6 @@
         org: "CCF Technical Committee on Ubiquitous Computing",
         people: "Fei Wang",
         note: "Served as an Executive Committee Member of the CCF Technical Committee on Ubiquitous Computing."
-      },
-      {
-        year: "Jun 2025",
-        title: "Excellent Graduate Thesis",
-        org: "Xi'an Jiaotong University",
-        people: "Bo Lan",
-        note: "His thesis was recognized as an excellent graduate thesis in June 2025."
       }
     ]
   };
@@ -1941,33 +1957,6 @@
         title: "Alumni",
         members: [
           {
-            name: "Zhijian Wang (王之鉴)",
-            role: "Bachelor of Engineering",
-            photo: "./assets/media/people/2026zhijian-wang.jpg",
-            photoAlt: "Portrait for Zhijian Wang",
-            bio:
-              "Graduated in 2026 after conducting research on wireless sensing and multimodal learning, and will continue his studies at the National University of Singapore.",
-            palette: ["#3d376a", "#e0dcff"]
-          },
-          {
-            name: "Shi Chen (陈昰)",
-            role: "Bachelor of Engineering",
-            photo: "./assets/media/people/2026shi-chen.jpg",
-            photoAlt: "Portrait for Shi Chen",
-            bio:
-              "Graduated in 2026 after conducting research on IMU sensing in the group.",
-            palette: ["#3d376a", "#e0dcff"]
-          },
-          {
-            name: "Kexin Ren (任珂心)",
-            role: "Bachelor of Engineering",
-            photo: "./assets/media/people/2026kexin-ren.jpg",
-            photoAlt: "Portrait for Kexin Ren",
-            bio:
-              "Graduated in 2026 after completing her bachelor thesis on wearable device sensing in the group, and then joined Kaihong (Xi'an Branch).",
-            palette: ["#3d376a", "#e0dcff"]
-          },
-          {
             name: "Jiasheng Xu (徐佳胜)",
             role: "M.Eng.",
             photo: "./assets/media/people/2023jiasheng-xu.jpg",
@@ -2010,6 +1999,33 @@
             photoAlt: "Portrait for Bintong Zhao",
             bio:
               "Graduated with a master's degree in 2026 and then joined NR Electric Co., Ltd.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Shi Chen (陈昰)",
+            role: "Bachelor of Engineering",
+            photo: "./assets/media/people/2026shi-chen.jpg",
+            photoAlt: "Portrait for Shi Chen",
+            bio:
+              "Graduated in 2026 after conducting research on IMU sensing in the group.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Kexin Ren (任珂心)",
+            role: "Bachelor of Engineering",
+            photo: "./assets/media/people/2026kexin-ren.jpg",
+            photoAlt: "Portrait for Kexin Ren",
+            bio:
+              "Graduated in 2026 after completing her bachelor thesis on wearable device sensing in the group, and then joined Kaihong (Xi'an Branch).",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Zhijian Wang (王之鉴)",
+            role: "Bachelor of Engineering",
+            photo: "./assets/media/people/2026zhijian-wang.jpg",
+            photoAlt: "Portrait for Zhijian Wang",
+            bio:
+              "Graduated in 2026 after conducting research on wireless sensing and multimodal learning, and will pursue a master's degree at the National University of Singapore.",
             palette: ["#3d376a", "#e0dcff"]
           },
           {
@@ -2593,6 +2609,18 @@
   };
 
   SiteContent.publicationManualNotes = {
+    "privacy-preserving-video-based-facial-palsy-recognition-via-dynamic-facial-action-modeling": {
+      summary:
+        "DP-Face is a privacy-preserving video framework for facial palsy recognition that combines landmark-and-wrinkle structural representations with dynamic facial Action Unit modeling for rapid stroke pre-screening.",
+      bullets: [
+        "Introduces Palsy-330, a 330-subject public video dataset for facial palsy classification.",
+        "Uses privacy-preserving PP images and AU dynamics instead of raw identity-heavy RGB appearance.",
+        "Achieves the best overall results on Palsy-330 and strong cross-dataset performance on MEEI."
+      ],
+      codeUrl: "https://github.com/ChangYuance/DP-Face",
+      citation:
+        "@inproceedings{chang2026dpface,\n  title = {Privacy-Preserving Video-Based Facial Palsy Recognition via Dynamic Facial Action Modeling},\n  author = {Chang, Yuance and Liu, Bang and Ding, Han and Zhao, Cui and Wang, Fei and Wang, Ge and Xi, Wei},\n  booktitle = {MICCAI},\n  year = {2026}\n}"
+    },
     "locality-aware-parallel-decoding-for-efficient-autoregressive-image-generation": {
       summary:
         "This paper studies how to parallelize autoregressive image generation without discarding the locality priors that make autoregressive decoders strong. The main idea is to preserve spatially local dependencies while decoding multiple regions more efficiently.",

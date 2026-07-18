@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy-Preserving Video-Based Facial Palsy Recognition via Dynamic Facial Action Modeling - XJTU AIRS Lab</title>
+  <meta name="description" content="DP-Face is a privacy-preserving video framework for facial palsy recognition that combines landmark-and-wrinkle structural representations with dynamic facial Action Unit modeling for rapid stroke pre-screening.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/paper-page.css">
+</head>
+<body>
+  <header class="paper-header">
+    <div class="paper-shell paper-nav-shell">
+      <a class="paper-brand" href="../../index.html">
+        <span class="paper-brand-mark">X</span>
+        <span class="paper-brand-copy">
+          <strong>XJTU AIRS Lab</strong>
+          <small>Publication Detail</small>
+        </span>
+      </a>
+      <nav class="paper-nav" aria-label="Primary">
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="paper-main">
+    <section class="paper-hero">
+      <div class="paper-shell paper-hero-grid">
+        <div class="paper-hero-copy">
+          <p class="paper-eyebrow">MICCAI 2026</p>
+          <h1>Privacy-Preserving Video-Based Facial Palsy Recognition via Dynamic Facial Action Modeling</h1>
+          <p class="paper-subtitle">Yuance Chang, Bang Liu, Han Ding, Cui Zhao, Fei Wang, Ge Wang, Wei Xi</p>
+          <div class="paper-meta-row">
+            <span class="paper-pill">MICCAI 2026</span>
+            <span class="paper-pill">2026</span>
+            <span class="paper-pill">Privacy-Preserving Medical AI</span>
+            <span class="paper-pill">Xi&#39;an Jiaotong University</span>
+          </div>
+          <p class="paper-summary">DP-Face is a privacy-preserving video framework for facial palsy recognition that combines landmark-and-wrinkle structural representations with dynamic facial Action Unit modeling for rapid stroke pre-screening.</p>
+          <div class="paper-link-row">
+            <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
+            <a class="paper-link-chip" href="https://github.com/ChangYuance/DP-Face">Code</a>
+          </div>
+        </div>
+        <aside class="paper-hero-side">
+          <div class="paper-panel paper-figure-card">
+            <p class="paper-eyebrow">Cover / Teaser</p>
+            <img src="./assets/dpface-framework.png" alt="Overview of the DP-Face framework with privacy-preserving face representation generation, Action Unit dynamics, and FiLM fusion">
+          </div>
+          <aside class="paper-panel paper-side-note">
+            <p class="paper-eyebrow">Affiliation</p>
+            <p>Xi&#39;an Jiaotong University</p>
+          </aside>
+        </aside>
+      </div>
+    </section>
+
+    <section class="paper-section">
+      <div class="paper-shell">
+        <div class="paper-metric-grid">
+          <article class="paper-panel paper-metric-card">
+            <strong>Venue</strong>
+            <p>MICCAI 2026</p>
+          </article>
+          <article class="paper-panel paper-metric-card">
+            <strong>Theme</strong>
+            <p>Privacy-Preserving Medical AI</p>
+          </article>
+          <article class="paper-panel paper-metric-card">
+            <strong>Institution</strong>
+            <p>Xi&#39;an Jiaotong University</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="paper-section">
+      <div class="paper-shell">
+        <article class="paper-panel paper-article">
+          <h1>Overview</h1>
+<p>Facial palsy is one of the visible cues used in rapid stroke screening protocols such as BEFAST. The core challenge is that automated analysis often needs face videos, but raw facial appearance carries sensitive identity information and is difficult to share as an open benchmark.</p>
+<p>This paper introduces <strong>DP-Face</strong>, a video-based framework that recognizes facial palsy from dynamic facial behavior while reducing reliance on raw RGB appearance. Instead of treating the face video as ordinary identity-rich images, DP-Face transforms each frame into a privacy-preserving structural representation built from facial landmarks and wrinkle patterns, then combines that representation with temporal facial Action Unit dynamics.</p>
+<p>The work also releases <strong>Palsy-330</strong>, a 330-subject video dataset for facial palsy classification collected from real clinical environments. Together, the dataset and model make the paper especially relevant for reproducible, privacy-aware medical AI research.</p>
+<p><img src="./assets/dpface-framework.png" alt="DP-Face framework"></p>
+<h2>Why It Matters</h2>
+<ul>
+<li><strong>Clinically motivated target.</strong> Facial asymmetry during expressions can support rapid pre-screening when advanced imaging or immediate neurological expertise is unavailable.</li>
+<li><strong>Privacy-aware input design.</strong> DP-Face moves away from raw identity-heavy facial images and uses structural cues that retain diagnostic motion patterns.</li>
+<li><strong>Public benchmark value.</strong> Palsy-330 provides a larger public video benchmark for facial palsy classification than prior non-public or small-scale datasets.</li>
+<li><strong>Dynamic modeling.</strong> The method uses short video sequences and Action Units, rather than relying only on single static images.</li>
+</ul>
+<p>This page summarizes the paper for research reading and lab archival purposes. The method should be understood as a screening-support research system, not as a standalone clinical diagnosis tool.</p>
+<h2>Palsy-330 Dataset</h2>
+<p>Palsy-330 contains <strong>330 participants</strong>, including <strong>210 positive</strong> facial palsy subjects and <strong>120 negative</strong> subjects, with <strong>1518 video samples</strong> in total. Each participant performs a standardized clinical show-teeth smile task. The data were collected by physicians and nurses from 10 hospitals in western China, with labels verified by a senior chief physician.</p>
+<p><img src="./assets/palsy330-dataset-statistics.png" alt="Palsy-330 dataset statistics"></p>
+<p>The dataset includes multiple samples per participant, age and gender metadata, and anonymized hospital affiliation. Videos were mostly captured with smartphones, with some professional-camera recordings, across real lighting and clinical environments.</p>
+<p>During preprocessing, faces are detected, cropped, and resized. Videos are downsampled to 20 fps, and each model input uses <strong>16 consecutive frames</strong>, chosen to cover the typical duration of a smile expression.</p>
+<p><img src="./assets/palsy330-video-examples.png" alt="Palsy-330 video examples"></p>
+<h2>Privacy-Preserving Representation</h2>
+<p>DP-Face first converts cropped face frames into <strong>PP images</strong>. The pipeline detects 68 facial landmarks with STAR, connects landmarks into facial contours, and overlays wrinkle patterns extracted from the face. The representation keeps clinically meaningful asymmetry around the mouth, nasolabial folds, eyes, and facial contour while removing much of the raw facial texture.</p>
+<p><img src="./assets/privacy-preserving-representations.png" alt="Privacy-preserving face representations"></p>
+<p>This representation is central to the paper's privacy argument. The authors also evaluate identity leakage with a person re-identification experiment: RGB images achieve <strong>100% Rank-1</strong> accuracy, while PP-to-RGB retrieval falls to <strong>5.11% Rank-1</strong> on a 100-subject gallery, close to the 1% chance level. This suggests that PP images strongly suppress identity information while preserving task-relevant facial dynamics.</p>
+<h2>Dynamic Facial Action Modeling</h2>
+<p>Facial palsy is not only a static asymmetry problem. It also changes how muscles activate during facial expressions. DP-Face therefore extracts <strong>20 facial Action Units</strong> per frame using Py-Feat, producing continuous AU values between 0 and 1. These signals describe muscle-level behavior such as lip raising and lip corner pulling.</p>
+<p>The model has two main branches:</p>
+<ul>
+<li><strong>Appearance branch.</strong> The PP image sequence is divided into temporal segments. A pretrained ResNet3D-18 extracts segment-level appearance features, and a BiLSTM plus self-attention module aggregates long-range temporal information.</li>
+<li><strong>AU branch.</strong> AU sequences are processed by a separate BiLSTM to model temporal muscle activation.</li>
+<li><strong>Fusion module.</strong> The two streams are fused with FiLM, where AU features conditionally scale and shift the appearance representation before final classification.</li>
+</ul>
+<p>The training objective combines cross-entropy loss with center loss, encouraging both correct classification and compact class-specific features.</p>
+<h2>Evaluation Protocol</h2>
+<p>The paper uses a patient-independent five-fold cross-validation protocol. All samples from the same participant remain in the same fold, avoiding leakage where a model could memorize subject identity rather than learning palsy-related patterns. In each round, three folds are used for training, one for validation, and one for testing.</p>
+<p>Evaluation uses Accuracy, Precision, Sensitivity, Specificity, F1-score, and AUC. Specificity is especially relevant for avoiding false alarms, while sensitivity is important for minimizing missed cases in screening-oriented use.</p>
+<h2>Main Results On Palsy-330</h2>
+<p>DP-Face achieves the strongest overall result among the evaluated baselines. On Palsy-330, it reaches <strong>75.1% Accuracy</strong>, <strong>84.6% Precision</strong>, <strong>80.3% F1-score</strong>, and <strong>78.7% AUC</strong>. It outperforms both single-frame methods such as FP-VGGFace and AFPD-RI, and sequence-based methods such as 3DPalsyNet and BiLSTM-AU.</p>
+<p><img src="./assets/palsy330-main-results.png" alt="Performance comparison on Palsy-330"></p>
+<p>The result supports two conclusions. First, temporal facial dynamics matter: sequence-based methods generally outperform single-frame baselines. Second, privacy-preserving representations can remain competitive, especially when combined with dynamic Action Unit cues and conditional fusion.</p>
+<h2>Cross-Dataset Generalization</h2>
+<p>The authors also evaluate on the public MEEI facial palsy dataset. MEEI is smaller and more imbalanced than Palsy-330, with substantially fewer normal subjects. Even under this harder setting, DP-Face reports <strong>87.3% Accuracy</strong>, <strong>94.5% Sensitivity</strong>, and <strong>92.5% F1-score</strong>.</p>
+<p><img src="./assets/meei-generalization-results.png" alt="Evaluation on MEEI"></p>
+<p>The lower specificity on MEEI reflects the dataset imbalance, but the high sensitivity is aligned with the paper's pre-screening motivation, where reducing missed positive cases is especially important.</p>
+<h2>Ablation Findings</h2>
+<p>The ablation study separates the effects of input representation, temporal length, and fusion strategy.</p>
+<p><img src="./assets/dpface-ablation-study.png" alt="DP-Face ablation study"></p>
+<p>Key findings:</p>
+<ul>
+<li><strong>Wrinkle cues help.</strong> PP images with wrinkles improve over PP images without wrinkles and over raw cropped images in the reported setting.</li>
+<li><strong>Temporal context matters.</strong> Using 16 frames gives the best overall performance among the tested 16, 8, and 4 frame settings.</li>
+<li><strong>FiLM fusion is effective.</strong> AU-conditioned FiLM fusion outperforms attention, addition, and concatenation fusion strategies.</li>
+</ul>
+<h2>Takeaways</h2>
+<p>DP-Face is useful because it connects three needs that often conflict in medical AI: dynamic modeling, privacy protection, and reproducible benchmarking. The paper does not simply blur or anonymize faces after the fact. Instead, it changes the input representation so that the model learns from geometry, wrinkles, and muscle dynamics rather than identity-heavy texture.</p>
+<p>For future work, the most natural next steps are broader clinical validation, severity grading rather than binary classification, and more detailed evaluation across camera types, hospitals, ages, and stroke-related clinical subgroups.</p>
+<h2>Resources</h2>
+<ul>
+<li><a href="https://github.com/ChangYuance/DP-Face">Code and dataset</a></li>
+</ul>
+<h2>Citation</h2>
+<pre><code class="language-bibtex">@inproceedings{chang2026dpface,
+  title = {Privacy-Preserving Video-Based Facial Palsy Recognition via Dynamic Facial Action Modeling},
+  author = {Chang, Yuance and Liu, Bang and Ding, Han and Zhao, Cui and Wang, Fei and Wang, Ge and Xi, Wei},
+  booktitle = {MICCAI},
+  year = {2026}
+}
+</code></pre>
+
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
