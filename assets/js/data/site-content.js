@@ -2212,6 +2212,24 @@
       "The gallery documents both research milestones and everyday group life.",
     snapshots: [
       {
+        title: "CWSN 2026 in Harbin",
+        date: "August 2, 2026",
+        caption: "Attending CWSN 2026 in Harbin, with a walk along Central Street and a visit to Saint Sophia Cathedral.",
+        tag: "Conference",
+        image: "./assets/media/gallery/20260802-cwsn-harbin-saint-sophia-cathedral.jpg",
+        photoAlt: "Fei Wang standing in front of Saint Sophia Cathedral in Harbin during CWSN 2026",
+        palette: ["#733b31", "#e7ebee"]
+      },
+      {
+        title: "First Motion-Capture Experience at ZJU",
+        date: "June 18, 2026",
+        caption: "At Zhejiang University's Zijingang Campus in Hangzhou, we used the OptiTrack motion-capture system and wore motion-capture suits for the first time.",
+        tag: "Research",
+        image: "./assets/media/gallery/20260618-optitrack-motion-capture-zju-zijingang.jpg",
+        photoAlt: "Three researchers in front of an OptiTrack motion-capture system at Zhejiang University's Zijingang Campus",
+        palette: ["#1f2933", "#d7d9d4"]
+      },
+      {
         title: "Hiking at Jing Ye Temple, Qinling Mountains",
         date: "June 11, 2026",
         caption: "We hiked to Jing Ye Temple in the Qinling Mountains and enjoyed the mountain scenery together.",
