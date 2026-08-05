@@ -2222,7 +2222,7 @@
       },
       {
         title: "First Motion-Capture Experience at ZJU",
-        date: "June 18, 2026",
+        date: "July 18, 2026",
         caption: "At Zhejiang University's Zijingang Campus in Hangzhou, we used the OptiTrack motion-capture system and wore motion-capture suits for the first time.",
         tag: "Research",
         image: "./assets/media/gallery/20260618-optitrack-motion-capture-zju-zijingang.jpg",
