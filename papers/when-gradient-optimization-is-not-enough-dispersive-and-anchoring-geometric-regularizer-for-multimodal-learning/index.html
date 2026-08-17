@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>When Gradient Optimization Is Not Enough: Dispersive and Anchoring Geometric Regularizer for Multimodal Learning - XJTU AIRS Lab</title>
-  <meta name="description" content="This work studies representation geometry in multimodal learning and introduces a lightweight DAGR regularizer that jointly encourages intra-modal diversity and stable cross-modal anchoring.">
+  <meta name="description" content="DAGR is a plug-and-play training-time geometric regularizer for multimodal learning. It preserves modality-specific diversity while bounding excessive paired cross-modal drift, improving audio-visual, image-text, and RF-based benchmarks with no inference-time overhead.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -38,7 +38,7 @@
             <span class="paper-pill">Multimodal Learning</span>
             <span class="paper-pill">University of Bern; Xi&#39;an Jiaotong University; Nanyang Technological University</span>
           </div>
-          <p class="paper-summary">This work studies representation geometry in multimodal learning and introduces a lightweight DAGR regularizer that jointly encourages intra-modal diversity and stable cross-modal anchoring.</p>
+          <p class="paper-summary">DAGR is a plug-and-play training-time geometric regularizer for multimodal learning. It preserves modality-specific diversity while bounding excessive paired cross-modal drift, improving audio-visual, image-text, and RF-based benchmarks with no inference-time overhead.</p>
           <div class="paper-link-row">
             <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
             <a class="paper-link-chip" href="https://arxiv.org/abs/2601.21670">Paper</a>
@@ -47,7 +47,7 @@
         <aside class="paper-hero-side">
           <div class="paper-panel paper-figure-card">
             <p class="paper-eyebrow">Cover / Teaser</p>
-            <img src="./assets/paper-preview.png" alt="First page preview of the DAGR multimodal learning paper.">
+            <img src="./assets/figure-1-tsne-cremad.png" alt="t-SNE visualization of CREMA-D multimodal embeddings comparing baseline and DAGR.">
           </div>
           <aside class="paper-panel paper-side-note">
             <p class="paper-eyebrow">Affiliation</p>
@@ -80,41 +80,89 @@
       <div class="paper-shell">
         <article class="paper-panel paper-article">
           <h1>Overview</h1>
-<p>Even carefully optimized multimodal models can develop unhealthy representation geometry. Typical failure modes include <strong>intra-modal collapse</strong>, where features inside a modality become insufficiently diverse, and <strong>sample-level cross-modal inconsistency</strong>, where paired observations from different modalities drift too far apart.</p>
-<p>This paper addresses that issue with a geometry-aware regularizer referred to as <strong>DAGR</strong>. The latest arXiv revision presents the work under the title <em>Improving Multimodal Learning with Dispersive and Anchoring Regularization</em>, but the central idea remains the same: gradient optimization alone is often not enough to shape robust multimodal representations.</p>
+<p>Multimodal fusion is often optimized by balancing gradients across modalities. This paper argues that balanced gradients are not enough: even when the task loss is well optimized, the intermediate representation geometry can still be underdetermined. Embeddings may collapse within a modality, or paired samples from different modalities may drift too far apart.</p>
+<p><strong>DAGR</strong> introduces a training-time geometric regularizer for multimodal learning. It encourages each modality to maintain its own representation diversity while keeping paired cross-modal samples inside a bounded agreement band. The attached arXiv v3 PDF uses the title <em>Diverse via bounded Agreement: Geometric Regularization for Multimodal Fusion</em>; this page keeps the title used in the site publication list.</p>
+<blockquote>
+<p>Core idea: make multimodal representation geometry explicit - diverse within each modality, but bounded across paired modalities.</p>
+</blockquote>
+<figure class="markdown-figure">
+  <img src="./assets/figure-1-tsne-cremad.png" alt="t-SNE visualization of intermediate embeddings on CREMA-D">
+  <figcaption>Figure 1 from the paper. DAGR produces more coherent semantic clusters and clearer audio-visual co-localization on CREMA-D.</figcaption>
+</figure>
 <h2>Main Contributions</h2>
 <ul>
-<li>Identifies representation geometry as a missing control axis in multimodal learning.</li>
-<li>Proposes a <strong>plug-and-play</strong> regularization framework that requires no architectural changes.</li>
-<li>Combines <strong>intra-modal dispersive regularization</strong> with <strong>inter-modal anchoring regularization</strong> to improve both unimodal robustness and multimodal fusion.</li>
+<li>Identifies <strong>geometry underdetermination</strong> as a failure mode in supervised multimodal fusion.</li>
+<li>Characterizes two representation-level issues: <strong>intra-modal collapse</strong> and <strong>sample-level cross-modal drift</strong>.</li>
+<li>Proposes <strong>DAGR</strong>, a lightweight objective that combines modality-wise dispersion and agreement-band anchoring.</li>
+<li>Demonstrates consistent improvements across audio-visual recognition, image-text clustering and retrieval, and RF-based multimodal perception.</li>
+<li>Keeps deployment simple: DAGR adds no trainable inference module and no inference-time latency.</li>
 </ul>
-<h2>Method</h2>
-<p>The regularizer enforces two complementary constraints:</p>
+<h2>Method at a Glance</h2>
+<p>DAGR is applied to normalized intermediate embeddings during training and removed at inference. It contains two complementary terms:</p>
 <ul>
-<li>
-<p><strong>Dispersive regularization</strong><br>
-Encourages richer and less collapsed embeddings within the same modality.</p>
-</li>
-<li>
-<p><strong>Anchoring regularization</strong><br>
-Limits sample-level drift across modalities without forcing rigid one-to-one alignment.</p>
-</li>
+<li><strong>Dispersion</strong> spreads embeddings within each modality, reducing low-rank collapse and increasing effective representation diversity.</li>
+<li><strong>Agreement-band anchoring</strong> penalizes paired cross-modal embeddings only when their distance exceeds a tolerance radius, avoiding rigid always-on alignment.</li>
 </ul>
-<p>Because DAGR acts directly on intermediate embeddings, it can be added to existing multimodal training pipelines with minimal overhead.</p>
-<h2>Evaluation Highlights</h2>
+<p>This design differs from methods that simply force all modalities to align. DAGR keeps modality-specific information useful while preventing paired observations from becoming geometrically inconsistent.</p>
+<h2>Quantitative Results</h2>
+<p>The paper evaluates DAGR on six benchmarks: CREMA-D, Kinetics-Sounds, CUB Image-Captions for Clustering, Flickr30K, COCO, and XRF55. The following figures and tables are cropped directly from the PDF.</p>
+<figure class="markdown-figure">
+  <img src="./assets/table-1-audio-visual-results.png" alt="Audio-visual classification results on CREMA-D and Kinetics-Sounds">
+  <figcaption>Table 1. On CREMA-D and Kinetics-Sounds, adding DAGR to DGL improves multimodal accuracy and strengthens most unimodal branches.</figcaption>
+</figure>
+<p>For image-text clustering, DAGR improves the joint CUBICC clustering score while also improving image-only and caption-only representations. This suggests that the regularizer improves semantic organization, not only the final fused output.</p>
+<figure class="markdown-figure">
+  <img src="./assets/table-2-cubicc-clustering.png" alt="CUBICC image-text clustering results">
+  <figcaption>Table 2. DAGR improves CUBICC clustering metrics over DCMEM across image-only, caption-only, and joint representations.</figcaption>
+</figure>
+<p>For CLIP-based retrieval, DAGR produces consistent gains across Flickr30K and COCO on ViT-B/16, ViT-L/14, and ViT-L/14-336 backbones.</p>
+<figure class="markdown-figure">
+  <img src="./assets/table-3-image-text-retrieval.png" alt="Image-text retrieval results on Flickr30K and COCO">
+  <figcaption>Table 3. DAGR improves most image-to-text and text-to-image Recall@1/5/10 metrics on Flickr30K and COCO.</figcaption>
+</figure>
+<p>The XRF55 experiment connects this paper to RF-based human perception. Under the X-Fi benchmark protocol, DAGR improves every evaluated modality setting, including radar-only and multimodal fusion inputs.</p>
+<figure class="markdown-figure">
+  <img src="./assets/table-4-xrf55-results.png" alt="XRF55 RF-based multimodal perception results">
+  <figcaption>Table 4. On XRF55, DAGR improves RGB, Wi-Fi, RF, and multimodal combinations under the X-Fi protocol.</figcaption>
+</figure>
+<h2>Geometry Diagnostics and Ablations</h2>
+<p>The paper also checks whether the gains come from the intended geometry rather than from generic normalization or alignment. On CREMA-D, DAGR improves semantic margin, preserves effective rank, and keeps cross-modal drift bounded.</p>
+<figure class="markdown-figure">
+  <img src="./assets/figure-2-geometry-diagnostics.png" alt="Training-time geometry diagnostics on CREMA-D">
+  <figcaption>Figure 2. Geometry diagnostics show the role of DAGR in improving semantic separation while avoiding excessive cross-modal drift.</figcaption>
+</figure>
+<p>DAGR is compared with objective controls including always-on alignment, VICReg-style regularization, Barlow Twins-style decorrelation, unit-sphere normalization, and UniAlign-style contrastive alignment.</p>
+<figure class="markdown-figure">
+  <img src="./assets/table-5-objective-controls.png" alt="Objective control results for DAGR">
+  <figcaption>Table 5. Bounded agreement is not reproduced by normalization, rigid alignment, or generic invariance objectives alone.</figcaption>
+</figure>
+<p>The component ablation confirms that dispersion and anchoring play complementary roles. Dispersion alone improves representation diversity, while anchoring controls the cross-modal drift that pure dispersion can increase.</p>
+<figure class="markdown-figure">
+  <img src="./assets/table-6-component-ablation.png" alt="Component-wise ablation of DAGR on CREMA-D and Kinetics-Sounds">
+  <figcaption>Table 6. The full DAGR objective gives the strongest multimodal performance when dispersion and agreement-band anchoring are used together.</figcaption>
+</figure>
+<h2>Takeaways</h2>
 <ul>
-<li>Improves both <strong>multimodal</strong> and <strong>unimodal</strong> performance across multiple benchmarks.</li>
-<li>Mitigates modality trade-offs by explicitly controlling representation geometry.</li>
-<li>Demonstrates that better geometric structure can be achieved without redesigning the backbone or fusion architecture.</li>
+<li>Gradient-level balancing does not fully determine representation geometry.</li>
+<li>DAGR makes geometry an explicit training objective for multimodal learning.</li>
+<li>The method is plug-and-play and incurs no inference-time cost.</li>
+<li>The same bounded-agreement principle transfers across audio-visual, image-text, and RF-based wireless sensing benchmarks.</li>
 </ul>
 <h2>Resources</h2>
 <ul>
 <li><a href="https://arxiv.org/abs/2601.21670">arXiv paper</a></li>
-<li><a href="./assets/paper-preview.png">Paper preview</a></li>
+<li><a href="./assets/figure-1-tsne-cremad.png">Figure 1: t-SNE visualization</a></li>
+<li><a href="./assets/table-1-audio-visual-results.png">Table 1: audio-visual classification</a></li>
+<li><a href="./assets/table-2-cubicc-clustering.png">Table 2: CUBICC clustering</a></li>
+<li><a href="./assets/table-3-image-text-retrieval.png">Table 3: image-text retrieval</a></li>
+<li><a href="./assets/table-4-xrf55-results.png">Table 4: XRF55 results</a></li>
+<li><a href="./assets/figure-2-geometry-diagnostics.png">Figure 2: geometry diagnostics</a></li>
+<li><a href="./assets/table-5-objective-controls.png">Table 5: objective controls</a></li>
+<li><a href="./assets/table-6-component-ablation.png">Table 6: component ablation</a></li>
 </ul>
 <h2>Citation</h2>
-<pre><code class="language-bibtex">@article{xia2026dagr,
-  title = {Improving Multimodal Learning with Dispersive and Anchoring Regularization},
+<pre><code class="language-bibtex">@article{xia2026gradient,
+  title = {When Gradient Optimization Is Not Enough: Dispersive and Anchoring Geometric Regularizer for Multimodal Learning},
   author = {Xia, Zixuan and Wang, Hao and Weng, Pengcheng and Qian, Yanyu and Xu, Yangxin and Dan, William and Wang, Fei},
   journal = {arXiv preprint arXiv:2601.21670},
   year = {2026}
