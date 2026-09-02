@@ -1953,6 +1953,16 @@
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
+            name: "Zichen Dong",
+            role: "Undergraduate Student",
+            photo: "./assets/media/people/2026zichen-dong.jpg",
+            photoAlt: "Portrait for Zichen Dong",
+            bio:
+              "Interested in human-robot interaction, embodied intelligence, and virtual reality.",
+            link: "https://zichendong.com/",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
             name: "Shihan Pan (潘适晗)",
             role: "Undergraduate Student, Research Intern",
             photo: "./assets/media/people/2028shihan-pan.jpg",
