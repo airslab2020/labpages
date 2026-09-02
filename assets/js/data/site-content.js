@@ -2031,6 +2031,15 @@
             palette: ["#3d376a", "#e0dcff"]
           },
           {
+            name: "Xinge Qi (齐辛格)",
+            role: "M.Eng.",
+            photo: "./assets/media/people/2026xinge-qi.png",
+            photoAlt: "Portrait for Xinge Qi",
+            bio:
+              "",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
             name: "Shi Chen (陈昰)",
             role: "Bachelor of Engineering",
             photo: "./assets/media/people/2026shi-chen.jpg",
