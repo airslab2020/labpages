@@ -2141,6 +2141,15 @@
             palette: ["#3d376a", "#e0dcff"]
           },
           {
+            name: "Yibo Li (李毅波)",
+            role: "M.Eng.",
+            photo: "./assets/media/people/2024yibo-li.png",
+            photoAlt: "Portrait for Yibo Li",
+            bio:
+              "Graduated in 2024 and then joined Weibo in Beijing.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
             name: "Huina Meng (孟慧娜)",
             role: "M.Eng.",
             photo: "./assets/media/people/2020huina-meng.jpg",
