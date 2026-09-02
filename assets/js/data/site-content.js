@@ -991,7 +991,7 @@
                 "title": "VR-GarbageSort：沉浸式垃圾分类虚拟现实训练游戏",
                 "video": "https://player.bilibili.com/player.html?isOutside=true&aid=116631212659051&bvid=BV1QXGp6EEkh&cid=38589105051&p=1",
                 "authors": [
-                      "董子晨 / Zichen Dong",
+                      "董子辰 / Zichen Dong",
                       "赵庆典 / Qingdian Zhao",
                       "沈郑轩 / Zhengxuan Shen",
                       "张奕朗 / Yilang Zhang"
@@ -1879,7 +1879,7 @@
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
-            name: "Yanyu Qian",
+            name: "Yanyu Qian (钱彦宇)",
             role: "Master Student, Research Intern, Nanyang Technological University, Singapore",
             photo: "./assets/media/people/2026yanyu-qian.jpg",
             photoAlt: "Profile portrait for Yanyu Qian",
@@ -1953,7 +1953,7 @@
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
-            name: "Zichen Dong",
+            name: "Zichen Dong (董子辰)",
             role: "Undergraduate Student",
             photo: "./assets/media/people/2026zichen-dong.jpg",
             photoAlt: "Portrait for Zichen Dong",
