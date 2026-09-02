@@ -2022,6 +2022,15 @@
             palette: ["#3d376a", "#e0dcff"]
           },
           {
+            name: "Libao Xing (邢立豹)",
+            role: "M.Eng.",
+            photo: "./assets/media/people/2026libao-xing.png",
+            photoAlt: "Portrait for Libao Xing",
+            bio:
+              "Graduated with a master's degree in 2026 and then joined Tencent in Shenzhen.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
             name: "Shi Chen (陈昰)",
             role: "Bachelor of Engineering",
             photo: "./assets/media/people/2026shi-chen.jpg",
