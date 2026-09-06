@@ -99,6 +99,12 @@
     ],
     news: [
       {
+        date: "Sep 2026",
+        title: "Two papers accepted to ACM IMWUT September Issue",
+        summary:
+          "Two AIRS Lab papers have been accepted to the ACM IMWUT (CCF A) September Issue, and three papers from the group will be orally presented at UbiComp 2027."
+      },
+      {
         date: "Jun 2026",
         title: "Privacy-preserving facial palsy recognition accepted to MICCAI 2026",
         summary:
@@ -1797,6 +1803,15 @@
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
+            name: "Xinge Qi (齐辛格)",
+            role: "M.Eng.",
+            photo: "./assets/media/people/2026xinge-qi.png",
+            photoAlt: "Portrait for Xinge Qi",
+            bio:
+              "",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
             name: "Kainan Shi (施凯南)",
             role: "M.Eng. Student",
             photo: "./assets/media/people/2024kainan-shi.jpg",
@@ -2028,15 +2043,6 @@
             photoAlt: "Portrait for Libao Xing",
             bio:
               "Graduated with a master's degree in 2026 and then joined Tencent in Shenzhen.",
-            palette: ["#3d376a", "#e0dcff"]
-          },
-          {
-            name: "Xinge Qi (齐辛格)",
-            role: "M.Eng.",
-            photo: "./assets/media/people/2026xinge-qi.png",
-            photoAlt: "Portrait for Xinge Qi",
-            bio:
-              "",
             palette: ["#3d376a", "#e0dcff"]
           },
           {
