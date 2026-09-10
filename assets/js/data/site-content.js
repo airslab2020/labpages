@@ -2237,6 +2237,15 @@
             palette: ["#3d376a", "#e0dcff"]
           },
           {
+            name: "Fan Nai (佴凡)",
+            role: "Undergraduate Research Intern",
+            photo: "./assets/media/people/2026fan-nai.jpg",
+            photoAlt: "Portrait for Fan Nai",
+            bio:
+              "Former undergraduate research intern. In 2026, he will pursue a master's degree at Peking University, focusing on multimodal large language models and embodied intelligence.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
             name: "Yuhang Zhang (张宇航)",
             role: "Bachelor of Engineering",
             photo: "./assets/media/people/2024yuhang-zhang.jpg",
