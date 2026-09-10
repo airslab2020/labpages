@@ -1894,16 +1894,6 @@
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
-            name: "Yanyu Qian (钱彦宇)",
-            role: "Master Student, Research Intern, Nanyang Technological University, Singapore",
-            photo: "./assets/media/people/2026yanyu-qian.jpg",
-            photoAlt: "Profile portrait for Yanyu Qian",
-            bio:
-              "Interested in hallucination detection and mitigation in LLMs and MLLMs.",
-            link: "https://scholar.google.com/citations?hl=zh-CN&user=B_2hP7oAAAAJ",
-            palette: ["#5d4628", "#ffe6c8"]
-          },
-          {
             name: "Hao Wang (王皓)",
             role: "Master Student, Research Intern, Universität Bern",
             photo: "./assets/media/people/2024hao-wang.png",
@@ -2207,6 +2197,16 @@
             photoAlt: "Sample portrait for Yiao Gao",
             bio:
               "Graduated in 2023 and then joined Honor Device Co., Ltd.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Yanyu Qian (钱彦宇)",
+            role: "Master Student, Research Intern, Nanyang Technological University, Singapore",
+            photo: "./assets/media/people/2026yanyu-qian.jpg",
+            photoAlt: "Profile portrait for Yanyu Qian",
+            bio:
+              "Interested in hallucination detection and mitigation in LLMs and MLLMs.",
+            link: "https://scholar.google.com/citations?hl=zh-CN&user=B_2hP7oAAAAJ",
             palette: ["#3d376a", "#e0dcff"]
           },
           {
