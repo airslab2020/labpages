@@ -100,6 +100,14 @@
     news: [
       {
         date: "Sep 2026",
+        title: "Fei Wang elected as CCF Senior Member",
+        summary:
+          "Fei Wang has been elected as a CCF Senior Member by the China Computer Federation, recognizing his achievements in computer science and contributions to the CCF community.",
+        href: "./fei-wang.html",
+        linkLabel: "Open profile"
+      },
+      {
+        date: "Sep 2026",
         title: "Two papers accepted to ACM IMWUT September Issue",
         summary:
           "Two AIRS Lab papers have been accepted to the ACM IMWUT (CCF A) September Issue, and three papers from the group will be orally presented at UbiComp 2027."
@@ -349,6 +357,7 @@
     quickFacts: [
       "School of Software Engineering, Xi'an Jiaotong University",
       "Contact: feynmanw[at]xjtu.edu.cn",
+      [{ strong: "CCF Senior Member (Sep 2026)" }],
       [{ strong: "IEEE Senior Member (Apr 2026)" }],
       "Executive Committee Member, CCF Technical Committee on Internet of Things (Sep 2025)",
       "Executive Committee Member, CCF Technical Committee on Ubiquitous Computing (Aug 2025)",
@@ -361,11 +370,17 @@
     roles: [
       "Associate Professor and Ph.D. Supervisor, School of Software Engineering, Xi'an Jiaotong University",
       "Postdoctoral Researcher in Control Science and Engineering, Xi'an Jiaotong University",
+      "CCF Senior Member",
       "IEEE Senior Member",
       "Executive Committee Member, CCF Technical Committee on Internet of Things",
       "Executive Committee Member, CCF Technical Committee on Ubiquitous Computing"
     ],
     appointments: [
+      {
+        year: "Sep 16, 2026",
+        title: "CCF Senior Member",
+        text: "Elected as a CCF Senior Member."
+      },
       {
         year: "Apr 19, 2026",
         title: "IEEE Senior Member",
@@ -485,6 +500,7 @@
       {
         title: "Leadership and Memberships",
         items: [
+          "CCF Senior Member",
           "IEEE Senior Member",
           "Executive Committee Member, CCF Technical Committee on Internet of Things",
           "Executive Committee Member, CCF Technical Committee on Ubiquitous Computing"
@@ -1730,6 +1746,13 @@
       }
     ],
     honors: [
+      {
+        year: "Sep 16, 2026",
+        title: "CCF Senior Member",
+        org: "China Computer Federation",
+        people: "Fei Wang",
+        note: "Elected as a CCF Senior Member on September 16, 2026."
+      },
       {
         year: "Apr 19, 2026",
         title: "IEEE Senior Member",
