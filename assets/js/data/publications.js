@@ -1,6 +1,8 @@
 (function () {
   const SiteContent = (window.SiteContent = window.SiteContent || {});
   const rows = `
+one2three-1d-scanning-unlocks-high-fidelity-3d-object-reconstruction	One2Three: 1D Scanning Unlocks High-Fidelity 3D Object Reconstruction	Ge Wang#, Jiazheng Chen, Rui Xiao, Fusang Zhang, Fei Wang, Shouqian Shi, Han Ding, Cui Zhao, Wei Xi	ACM IMWUT 10(3), Article 155, September 2026	2026
+beyond-radial-limits-recovering-direction-invariant-walking-dynamics-for-robust-mmwave-radar-person-re-identification	Beyond Radial Limits: Recovering Direction-Invariant Walking Dynamics for Robust mmWave Radar Person Re-Identification	Teng Huang, Han Ding#, Cui Zhao, Fei Wang, Ge Wang, Jizhong Zhao, Zhi Wang, Wei Xi	ACM IMWUT 10(3), Article 110, September 2026	2026
 privacy-preserving-video-based-facial-palsy-recognition-via-dynamic-facial-action-modeling	Privacy-Preserving Video-Based Facial Palsy Recognition via Dynamic Facial Action Modeling	Yuance Chang, Bang Liu, Han Ding#, Cui Zhao, Fei Wang, Ge Wang, Wei Xi	MICCAI 2026	2026
 person-in-wifi-3d-unified-model-for-3d-wifi-perception	Person-in-WiFi 3D: Unified Model for 3D WiFi Perception	Bo Qian, Xing Wei, Kangwei Yan, Han Ding, Jinsong Han, Fei Wang	IEEE Transactions on Pattern Analysis and Machine Intelligence, 2026	2026
 a-survey-on-wi-fi-sensing-generalizability-taxonomy-techniques-datasets-and-future-research-prospects	A Survey on Wi-Fi Sensing Generalizability: Taxonomy, Techniques, Datasets, and Future Research Prospects	Fei Wang, Tingting Zhang, Wei Xi, Han Ding, Ge Wang, Di Zhang, Yuanhao Cui, Fan Liu, Jinsong Han, Jie Xu, Tony Xiao Han	IEEE Communications Surveys & Tutorials, 2026	2026
@@ -62,6 +64,8 @@ csi-net-unified-human-body-characterization-and-pose-recognition	Csi-net: Unifie
 `;
 
   const publicationThemes = {
+    "one2three-1d-scanning-unlocks-high-fidelity-3d-object-reconstruction": "RF 3D Object Reconstruction",
+    "beyond-radial-limits-recovering-direction-invariant-walking-dynamics-for-robust-mmwave-radar-person-re-identification": "mmWave Person Re-Identification",
     "privacy-preserving-video-based-facial-palsy-recognition-via-dynamic-facial-action-modeling": "Privacy-Preserving Medical AI",
     "person-in-wifi-3d-unified-model-for-3d-wifi-perception": "Wi-Fi 3D Human Perception",
     "a-survey-on-wi-fi-sensing-generalizability-taxonomy-techniques-datasets-and-future-research-prospects": "Wi-Fi Sensing Generalizability",

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beyond Radial Limits: Recovering Direction-Invariant Walking Dynamics for Robust mmWave Radar Person Re-Identification - XJTU AIRS Lab</title>
+  <meta name="description" content="mmReID recovers direction-invariant gait features from native polar-domain radar measurements, using learned radial alignment to recognize people walking toward the sensor along different directions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/paper-page.css">
+</head>
+<body>
+  <header class="paper-header">
+    <div class="paper-shell paper-nav-shell">
+      <a class="paper-brand" href="../../index.html">
+        <span class="paper-brand-mark">X</span>
+        <span class="paper-brand-copy">
+          <strong>XJTU AIRS Lab</strong>
+          <small>Publication Detail</small>
+        </span>
+      </a>
+      <nav class="paper-nav" aria-label="Primary">
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="paper-main">
+    <section class="paper-hero">
+      <div class="paper-shell paper-hero-grid">
+        <div class="paper-hero-copy">
+          <p class="paper-eyebrow">IMWUT 2026 · September Issue</p>
+          <h1>Beyond Radial Limits: Recovering Direction-Invariant Walking Dynamics for Robust mmWave Radar Person Re-Identification</h1>
+          <p class="paper-subtitle">Teng Huang, Han Ding, Cui Zhao, Fei Wang, Ge Wang, Jizhong Zhao, Zhi Wang, Wei Xi</p>
+          <div class="paper-meta-row">
+            <span class="paper-pill">ACM IMWUT 10(3), Article 110, September 2026</span>
+            <span class="paper-pill">2026</span>
+            <span class="paper-pill">mmWave Person Re-Identification</span>
+            <span class="paper-pill">Xi&#39;an Jiaotong University</span>
+          </div>
+          <p class="paper-summary">mmReID recovers direction-invariant gait features from native polar-domain radar measurements, using learned radial alignment to recognize people walking toward the sensor along different directions.</p>
+          <div class="paper-link-row">
+            <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
+            <a class="paper-link-chip" href="https://doi.org/10.1145/3831953">Paper</a>
+          </div>
+        </div>
+        <aside class="paper-hero-side">
+          <div class="paper-panel paper-figure-card">
+            <p class="paper-eyebrow">Cover / Teaser</p>
+            <img src="./assets/overview.png" alt="mmReID radar-perspective sensing, radial-aligned gait network and identity matching">
+          </div>
+          <aside class="paper-panel paper-side-note">
+            <p class="paper-eyebrow">Affiliation</p>
+            <p>Xi&#39;an Jiaotong University</p>
+          </aside>
+        </aside>
+      </div>
+    </section>
+
+    <section class="paper-section">
+      <div class="paper-shell">
+        <div class="paper-metric-grid">
+          <article class="paper-panel paper-metric-card">
+            <strong>Venue</strong>
+            <p>ACM IMWUT 10(3), Article 110, September 2026</p>
+          </article>
+          <article class="paper-panel paper-metric-card">
+            <strong>Theme</strong>
+            <p>mmWave Person Re-Identification</p>
+          </article>
+          <article class="paper-panel paper-metric-card">
+            <strong>Institution</strong>
+            <p>Xi&#39;an Jiaotong University</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="paper-section">
+      <div class="paper-shell">
+        <article class="paper-panel paper-article">
+          <h1>Overview</h1>
+<p>Millimeter-wave radar can sense gait without relying on lighting or visible clothing appearance. However, the same person's radar signature changes substantially with walking direction: radar measures radial velocity, while noisy angular estimates can distort point-cloud geometry. <strong>mmReID</strong> addresses these issues by preserving a radar-native polar representation and aligning observations to a common radial reference before matching identities.</p>
+<p>Published in <em>Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies</em>, <strong>10(3), Article 110, September 2026, 30 pages</strong>. Corresponding author: Han Ding.</p>
+<h2>Main Contributions</h2>
+<ul>
+<li><strong>Radar-native gait representation.</strong> Polar-domain features avoid spreading angular measurement uncertainty across Cartesian dimensions.</li>
+<li><strong>Learned radial alignment.</strong> An Affine Transformation Net (ATN) estimates geometric parameters to normalize direction-dependent gait distortion.</li>
+<li><strong>Spatiotemporal gait learning.</strong> A Gait Extraction Net (GEN) combines spatial, velocity and intensity cues over a walking sequence.</li>
+<li><strong>Evaluation beyond a single direction.</strong> Experiments cover 57 distinct participants, three indoor scenes, unseen walking angles and users, appearance variations, and cross-scene transfer.</li>
+</ul>
+<h2>Why Walking Direction Matters</h2>
+<p>Radar directly measures distance and radial velocity, rather than full three-dimensional motion. Non-radial walking changes both the observed spatial distribution and the apparent velocity of body parts. Simply recognizing Cartesian point clouds therefore leaves two difficulties entangled: sensor noise and viewpoint-dependent gait deformation.</p>
+<p>mmReID retains five-dimensional observations <strong>(range, sin(elevation), sin(azimuth), radial velocity, intensity)</strong>. Temporal point aggregation and filtering strengthen sparse observations. Direction normalization then seeks to preserve identity-specific walking dynamics while reducing the influence of the path taken relative to the radar.</p>
+<h2>Network And Inference</h2>
+<figure class="markdown-figure">
+  <img src="./assets/pipeline.png" alt="Training and inference pipeline aligning non-radial gait sequences to a radial reference">
+  <figcaption>Figure 7 from the paper. Training pairs radial and non-radial observations of the same person; inference applies the same alignment pipeline to query and gallery sequences.</figcaption>
+</figure>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Component</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Radar-perspective preprocessing</td>
+<td>Extracts radar reflections and aggregates temporal observations in polar coordinates</td>
+</tr>
+<tr>
+<td>Gait Extraction Net</td>
+<td>Separately processes spatial and non-spatial cues, then models their temporal relationships</td>
+</tr>
+<tr>
+<td>Affine Transformation Net</td>
+<td>Estimates sequence-level geometric parameters and aligns observations to the radial reference</td>
+</tr>
+<tr>
+<td>Identity matching</td>
+<td>Compares aligned query and gallery embeddings to rank candidate identities</td>
+</tr>
+</tbody>
+</table>
+</div><p>During training, the model uses radial-reference and non-radial samples from the same individual. The initial gait representation drives transformation estimation; aligned samples are then encoded for identity learning. During inference, both query and gallery observations pass through alignment and feature extraction before similarity matching.</p>
+<h2>Dataset And Protocol</h2>
+<figure class="markdown-figure">
+  <img src="./assets/scenes.png" alt="Layouts of three indoor radar collection scenes and seven walking directions">
+  <figcaption>Figure 10 from the paper. Collection includes a radial path and six non-radial paths at plus/minus 15, 30 and 45 degrees.</figcaption>
+</figure>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Setting</th>
+<th>Participants</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scene 1: relatively open environment</td>
+<td>42</td>
+<td>Main evaluation and baseline comparison</td>
+</tr>
+<tr>
+<td>Scene 2: furnished environment</td>
+<td>21</td>
+<td>Additional evaluation under stronger multipath</td>
+</tr>
+<tr>
+<td>Scene 3: wall-side environment</td>
+<td>17</td>
+<td>Held-out scene for cross-environment evaluation</td>
+</tr>
+</tbody>
+</table>
+</div><p>There are <strong>57 unique participants</strong>, with overlap between scenes; the scene counts should not be added as independent subjects. Collection totals approximately <strong>7.7 hours</strong>. Input clips contain <strong>90 frames, about 4.5 seconds</strong>. Tests include coats, backpacks and carried objects, with these appearance variations assigned to the test set in the overall evaluation.</p>
+<h2>Main Results</h2>
+<figure class="markdown-figure">
+  <img src="./assets/results.png" alt="Table 1 with baseline, ablation and mmReID retrieval accuracy results">
+  <figcaption>Table 1 from the paper. Overall results and ablations; baseline comparisons are reported for Scene 1.</figcaption>
+</figure>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Method / setting</th>
+<th>Rank-1</th>
+<th>Rank-3</th>
+<th>Rank-5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mmGaitNet, Scene 1</td>
+<td>31.31%</td>
+<td>54.29%</td>
+<td>66.16%</td>
+</tr>
+<tr>
+<td>SRPNet, Scene 1</td>
+<td>46.63%</td>
+<td>69.43%</td>
+<td>79.79%</td>
+</tr>
+<tr>
+<td>MeshReID+, Scene 1</td>
+<td>52.85%</td>
+<td>70.85%</td>
+<td>79.43%</td>
+</tr>
+<tr>
+<td><strong>mmReID, Scene 1</strong></td>
+<td><strong>81.66% ± 3.80</strong></td>
+<td><strong>84.78% ± 5.12</strong></td>
+<td><strong>89.62% ± 4.05</strong></td>
+</tr>
+<tr>
+<td>mmReID without ATN, Scene 1</td>
+<td>54.87%</td>
+<td>74.87%</td>
+<td>83.08%</td>
+</tr>
+<tr>
+<td><strong>mmReID, Scene 2</strong></td>
+<td><strong>80.16% ± 2.90</strong></td>
+<td><strong>88.35% ± 4.50</strong></td>
+<td><strong>90.11% ± 4.30</strong></td>
+</tr>
+</tbody>
+</table>
+</div><p>Rank-k measures whether the correct identity appears among the top k retrieved candidates. The reported variability for the full model is the standard deviation over repeated evaluations. Removing alignment or replacing the polar representation with Cartesian inputs substantially reduces Rank-1 accuracy, supporting both central design choices.</p>
+<h2>Generalization And Deployment</h2>
+<ul>
+<li><strong>Unseen angles:</strong> Rank-1 accuracies of 68.93%, 65.95% and 68.53% for held-out angle groups of ±15, ±30 and ±45 degrees on the 42-subject dataset.</li>
+<li><strong>Unseen users:</strong> 74.43% Rank-1 accuracy when evaluating 12 unseen users.</li>
+<li><strong>Unseen scene:</strong> 52.95% Rank-1 accuracy in the standard cross-scene setting; adding one radial gallery sample per overlapping person from the target scene raises it to 69.73%. This is gallery augmentation, not the same protocol as the unadapted result.</li>
+<li><strong>Processing time:</strong> approximately 0.139 seconds for network inference and 0.189 seconds for processing after acquisition on the reported Xeon / RTX 3090 platform. The 4.5-second signal collection window is additional.</li>
+</ul>
+<h2>Scope And Limitations</h2>
+<p>The strongest results concern indoor walking sequences with approximately stable directions. Cross-scene transfer remains harder than within-scene recognition. Experiments with synthesized non-straight trajectories support segment-wise processing, but fully unconstrained paths, pauses and complex interactions remain future deployment challenges. The 84.62-million-parameter network and GPU timing do not by themselves establish low-power edge deployment. Although radar avoids identifiable camera imagery, gait-based identity matching still requires appropriate consent and data protection.</p>
+<h2>Resources</h2>
+<ul>
+<li><a href="https://doi.org/10.1145/3831953">Official ACM publication</a></li>
+<li>Figures and the table above are extracted from the published paper, licensed under CC BY 4.0.</li>
+</ul>
+<h2>Citation</h2>
+<pre><code class="language-bibtex">@article{huang2026beyond,
+  title = {Beyond Radial Limits: Recovering Direction-Invariant Walking Dynamics for Robust mmWave Radar Person Re-Identification},
+  author = {Huang, Teng and Ding, Han and Zhao, Cui and Wang, Fei and Wang, Ge and Zhao, Jizhong and Wang, Zhi and Xi, Wei},
+  journal = {Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies},
+  volume = {10},
+  number = {3},
+  articleno = {110},
+  numpages = {30},
+  year = {2026},
+  month = sep,
+  doi = {10.1145/3831953},
+  publisher = {ACM}
+}
+</code></pre>
+
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

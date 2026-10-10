@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One2Three: 1D Scanning Unlocks High-Fidelity 3D Object Reconstruction - XJTU AIRS Lab</title>
+  <meta name="description" content="One2Three combines UWB radar and depth-assisted background separation to reconstruct 3D objects from one-dimensional scanning, reducing acquisition time while supporting objects concealed in opaque cardboard packaging.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/paper-page.css">
+</head>
+<body>
+  <header class="paper-header">
+    <div class="paper-shell paper-nav-shell">
+      <a class="paper-brand" href="../../index.html">
+        <span class="paper-brand-mark">X</span>
+        <span class="paper-brand-copy">
+          <strong>XJTU AIRS Lab</strong>
+          <small>Publication Detail</small>
+        </span>
+      </a>
+      <nav class="paper-nav" aria-label="Primary">
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="paper-main">
+    <section class="paper-hero">
+      <div class="paper-shell paper-hero-grid">
+        <div class="paper-hero-copy">
+          <p class="paper-eyebrow">IMWUT 2026 · September Issue</p>
+          <h1>One2Three: 1D Scanning Unlocks High-Fidelity 3D Object Reconstruction</h1>
+          <p class="paper-subtitle">Ge Wang, Jiazheng Chen, Rui Xiao, Fusang Zhang, Fei Wang, Shouqian Shi, Han Ding, Cui Zhao, Wei Xi</p>
+          <div class="paper-meta-row">
+            <span class="paper-pill">ACM IMWUT 10(3), Article 155, September 2026</span>
+            <span class="paper-pill">2026</span>
+            <span class="paper-pill">RF 3D Object Reconstruction</span>
+            <span class="paper-pill">Xi&#39;an Jiaotong University; Shanghai University of Finance and Economics; Beihang University; Nanjing University</span>
+          </div>
+          <p class="paper-summary">One2Three combines UWB radar and depth-assisted background separation to reconstruct 3D objects from one-dimensional scanning, reducing acquisition time while supporting objects concealed in opaque cardboard packaging.</p>
+          <div class="paper-link-row">
+            <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
+            <a class="paper-link-chip" href="https://doi.org/10.1145/3831975">Paper</a>
+          </div>
+        </div>
+        <aside class="paper-hero-side">
+          <div class="paper-panel paper-figure-card">
+            <p class="paper-eyebrow">Cover / Teaser</p>
+            <img src="./assets/scanning.png" alt="Traditional two-dimensional scanning compared with One2Three linear scanning">
+          </div>
+          <aside class="paper-panel paper-side-note">
+            <p class="paper-eyebrow">Affiliation</p>
+            <p>Xi&#39;an Jiaotong University; Shanghai University of Finance and Economics; Beihang University; Nanjing University</p>
+          </aside>
+        </aside>
+      </div>
+    </section>
+
+    <section class="paper-section">
+      <div class="paper-shell">
+        <div class="paper-metric-grid">
+          <article class="paper-panel paper-metric-card">
+            <strong>Venue</strong>
+            <p>ACM IMWUT 10(3), Article 155, September 2026</p>
+          </article>
+          <article class="paper-panel paper-metric-card">
+            <strong>Theme</strong>
+            <p>RF 3D Object Reconstruction</p>
+          </article>
+          <article class="paper-panel paper-metric-card">
+            <strong>Institution</strong>
+            <p>Xi&#39;an Jiaotong University; Shanghai University of Finance and Economics; Beihang University; Nanjing University</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="paper-section">
+      <div class="paper-shell">
+        <article class="paper-panel paper-article">
+          <h1>Overview</h1>
+<p>Reconstructing an object hidden inside packaging usually requires radio-frequency measurements over a two-dimensional scanning aperture. One2Three investigates a more efficient alternative: <strong>recovering three-dimensional structure from a one-dimensional scan</strong>. A commercial single-transmitter, single-receiver UWB radar captures range-temporal signals as the object moves along a line. A depth camera supplies information about the surrounding scene, helping separate the target's reflections from background clutter.</p>
+<p>Published in <em>Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies</em>, <strong>10(3), Article 155, September 2026, 31 pages</strong>. Corresponding author: Ge Wang.</p>
+<h2>Main Contributions</h2>
+<ul>
+<li><strong>Linear scanning for 3D reconstruction.</strong> The system replaces a two-dimensional scanning trajectory with one-dimensional motion, a configuration relevant to conveyor-belt inspection and logistics.</li>
+<li><strong>Aliasing Signal Decoupling (ASD).</strong> Spatial and temporal correlations between RF measurements and depth images isolate object-related signals from environmental reflections.</li>
+<li><strong>Simulated Multi-Size Synthetic Aperture Radar (SMS-SAR).</strong> Multi-scale convolution learns reconstruction features inspired by synthetic aperture radar, followed by per-view depth prediction and multi-view fusion.</li>
+<li><strong>Simulation-assisted learning.</strong> Synthetic RF and depth data supplement real measurements, enabling pretraining followed by real-world fine-tuning.</li>
+</ul>
+<h2>From Radar Signals To 3D Shape</h2>
+<figure class="markdown-figure">
+  <img src="./assets/architecture.png" alt="One2Three architecture showing RF and depth encoders, cross-modal fusion, SMS-SAR, depth prediction and multi-view fusion">
+  <figcaption>Figure 8 from the paper. The ASD module separates target reflections; the 3D reconstruction module predicts per-view geometry and fuses it into a point cloud.</figcaption>
+</figure>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Stage</th>
+<th>Input and operation</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Signal acquisition</td>
+<td>Linear motion observed by UWB radar and a depth camera</td>
+<td>RF range-temporal spectrum and depth frames</td>
+</tr>
+<tr>
+<td>Background separation</td>
+<td>Single-modal encoders and intra-/cross-modal attention model spatial-temporal correspondence</td>
+<td>Decoupled target RF signals</td>
+</tr>
+<tr>
+<td>Geometry prediction</td>
+<td>SMS-SAR extracts multi-scale features; a signal translator predicts depth and masks</td>
+<td>Per-view 2.5D depth images</td>
+</tr>
+<tr>
+<td>Multi-view fusion</td>
+<td>Inverse projection and fusion combine the predicted views</td>
+<td>A reconstructed 3D point cloud</td>
+</tr>
+</tbody>
+</table>
+</div><p>The depth camera is <strong>not assumed to see the concealed object's shape</strong>. Instead, it provides scene information useful for disentangling moving targets from static background reflections. The model predicts intermediate 2.5D geometry rather than directly regressing a complete point cloud, reducing the complexity of the reconstruction problem.</p>
+<figure class="markdown-figure">
+  <img src="./assets/reconstructions.png" alt="Ground-truth and predicted point clouds for tools, laptops, keyboards, cups and other objects">
+  <figcaption>Figure 3 from the paper. Examples compare ground-truth shapes with One2Three reconstructions across different object categories.</figcaption>
+</figure>
+<h2>Datasets And Experimental Setup</h2>
+<figure class="markdown-figure">
+  <img src="./assets/dataset.png" alt="Real-world radar and depth-camera setup and simulated indoor environments">
+  <figcaption>Figures 18 and 19 from the paper. Real-world collection environments and virtual scenes used for simulation-assisted training.</figcaption>
+</figure>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Dataset</th>
+<th>Objects and environments</th>
+<th>Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Real-world D1</td>
+<td>48 objects from 8 categories; 4 environments</td>
+<td>9,600 augmented sets, each containing four views</td>
+</tr>
+<tr>
+<td>Generated D2</td>
+<td>54 ShapeNet objects from 9 categories; 17 WHU-TLS scenes</td>
+<td>91,800 generated and augmented sets</td>
+</tr>
+<tr>
+<td>Combined scope</td>
+<td>102 objects across 21 real and virtual environments</td>
+<td>Used to evaluate modules, training strategies and generalization</td>
+</tr>
+</tbody>
+</table>
+</div><p>The real-world setup uses an <strong>X4M05 IR-UWB radar</strong>, operating at 7.3 GHz with 1.5 GHz bandwidth and a 40 Hz frame rate, together with an Orbbec Femto Bolt depth camera sampled at 5 Hz. Objects move on a slide rail about 75 cm from the sensor. Experiments include line-of-sight observations and objects packed in opaque cardboard boxes.</p>
+<h2>Results And Efficiency</h2>
+<p>The paper reports <strong>50-200 times less scanning time than two-dimensional scanning at the same scanning speed</strong>. This acquisition advantage should be read alongside the reconstruction-quality trade-off, not as a claim of identical accuracy to every 2D method.</p>
+<figure class="markdown-figure">
+  <img src="./assets/comparison.png" alt="Paper Table 8 comparing reconstruction F-score and scanning time">
+  <figcaption>Table 8 from the paper. Reconstruction quality and time cost for One2Three and related methods, under the reported settings.</figcaption>
+</figure>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Reported setting</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One2Three scanning at 0.1 m/s (Table 8)</td>
+<td>62.2% F-score; 7 seconds</td>
+</tr>
+<tr>
+<td>One2Three scanning at 0.01 m/s (Table 8)</td>
+<td>62.3% F-score; 70 seconds</td>
+</tr>
+<tr>
+<td>LoS reconstruction (Table 7)</td>
+<td>5.19 cm Chamfer distance</td>
+</tr>
+<tr>
+<td>NLoS reconstruction (Table 7)</td>
+<td>5.22 cm Chamfer distance</td>
+</tr>
+</tbody>
+</table>
+</div><p>The evaluation also studies unseen objects and environments, the number of input views, motion speed, data augmentation, and the amount of real data needed after synthetic pretraining. Together, these experiments examine both acquisition efficiency and how much learned reconstruction transfers beyond the training set.</p>
+<h2>Scope And Limitations</h2>
+<p>One2Three targets cooperative inspection scenarios where an object moves through the sensors' field of view. It supports opaque packaging, but <strong>does not establish through-wall reconstruction</strong>: if an entire opaque obstacle prevents the depth camera from distinguishing moving targets from the background, the separation mechanism may fail. Limited angular diversity and UWB resolution also constrain fine structural detail. Multiple views improve completeness, even though reconstruction with fewer views is evaluated.</p>
+<h2>Resources</h2>
+<ul>
+<li><a href="https://doi.org/10.1145/3831975">Official ACM publication</a></li>
+<li>Figures and the table above are extracted from the published paper, licensed under CC BY 4.0.</li>
+</ul>
+<h2>Citation</h2>
+<pre><code class="language-bibtex">@article{wang2026one2three,
+  title = {One2Three: 1D Scanning Unlocks High-Fidelity 3D Object Reconstruction},
+  author = {Wang, Ge and Chen, Jiazheng and Xiao, Rui and Zhang, Fusang and Wang, Fei and Shi, Shouqian and Ding, Han and Zhao, Cui and Xi, Wei},
+  journal = {Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies},
+  volume = {10},
+  number = {3},
+  articleno = {155},
+  numpages = {31},
+  year = {2026},
+  month = sep,
+  doi = {10.1145/3831975},
+  publisher = {ACM}
+}
+</code></pre>
+
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
