@@ -8,6 +8,7 @@ coverAlt: Overview of the DP-Face framework with privacy-preserving face represe
 eyebrow: MICCAI 2026
 theme: Privacy-Preserving Medical AI
 code: https://github.com/ChangYuance/DP-Face
+paper: https://link.springer.com/chapter/10.1007/978-3-032-38098-2_53
 ---
 
 # Overview
@@ -17,6 +18,8 @@ Facial palsy is one of the visible cues used in rapid stroke screening protocols
 This paper introduces **DP-Face**, a video-based framework that recognizes facial palsy from dynamic facial behavior while reducing reliance on raw RGB appearance. Instead of treating the face video as ordinary identity-rich images, DP-Face transforms each frame into a privacy-preserving structural representation built from facial landmarks and wrinkle patterns, then combines that representation with temporal facial Action Unit dynamics.
 
 The work also releases **Palsy-330**, a 330-subject video dataset for facial palsy classification collected from real clinical environments. Together, the dataset and model make the paper especially relevant for reproducible, privacy-aware medical AI research.
+
+**Publication:** MICCAI 2026. [Official Springer chapter](https://link.springer.com/chapter/10.1007/978-3-032-38098-2_53). DOI: **10.1007/978-3-032-38098-2_53**. Corresponding author: Han Ding.
 
 ![DP-Face framework](./assets/dpface-framework.png)
 
@@ -47,7 +50,7 @@ DP-Face first converts cropped face frames into **PP images**. The pipeline dete
 
 ![Privacy-preserving face representations](./assets/privacy-preserving-representations.png)
 
-This representation is central to the paper's privacy argument. The authors also evaluate identity leakage with a person re-identification experiment: RGB images achieve **100% Rank-1** accuracy, while PP-to-RGB retrieval falls to **5.11% Rank-1** on a 100-subject gallery, close to the 1% chance level. This suggests that PP images strongly suppress identity information while preserving task-relevant facial dynamics.
+This representation is central to the paper's privacy argument. The authors evaluate identity leakage with a person re-identification experiment: RGB images achieve **100% Rank-1** accuracy, while PP-to-RGB retrieval falls to **5.11% Rank-1** on a 100-subject gallery (chance level: **1%**). This supports reduced identity leakage under the tested attack, but the result remains above chance and is not a formal guarantee of anonymity or protection against all re-identification methods.
 
 ## Dynamic Facial Action Modeling
 
@@ -71,6 +74,15 @@ Evaluation uses Accuracy, Precision, Sensitivity, Specificity, F1-score, and AUC
 
 DP-Face achieves the strongest overall result among the evaluated baselines. On Palsy-330, it reaches **75.1% Accuracy**, **84.6% Precision**, **80.3% F1-score**, and **78.7% AUC**. It outperforms both single-frame methods such as FP-VGGFace and AFPD-RI, and sequence-based methods such as 3DPalsyNet and BiLSTM-AU.
 
+| Metric | DP-Face on Palsy-330 |
+| --- | --- |
+| Accuracy | 75.1% |
+| Precision | 84.6% |
+| Sensitivity | 77.0% |
+| Specificity | 68.9% |
+| F1-score | 80.3% |
+| AUC | 78.7% |
+
 ![Performance comparison on Palsy-330](./assets/palsy330-main-results.png)
 
 The result supports two conclusions. First, temporal facial dynamics matter: sequence-based methods generally outperform single-frame baselines. Second, privacy-preserving representations can remain competitive, especially when combined with dynamic Action Unit cues and conditional fusion.
@@ -81,7 +93,7 @@ The authors also evaluate on the public MEEI facial palsy dataset. MEEI is small
 
 ![Evaluation on MEEI](./assets/meei-generalization-results.png)
 
-The lower specificity on MEEI reflects the dataset imbalance, but the high sensitivity is aligned with the paper's pre-screening motivation, where reducing missed positive cases is especially important.
+MEEI contains 50 palsy and 10 normal subjects. DP-Face's **52.5% specificity** indicates substantial false positives despite its high sensitivity. These research results do not establish clinical readiness or replace clinical assessment; broader prospective validation remains necessary.
 
 ## Ablation Findings
 
@@ -103,6 +115,7 @@ For future work, the most natural next steps are broader clinical validation, se
 
 ## Resources
 
+- [Paper on Springer](https://link.springer.com/chapter/10.1007/978-3-032-38098-2_53)
 - [Code and dataset](https://github.com/ChangYuance/DP-Face)
 
 ## Citation
@@ -112,6 +125,9 @@ For future work, the most natural next steps are broader clinical validation, se
   title = {Privacy-Preserving Video-Based Facial Palsy Recognition via Dynamic Facial Action Modeling},
   author = {Chang, Yuance and Liu, Bang and Ding, Han and Zhao, Cui and Wang, Fei and Wang, Ge and Xi, Wei},
   booktitle = {MICCAI},
-  year = {2026}
+  year = {2026},
+  publisher = {Springer},
+  doi = {10.1007/978-3-032-38098-2_53},
+  url = {https://link.springer.com/chapter/10.1007/978-3-032-38098-2_53}
 }
 ```

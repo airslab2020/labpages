@@ -2721,8 +2721,9 @@
         "Achieves the best overall results on Palsy-330 and strong cross-dataset performance on MEEI."
       ],
       codeUrl: "https://github.com/ChangYuance/DP-Face",
+      paperUrl: "https://link.springer.com/chapter/10.1007/978-3-032-38098-2_53",
       citation:
-        "@inproceedings{chang2026dpface,\n  title = {Privacy-Preserving Video-Based Facial Palsy Recognition via Dynamic Facial Action Modeling},\n  author = {Chang, Yuance and Liu, Bang and Ding, Han and Zhao, Cui and Wang, Fei and Wang, Ge and Xi, Wei},\n  booktitle = {MICCAI},\n  year = {2026}\n}"
+        "@inproceedings{chang2026dpface,\n  title = {Privacy-Preserving Video-Based Facial Palsy Recognition via Dynamic Facial Action Modeling},\n  author = {Chang, Yuance and Liu, Bang and Ding, Han and Zhao, Cui and Wang, Fei and Wang, Ge and Xi, Wei},\n  booktitle = {MICCAI},\n  year = {2026},\n  publisher = {Springer},\n  doi = {10.1007/978-3-032-38098-2_53},\n  url = {https://link.springer.com/chapter/10.1007/978-3-032-38098-2_53}\n}"
     },
     "locality-aware-parallel-decoding-for-efficient-autoregressive-image-generation": {
       summary:
