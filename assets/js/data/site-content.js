@@ -16,6 +16,7 @@
     nav: [
       { key: "about", label: "About", href: "./index.html" },
       { key: "fei-wang", label: "Fei Wang", href: "./fei-wang.html" },
+      { key: "calendar", label: "Calendar", href: "./calendar.html" },
       { key: "publications", label: "Publications", href: "./publications.html" },
       { key: "dataset", label: "Datasets", href: "./dataset.html" },
       { key: "course", label: "Teaching", href: "./teaching.html" },
@@ -27,6 +28,7 @@
     footerLinks: [
       { label: "About", href: "./index.html" },
       { label: "Fei Wang", href: "./fei-wang.html" },
+      { label: "Calendar", href: "./calendar.html" },
       { label: "Publications", href: "./publications.html" },
       { label: "Datasets", href: "./dataset.html" },
       { label: "Teaching", href: "./teaching.html" },

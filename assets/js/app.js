@@ -1649,6 +1649,8 @@
 
   function renderPage(page) {
     switch (page) {
+      case "calendar":
+        return window.OfficeCalendar.markup();
       case "publications":
         return renderPublicationsPage();
       case "dataset":
