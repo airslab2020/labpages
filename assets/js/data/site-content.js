@@ -1917,18 +1917,8 @@
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
-            name: "Hao Wang (王皓)",
-            role: "Master Student, Research Intern, Universität Bern",
-            photo: "./assets/media/people/2024hao-wang.png",
-            photoAlt: "Sample portrait for Hao Wang",
-            bio:
-              "Multimodal machine learning.",
-            link: "https://scholar.google.com/citations?user=RSjDZx0AAAAJ",
-            palette: ["#5d4628", "#ffe6c8"]
-          },
-          {
             name: "Lei Ouyang (欧阳蕾)",
-            role: "Incoming M.Eng. Student",
+            role: "M.Eng. Student",
             photo: "./assets/media/people/2026lei-ouyang.png",
             photoAlt: "Sample portrait for Lei Ouyang",
             bio:
@@ -1937,7 +1927,7 @@
           },
           {
             name: "Jijun Liu (刘纪君)",
-            role: "Incoming M.Sc. Student",
+            role: "M.Sc. Student",
             photo: "./assets/media/people/2026jijun-liu.jpg",
             photoAlt: "Sample portrait for Jijun Liu",
             bio:
@@ -1946,7 +1936,7 @@
           },
           {
             name: "Baorui Zhang (张宝瑞)",
-            role: "Incoming M.Eng. Student",
+            role: "M.Eng. Student",
             photo: "./assets/media/people/2026baorui-zhang.jpg",
             photoAlt: "Sample portrait for Baorui Zhang",
             bio:
@@ -1955,7 +1945,7 @@
           },
           {
             name: "Yitao Li (李艺韬)",
-            role: "Incoming M.Eng. Student",
+            role: "M.Eng. Student",
             photo: "./assets/media/people/2026yitao-li.jpg",
             photoAlt: "Sample portrait for Yitao Li",
             bio:
@@ -1978,25 +1968,6 @@
             photoAlt: "Portrait for Hang Xu",
             bio:
               "Interested in multimodal foundation models.",
-            palette: ["#5d4628", "#ffe6c8"]
-          },
-          {
-            name: "Zichen Dong (董子辰)",
-            role: "Undergraduate Student",
-            photo: "./assets/media/people/2026zichen-dong.jpg",
-            photoAlt: "Portrait for Zichen Dong",
-            bio:
-              "Interested in human-robot interaction, embodied intelligence, and virtual reality.",
-            link: "https://zichendong.com/",
-            palette: ["#5d4628", "#ffe6c8"]
-          },
-          {
-            name: "Shihan Pan (潘适晗)",
-            role: "Undergraduate Student, Research Intern",
-            photo: "./assets/media/people/2028shihan-pan.jpg",
-            photoAlt: "Portrait for Shihan Pan",
-            bio:
-              "Working on weakly supervised IMU-based action localization.",
             palette: ["#5d4628", "#ffe6c8"]
           },
         ]
@@ -2223,6 +2194,16 @@
             palette: ["#3d376a", "#e0dcff"]
           },
           {
+            name: "Hao Wang (王皓)",
+            role: "Master Student, Research Intern, Universität Bern",
+            photo: "./assets/media/people/2024hao-wang.png",
+            photoAlt: "Sample portrait for Hao Wang",
+            bio:
+              "Multimodal machine learning.",
+            link: "https://scholar.google.com/citations?user=RSjDZx0AAAAJ",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
             name: "Yanyu Qian (钱彦宇)",
             role: "Master Student, Research Intern, Nanyang Technological University, Singapore",
             photo: "./assets/media/people/2026yanyu-qian.jpg",
@@ -2230,6 +2211,25 @@
             bio:
               "Interested in hallucination detection and mitigation in LLMs and MLLMs.",
             link: "https://scholar.google.com/citations?hl=zh-CN&user=B_2hP7oAAAAJ",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Zichen Dong (董子辰)",
+            role: "Undergraduate Research Intern (Summer 2026)",
+            photo: "./assets/media/people/2026zichen-dong.jpg",
+            photoAlt: "Portrait for Zichen Dong",
+            bio:
+              "Interested in human-robot interaction, embodied intelligence, and virtual reality.",
+            link: "https://zichendong.com/",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Shihan Pan (潘适晗)",
+            role: "Undergraduate Research Intern (2025-2026)",
+            photo: "./assets/media/people/2028shihan-pan.jpg",
+            photoAlt: "Portrait for Shihan Pan",
+            bio:
+              "Working on weakly supervised IMU-based action localization.",
             palette: ["#3d376a", "#e0dcff"]
           },
           {
