@@ -4,6 +4,8 @@
   const format = (s) => String(s).slice(0, 16).replace("T", " ");
   // Website announcements remain available independently of the iCloud snapshot.
   const announcedEvents = [
+    {id:"tal-proposal-20261019",title:"TAL research proposal discussion / TAL科研proposal讨论",start:"2026-10-19T10:00:00+08:00",end:"2026-10-19T12:00:00+08:00",allDay:false,kind:"busy"},
+    {id:"3d-detection-20261019",title:"3D Detection research project meeting / 3D Detection科研项目交流",start:"2026-10-19T16:00:00+08:00",end:"2026-10-19T17:00:00+08:00",allDay:false,kind:"busy"},
     {id:"tmc-response-20261020",title:"TMC paper response / TMC论文答复",start:"2026-10-20T10:00:00+08:00",end:"2026-10-20T20:00:00+08:00",allDay:false,kind:"busy"},
     {id:"shenzhen-conference-20261023",title:"Conference in Shenzhen / 深圳参会",start:"2026-10-23",end:"2026-10-26",allDay:true,kind:"busy"}
   ];
