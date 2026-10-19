@@ -2030,24 +2030,6 @@
             palette: ["#3d376a", "#e0dcff"]
           },
           {
-            name: "Shi Chen (陈昰)",
-            role: "Bachelor of Engineering",
-            photo: "./assets/media/people/2026shi-chen.jpg",
-            photoAlt: "Portrait for Shi Chen",
-            bio:
-              "Graduated in 2026 after conducting research on IMU sensing in the group.",
-            palette: ["#3d376a", "#e0dcff"]
-          },
-          {
-            name: "Kexin Ren (任珂心)",
-            role: "Bachelor of Engineering",
-            photo: "./assets/media/people/2026kexin-ren.jpg",
-            photoAlt: "Portrait for Kexin Ren",
-            bio:
-              "Graduated in 2026 after completing her bachelor thesis on wearable device sensing in the group, and then joined Kaihong (Xi'an Branch).",
-            palette: ["#3d376a", "#e0dcff"]
-          },
-          {
             name: "Zhijian Wang (王之鉴)",
             role: "Bachelor of Engineering",
             photo: "./assets/media/people/2026zhijian-wang.jpg",
@@ -2102,7 +2084,7 @@
               "Graduated in 2025 and then joined NR Electric Co., Ltd.",
             palette: ["#3d376a", "#e0dcff"]
           },
-           {
+          {
             name: "Bo Lan (兰博)",
             role: "M.Eng.",
             photo: "./assets/media/people/2022bo-lan.jpg",
@@ -2194,6 +2176,61 @@
             palette: ["#3d376a", "#e0dcff"]
           },
           {
+            name: "Shi Chen (陈昰)",
+            role: "Bachelor of Engineering",
+            photo: "./assets/media/people/2026shi-chen.jpg",
+            photoAlt: "Portrait for Shi Chen",
+            bio:
+              "Graduated in 2026 after conducting research on IMU sensing in the group.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Kexin Ren (任珂心)",
+            role: "Bachelor of Engineering",
+            photo: "./assets/media/people/2026kexin-ren.jpg",
+            photoAlt: "Portrait for Kexin Ren",
+            bio:
+              "Graduated in 2026 after completing her bachelor thesis on wearable device sensing in the group, and then joined Kaihong (Xi'an Branch).",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Kai Li (李楷)",
+            role: "Bachelor of Engineering",
+            photo: "./assets/media/people/2025kai-li.jpg",
+            photoAlt: "Sample portrait for Kai Li",
+            bio:
+              "After graduating in 2025, he went on in 2026 to pursue a master's degree in the School of Chemistry at Xi'an Jiaotong University.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Fan Nai (佴凡)",
+            role: "Undergraduate Research Intern",
+            photo: "./assets/media/people/2026fan-nai.jpg",
+            photoAlt: "Portrait for Fan Nai",
+            bio:
+              "Former undergraduate research intern. In 2026, he will pursue a master's degree at Peking University, focusing on multimodal large language models and embodied intelligence.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Yuhang Zhang (张宇航)",
+            role: "Bachelor of Engineering",
+            photo: "./assets/media/people/2024yuhang-zhang.jpg",
+            photoAlt: "Sample portrait for Yuhang Zhang",
+            bio:
+              "After graduating in 2024, he went on to pursue a master’s degree at Peking University.",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
+            name: "Shichao Ma (马世超)",
+            role: "Bachelor of Engineering",
+            photo: "./assets/media/people/2024shichao-ma.jpg",
+            photoAlt: "Sample portrait for Yuhang Zhang",
+            bio:
+              "After graduating with a bachelor’s degree in 2024, he went on to pursue a master’s degree at University of Science and Technology of China.",
+            link: "https://scholar.google.com/citations?user=-ojMOq0AAAAJ",
+            palette: ["#3d376a", "#e0dcff"]
+          },
+          {
             name: "Hao Wang (王皓)",
             role: "Master Student, Research Intern, Universität Bern",
             photo: "./assets/media/people/2024hao-wang.png",
@@ -2248,43 +2285,6 @@
             photoAlt: "Sample portrait for Yixi Xiang",
             bio:
               "Graduated in 2025 with top honors (1st), then pursuing a master’s degree at Nanjing University, specializing in Comparative and International Law.",
-            palette: ["#3d376a", "#e0dcff"]
-          },
-          {
-            name: "Kai Li (李楷)",
-            role: "Bachelor of Engineering",
-            photo: "./assets/media/people/2025kai-li.jpg",
-            photoAlt: "Sample portrait for Kai Li",
-            bio:
-              "After graduating in 2025, he went on in 2026 to pursue a master's degree in the School of Chemistry at Xi'an Jiaotong University.",
-            palette: ["#3d376a", "#e0dcff"]
-          },
-          {
-            name: "Fan Nai (佴凡)",
-            role: "Undergraduate Research Intern",
-            photo: "./assets/media/people/2026fan-nai.jpg",
-            photoAlt: "Portrait for Fan Nai",
-            bio:
-              "Former undergraduate research intern. In 2026, he will pursue a master's degree at Peking University, focusing on multimodal large language models and embodied intelligence.",
-            palette: ["#3d376a", "#e0dcff"]
-          },
-          {
-            name: "Yuhang Zhang (张宇航)",
-            role: "Bachelor of Engineering",
-            photo: "./assets/media/people/2024yuhang-zhang.jpg",
-            photoAlt: "Sample portrait for Yuhang Zhang",
-            bio:
-              "After graduating in 2024, he went on to pursue a master’s degree at Peking University.",
-            palette: ["#3d376a", "#e0dcff"]
-          },
-          {
-            name: "Shichao Ma (马世超)",
-            role: "Bachelor of Engineering",
-            photo: "./assets/media/people/2024shichao-ma.jpg",
-            photoAlt: "Sample portrait for Yuhang Zhang",
-            bio:
-              "After graduating with a bachelor’s degree in 2024, he went on to pursue a master’s degree at University of Science and Technology of China.",
-            link: "https://scholar.google.com/citations?user=-ojMOq0AAAAJ",
             palette: ["#3d376a", "#e0dcff"]
           },
         ]
