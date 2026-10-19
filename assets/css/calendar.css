@@ -26,7 +26,7 @@ body[data-page="calendar"] { background: #fafbfc; --page-accent: #0f766e; }
 #office-calendar .fc-col-header-cell-cushion { font-size:13px; }
 #office-calendar .fc-list-event-title { overflow-wrap:anywhere; }
 .calendar-empty { color:#59636d; font-size:14px; padding:12px 0; }
-.calendar-booking { margin-top:24px; padding-top:20px; border-top:1px solid #dde2e7; }
+.calendar-booking { margin:0 0 24px; }
 .calendar-booking h2 { font-size:20px; letter-spacing:0; }
 .calendar-booking p { margin:8px 0; color:#59636d; }
 #calendar-detail { width:min(520px,calc(100% - 32px)); padding:28px; border:1px solid #d5dce3; border-radius:8px; color:#25313d; }

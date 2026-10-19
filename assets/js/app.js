@@ -581,6 +581,7 @@
           title: `${profile.name}\n${profile.subtitle}`,
           asideClass: "hero-panel hero-panel-plain",
           descriptionHtml: `
+            <p><a class="button button-primary" href="./calendar.html">View Calendar &amp; Request a Meeting / 查看日程与预约交流</a></p>
             <p>${SiteUI.escapeHtml(profile.note)}</p>
             ${
               profile.phdOpening

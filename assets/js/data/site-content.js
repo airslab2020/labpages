@@ -351,7 +351,6 @@
       "Security and privacy in intelligent sensing"
     ],
     profileLinks: [
-      { label: "Schedule a Meeting / 预约交流", href: "./calendar.html" },
       { label: "Email", href: "mailto:feynmanw@xjtu.edu.cn" },
       { label: "Google Scholar", href: "https://scholar.google.com/citations?user=LKPpmXQAAAAJ&hl=en" }
     ],

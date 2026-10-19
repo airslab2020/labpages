@@ -22,16 +22,16 @@
           <p>Beijing time <strong>UTC+8</strong> · 北京时间</p></div>
           <a class="calendar-mail" href="${mail()}">Request a meeting by email</a>
         </div>
-        <p class="calendar-availability">Usual meeting hours: <strong>10:00–21:00 (Beijing time)</strong>, subject to my schedule and confirmation.<br>一般可约时间为北京时间 <strong>10:00–21:00</strong>，具体以日程安排及回复确认为准。</p>
+        <section class="calendar-booking" aria-labelledby="meeting-requests-title">
+          <h2 id="meeting-requests-title">Meeting requests / 预约</h2>
+          <p>Usual meeting hours: <strong>10:00–21:00 (Beijing time)</strong>. Contact me by WeChat or email with your preferred time, meeting topic and expected duration. Availability depends on my schedule; a meeting is booked only after my confirmation. Blank time does not imply availability.</p>
+          <p lang="zh-CN">一般可约时间为北京时间 <strong>10:00–21:00</strong>。请通过微信或邮件联系，注明时间、主题和预计时长，具体以日程安排及回复确认为准。空白时段不代表可预约。</p>
+        </section>
         <div class="calendar-meta"><div class="calendar-legend"><span class="legend-busy">Busy / 已安排</span><span class="legend-open">Office hours / 可预约</span></div>
           <p id="calendar-sync" role="status">Loading schedule…</p></div>
         <p id="calendar-warning" class="calendar-warning" role="status" hidden></p>
         <div id="office-calendar" aria-label="Fei Wang public work calendar"></div>
         <p id="calendar-empty" class="calendar-empty" hidden></p>
-        <div class="calendar-booking"><h2>Meeting requests / 预约</h2>
-          <p>Contact me by WeChat or email with your preferred time, meeting topic and expected duration. A meeting is booked only after my confirmation.</p>
-          <p>请通过微信或邮件联系，注明时间、主题和预计时长，以回复确认为准。空白时段不代表可预约。</p>
-        </div>
       </section>
       <dialog id="calendar-detail" aria-labelledby="calendar-detail-title">
         <form method="dialog"><button class="calendar-close" aria-label="Close event details" title="Close">×</button></form>
