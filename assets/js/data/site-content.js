@@ -1810,13 +1810,25 @@
             name: "Jiashuo Zhang (张家硕)",
             role: "Fourth-Year Undergraduate, Incoming Ph.D. Student",
             photo: "./assets/media/people/2026jiashuo-zhang.jpg",
+            thumbnail: "./assets/media/people/optimized/2026jiashuo-zhang.jpg",
             photoAlt: "Portrait for Jiashuo Zhang",
             bio:
               "Interested in human-centric sensing and spatial intelligence.",
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
+            name: "Qiaoqiao Teng (滕巧巧)",
+            role: "Fourth-Year Undergraduate, Incoming Ph.D. Student",
+            photo: "./assets/media/people/2026qiaoqiao-teng.png",
+            thumbnail: "./assets/media/people/optimized/2026qiaoqiao-teng.jpg",
+            photoAlt: "Portrait for Qiaoqiao Teng",
+            bio:
+              "Interested in human-centric sensing.",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
             name: "Tingting Zhang (张婷婷)",
+            startNewRow: true,
             role: "M.Eng. Student",
             photo: "./assets/media/people/2024tingting-zhang.png",
             photoAlt: "Sample portrait for Tingting Zhang",
@@ -1965,6 +1977,7 @@
             name: "Mengting Yuan (袁梦婷)",
             role: "Fourth-Year Undergraduate, Incoming M.S. Student",
             photo: "./assets/media/people/2026mengting-yuan.jpg",
+            thumbnail: "./assets/media/people/optimized/2026mengting-yuan.jpg",
             photoAlt: "Portrait for Mengting Yuan",
             bio: "",
             palette: ["#5d4628", "#ffe6c8"]
@@ -1973,6 +1986,7 @@
             name: "Xiaoyu Gu (顾晓宇)",
             role: "Fourth-Year Undergraduate, Incoming M.E. Student",
             photo: "./assets/media/people/2026xiaoyu-gu.jpg",
+            thumbnail: "./assets/media/people/optimized/2026xiaoyu-gu.jpg",
             photoAlt: "Portrait for Xiaoyu Gu",
             bio: "",
             palette: ["#5d4628", "#ffe6c8"]

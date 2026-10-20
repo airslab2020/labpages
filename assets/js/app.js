@@ -1554,7 +1554,7 @@
     const tagName = member.link ? "a" : "article";
     const href = member.link ? ` href="${member.link}" target="_blank" rel="noreferrer"` : "";
     return `
-      <${tagName} class="panel member-card"${href}>
+      <${tagName} class="panel member-card${member.startNewRow ? " member-card-new-row" : ""}"${href}>
         <img class="member-avatar" src="${SiteUI.portraitPreviewSrc(member)}" alt="${SiteUI.escapeHtml(member.photoAlt || member.name)}" loading="lazy" decoding="async">
         <div class="member-copy">
           <h3>${SiteUI.escapeHtml(member.name)}</h3>

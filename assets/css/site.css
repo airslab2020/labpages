@@ -1750,6 +1750,10 @@ select {
   gap: 0;
 }
 
+.member-card-new-row {
+  grid-column-start: 1;
+}
+
 .member-card:hover,
 .member-card:focus-visible {
   transform: translateY(-2px);
