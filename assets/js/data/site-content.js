@@ -1983,6 +1983,15 @@
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
+            name: "Haochen Wu (毋浩臣)",
+            role: "Fourth-Year Undergraduate, Incoming M.Eng. Student",
+            photo: "./assets/media/people/2026haochen-wu.jpg",
+            thumbnail: "./assets/media/people/optimized/2026haochen-wu.jpg",
+            photoAlt: "Portrait for Haochen Wu",
+            bio: "",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
             name: "Xiaoyu Gu (顾晓宇)",
             role: "Fourth-Year Undergraduate, Incoming M.E. Student",
             photo: "./assets/media/people/2026xiaoyu-gu.jpg",
