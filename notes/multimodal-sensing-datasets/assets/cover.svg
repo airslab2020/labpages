@@ -10,5 +10,5 @@
   <circle cx="210" cy="160" r="104" fill="rgba(255,255,255,0.16)"/>
   <rect x="86" y="440" width="1028" height="220" rx="34" fill="rgba(255,255,255,0.14)"/>
   <text x="102" y="536" font-family="Exo, Arial, sans-serif" font-size="56" font-weight="800" fill="#ffffff">多模态感知数据集</text>
-  <text x="102" y="602" font-family="Source Sans 3, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.88)">April 2026</text>
+  <text x="102" y="602" font-family="Source Sans 3, Arial, sans-serif" font-size="30" fill="rgba(255,255,255,0.88)">October 2026</text>
 </svg>

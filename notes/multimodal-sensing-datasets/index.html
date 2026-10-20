@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>多模态感知数据集 - XJTU AIRS Lab</title>
-  <meta name="description" content="根据《我们关注的多模态感知数据集【更新至2025.12】》整理 8 个数据集，并补充按任务选型的简要建议。">
+  <meta name="description" content="基于原有 8 个多模态感知数据集条目，补充 UltraPoser 的惯性与主动声学姿态估计数据及方法，整理 9 个条目及按任务选型的简要建议。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -33,10 +33,10 @@
           <p class="note-eyebrow">Dataset Note</p>
           <h1>多模态感知数据集</h1>
           <div class="note-meta-row">
-            <span class="note-pill">April 2026</span>
+            <span class="note-pill">Updated October 20, 2026</span>
             <span class="note-pill">multimodal-sensing-datasets</span>
           </div>
-          <p class="note-summary">根据《我们关注的多模态感知数据集【更新至2025.12】》整理 8 个数据集，并补充按任务选型的简要建议。</p>
+          <p class="note-summary">基于原有 8 个多模态感知数据集条目，补充 UltraPoser 的惯性与主动声学姿态估计数据及方法，整理 9 个条目及按任务选型的简要建议。</p>
           <div class="note-link-row">
             <a class="note-link-chip" href="../../notes.html">Back to notes</a>
             <a class="note-link-chip" href="../../index.html">Back to about</a>
@@ -52,15 +52,15 @@
       <div class="note-shell">
         <article class="note-panel note-article">
           <h1>多模态感知数据集</h1>
-<p>这份 note 根据 PDF《我们关注的多模态感知数据集【更新至2025.12】》整理，目的是把原始 slides 里的数据集名称、模态、任务和选型建议整理成更适合网页阅读的版本。</p>
+<p>这份 note 根据 PDF《我们关注的多模态感知数据集【更新至2025.12】》整理原有 8 个条目，并于 2026 年 10 月 20 日依据 UltraPoser 论文和官方仓库补充第 9 个条目，汇总数据集名称、模态、任务和选型建议。</p>
 <p>说明：</p>
 <ul>
 <li>原始材料：<a href="./assets/multimodal-sensing-datasets-2025-12.pdf">PDF 下载</a></li>
-<li>以下内容以 PDF 中的原始表述为主，少量英文 benchmark / task 名称按原文保留。</li>
+<li>前 8 个条目以原始 PDF 的表述为主，少量英文 benchmark / task 名称按原文保留；UltraPoser 条目另据其 <a href="https://doi.org/10.1145/3746059.3747714">UIST 2025 论文</a>及<a href="https://github.com/leeyadong/UltraPoser">官方仓库</a>补充。</li>
 <li>个别数据集在 PDF 中的介绍跨了两页，若存在“同步模态数”和“模态总数”两种说法，这里会按 PDF 原样保留并注明。</li>
 </ul>
 <h2>总览表</h2>
-<div class="markdown-table-wrap"><table class="markdown-table">
+<div class="markdown-table-wrap" role="region" aria-label="9 个多模态感知数据集总览，可横向滚动" tabindex="0"><table class="markdown-table">
 <thead>
 <tr>
 <th>数据集</th>
@@ -118,14 +118,21 @@
 <td>行为问答</td>
 <td><a href="https://github.com/benjamin-reichman/SensorQA">GitHub</a></td>
 </tr>
+<tr>
+<td><a href="#ultraposer">UltraPoser</a></td>
+<td>IMU + 主动声学；Doppler 与动态 CIR 为声学特征</td>
+<td>稀疏可穿戴全身三维姿态估计</td>
+<td><a href="https://doi.org/10.1145/3746059.3747714">论文</a> / <a href="https://github.com/leeyadong/UltraPoser">GitHub</a> / <a href="https://drive.google.com/file/d/1_TedT0zkkX6Tv5dK-LResU8gDrggYw4d/view?usp=sharing">数据</a></td>
+</tr>
 </tbody>
 </table></div>
 <h2>按任务怎么选</h2>
-<p>根据 PDF 最后一页给出的总结，如果我们是按任务选验证数据集，可以先从下面这个映射开始：</p>
+<p>根据原始 PDF 最后一页的总结，并补充 UltraPoser 的研究方向，可以先从下面这个映射开始：</p>
 <ul>
 <li>动作分类：<code>XRF55</code>、<code>MM-Fi</code>、<code>OctoNet</code></li>
 <li>动作定位：<code>XRF V2</code>、<code>WEAR</code></li>
-<li>姿态估计：<code>MM-Fi</code>、<code>OctoNet</code>、<code>XRF V2</code>、<code>XRF55</code></li>
+<li>姿态估计：<code>MM-Fi</code>、<code>OctoNet</code>、<code>XRF V2</code>、<code>XRF55</code>、<a href="#ultraposer"><code>UltraPoser</code></a></li>
+<li>稀疏可穿戴 / IMU 与主动声学融合：<a href="#ultraposer"><code>UltraPoser</code></a></li>
 <li>动作描述 / NLP 相关：<code>XRF V2</code>、<code>CUHK-X</code>、<code>SensorQA</code></li>
 <li>毫米波雷达相关：<code>XRF55</code>、<code>MM-Fi</code>、<code>OctoNet</code>、<code>CUHK-X</code></li>
 <li>WiFi 相关：<code>XRF55</code>、<code>XRF V2</code>、<code>MM-Fi</code>、<code>OctoNet</code></li>
@@ -263,11 +270,79 @@
   <img src="./assets/sensorqa-3.png" alt="SensorQA figure 3" loading="lazy" decoding="async">
 </div>
 
+<h3 id="ultraposer">9. UltraPoser</h3>
+<p>UltraPoser 是一项结合惯性与主动声学感知的全身三维姿态估计研究，并提供配套数据集。它利用手机、手表和耳机中的 IMU，以及手机和手表已有的扬声器、麦克风，从人体运动引起的声学反射中提取额外线索，改善仅依赖少量 IMU 时对未佩戴传感器肢体的估计。论文发表于 <a href="https://doi.org/10.1145/3746059.3747714">UIST 2025</a>。</p>
+<ul>
+<li><strong>模态</strong>：IMU + 主动声学（超声 / 近超声）。声学输入包括 Doppler 频谱与动态信道冲激响应（CIR），二者是声学信号的不同特征表示；这里的声学不属于 WiFi、UWB 或其他无线电模态。</li>
+<li><strong>任务</strong>：稀疏可穿戴条件下的全身三维姿态估计，输出基于 SMPL 人体模型的 24 个关节旋转。</li>
+<li><strong>数据特点</strong>：10 名参与者，约 185 分钟、334,000 帧数据；论文 §1 报告 18 个动作类别，覆盖上肢、下肢、全身与行走四类。手机采用右手持握或通过口袋夹固定于右裤袋附近两种配置。帧数不等于独立动作序列数。</li>
+<li><strong>标签来源</strong>：ZED2i 相机同步采集的 RGB 图像经 4DHumans 生成 SMPL 参考姿态。<strong>RGB 用于标签生成，不是 UltraPoser 的推理输入</strong>；参考标签可能包含视觉人体恢复模型自身的误差，并非标记式光学动捕直接测得的真值。</li>
+<li><strong>适合什么时候看</strong>：研究 IMU 与主动声学融合、消费级设备全身姿态估计、稀疏传感器下的未观测关节推断，以及跨参与者和跨环境泛化。</li>
+<li><strong>评估备注</strong>：默认随机划分下完整模型的整体 MPJPE 为 <strong>3.27 cm</strong>；跨参与者测试为 <strong>8.64 cm</strong>；未见实验室测试为 <strong>7.19 cm</strong>。这些数值对应不同协议，不能用默认结果代表泛化性能。MPJPE 在根关节对齐后计算。</li>
+<li><strong>链接</strong>：<a href="https://doi.org/10.1145/3746059.3747714">论文</a> · <a href="https://yadongli.com/assets/pdf/UltraPoser.pdf">PDF</a> · <a href="https://github.com/leeyadong/UltraPoser">GitHub</a> · <a href="https://drive.google.com/file/d/1_TedT0zkkX6Tv5dK-LResU8gDrggYw4d/view?usp=sharing">数据下载入口</a></li>
+</ul>
+<p>采集与标签信息见<a href="https://yadongli.com/assets/pdf/UltraPoser.pdf#page=9">论文 §7.1、图 6（第 9 页）</a>；评估协议与结果见<a href="https://yadongli.com/assets/pdf/UltraPoser.pdf#page=10">§7.2–7.4、图 9、表 2–5（第 10–12 页）</a>。</p>
+<div class="dataset-gallery ultraposer-gallery">
+  <figure class="dataset-figure-wide">
+    <img src="./assets/ultraposer-fig1-overview.png" alt="UltraPoser 图 1：手机、手表和耳机配合惯性与主动声学感知，恢复不同手机配置下的全身姿态" loading="lazy" decoding="async" width="1288" height="550">
+    <figcaption>消费级设备上的全身姿态估计。来源：<a href="https://yadongli.com/assets/pdf/UltraPoser.pdf#page=1">UltraPoser，图 1</a>。</figcaption>
+  </figure>
+  <figure>
+    <img src="./assets/ultraposer-fig6-devices.png" alt="UltraPoser 图 6：耳机位于左耳、手表位于左腕、手机右手持握或固定于右裤袋附近" loading="lazy" decoding="async" width="625" height="520">
+    <figcaption>采集设备与佩戴位置。来源：<a href="https://yadongli.com/assets/pdf/UltraPoser.pdf#page=9">图 6</a>。相机生成参考标签，耳机仅采集 IMU。</figcaption>
+  </figure>
+  <figure>
+    <img src="./assets/ultraposer-fig7-poses.png" alt="UltraPoser 图 7：手持和裤袋配置下的视觉参考姿态、IMUPoser 和 UltraPoser 预测网格比较，红色表示较大顶点误差" loading="lazy" decoding="async" width="628" height="723">
+    <figcaption>不同动作与设备配置的定性比较。来源：<a href="https://yadongli.com/assets/pdf/UltraPoser.pdf#page=10">图 7</a>；GT 为视觉模型生成的参考标签。</figcaption>
+  </figure>
+</div>
+<h4>采集与融合方法</h4>
+<p>设备组合为 Google Pixel 2XL 手机（IMU 50 Hz）、Samsung Galaxy Watch4 手表（IMU 100 Hz）和左侧 ESense 耳机（IMU 50 Hz）。各路感知数据经插值、同步，与 30 Hz 的参考姿态对齐；采集前进行共同坐标系对齐和 T-pose 校准。手机与手表负责主动声学，耳机在该实验中不承担声学感知。详见<a href="https://yadongli.com/assets/pdf/UltraPoser.pdf#page=9">论文 §7.1</a>。</p>
+<p>模型以 1 秒、30 帧为输入窗口，使用 BiLSTM 编码 IMU、Transformer 编码声学特征，再通过交叉注意力融合；设备佩戴位置和骨架拓扑先验参与关节解码与 ST-GCN 姿态细化。Doppler 提供运动速度线索，动态 CIR 补充距离与多径变化信息。详见<a href="https://yadongli.com/assets/pdf/UltraPoser.pdf#page=8">论文 §6、图 5</a>。</p>
+<div class="dataset-gallery ultraposer-gallery">
+  <figure class="dataset-figure-wide">
+    <img src="./assets/ultraposer-fig5-framework.png" alt="UltraPoser 图 5：IMU、Doppler 和 CIR 的交叉注意力特征融合，以及结合设备位置和骨架图结构的姿态估计网络" loading="lazy" decoding="async" width="1288" height="568">
+    <figcaption>跨模态特征融合与图结构姿态估计。来源：<a href="https://yadongli.com/assets/pdf/UltraPoser.pdf#page=8">图 5</a>。</figcaption>
+  </figure>
+</div>
+<h4>不同评估协议分别看</h4>
+<p>以下均为根关节对齐后的 MPJPE，单位 cm，越低越好。默认划分结果来自<a href="https://yadongli.com/assets/pdf/UltraPoser.pdf#page=10">表 2</a>，跨参与者及未见实验室结果来自<a href="https://yadongli.com/assets/pdf/UltraPoser.pdf#page=12">§7.3、表 3</a>。</p>
+<div class="markdown-table-wrap" role="region" aria-label="UltraPoser 不同评估协议的 MPJPE 对照，可横向滚动" tabindex="0"><table class="markdown-table">
+<caption>UltraPoser 与 IMUPoser：不同测试协议下的 MPJPE（cm）</caption>
+<thead><tr><th scope="col">测试设置</th><th scope="col">UltraPoser</th><th scope="col">IMUPoser</th><th scope="col">协议与适用范围</th></tr></thead>
+<tbody>
+<tr><th scope="row">默认随机划分：手机固定于裤袋附近</th><td>3.21</td><td>4.77</td><td>样本按 7:1:2 划分训练、验证和测试集</td></tr>
+<tr><th scope="row">默认随机划分：手机手持</th><td>3.33</td><td>4.33</td><td>与上行相同的默认协议</td></tr>
+<tr><th scope="row">跨参与者</th><td>8.64</td><td>10.60</td><td>五折评估，每折 8 人训练、2 人测试</td></tr>
+<tr><th scope="row">未见实验室</th><td>7.19</td><td>8.38</td><td>8 人在两个实验室训练 / 验证，另 2 人在第三个实验室测试；参与者与环境同时变化</td></tr>
+</tbody>
+</table></div>
+<p>默认协议的消融表中，完整模型整体 MPJPE 为 3.27 cm。论文报告两种手机配置的 MPJVE 平均降低 28.46%；<strong>MPJVE 是人体网格顶点位置误差，不是关节速度误差</strong>，该百分比也不代表所有指标或跨参与者性能统一提升。来源：<a href="https://yadongli.com/assets/pdf/UltraPoser.pdf#page=10">§7.3、表 2</a>及<a href="https://yadongli.com/assets/pdf/UltraPoser.pdf#page=12">表 4–5</a>。</p>
+<div class="dataset-gallery ultraposer-gallery">
+  <figure class="dataset-figure-wide">
+    <img src="./assets/ultraposer-table2-modalities.png" alt="UltraPoser 表 2：随机划分下 IMU、IMU加Doppler、IMU加CIR及完整融合模型在两种手机配置中的误差" loading="lazy" decoding="async" width="1285" height="330">
+    <figcaption>默认随机划分下的模态比较。来源：<a href="https://yadongli.com/assets/pdf/UltraPoser.pdf#page=10">表 2</a>；不能据此替代跨参与者评估。</figcaption>
+  </figure>
+  <figure>
+    <img src="./assets/ultraposer-table3-unseen-lab.png" alt="UltraPoser 表 3：未见实验室中 UltraPoser 的 MPJPE 为7.19厘米，IMUPoser为8.38厘米" loading="lazy" decoding="async" width="625" height="243">
+    <figcaption>未见实验室测试。来源：<a href="https://yadongli.com/assets/pdf/UltraPoser.pdf#page=12">表 3</a>；该测试同时更换参与者。</figcaption>
+  </figure>
+</div>
+<h4>使用边界与开放资源</h4>
+<ul>
+<li>数据来自 10 名 19–27 岁参与者，且以男性为主；固定设备组合、左右侧佩戴布局及口袋夹配置的结果，不能直接推广到任意人群、设备或自由移动的裤袋手机。</li>
+<li>论文未提供完整的手机端推理延迟、持续运行功耗或电池续航实测。30 Hz 数据对齐与 16 ms 声学帧长，不等于已验证端到端实时运行。</li>
+<li>根关节对齐后的关节 / 网格误差不能视为全局位置或轨迹精度。参考标签由视觉模型生成，应考虑标签误差。</li>
+<li><a href="https://github.com/leeyadong/UltraPoser">官方仓库</a>提供代码及<a href="https://drive.google.com/file/d/1_TedT0zkkX6Tv5dK-LResU8gDrggYw4d/view?usp=sharing">数据下载入口</a>，运行还需另行取得 SMPL 资源。数据压缩包的实际文件范围尚未核验，不承诺原始音频、RGB、全部划分文件或预训练权重均包含其中；开放范围与许可应以官方资源为准，论文出版许可不直接等同于代码 / 数据许可。</li>
+</ul>
+<p>以上限制依据<a href="https://yadongli.com/assets/pdf/UltraPoser.pdf#page=9">论文 §7.1–8</a>与<a href="https://github.com/leeyadong/UltraPoser">官方资源说明</a>整理，资料核对日期为 2026 年 10 月 20 日。图表均裁自作者论文，保留图表编号及原说明；来源：Li 等，<em>UltraPoser</em>，UIST 2025，<a href="https://doi.org/10.1145/3746059.3747714">DOI: 10.1145/3746059.3747714</a>，论文采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> 许可。</p>
+
 <h2>我会怎么用这份清单</h2>
 <ul>
 <li>刚开始做多模态 HAR：先看 <code>XRF55</code>、<code>MM-Fi</code></li>
 <li>重点做动作定位：先看 <code>XRF V2</code>、<code>WEAR</code></li>
 <li>重点做姿态估计：先看 <code>MM-Fi</code>、<code>OctoNet</code></li>
+<li>重点做稀疏可穿戴全身姿态估计，或 IMU 与主动声学融合：先看 <a href="#ultraposer"><code>UltraPoser</code></a>，同时关注视觉参考标签的误差、设备佩戴条件，以及随机划分与跨参与者 / 未见环境协议的区别。</li>
 <li>想把任务延伸到 caption / QA：优先看 <code>CUHK-X</code>、<code>SensorQA</code></li>
 <li>关心无线模态：优先筛 <code>XRF55</code>、<code>XRF V2</code>、<code>MM-Fi</code>、<code>OctoNet</code></li>
 </ul>

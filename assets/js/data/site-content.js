@@ -2709,7 +2709,7 @@
         cover: "./notes/multimodal-sensing-datasets/assets/cover.svg",
         coverAlt: "Title card for multimodal sensing datasets",
         text:
-          "根据《我们关注的多模态感知数据集【更新至2025.12】》整理 8 个数据集，并补充按任务选型的简要建议。"
+          "基于原有 8 个多模态感知数据集条目，补充 UltraPoser 的惯性与主动声学姿态估计数据及方法，整理 9 个条目及按任务选型的简要建议。"
       },
       {
         slug: "recommended-courses",
