@@ -40,6 +40,10 @@ class CalendarTests(unittest.TestCase):
         self.assertEqual(dates_2026, ["2026-10-31", "2026-11-14", "2026-11-28", "2026-12-12", "2026-12-26"])
         dates_january = [e["start"][:10] for e in thesis if e["start"].startswith("2027-01")]
         self.assertEqual(dates_january, ["2027-01-02", "2027-01-09", "2027-01-16", "2027-01-23", "2027-01-30"])
+        dates_2027 = [e["start"][:10] for e in thesis if e["start"].startswith("2027")]
+        self.assertEqual(len(dates_2027), 13)
+        self.assertEqual(dates_2027[-1], "2027-03-27")
+        self.assertFalse(any(day >= "2027-04-01" for day in dates_2027))
         for event in thesis:
             self.assertTrue(event["start"].endswith("T20:00:00+08:00"))
             self.assertTrue(event["end"].endswith("T21:00:00+08:00"))
