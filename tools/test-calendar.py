@@ -33,6 +33,20 @@ class CalendarTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             sync.convert(b"BEGIN:VCALENDAR\r\nVERSION:2.0\r\nX-WR-CALNAME:Personal\r\nEND:VCALENDAR\r\n")
 
+    def test_thesis_schedule_changes_at_new_year(self):
+        data = sync.convert(sync.SUPPLEMENT.read_bytes(), datetime(2026, 10, 21, tzinfo=timezone.utc))
+        thesis = [e for e in data["events"] if e["title"] == "研三大论文进度汇报"]
+        dates_2026 = [e["start"][:10] for e in thesis if e["start"].startswith("2026")]
+        self.assertEqual(dates_2026, ["2026-10-31", "2026-11-14", "2026-11-28", "2026-12-12", "2026-12-26"])
+        dates_january = [e["start"][:10] for e in thesis if e["start"].startswith("2027-01")]
+        self.assertEqual(dates_january, ["2027-01-02", "2027-01-09", "2027-01-16", "2027-01-23", "2027-01-30"])
+        for event in thesis:
+            self.assertTrue(event["start"].endswith("T20:00:00+08:00"))
+            self.assertTrue(event["end"].endswith("T21:00:00+08:00"))
+        meetings = [e for e in data["events"] if e["title"] == "科研组会"]
+        self.assertEqual([e["start"] for e in meetings], ["2026-10-29T16:00:00+08:00", "2026-11-05T16:00:00+08:00"])
+        self.assertTrue(all(e["end"].endswith("T18:00:00+08:00") for e in meetings))
+
 
 if __name__ == "__main__":
     unittest.main()

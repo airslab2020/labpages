@@ -13,6 +13,7 @@ import recurring_ical_events
 URL = "https://p236-caldav.icloud.com.cn/published/2/MTAwODkxMDQ4MjYxMDA4OWFFg1snSWH21Vd09qrbZZSshmcUFlZ7XWEHEw6moJG8MS8lw75Sdag9kbTGsBv7p8wc6qpuDVHuqhK7A6eOnpw"
 NAME = "Fei Wang · Office Schedule"
 ZONE = ZoneInfo("Asia/Shanghai")
+SUPPLEMENT = Path(__file__).with_name("calendar-supplement.ics")
 
 
 def convert(raw, now=None):
@@ -63,7 +64,10 @@ def main():
                               "--max-filesize", "5000000", URL], check=True, capture_output=True).stdout
     if len(raw) > 5_000_000:
         raise ValueError("Calendar exceeds size limit")
-    data = convert(raw)
+    now = datetime.now(timezone.utc)
+    data = convert(raw, now)
+    supplemental = convert(SUPPLEMENT.read_bytes(), now)
+    data["events"] = sorted(data["events"] + supplemental["events"], key=lambda e: (e["start"], e["id"]))
     payload = json.dumps(data, ensure_ascii=True, indent=2).replace("<", "\\u003c")
     args.output.parent.mkdir(parents=True, exist_ok=True)
     temporary = args.output.with_suffix(".tmp")

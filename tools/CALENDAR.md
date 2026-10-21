@@ -15,6 +15,13 @@ The website publishes titles and Beijing times only. Private/confidential events
 are labeled Busy. Notes, locations and attendees are never exported to the site.
 The underlying iCloud feed is public: do not add sensitive details to it.
 
+Recurring website schedules are defined in `tools/calendar-supplement.ics` and
+merged with iCloud events during each sync. These entries are not written back to
+Apple Calendar. Thesis progress meetings run every two Saturdays from October 31
+through December 2026, then weekly from January 2, 2027 at 20:00–21:00 Beijing
+time. The weekly rule has no end date and is expanded into the moving published
+date range. Research meetings on October 29 and November 5, 2026 run 16:00–18:00.
+
 Install `tools/calendar-requirements.txt`, then run `python tools/sync-calendar.py`.
 The script expands recurring events from 60 days ago to 366 days ahead. Failed
 fetches do not replace the existing snapshot. A snapshot older than six hours
