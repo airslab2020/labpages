@@ -39,6 +39,196 @@ body.dataset-note-page {
   --note-shell: min(1320px, calc(100vw - 40px));
 }
 
+body.foundation-note-page {
+  --note-shell: min(1320px, calc(100vw - 40px));
+}
+
+.foundation-note-page .note-hero-copy h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.foundation-note-page .note-eyebrow {
+  letter-spacing: 0;
+}
+
+.foundation-note-page .note-cover-panel img {
+  aspect-ratio: auto;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.foundation-note-page .note-article {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.foundation-note-page .reading-byline {
+  padding: 0 0 16px;
+  margin-top: 0;
+  color: var(--note-muted);
+  border-bottom: 1px solid var(--note-line);
+}
+
+.foundation-note-page .reading-byline strong {
+  color: var(--note-text);
+}
+
+.foundation-note-page .reading-directory {
+  margin: 24px 0;
+  padding: 16px 0;
+  border-top: 1px solid var(--note-line);
+  border-bottom: 1px solid var(--note-line);
+}
+
+.foundation-note-page .reading-directory summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.foundation-note-page .reading-directory summary:focus-visible {
+  outline: 2px solid #176b69;
+  outline-offset: 5px;
+}
+
+.foundation-note-page .reading-directory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+  font-size: 0.95rem;
+}
+
+.foundation-note-page .reading-directory-grid > div {
+  min-width: 0;
+}
+
+.foundation-note-page .reading-directory-grid ul {
+  margin-top: 8px;
+  padding-left: 20px;
+}
+
+.foundation-note-page .reading-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--note-line);
+  font-weight: 600;
+}
+
+.foundation-note-page .note-article h2,
+.foundation-note-page .note-article h3 {
+  scroll-margin-top: 110px;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+.foundation-note-page .note-article h2 {
+  font-size: 1.85rem;
+}
+
+.foundation-note-page .note-article h3 {
+  font-size: 1.45rem;
+}
+
+.foundation-note-page .note-article h4 {
+  margin: 28px 0 12px;
+  font-size: 1.12rem;
+  line-height: 1.45;
+}
+
+.foundation-note-page .reading-figures {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+  margin: 24px 0;
+}
+
+.foundation-note-page .reading-figures figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.foundation-note-page .reading-figure {
+  min-width: 0;
+  margin: 24px 0;
+}
+
+.foundation-note-page .reading-figure-wide {
+  grid-column: 1 / -1;
+}
+
+.foundation-note-page .reading-figure-portrait {
+  max-width: 760px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.foundation-note-page figure img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--note-line);
+  border-radius: 6px;
+  background: #fff;
+}
+
+.foundation-note-page figure a:focus-visible {
+  outline: 2px solid #176b69;
+  outline-offset: 4px;
+}
+
+.foundation-note-page figcaption {
+  margin-top: 10px;
+  color: var(--note-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.foundation-note-page .markdown-table-wrap {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+}
+
+.foundation-note-page .note-article .markdown-table {
+  min-width: 780px;
+}
+
+@media (max-width: 680px) {
+  body.foundation-note-page {
+    --note-shell: min(1320px, calc(100vw - 24px));
+  }
+
+  .foundation-note-page .note-hero-copy h1 {
+    font-size: 2.1rem;
+  }
+
+  .foundation-note-page .note-article h2,
+  .foundation-note-page .note-article h3 {
+    scroll-margin-top: 250px;
+  }
+
+  .foundation-note-page .reading-figures {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .foundation-note-page .reading-directory-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .foundation-note-page .reading-index {
+    gap: 8px 18px;
+    font-size: 0.95rem;
+  }
+}
+
 body.dataset-note-page .note-article .dataset-gallery {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

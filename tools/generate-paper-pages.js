@@ -7,6 +7,8 @@ const root = path.resolve(__dirname, "..");
 const overwrite = process.argv.includes("--overwrite");
 const slugArg = process.argv.find((arg) => arg.startsWith("--slug="));
 const targetSlug = slugArg ? slugArg.slice("--slug=".length).trim() : "";
+const noteArg = process.argv.find((arg) => arg.startsWith("--note="));
+const targetNote = noteArg ? noteArg.slice("--note=".length).trim() : "";
 
 function loadBrowserData() {
   const context = {
@@ -471,10 +473,11 @@ function notePageHtml(siteContent, note, meta, articleHtml) {
   const cover = meta.cover || "./assets/cover.svg";
   const coverAlt = meta.coverAlt || title;
   const eyebrow = meta.eyebrow || "Lab Note";
+  const lang = meta.lang || "en";
   const bodyClass = meta.bodyClass ? ` class="${escapeHtml(meta.bodyClass)}"` : "";
 
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="${escapeHtml(lang)}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -578,7 +581,9 @@ function generateNoteFiles(siteContent) {
   let markdownWritten = 0;
   let assetsCreated = 0;
 
-  const notes = siteContent.notes && Array.isArray(siteContent.notes.items) ? siteContent.notes.items : [];
+  const allNotes = siteContent.notes && Array.isArray(siteContent.notes.items) ? siteContent.notes.items : [];
+  const notes = targetNote ? allNotes.filter((note) => note.slug === targetNote) : allNotes;
+  if (targetNote && !notes.length) throw new Error(`Unknown note: ${targetNote}`);
 
   notes.forEach((note) => {
     const dir = path.join(notesDir, note.slug);
@@ -590,7 +595,7 @@ function generateNoteFiles(siteContent) {
     ensureDir(dir);
     ensureDir(assetsDir);
 
-    if (!fs.existsSync(coverFile) || overwrite) {
+    if ((overwrite || !note.cover || note.cover.endsWith(".svg")) && (!fs.existsSync(coverFile) || overwrite)) {
       fs.writeFileSync(coverFile, noteCoverSvg(note), "utf8");
       assetsCreated += 1;
     }
@@ -611,7 +616,9 @@ function generateNoteFiles(siteContent) {
 
 function generate() {
   const siteContent = loadBrowserData();
-  const paperResult = generatePaperFiles(siteContent);
+  const paperResult = targetNote
+    ? { htmlWritten: 0, markdownWritten: 0, assetsCreated: 0 }
+    : generatePaperFiles(siteContent);
   const noteResult = targetSlug
     ? { htmlWritten: 0, markdownWritten: 0, assetsCreated: 0 }
     : generateNoteFiles(siteContent);

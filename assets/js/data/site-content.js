@@ -2685,6 +2685,16 @@
       "This page keeps the group's long-form internal knowledge pages in one place, separate from the photo gallery. It is the right home for onboarding resources, shared references, and living documentation.",
     items: [
       {
+        slug: "sensing-foundation-models",
+        title: "多模态基座模型论文阅读",
+        date: "October 21, 2026",
+        tags: "Foundation Models · Reading Guide",
+        cover: "./notes/sensing-foundation-models/assets/cover.jpg",
+        coverAlt: "SensorLM 论文中的可穿戴信号与语言预训练框架",
+        text:
+          "欧阳蕾和王飞整理。36 篇论文覆盖可穿戴 / IMU、WiFi、多模态、RF、振动与通用预训练方法，结合阅读笔记和论文图表，梳理方法、实验条件、局限与后续研究问题。"
+      },
+      {
         slug: "semester-reflection-meet",
         title: "课题组的师生反思机制",
         tags: "Lab Reflection",

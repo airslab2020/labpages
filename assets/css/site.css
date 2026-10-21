@@ -1826,6 +1826,11 @@ select {
   object-fit: cover;
 }
 
+.note-card[href="./notes/sensing-foundation-models/index.html"] .note-card-cover {
+  object-fit: contain;
+  background: #fff;
+}
+
 .note-card .date-pill,
 .note-card h3,
 .note-card p,
