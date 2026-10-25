@@ -1919,25 +1919,6 @@
             palette: ["#5d4628", "#ffe6c8"]
           },
           {
-            name: "Pengcheng Weng (翁鹏程)",
-            role: "Master Student, Research Intern, Universität Bern",
-            photo: "./assets/media/people/2025pengcheng-weng.jpg",
-            photoAlt: "Sample portrait for Pengcheng Weng",
-            bio:
-              "Multimodal learning, Diffusion large language model.",
-            palette: ["#5d4628", "#ffe6c8"]
-          },
-          {
-            name: "Zixuan Xia (夏梓轩)",
-            role: "Master Student, Research Intern, Universität Bern",
-            photo: "./assets/media/people/2024zixuan-xia.jpg",
-            photoAlt: "Sample portrait for Zixuan Xia",
-            bio:
-              "Multimodal learning, neural optimization.",
-            link: "https://sumxiaa.github.io/",
-            palette: ["#5d4628", "#ffe6c8"]
-          },
-          {
             name: "Lei Ouyang (欧阳蕾)",
             role: "M.Eng. Student",
             photo: "./assets/media/people/2026lei-ouyang.png",
@@ -2000,14 +1981,39 @@
             bio: "",
             palette: ["#5d4628", "#ffe6c8"]
           },
+        ]
+      },
+      {
+        title: "Intern",
+        members: [
           {
-            name: "Xilei Han (韩茜蕾)",
-            role: "Undergraduate Student, Research Intern",
-            photo: "./assets/media/people/2027xilei-han.jpg",
-            photoAlt: "Sample portrait for Xilei Han",
+            name: "Pengcheng Weng (翁鹏程)",
+            role: "Master Student, Research Intern, Universität Bern",
+            photo: "./assets/media/people/2025pengcheng-weng.jpg",
+            photoAlt: "Sample portrait for Pengcheng Weng",
             bio:
-              "",
+              "Multimodal learning, Diffusion large language model.",
             palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
+            name: "Zixuan Xia (夏梓轩)",
+            role: "Master Student, Research Intern, Universität Bern",
+            photo: "./assets/media/people/2024zixuan-xia.jpg",
+            photoAlt: "Sample portrait for Zixuan Xia",
+            bio:
+              "Multimodal learning, neural optimization.",
+            link: "https://sumxiaa.github.io/",
+            palette: ["#5d4628", "#ffe6c8"]
+          },
+          {
+            name: "Hao Wang (王皓)",
+            role: "Master Student, Research Intern, Universität Bern",
+            photo: "./assets/media/people/2024hao-wang.png",
+            photoAlt: "Sample portrait for Hao Wang",
+            bio:
+              "Multimodal machine learning.",
+            link: "https://scholar.google.com/citations?user=RSjDZx0AAAAJ",
+            palette: ["#3d376a", "#e0dcff"]
           },
           {
             name: "Hang Xu (许航)",
@@ -2018,6 +2024,15 @@
               "Interested in multimodal foundation models.",
             palette: ["#5d4628", "#ffe6c8"]
           },
+          {
+            name: "Xilei Han (韩茜蕾)",
+            role: "Undergraduate Student, Research Intern",
+            photo: "./assets/media/people/2027xilei-han.jpg",
+            photoAlt: "Sample portrait for Xilei Han",
+            bio:
+              "",
+            palette: ["#5d4628", "#ffe6c8"]
+          }
         ]
       },
       {
@@ -2276,16 +2291,6 @@
             bio:
               "After graduating with a bachelor’s degree in 2024, he went on to pursue a master’s degree at University of Science and Technology of China.",
             link: "https://scholar.google.com/citations?user=-ojMOq0AAAAJ",
-            palette: ["#3d376a", "#e0dcff"]
-          },
-          {
-            name: "Hao Wang (王皓)",
-            role: "Master Student, Research Intern, Universität Bern",
-            photo: "./assets/media/people/2024hao-wang.png",
-            photoAlt: "Sample portrait for Hao Wang",
-            bio:
-              "Multimodal machine learning.",
-            link: "https://scholar.google.com/citations?user=RSjDZx0AAAAJ",
             palette: ["#3d376a", "#e0dcff"]
           },
           {
