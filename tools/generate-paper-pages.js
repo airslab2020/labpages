@@ -342,6 +342,7 @@ function paperPageHtml(siteContent, model, meta, articleHtml) {
   const cover = meta.cover || "./assets/cover.svg";
   const coverAlt = meta.coverAlt || `${title} cover`;
   const eyebrow = meta.eyebrow || "Publication";
+  const bodyClass = meta.bodyClass ? ` class="${escapeHtml(meta.bodyClass)}"` : "";
   const projectUrl = meta.project || model.projectUrl;
   const codeUrl = meta.code || model.codeUrl;
   const paperUrl = meta.paper || model.paperUrl;
@@ -373,7 +374,7 @@ function paperPageHtml(siteContent, model, meta, articleHtml) {
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/css/paper-page.css">
 </head>
-<body>
+<body${bodyClass}>
   ${navMarkup(siteContent, "../../", "paper")}
   <main class="paper-main">
     <section class="paper-hero">

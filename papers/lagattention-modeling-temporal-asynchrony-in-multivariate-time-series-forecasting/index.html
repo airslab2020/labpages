@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LagAttention: Modeling Temporal Asynchrony in Multivariate Time Series Forecasting - XJTU AIRS Lab</title>
+  <meta name="description" content="LagAttention models local temporal misalignment and long-range phase shifts in multivariate time series using digestwise alignment, grouped synchronization, and temporal-channel cross attention, with evaluation on seven public datasets and one private industrial dataset.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/paper-page.css">
+</head>
+<body class="lagattention-paper">
+  <header class="paper-header">
+    <div class="paper-shell paper-nav-shell">
+      <a class="paper-brand" href="../../index.html">
+        <span class="paper-brand-mark">X</span>
+        <span class="paper-brand-copy">
+          <strong>XJTU AIRS Lab</strong>
+          <small>Publication Detail</small>
+        </span>
+      </a>
+      <nav class="paper-nav" aria-label="Primary">
+        <a href="../../index.html">About</a><a href="../../fei-wang.html">Fei Wang</a><a href="../../publications.html">Publications</a><a href="../../dataset.html">Datasets</a><a href="../../teaching.html">Teaching</a><a href="../../awards.html">Awards</a><a href="../../team.html">Team</a><a href="../../gallery.html">Gallery</a><a href="../../notes.html">Notes</a>
+      </nav>
+    </div>
+  </header>
+  <main class="paper-main">
+    <section class="paper-hero">
+      <div class="paper-shell paper-hero-grid">
+        <div class="paper-hero-copy">
+          <p class="paper-eyebrow">IEEE TII · Accepted</p>
+          <h1>LagAttention: Modeling Temporal Asynchrony in Multivariate Time Series Forecasting</h1>
+          <p class="paper-subtitle">Ruiwen Xu, Ge Wang, Junhua Jiang, Jiahao Xu, Ruihan Liu, He Yang, Fei Wang, Wei Xi</p>
+          <div class="paper-meta-row">
+            <span class="paper-pill">IEEE Transactions on Industrial Informatics, 2026</span>
+            <span class="paper-pill">2026</span>
+            <span class="paper-pill">Industrial Time Series Forecasting</span>
+            <span class="paper-pill">Xi&#39;an Jiaotong University; Beijing Normal-Hong Kong Baptist University</span>
+          </div>
+          <p class="paper-summary">LagAttention models local temporal misalignment and long-range phase shifts in multivariate time series using digestwise alignment, grouped synchronization, and temporal-channel cross attention, with evaluation on seven public datasets and one private industrial dataset.</p>
+          <div class="paper-link-row">
+            <a class="paper-link-chip" href="../../publications.html">Back to publications</a>
+            <a class="paper-link-chip" href="https://ieeexplore.ieee.org/abstract/document/11743082">Paper</a>
+          </div>
+        </div>
+        <aside class="paper-hero-side">
+          <div class="paper-panel paper-figure-card">
+            <p class="paper-eyebrow">Cover / Teaser</p>
+            <img src="./assets/architecture.jpg" alt="LagAttention architecture with multigranularity features, digest alignment, grouped cross attention, and mixed forecasts">
+          </div>
+          <aside class="paper-panel paper-side-note">
+            <p class="paper-eyebrow">Affiliation</p>
+            <p>Xi&#39;an Jiaotong University; Beijing Normal-Hong Kong Baptist University</p>
+          </aside>
+        </aside>
+      </div>
+    </section>
+
+    <section class="paper-section">
+      <div class="paper-shell">
+        <div class="paper-metric-grid">
+          <article class="paper-panel paper-metric-card">
+            <strong>Venue</strong>
+            <p>IEEE Transactions on Industrial Informatics, 2026</p>
+          </article>
+          <article class="paper-panel paper-metric-card">
+            <strong>Theme</strong>
+            <p>Industrial Time Series Forecasting</p>
+          </article>
+          <article class="paper-panel paper-metric-card">
+            <strong>Institution</strong>
+            <p>Xi&#39;an Jiaotong University; Beijing Normal-Hong Kong Baptist University</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="paper-section">
+      <div class="paper-shell">
+        <article class="paper-panel paper-article">
+          <h1>Overview</h1>
+<p>Industrial sensors and related variables rarely respond at exactly the same time. A short response delay can misalign two otherwise similar signals, while daily operating schedules can produce much longer phase differences. Treating every variable as synchronized can therefore obscure useful dependencies in multivariate time-series forecasting.</p>
+<p><strong>LagAttention</strong> addresses these two scales together: <strong>microasynchrony</strong>, involving local, pointwise misalignment, and <strong>macroasynchrony</strong>, involving periodic or long-range phase shifts. It combines local alignment within correlated groups with attention across variables and time segments, then merges forecasts from multiple temporal granularities.</p>
+<p>The paper has been accepted to <strong>IEEE Transactions on Industrial Informatics (TII)</strong>. The article records acceptance on <strong>August 16, 2026</strong>, with <strong>Ge Wang as corresponding author</strong>. DOI: <a href="https://doi.org/10.1109/TII.2026.3727083">10.1109/TII.2026.3727083</a>.</p>
+<h2>At A Glance</h2>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Reported setting or finding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Task</td>
+<td>Multivariate forecasting from 96 historical steps</td>
+</tr>
+<tr>
+<td>Prediction horizons</td>
+<td>96, 192, 336, and 720 steps</td>
+</tr>
+<tr>
+<td>Evaluation data</td>
+<td>Seven public datasets and one private wind-farm dataset</td>
+</tr>
+<tr>
+<td>Baselines</td>
+<td>12 forecasting methods</td>
+</tr>
+<tr>
+<td>Top-2 coverage</td>
+<td>72/80 metric entries including Avg rows; 56/64 without Avg rows</td>
+</tr>
+<tr>
+<td>Average MSE versus iTransformer</td>
+<td>Approximately 7.5% lower, as reported across eight datasets</td>
+</tr>
+</tbody>
+</table>
+</div><p>Top-2 coverage counts dataset, horizon, and metric combinations; it is not a classification accuracy or a count of 80 independent datasets. LagAttention is not best on every individual entry.</p>
+<h2>Why Two Kinds Of Asynchrony Matter</h2>
+<p><strong>Microasynchrony</strong> can arise from heterogeneous sensor behavior, response delays, or different measurement locations. Related variables may follow similar local patterns but reach corresponding points at slightly different times. LagAttention therefore restricts local synchronization to tightly coupled variable groups rather than forcing unrelated signals into alignment.</p>
+<p><strong>Macroasynchrony</strong> concerns dependencies across longer temporal intervals, such as phase differences between industrial loads and temperature. These dependencies can connect different variables and different segments, so an exclusively local alignment mechanism is insufficient.</p>
+<figure class="markdown-figure lagattention-portrait">
+  <a href="./assets/asynchrony-examples.jpg" target="_blank" rel="noopener"><img src="./assets/asynchrony-examples.jpg" width="735" height="927" alt="Figure 1: local mismatched points in ETTm1 and longer phase differences in ETTh2" loading="lazy" decoding="async"></a>
+  <figcaption>Figure 1. Real-data examples of microasynchrony in ETTm1 and macroasynchrony in ETTh2. Circles and stars mark corresponding, temporally displaced points. Source: the paper, p. 2.</figcaption>
+</figure>
+<h2>Method: From Multigranularity Features To Lag-Aware Forecasts</h2>
+<figure class="markdown-figure">
+  <a href="./assets/architecture.jpg" target="_blank" rel="noopener"><img src="./assets/architecture.jpg" width="1524" height="627" alt="Figure 2: multigranularity feature refining, grouped synchronization, temporal-channel cross attention, and multipredictor mixing" loading="lazy" decoding="async"></a>
+  <figcaption>Figure 2. LagAttention's three main blocks: multigranularity feature refining (MFR), grouped cross attention (GCA), and multipredictor mixing (MPM). Source: the paper, p. 3.</figcaption>
+</figure>
+<h3>1. Multigranularity Feature Refining</h3>
+<p>Iterative smoothing produces representations that retain fine local fluctuations at lower levels and emphasize coarse variation at higher levels. Each representation is normalized and embedded. Unlike direct downsampling, this design preserves the sequence length while changing the effective temporal granularity.</p>
+<p>The grouped cross-attention block decomposes each representation into a <strong>dominant component</strong> and a <strong>residual component</strong>. Alignment and cross attention operate on the structured dominant component, while an MLP processes the residual branch. Their outputs are added before prediction.</p>
+<h3>2. Digestwise Alignment And Grouped Synchronization</h3>
+<p>The model first forms variable groups with complete-linkage-style greedy clustering and a similarity threshold. The number of groups is not fixed in advance. Within each group, the variable with the highest average similarity to the others becomes an anchor.</p>
+<p>Each patch contributes a short representative <strong>digest</strong>. Cosine-similarity search identifies a corresponding digest in each other variable's patch. This makes local alignment more selective than full pointwise matching, while retaining finer timing information than treating a whole patch as a single indivisible object.</p>
+<p>The default configuration uses <strong>48-step patches</strong>, <strong>12-step digests</strong>, and a <strong>similarity threshold of 0.5</strong>. Importantly, the paper estimates groups and delays at the beginning of training and reuses them during training and inference. It does <strong>not</strong> continually re-estimate a dynamic delay for every new input. The discrete delay index is treated as constant, with gradients flowing through the selected digest values.</p>
+<h3>3. Temporal-Channel Cross Attention</h3>
+<p>Temporal-channel cross attention (<strong>TCCA</strong>) treats the digests as tokens. Its attention map can represent within-time, within-channel, and joint cross-time/cross-channel relationships. This supports longer-range dependencies that local within-group synchronization alone cannot capture.</p>
+<p>TCCA models macroasynchrony through attention, rather than outputting an explicit scalar macrodelay estimate. It should therefore be distinguished from the local delay search used in grouped synchronization.</p>
+<h3>4. Multipredictor Mixing</h3>
+<p>Each temporal granularity has its own prediction head. After lag-aware processing, the grain-specific forecasts are <strong>added</strong> to produce the final future sequence. This is additive forecast aggregation, not an extra learned gating network.</p>
+<h2>Theoretical Perspective</h2>
+<p>The paper analyzes three aspects of digest-based modeling:</p>
+<ul>
+<li><strong>Similarity stability:</strong> under local regularity and nonzero-norm conditions, a small local time shift produces a bounded perturbation of digest cosine similarity. Preserving a ranking also requires a sufficient similarity margin.</li>
+<li><strong>Information in lagged observations:</strong> under a lag-dominant conditional-independence assumption, a lagged observation is at least as informative as the synchronous one; an approximate version allows a residual dependence term.</li>
+<li><strong>Digest approximation:</strong> extracting a digest introduces a nonnegative prediction-information gap relative to the full patch. A convergence statement requires a hypothetical nested sequence of representations, not arbitrary longer crops.</li>
+</ul>
+<p>These are assumption-dependent results, not a guarantee that alignment always helps. The paper also discusses how within-patch nonstationarity can weaken local regularity and increase information loss.</p>
+<h2>Datasets And Evaluation Protocol</h2>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Dataset</th>
+<th>Access</th>
+<th style="text-align:right">Variables</th>
+<th style="text-align:right">Time steps</th>
+<th>Sampling interval</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ETTh1 / ETTh2</td>
+<td>Public</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">17,420 each</td>
+<td>1 hour</td>
+</tr>
+<tr>
+<td>ETTm1 / ETTm2</td>
+<td>Public</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">69,680 each</td>
+<td>15 minutes</td>
+</tr>
+<tr>
+<td>Weather</td>
+<td>Public</td>
+<td style="text-align:right">21</td>
+<td style="text-align:right">52,696</td>
+<td>10 minutes</td>
+</tr>
+<tr>
+<td>DSMTS</td>
+<td>Public, simulated dynamical system</td>
+<td style="text-align:right">17</td>
+<td style="text-align:right">8,334</td>
+<td>10 minutes</td>
+</tr>
+<tr>
+<td>MWF</td>
+<td>Public, manufacturing</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">30,332</td>
+<td>5 minutes</td>
+</tr>
+<tr>
+<td>WindFarm</td>
+<td>Private, industrial</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">108,144</td>
+<td>10 minutes</td>
+</tr>
+</tbody>
+</table>
+</div><figure class="markdown-figure lagattention-compact">
+  <a href="./assets/dataset-statistics.jpg" target="_blank" rel="noopener"><img src="./assets/dataset-statistics.jpg" width="750" height="291" alt="Table I: dataset variables, sequence lengths, sampling intervals, and public versus private access" loading="lazy" decoding="async"></a>
+  <figcaption>Table I. Dataset statistics. The four ETT variants count as four separate datasets. Source: the paper, p. 7.</figcaption>
+</figure>
+<p>WindFarm contains seven wind-speed channels collected at Balasu Wind Farm in Yulin, China, from April 2, 2023 to April 21, 2025. All seven channels are both inputs and prediction targets. The paper reports a chronological <strong>70% / 10% / 20%</strong> train/validation/test split, with Z-score normalization fitted only on training data. The raw private data cannot be publicly released; preprocessing scripts and anonymized summary statistics are planned with the code.</p>
+<p>The default history length is <strong>96 steps</strong>, with evaluation at four forecasting horizons. Results use <strong>MSE</strong> and <strong>MAE</strong>, where lower is better. The comparison includes TiVaT, TimeFilter, VCformer, SimpleTM, Amplifier, S-Mamba, TimeMixer, TimeXer, iTransformer, PatchTST, DLinear, and Autoformer. The reported training environment uses PyTorch and four NVIDIA GeForce RTX 3090 GPUs with 24 GB memory each.</p>
+<h2>Main Forecasting Results</h2>
+<p>Across the paper's eight datasets, LagAttention obtains Top-2 results in <strong>72 of 80 entries when average rows are included</strong>, and <strong>56 of 64 entries after excluding those averages</strong>. The paper reports approximately <strong>7.5% lower average MSE than iTransformer</strong>. On ETTh2, it reports approximately <strong>12.5% lower MSE than iTransformer</strong> and <strong>4.8% lower than SimpleTM</strong>.</p>
+<p>The following values reproduce the <strong>Avg rows of Table II</strong>, averaging over the four horizons. They are dataset-specific normalized errors, not an aggregate score across differently scaled datasets.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Dataset</th>
+<th style="text-align:right">LagAttention average MSE</th>
+<th style="text-align:right">LagAttention average MAE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ETTh1</td>
+<td style="text-align:right">0.411</td>
+<td style="text-align:right">0.420</td>
+</tr>
+<tr>
+<td>ETTh2</td>
+<td style="text-align:right">0.335</td>
+<td style="text-align:right">0.376</td>
+</tr>
+<tr>
+<td>ETTm1</td>
+<td style="text-align:right">0.376</td>
+<td style="text-align:right">0.389</td>
+</tr>
+<tr>
+<td>ETTm2</td>
+<td style="text-align:right">0.275</td>
+<td style="text-align:right">0.319</td>
+</tr>
+<tr>
+<td>Weather</td>
+<td style="text-align:right">0.243</td>
+<td style="text-align:right">0.269</td>
+</tr>
+<tr>
+<td>WindFarm</td>
+<td style="text-align:right">1.395</td>
+<td style="text-align:right">0.934</td>
+</tr>
+<tr>
+<td>DSMTS</td>
+<td style="text-align:right">0.936</td>
+<td style="text-align:right">0.727</td>
+</tr>
+<tr>
+<td>MWF</td>
+<td style="text-align:right">0.474</td>
+<td style="text-align:right">0.439</td>
+</tr>
+</tbody>
+</table>
+</div><figure class="markdown-figure">
+  <a href="./assets/forecasting-results.jpg" target="_blank" rel="noopener"><img src="./assets/forecasting-results.jpg" width="1530" height="1980" alt="Table II: complete forecasting comparison across eight datasets, four horizons, MSE and MAE, with best and second-best results highlighted" loading="lazy" decoding="async"></a>
+  <figcaption>Table II. Full comparison against 12 baselines with a fixed 96-step history. Red and blue mark the best and second-best results. Source: the paper, p. 8.</figcaption>
+</figure>
+<h2>What The Ablations Show</h2>
+<p>Module ablations separately remove iterative filtering, replace it with downsampling, or remove decomposition, clustering, alignment, or TCCA. Table III compares these choices on ETTh1, ETTm1, and Weather with both history and prediction length set to 96. The full model has lower MSE than each listed ablation on these three datasets.</p>
+<figure class="markdown-figure lagattention-compact">
+  <a href="./assets/ablation-study.jpg" target="_blank" rel="noopener"><img src="./assets/ablation-study.jpg" width="756" height="492" alt="Table III: module ablations for filtering, downsampling, decomposition, clustering, alignment, and TCCA" loading="lazy" decoding="async"></a>
+  <figcaption>Table III. Module-level evidence for the multigranularity and grouped-attention design. Source: the paper, p. 9.</figcaption>
+</figure>
+<p>The grouping threshold matters. On the 17-variable DSMTS dataset, a low threshold merges heterogeneous variables, while a high threshold fragments the groups. The reported sweep achieves its lowest average MSE/MAE at <strong>0.5</strong>, producing <strong>seven groups</strong> with an average size of <strong>2.43</strong>. This result supports the chosen threshold in that experiment, not a universal optimum for every dataset.</p>
+<figure class="markdown-figure lagattention-compact">
+  <a href="./assets/grouping-sensitivity.jpg" target="_blank" rel="noopener"><img src="./assets/grouping-sensitivity.jpg" width="738" height="336" alt="Table IV: DSMTS sensitivity to similarity thresholds from 0.1 to 0.9" loading="lazy" decoding="async"></a>
+  <figcaption>Table IV. Sensitivity to the similarity threshold; errors are averaged over the four forecasting horizons. Source: the paper, p. 9.</figcaption>
+</figure>
+<h2>Does The Model Actually Use Delayed Structure?</h2>
+<h3>Controlled Delays</h3>
+<p>In controlled semisynthetic tests, grouped synchronization recovers the known microdelays of <strong>1, 3, and 6 steps</strong>. For longer shifts of <strong>24, 36, and 48 steps</strong>, removing TCCA worsens forecasting. The latter experiment tests exploitation of macrodelay structure; it does not report an explicit macrodelay estimate.</p>
+<figure class="markdown-figure lagattention-compact">
+  <a href="./assets/controlled-delays.jpg" target="_blank" rel="noopener"><img src="./assets/controlled-delays.jpg" width="753" height="363" alt="Table V: exact microdelay recovery and forecasting improvements under controlled micro and macro delays" loading="lazy" decoding="async"></a>
+  <figcaption>Table V. Controlled-delay validation separates explicit microdelay estimation from macroasynchrony exploitation. Source: the paper, p. 9.</figcaption>
+</figure>
+<h3>Gain Versus Measured Asynchrony</h3>
+<p>Table VI relates component gains to measured asynchronous structure. Removing local alignment hurts Weather and ETTm2, whose measured microasynchrony is nonzero, but not MWF or WindFarm in this setting. Removing macroalignment hurts datasets with measured macroasynchrony. WindFarm has zero measured intensity for both types in this analysis, and neither component changes its reported error.</p>
+<p>This is an important boundary on the claim: the mechanisms are intended to help where relevant delayed dependencies exist, rather than improve every dataset through alignment alone.</p>
+<figure class="markdown-figure lagattention-compact">
+  <a href="./assets/asynchrony-intensity.jpg" target="_blank" rel="noopener"><img src="./assets/asynchrony-intensity.jpg" width="753" height="396" alt="Table VI: measured micro and macro asynchrony intensities and the gains of the corresponding alignment mechanisms" loading="lazy" decoding="async"></a>
+  <figcaption>Table VI. Mechanism-specific gains versus measured asynchrony, with history and forecast length both set to 96. Source: the paper, p. 9.</figcaption>
+</figure>
+<h2>Efficiency And Practical Trade-Offs</h2>
+<p>Short digests reduce the need for full-resolution pairwise alignment, but attention over <strong>N × P</strong> digest tokens still scales quadratically with the number of variables for a fixed patch configuration. A compact parameter count does not imply the lowest memory consumption or training time.</p>
+<div class="markdown-table-wrap"><table class="markdown-table">
+<thead>
+<tr>
+<th>Method, Weather setting</th>
+<th style="text-align:right">Parameters</th>
+<th style="text-align:right">Peak memory</th>
+<th style="text-align:right">Reported training time</th>
+<th style="text-align:right">MSE</th>
+<th style="text-align:right">MAE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LagAttention</td>
+<td style="text-align:right">426.11K</td>
+<td style="text-align:right">4,542 MiB</td>
+<td style="text-align:right">72.56 s</td>
+<td style="text-align:right">0.342</td>
+<td style="text-align:right">0.339</td>
+</tr>
+<tr>
+<td>Without TCCA</td>
+<td style="text-align:right">358.14K</td>
+<td style="text-align:right">747 MiB</td>
+<td style="text-align:right">50.79 s</td>
+<td style="text-align:right">0.344</td>
+<td style="text-align:right">0.341</td>
+</tr>
+<tr>
+<td>iTransformer</td>
+<td style="text-align:right">8.62M</td>
+<td style="text-align:right">1,596 MiB</td>
+<td style="text-align:right">23.22 s</td>
+<td style="text-align:right">0.358</td>
+<td style="text-align:right">0.349</td>
+</tr>
+<tr>
+<td>DLinear</td>
+<td style="text-align:right">139.7K</td>
+<td style="text-align:right">687 MiB</td>
+<td style="text-align:right">15.50 s</td>
+<td style="text-align:right">0.345</td>
+<td style="text-align:right">0.381</td>
+</tr>
+</tbody>
+</table>
+</div><p>These measurements use <strong>T = 96, H = 720, batch size 128</strong>. Removing TCCA reduces peak memory by approximately <strong>83.6%</strong> and training time by <strong>30.0%</strong> in this comparison, with a small forecasting-error increase. The paper therefore suggests disabling or sparsifying TCCA in resource-constrained settings or where macroasynchrony is negligible. Its attention-operation proxy is not a measurement of total end-to-end FLOPs.</p>
+<figure class="markdown-figure">
+  <a href="./assets/efficiency-comparison.jpg" target="_blank" rel="noopener"><img src="./assets/efficiency-comparison.jpg" width="1542" height="411" alt="Table VII: parameter, memory, runtime, attention operation proxy, and forecasting accuracy comparison on Weather" loading="lazy" decoding="async"></a>
+  <figcaption>Table VII. Accuracy and resource trade-offs under the same Weather evaluation setting. Source: the paper, p. 10.</figcaption>
+</figure>
+<h2>Resources And Publication Information</h2>
+<ul>
+<li><a href="https://ieeexplore.ieee.org/abstract/document/11743082">IEEE Xplore article</a></li>
+<li><a href="https://doi.org/10.1109/TII.2026.3727083">DOI: 10.1109/TII.2026.3727083</a></li>
+<li><strong>Venue:</strong> IEEE Transactions on Industrial Informatics, 2026.</li>
+<li><strong>Code:</strong> the article states that code will be released; a public repository URL is not specified in the supplied version.</li>
+<li><strong>Data:</strong> seven benchmark datasets are public; the raw WindFarm data are private and are not promised as an open download.</li>
+</ul>
+<p>The figures and tables above are cropped from the supplied article. The paper and its figures remain subject to the original IEEE rights and permissions.</p>
+<h2>Citation</h2>
+<pre><code class="language-bibtex">@article{xu2026lagattention,
+  title = {LagAttention: Modeling Temporal Asynchrony in Multivariate Time Series Forecasting},
+  author = {Xu, Ruiwen and Wang, Ge and Jiang, Junhua and Xu, Jiahao and Liu, Ruihan and Yang, He and Wang, Fei and Xi, Wei},
+  journal = {IEEE Transactions on Industrial Informatics},
+  year = {2026},
+  doi = {10.1109/TII.2026.3727083},
+  url = {https://ieeexplore.ieee.org/abstract/document/11743082}
+}
+</code></pre>
+
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

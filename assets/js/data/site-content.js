@@ -99,6 +99,13 @@
     ],
     news: [
       {
+        date: "Oct 2026",
+        title: "LagAttention accepted to IEEE TII",
+        summary:
+          "LagAttention: Modeling Temporal Asynchrony in Multivariate Time Series Forecasting has been accepted to IEEE Transactions on Industrial Informatics. The framework jointly models local temporal misalignment and long-range phase shifts for industrial time-series forecasting.",
+        slug: "lagattention-modeling-temporal-asynchrony-in-multivariate-time-series-forecasting"
+      },
+      {
         date: "Sep 2026",
         title: "Fei Wang elected as CCF Senior Member",
         summary:
@@ -2775,6 +2782,19 @@
   };
 
   SiteContent.publicationManualNotes = {
+    "lagattention-modeling-temporal-asynchrony-in-multivariate-time-series-forecasting": {
+      institution: "Xi'an Jiaotong University; Beijing Normal-Hong Kong Baptist University",
+      summary:
+        "LagAttention jointly models fine-grained temporal misalignment and long-range phase shifts in multivariate time series through digestwise alignment, grouped synchronization, and temporal-channel cross attention.",
+      bullets: [
+        "Distinguishes microasynchrony and macroasynchrony, then models their complementary roles in forecasting.",
+        "Combines multigranularity features, digestwise alignment, grouped synchronization, and temporal-channel cross attention.",
+        "Evaluates seven public datasets and one private wind-farm dataset, with Top-2 results in 56 of 64 non-averaged metric settings."
+      ],
+      paperUrl: "https://ieeexplore.ieee.org/abstract/document/11743082",
+      citation:
+        "@article{xu2026lagattention,\n  title = {LagAttention: Modeling Temporal Asynchrony in Multivariate Time Series Forecasting},\n  author = {Xu, Ruiwen and Wang, Ge and Jiang, Junhua and Xu, Jiahao and Liu, Ruihan and Yang, He and Wang, Fei and Xi, Wei},\n  journal = {IEEE Transactions on Industrial Informatics},\n  year = {2026},\n  doi = {10.1109/TII.2026.3727083},\n  url = {https://ieeexplore.ieee.org/abstract/document/11743082}\n}"
+    },
     "privacy-preserving-video-based-facial-palsy-recognition-via-dynamic-facial-action-modeling": {
       summary:
         "DP-Face is a privacy-preserving video framework for facial palsy recognition that combines landmark-and-wrinkle structural representations with dynamic facial Action Unit modeling for rapid stroke pre-screening.",

@@ -1,6 +1,7 @@
 (function () {
   const SiteContent = (window.SiteContent = window.SiteContent || {});
   const rows = `
+lagattention-modeling-temporal-asynchrony-in-multivariate-time-series-forecasting	LagAttention: Modeling Temporal Asynchrony in Multivariate Time Series Forecasting	Ruiwen Xu, Ge Wang#, Junhua Jiang, Jiahao Xu, Ruihan Liu, He Yang, Fei Wang, Wei Xi	IEEE Transactions on Industrial Informatics, 2026	2026
 one2three-1d-scanning-unlocks-high-fidelity-3d-object-reconstruction	One2Three: 1D Scanning Unlocks High-Fidelity 3D Object Reconstruction	Ge Wang#, Jiazheng Chen, Rui Xiao, Fusang Zhang, Fei Wang, Shouqian Shi, Han Ding, Cui Zhao, Wei Xi	ACM IMWUT 10(3), Article 155, September 2026	2026
 beyond-radial-limits-recovering-direction-invariant-walking-dynamics-for-robust-mmwave-radar-person-re-identification	Beyond Radial Limits: Recovering Direction-Invariant Walking Dynamics for Robust mmWave Radar Person Re-Identification	Teng Huang, Han Ding#, Cui Zhao, Fei Wang, Ge Wang, Jizhong Zhao, Zhi Wang, Wei Xi	ACM IMWUT 10(3), Article 110, September 2026	2026
 privacy-preserving-video-based-facial-palsy-recognition-via-dynamic-facial-action-modeling	Privacy-Preserving Video-Based Facial Palsy Recognition via Dynamic Facial Action Modeling	Yuance Chang, Bang Liu, Han Ding#, Cui Zhao, Fei Wang, Ge Wang, Wei Xi	MICCAI 2026	2026
@@ -64,6 +65,7 @@ csi-net-unified-human-body-characterization-and-pose-recognition	Csi-net: Unifie
 `;
 
   const publicationThemes = {
+    "lagattention-modeling-temporal-asynchrony-in-multivariate-time-series-forecasting": "Industrial Time Series Forecasting",
     "one2three-1d-scanning-unlocks-high-fidelity-3d-object-reconstruction": "RF 3D Object Reconstruction",
     "beyond-radial-limits-recovering-direction-invariant-walking-dynamics-for-robust-mmwave-radar-person-re-identification": "mmWave Person Re-Identification",
     "privacy-preserving-video-based-facial-palsy-recognition-via-dynamic-facial-action-modeling": "Privacy-Preserving Medical AI",
