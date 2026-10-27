@@ -642,7 +642,6 @@ select {
 
 .metric-grid,
 .card-grid,
-.news-grid,
   .publication-grid,
   .timeline-grid {
   display: grid;
@@ -656,7 +655,6 @@ select {
 
 .metric-card,
 .info-card,
-.news-card,
 .publication-card,
 .course-card,
 .award-card,
@@ -667,7 +665,6 @@ select {
 
 .metric-card strong,
 .info-card h3,
-.news-card h3,
 .publication-card h3,
 .course-card h3,
 .award-card h3,
@@ -682,7 +679,6 @@ select {
 
 .metric-card p,
 .info-card p,
-.news-card p,
 .publication-card p,
 .course-card p,
 .award-card p,
@@ -711,9 +707,94 @@ select {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.card-grid-3,
-.news-grid {
+.card-grid-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.news-section {
+  background: #f7f9fa;
+  scroll-margin-top: 110px;
+}
+
+.news-section .section-heading h2 {
+  font-size: 2.2rem;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.news-group + .news-group {
+  margin-top: 28px;
+}
+
+.news-group h3 {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.news-group-good h3 {
+  color: #176b58;
+}
+
+.news-group-bad h3 {
+  color: #934241;
+}
+
+.news-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.news-row {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 18px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(22, 22, 22, 0.1);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.news-date {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.news-copy {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+a.news-title {
+  color: #24486b;
+  text-decoration: underline;
+  text-decoration-color: rgba(36, 72, 107, 0.3);
+  text-underline-offset: 3px;
+}
+
+a.news-title:hover,
+a.news-title:focus-visible {
+  text-decoration-color: currentColor;
+}
+
+a.news-title:focus-visible {
+  outline: 2px solid #24486b;
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .news-section {
+    scroll-margin-top: 130px;
+  }
+
+  .news-row {
+    grid-template-columns: 68px minmax(0, 1fr);
+    gap: 10px;
+  }
 }
 
 .marquee {
@@ -1982,7 +2063,6 @@ select {
 
   .metric-grid,
   .card-grid-3,
-  .news-grid,
   .publication-grid,
   .member-grid,
   .timeline-grid,
@@ -2060,7 +2140,6 @@ select {
   .metric-grid,
   .card-grid-2,
   .card-grid-3,
-  .news-grid,
   .course-pair,
   .publication-grid,
   .member-grid,
@@ -2124,7 +2203,6 @@ select {
   .stack-panel,
   .metric-card,
   .info-card,
-  .news-card,
   .publication-card,
   .course-card,
   .award-card,

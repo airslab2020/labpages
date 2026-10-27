@@ -254,6 +254,20 @@
     `;
   }
 
+  function newsItemMarkup(item) {
+    const href = item.href || (item.slug ? localPaperHref(item.slug) : "");
+    const text = SiteUI.escapeHtml(item.text || item.title);
+    const summary = item.summary ? ` title="${SiteUI.escapeHtml(item.summary)}"` : "";
+    return `
+      <li class="news-row">
+        <span class="news-date">${SiteUI.escapeHtml(item.date)}</span>
+        <span class="news-copy">${href
+          ? `<a class="news-title" href="${SiteUI.escapeHtml(href)}"${externalLinkAttrs(href)}${summary}>${text}</a>`
+          : `<span class="news-title"${summary}>${text}</span>`}</span>
+      </li>
+    `;
+  }
+
   function renderAboutPage() {
     const about = SiteContent.about;
     const heroAside = `
@@ -318,31 +332,20 @@
         </div>
       </section>
 
-      <section class="section section-muted">
+      <section class="section section-muted news-section" id="news">
         <div class="shell">
-          ${sectionHeading("Latest News", "News", '<a class="inline-link" href="./publications.html">Browse papers</a>')}
-          <div class="news-grid">
-            ${about.news
-              .map((item) => {
-                const newsHref = item.href || (item.slug ? localPaperHref(item.slug) : "");
-                const newsLinkLabel = item.linkLabel || "Open paper page";
-                return `
-                  <article class="panel news-card">
-                    <span class="date-pill">${SiteUI.escapeHtml(item.date)}</span>
-                    <h3>${SiteUI.escapeHtml(item.title)}</h3>
-                    <p>${SiteUI.escapeHtml(item.summary)}</p>
-                    ${
-                      newsHref
-                        ? `<a class="inline-link" href="${SiteUI.escapeHtml(newsHref)}"${externalLinkAttrs(
-                            newsHref
-                          )}>${SiteUI.escapeHtml(newsLinkLabel)}</a>`
-                        : ""
-                    }
-                  </article>
-                `;
-              })
-              .join("")}
-          </div>
+          ${sectionHeading("News", "Lab Updates", '<a class="inline-link" href="./publications.html">Browse papers</a>')}
+          ${[
+            { category: "good", title: "Good News" },
+            { category: "bad", title: "Bad News" }
+          ].map(group => `
+            <section class="news-group news-group-${group.category}" id="${group.category}-news" aria-labelledby="${group.category}-news-title">
+              <h3 id="${group.category}-news-title">${group.title}</h3>
+              <ul class="news-list">
+                ${about.news.filter(item => (item.category || "good") === group.category).map(newsItemMarkup).join("")}
+              </ul>
+            </section>
+          `).join("")}
         </div>
       </section>
 

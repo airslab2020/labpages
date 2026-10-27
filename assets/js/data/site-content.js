@@ -99,6 +99,12 @@
     ],
     news: [
       {
+        category: "bad",
+        date: "Sep 2026",
+        title: "Five papers rejected in the first round of AAAI 2027",
+        summary: "Five papers from the group were rejected in the first round of AAAI 2027."
+      },
+      {
         date: "Oct 2026",
         title: "LagAttention accepted to IEEE TII",
         summary:
@@ -116,6 +122,7 @@
       {
         date: "Sep 2026",
         title: "Two papers accepted to ACM IMWUT September Issue",
+        text: "Two papers accepted to ACM IMWUT (CCF A), September Issue; three oral presentations at UbiComp 2027",
         summary:
           "Two AIRS Lab papers have been accepted to the ACM IMWUT (CCF A) September Issue, and three papers from the group will be orally presented at UbiComp 2027."
       },
