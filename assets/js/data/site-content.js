@@ -105,6 +105,12 @@
         summary: "Five papers from the group were rejected in the first round of AAAI 2027."
       },
       {
+        category: "bad",
+        date: "Sep 2026",
+        title: "Three papers rejected in the first round of IEEE INFOCOM",
+        summary: "Three papers from the group were rejected in the first round of IEEE INFOCOM."
+      },
+      {
         date: "Oct 2026",
         title: "LagAttention accepted to IEEE TII",
         summary:
