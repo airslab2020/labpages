@@ -100,7 +100,7 @@
     news: [
       {
         category: "bad",
-        date: "Oct 2027",
+        date: "Oct 2026",
         title: "Two papers rejected by WACV 2027",
         summary: "Two papers from the group were rejected by WACV 2027."
       },
