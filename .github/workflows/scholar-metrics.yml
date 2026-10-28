@@ -1,0 +1,39 @@
+name: Scholar metrics
+on:
+  workflow_dispatch:
+  schedule:
+    # 19:23 UTC = 03:23 the next day in Beijing (UTC+8).
+    - cron: '23 19 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: scholar-metrics
+  cancel-in-progress: false
+jobs:
+  refresh:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test Scholar parser and failure preservation
+        run: python tools/test-scholar.py
+      - name: Refresh Scholar snapshot
+        run: python tools/sync-scholar.py
+      - name: Save successful snapshot
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/js/data/scholar-metrics.js
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update Google Scholar metrics'
+            git pull --rebase origin master
+            git push origin HEAD:master
+          fi

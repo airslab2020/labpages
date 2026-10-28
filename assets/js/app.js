@@ -575,6 +575,52 @@
     `;
   }
 
+  function scholarMetricsMarkup() {
+    const data = window.ScholarMetricsData;
+    if (!data || !data.metrics) return "";
+    const source = "https://scholar.google.com/citations?user=LKPpmXQAAAAJ&hl=en";
+    const format = (value) => Number(value).toLocaleString("en-US");
+    const rows = [["Citations", "citations"], ["h-index", "hIndex"], ["i10-index", "i10Index"]];
+    const annual = (data.annualCitations || []).slice(-10);
+    const maximum = Math.max(1, ...annual.map((item) => item.citations));
+    const magnitude = Math.pow(10, Math.floor(Math.log10(maximum / 4)));
+    const ceiling = Math.ceil(maximum / 4 / magnitude) * magnitude * 4;
+    const synced = data.updatedAt ? new Date(data.updatedAt) : null;
+    const stale = synced && Date.now() - synced.getTime() > 72 * 60 * 60 * 1000;
+    const stamp = synced
+      ? `Last synced: ${synced.toLocaleString("en-GB", { timeZone: "Asia/Shanghai", day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit", hour12: false })} (Beijing time)${stale ? ". Showing the last successful snapshot." : ""}`
+      : "";
+    return `
+      <section class="scholar-section" id="citations" aria-labelledby="scholar-heading">
+          <div class="scholar-heading">
+            <h3 id="scholar-heading">Cited by</h3>
+          </div>
+          <div class="scholar-layout">
+            <table class="scholar-table">
+              <caption class="visually-hidden">Fei Wang's Google Scholar citation metrics</caption>
+              <thead><tr><th scope="col"><span class="visually-hidden">Metric</span></th><th scope="col">All</th><th scope="col">${SiteUI.escapeHtml(data.recentLabel)}</th></tr></thead>
+              <tbody>${rows.map(([label, key]) => `<tr><th scope="row">${label}</th><td>${format(data.metrics[key].all)}</td><td>${format(data.metrics[key].recent)}</td></tr>`).join("")}</tbody>
+            </table>
+            <figure class="scholar-figure">
+              <figcaption>Annual citations${annual.length ? `, ${annual[0].year}–${annual[annual.length - 1].year}` : ""}</figcaption>
+              ${annual.length ? `
+                <div class="scholar-chart-scroll">
+                  <div class="scholar-chart" style="--scholar-columns:${annual.length}">
+                    <div class="scholar-grid" aria-hidden="true">${[4, 3, 2, 1, 0].map((step) => `<span style="--tick:${step / 4 * 100}%"><span>${format(ceiling / 4 * step)}</span></span>`).join("")}</div>
+                    <div class="scholar-bars">${annual.map((item) => {
+                      const label = `${item.year}: ${format(item.citations)} citations`;
+                      return `<a class="scholar-bar" href="${source}&amp;as_ylo=${item.year}&amp;as_yhi=${item.year}" target="_blank" rel="noopener noreferrer" aria-label="${label}" title="${label}" style="--bar-height:${item.citations / ceiling * 100}%"><span class="scholar-bar-fill"></span><span class="scholar-bar-year">${item.year}</span><span class="scholar-bar-count">${format(item.citations)}</span></a>`;
+                    }).join("")}</div>
+                  </div>
+                </div>` : data.snapshotImage ? `
+                <div class="scholar-snapshot-chart"><img src="${SiteUI.escapeHtml(data.snapshotImage)}" alt="Annual citation chart from the supplied Google Scholar screenshot, covering 2019 to 2026. Exact yearly counts await live synchronization." width="680" height="742" decoding="async"></div>` : `<p class="muted">Annual citation data is not available.</p>`}
+            </figure>
+          </div>
+          ${stamp ? `<p class="scholar-updated">${stamp}</p>` : ""}
+      </section>
+    `;
+  }
+
   function renderFeiWangPage() {
     const profile = SiteContent.feiWang;
     return `
@@ -635,6 +681,7 @@
                 .map((item) => `<a class="chip-link" href="${item.href}">${SiteUI.escapeHtml(item.label)}</a>`)
                 .join("")}
             </div>
+            ${scholarMetricsMarkup()}
           </div>
         `
       )}
