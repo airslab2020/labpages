@@ -262,6 +262,7 @@
       }
     ],
     sponsors: [
+      { name: "CNPC / 中国石油", logo: "./assets/media/partners/cnpc.svg" },
       { name: "AMD", logo: "./assets/media/partners/amd.svg" },
       { name: "Xilinx", logo: "./assets/media/partners/xilinx.svg" },
       { name: "NVIDIA", logo: "./assets/media/partners/nvidia.svg" },

@@ -351,7 +351,7 @@
 
       <section class="section">
         <div class="shell">
-          ${sectionHeading("Partners In the Dream", "Support")}
+          ${sectionHeading("Sponsors, in Our Dreams", "Support")}
           <div class="marquee">
             <div class="marquee-track">
               ${[...about.sponsors, ...about.sponsors]
