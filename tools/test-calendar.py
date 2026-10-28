@@ -48,8 +48,17 @@ class CalendarTests(unittest.TestCase):
             self.assertTrue(event["start"].endswith("T20:00:00+08:00"))
             self.assertTrue(event["end"].endswith("T21:00:00+08:00"))
         meetings = [e for e in data["events"] if e["title"] == "科研组会"]
-        self.assertEqual([e["start"] for e in meetings], ["2026-10-29T16:00:00+08:00", "2026-11-05T16:00:00+08:00"])
+        self.assertEqual([e["start"] for e in meetings], ["2026-11-05T16:00:00+08:00"])
         self.assertTrue(all(e["end"].endswith("T18:00:00+08:00") for e in meetings))
+
+    def test_october_29_replaces_research_meeting(self):
+        data = sync.convert(sync.SUPPLEMENT.read_bytes(), datetime(2026, 10, 28, tzinfo=timezone.utc))
+        events = [e for e in data["events"] if e["start"].startswith("2026-10-29")]
+        self.assertEqual(len(events), 1)
+        self.assertEqual(events[0]["title"], "IMWUT论文修改")
+        self.assertEqual(events[0]["start"], "2026-10-29T14:00:00+08:00")
+        self.assertEqual(events[0]["end"], "2026-10-29T20:00:00+08:00")
+        self.assertEqual(events[0]["kind"], "busy")
 
 
 if __name__ == "__main__":
