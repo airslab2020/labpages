@@ -336,8 +336,8 @@
         <div class="shell">
           ${sectionHeading("News", "Lab Updates", '<a class="inline-link" href="./publications.html">Browse papers</a>')}
           ${[
-            { category: "good", title: "Good News" },
-            { category: "bad", title: "Bad News" }
+            { category: "good", title: "Small Victories" },
+            { category: "bad", title: "Plot Twists" }
           ].map(group => `
             <section class="news-group news-group-${group.category}" id="${group.category}-news" aria-labelledby="${group.category}-news-title">
               <h3 id="${group.category}-news-title">${group.title}</h3>
