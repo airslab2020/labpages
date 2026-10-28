@@ -100,6 +100,12 @@
     news: [
       {
         category: "bad",
+        date: "Oct 2027",
+        title: "Two papers rejected by WACV 2027",
+        summary: "Two papers from the group were rejected by WACV 2027."
+      },
+      {
+        category: "bad",
         date: "Sep 2026",
         title: "Five papers rejected in the first round of AAAI 2027",
         summary: "Five papers from the group were rejected in the first round of AAAI 2027."
@@ -107,8 +113,8 @@
       {
         category: "bad",
         date: "Sep 2026",
-        title: "Three papers rejected in the first round of IEEE INFOCOM",
-        summary: "Three papers from the group were rejected in the first round of IEEE INFOCOM."
+        title: "Three papers rejected in the first round of IEEE INFOCOM 2027",
+        summary: "Three papers from the group were rejected in the first round of IEEE INFOCOM 2027."
       },
       {
         date: "Oct 2026",
