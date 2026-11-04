@@ -3,13 +3,13 @@ window.ScholarMetricsData = {
   "userId": "LKPpmXQAAAAJ",
   "name": "Fei Wang",
   "sourceUrl": "https://scholar.google.com/citations?user=LKPpmXQAAAAJ&hl=en",
-  "updatedAt": "2026-10-29T23:22:43.268390+00:00",
+  "updatedAt": "2026-11-04T00:00:31.835494+00:00",
   "provenance": "google-scholar",
   "recentLabel": "Since 2021",
   "metrics": {
     "citations": {
-      "all": 2694,
-      "recent": 2569
+      "all": 2702,
+      "recent": 2577
     },
     "hIndex": {
       "all": 22,
@@ -51,7 +51,7 @@ window.ScholarMetricsData = {
     },
     {
       "year": 2026,
-      "citations": 732
+      "citations": 740
     }
   ]
 };
