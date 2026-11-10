@@ -3,7 +3,7 @@ window.ScholarMetricsData = {
   "userId": "LKPpmXQAAAAJ",
   "name": "Fei Wang",
   "sourceUrl": "https://scholar.google.com/citations?user=LKPpmXQAAAAJ&hl=en",
-  "updatedAt": "2026-11-08T22:56:54.536897+00:00",
+  "updatedAt": "2026-11-10T02:14:46.434629+00:00",
   "provenance": "google-scholar",
   "recentLabel": "Since 2021",
   "metrics": {
