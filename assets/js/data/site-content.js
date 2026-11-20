@@ -100,6 +100,12 @@
     news: [
       {
         category: "bad",
+        date: "Nov 2026",
+        title: "One paper rejected in the second round of ACM MobiCom 2027",
+        summary: "One paper from the group was rejected in the second round of ACM MobiCom 2027."
+      },
+      {
+        category: "bad",
         date: "Oct 2026",
         title: "Two papers rejected by WACV 2027",
         summary: "Two papers from the group were rejected by WACV 2027."
@@ -544,7 +550,7 @@
       {
         title: "Conference Reviewing and PC Service",
         items: [
-          "AAAI 2027, IJCNN 2027, ACM MM 2026, BMVC 2026, ECCV 2026, SIGIR 2026, ICML 2026, CVPR 2026, ICASSP 2026, AAAI 2026, UBICOMP 2026, WACV 2026, INFOCOM 2026",
+          "CVPR 2027, AAAI 2027, WACV 2027, IJCNN 2027, ACM MM 2026, BMVC 2026, ECCV 2026, SIGIR 2026, ICML 2026, CVPR 2026, ICASSP 2026, AAAI 2026, UBICOMP 2026, WACV 2026, INFOCOM 2026",
           "ACM MM 2025, ACM UBICOMP 2025, ICCV 2025, IJCNN 2025, CVPR 2025, ICASSP 2025, AAAI 2025",
           "HPCC 2024, UIST 2024, ECCV 2024, CVPR 2024, AAAI 2024, ICCV 2023, CVPR 2023, AAAI 2023, SocialCom 2023, ICCV 2021, AAAI 2020"
         ]
