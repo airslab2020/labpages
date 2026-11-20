@@ -268,6 +268,8 @@
       }
     ],
     sponsors: [
+      { name: "Anthropic", logo: "./assets/media/partners/anthropic.svg" },
+      { name: "OpenAI", logo: "./assets/media/partners/openai.svg" },
       { name: "CNPC / 中国石油", logo: "./assets/media/partners/cnpc.svg" },
       { name: "AMD", logo: "./assets/media/partners/amd.svg" },
       { name: "Xilinx", logo: "./assets/media/partners/xilinx.svg" },
@@ -300,6 +302,8 @@
       { name: "Game Science", logo: "./assets/media/partners/gamescience.svg" },
       { name: "Xiaohongshu", logo: "./assets/media/partners/xiaohongshu.svg" },
       { name: "X", logo: "./assets/media/partners/x.svg" },
+      { name: "bilibili", logo: "./assets/media/partners/bilibili.svg" },
+      { name: "ByteDance / 字节跳动", logo: "./assets/media/partners/bytedance.svg" },
       { name: "TikTok", logo: "./assets/media/partners/tiktok.svg" },
       { name: "Netflix", logo: "./assets/media/partners/netflix.svg" },
       { name: "YouTube", logo: "./assets/media/partners/youtube.svg" },
